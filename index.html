@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
@@ -7,6 +8,32 @@
 <meta name="description" content="PhD researcher in Information Science &amp; Technology at Syracuse University. Full-stack developer (Laravel, Vue, Python) studying platform work, AI and digital labor.">
 <meta name="color-scheme" content="dark light">
 <meta name="theme-color" content="#0B0F1A">
+<link rel="canonical" href="https://naimbh.com/">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Naim Bin Hasan — Information Scientist &amp; Researcher">
+<meta property="og:description" content="PhD researcher at Syracuse University studying AI and the future of work, digital labor markets, and public science infrastructure.">
+<meta property="og:url" content="https://naimbh.com/">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Naim Bin Hasan",
+  "givenName": "Naim",
+  "familyName": "Hasan",
+  "jobTitle": "Graduate Research Assistant, PhD researcher in Information Science and Technology",
+  "email": "mailto:nhasan01@syr.edu",
+  "url": "https://naimbh.com/",
+  "affiliation": { "@type": "CollegeOrUniversity", "name": "Syracuse University" },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "Florida Atlantic University" },
+    { "@type": "CollegeOrUniversity", "name": "University of Dhaka" }
+  ],
+  "knowsAbout": ["Human-centered computing","Human-centered AI","Computational social science","Digital labor","Platform studies","Future of work","Citizen science","Science and technology studies","Mixed methods research"],
+  "memberOf": [{ "@type": "Organization", "name": "Association for Information Science and Technology (ASIS&T)" }],
+  "sameAs": ["https://www.linkedin.com/in/naimbh","https://digitalcommons.fau.edu/etd_general/311"]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -419,13 +446,44 @@ h1 em{
 }
 .card:hover .stack span{ color:var(--txt); border-color:var(--line); }
 
+/* ============================================================ RESEARCH AGENDA */
+.agenda{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+@media(max-width:980px){ .agenda{grid-template-columns:1fr} }
+.pillar{
+  position:relative; overflow:hidden; border-radius:20px; padding:32px 30px 28px 34px;
+  border:1px solid var(--line-2); background:linear-gradient(165deg,var(--panel-a),var(--panel-b));
+  transition:border-color .5s var(--ease), transform .6s var(--ease), box-shadow .6s var(--ease);
+}
+.pillar::after{ content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--c); }
+.pillar:hover{ border-color:color-mix(in srgb,var(--c) 40%,transparent); transform:translateY(-3px); box-shadow:var(--shadow); }
+.pillar .num{ display:block; font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--c); margin-bottom:14px; }
+.pillar h3{ font-family:var(--display); font-weight:600; font-variation-settings:'wdth' 92; font-size:clamp(20px,2.2vw,26px); letter-spacing:-.03em; line-height:1.16; margin:0 0 12px; }
+.pillar p{ color:var(--txt-2); font-size:16px; margin:0 0 18px; }
+.pillar .why{ border-top:1px solid var(--line-2); padding-top:14px; }
+.pillar .why b{ display:block; font-family:var(--mono); font-size:9.5px; letter-spacing:.15em; text-transform:uppercase; color:var(--txt-4); font-weight:500; margin-bottom:7px; }
+.pillar .why span{ font-size:15px; color:var(--txt-3); line-height:1.55; }
+
 /* ============================================================ WRITING */
 .paper{
   display:grid; grid-template-columns:118px 1fr auto; gap:26px; align-items:baseline;
   padding:26px 0; border-top:1px solid var(--line-2); text-decoration:none;
   transition:background .5s var(--ease), padding-inline .5s var(--ease);
 }
-a.paper:hover{ background:linear-gradient(90deg,color-mix(in srgb,var(--c) 12%,transparent),transparent 70%); padding-inline:16px; }
+.paper:hover{ background:linear-gradient(90deg,color-mix(in srgb,var(--c) 12%,transparent),transparent 70%); padding-inline:16px; }
+.paper h3 a{
+  text-decoration:none; background-image:linear-gradient(var(--c),var(--c));
+  background-repeat:no-repeat; background-position:0 100%; background-size:0% 1px;
+  transition:background-size .55s var(--ease);
+}
+.paper:hover h3 a{ background-size:100% 1px; }
+.cite{
+  display:inline-flex; align-items:center; gap:7px; margin-top:14px; padding:4px 0;
+  font-family:var(--mono); font-size:10px; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--txt-4); background:none; border:0; cursor:pointer;
+  transition:color .35s var(--ease);
+}
+.cite:hover{ color:var(--c); }
+.cite.done{ color:var(--eng); }
 .paper .yr{ font-family:var(--mono); font-size:11.5px; letter-spacing:.08em; color:var(--txt-4); }
 .paper h3{
   font-family:var(--serif); font-weight:400; font-size:clamp(19px,2.2vw,26px);
@@ -434,7 +492,7 @@ a.paper:hover{ background:linear-gradient(90deg,color-mix(in srgb,var(--c) 12%,t
 .paper .venue{ font-family:var(--mono); font-size:11.5px; color:var(--txt-3); letter-spacing:.04em; }
 .paper .venue em{ font-family:var(--serif); font-style:italic; font-size:14.5px; }
 .paper .doi{ font-family:var(--mono); font-size:11px; color:var(--c); opacity:0; transition:opacity .4s var(--ease); }
-a.paper:hover .doi{ opacity:1; }
+.paper:hover .doi{ opacity:1; }
 .pill{
   font-family:var(--mono); font-size:9.5px; letter-spacing:.13em; text-transform:uppercase;
   padding:6px 11px; border-radius:99px; white-space:nowrap;
@@ -545,9 +603,10 @@ a.paper:hover .doi{ opacity:1; }
     <b>Naim Bin Hasan</b>
   </a>
   <div class="navlinks">
+    <a href="#research" data-cursor>Research</a>
+    <a href="#writing" data-cursor>Writing</a>
     <a href="#work" data-cursor>Work</a>
     <a href="#projects" data-cursor>Projects</a>
-    <a href="#writing" data-cursor>Writing</a>
     <a href="#toolkit" data-cursor>Toolkit</a>
     <a href="#education" data-cursor>Education</a>
   </div>
@@ -561,9 +620,10 @@ a.paper:hover .doi{ opacity:1; }
 
 <div class="rail" id="rail">
   <a href="#top" data-sec="top" data-cursor><span class="dot"></span><span class="lbl">Top</span></a>
+  <a href="#research" data-sec="research" data-cursor><span class="dot"></span><span class="lbl">Research</span></a>
+  <a href="#writing" data-sec="writing" data-cursor><span class="dot"></span><span class="lbl">Writing</span></a>
   <a href="#work" data-sec="work" data-cursor><span class="dot"></span><span class="lbl">Work</span></a>
   <a href="#projects" data-sec="projects" data-cursor><span class="dot"></span><span class="lbl">Projects</span></a>
-  <a href="#writing" data-sec="writing" data-cursor><span class="dot"></span><span class="lbl">Writing</span></a>
   <a href="#toolkit" data-sec="toolkit" data-cursor><span class="dot"></span><span class="lbl">Toolkit</span></a>
   <a href="#education" data-sec="education" data-cursor><span class="dot"></span><span class="lbl">Education</span></a>
   <a href="#contact" data-sec="contact" data-cursor><span class="dot"></span><span class="lbl">Contact</span></a>
@@ -574,7 +634,7 @@ a.paper:hover .doi{ opacity:1; }
   <div class="wrap">
     <div class="hero-top">
       <span class="live"><i></i>PhD researcher, Syracuse University</span>
-      <span>Dhaka → Florida → Syracuse</span>
+      <span>AI &amp; the future of work</span>
       <span>Gravity Spy · LIGO</span>
     </div>
 
@@ -583,15 +643,15 @@ a.paper:hover .doi{ opacity:1; }
       <span class="ln"><span data-line style="--d:.14s">of <em>coding.</em></span></span>
     </h1>
 
-    <p class="hero-name">Naim Bin Hasan — Information Science &amp; Technology PhD<br>Full-stack developer · Sociologist of digital labor</p>
+    <p class="hero-name">Naim Bin Hasan — PhD researcher in Information Science &amp; Technology, Syracuse University<br>AI and the future of work · Digital labor markets · Public science infrastructure</p>
 
     <p class="transcript" id="transcript">
-      I spent five years shipping <span class="mark m-eng">Laravel and Vue systems for an insurance company</span><span class="tag" style="--tc:var(--eng)">Engineering</span> and taking on <span class="mark m-labor">100+ freelance builds on Fiverr and Upwork</span><span class="tag" style="--tc:var(--labor)">Digital labor</span>. Then I turned around and studied the platforms that had been paying me — <span class="mark m-rsch">a thesis on Bangladeshi freelancers, 24 interviews coded line by line</span><span class="tag" style="--tc:var(--rsch)">Research</span> — while <span class="mark m-teach">teaching 170 undergraduates</span><span class="tag" style="--tc:var(--teach)">Teaching</span> how to read the numbers. Now I'm at Syracuse building tools for the volunteers who help LIGO see gravitational waves. Same verb, two crafts.
+      I spent five years shipping <span class="mark m-eng">Laravel and Vue systems for an insurance company</span><span class="tag" style="--tc:var(--eng)">Engineering</span> and taking on <span class="mark m-labor">100+ freelance builds on Fiverr and Upwork</span><span class="tag" style="--tc:var(--labor)">Digital labor</span>. Then I turned around and studied the platforms that had been paying me — <span class="mark m-rsch">a thesis on Bangladeshi freelancers, 24 interviews coded line by line</span><span class="tag" style="--tc:var(--rsch)">Research</span> — while <span class="mark m-teach">teaching 170 undergraduates</span><span class="tag" style="--tc:var(--teach)">Teaching</span> how to read the numbers. Now I'm at Syracuse, building the tools that keep volunteers classifying data for LIGO, and publishing on what AI is doing to work on both sides of the world. Same verb, two crafts — and the research needs the engineering.
     </p>
 
     <div class="hero-cta">
       <a class="btn solid" href="#work" data-cursor>Browse the work <span class="arw">→</span></a>
-      <a class="btn ghost" href="https://naimbh.com/it" target="_blank" rel="noopener" data-cursor>naimbh.com <span class="arw">↗</span></a>
+      <a class="btn ghost" href="Naim-Bin-Hasan-CV.pdf" download data-cursor>Download CV <span class="arw">↓</span></a>
       <button class="btn ghost" id="copyHero" data-cursor>Copy email</button>
     </div>
   </div>
@@ -600,18 +660,140 @@ a.paper:hover .doi{ opacity:1; }
 <!-- ==================== STATS ==================== -->
 <section style="padding-inline:0">
   <div class="stats">
-    <div class="stat reveal"><b data-count="100" data-suffix="+">0</b><span>Client projects<br>shipped</span></div>
-    <div class="stat reveal" style="--d:.06s"><b data-count="3" data-suffix=" yrs">0</b><span>Inside the platform economy<br>I now study</span></div>
-    <div class="stat reveal" style="--d:.12s"><b data-count="5" data-suffix="">0</b><span>Peer-reviewed papers<br>&amp; a thesis in print</span></div>
-    <div class="stat reveal" style="--d:.18s"><b data-count="170" data-suffix="+">0</b><span>Undergraduates<br>taught and advised</span></div>
+    <div class="stat reveal"><b data-count="4" data-suffix="">0</b><span>Peer-reviewed<br>journal articles</span></div>
+    <div class="stat reveal" style="--d:.06s"><b data-count="100" data-suffix="+">0</b><span>Production systems<br>shipped</span></div>
+    <div class="stat reveal" style="--d:.12s"><b data-prefix="$" data-count="33.2" data-dec="1" data-suffix="K">0</b><span>Competitive fellowships<br>&amp; grants awarded</span></div>
+    <div class="stat reveal" style="--d:.18s"><b data-count="170" data-suffix="+">0</b><span>US undergraduates<br>taught and advised</span></div>
     <div class="stat reveal" style="--d:.24s"><b data-count="3.92" data-dec="2">0</b><span>Graduate CGPA<br>at FAU</span></div>
   </div>
 </section>
 
+<!-- ==================== RESEARCH AGENDA ==================== -->
+<section class="band" id="research">
+  <div class="wrap">
+    <p class="eyebrow reveal">01 — Research agenda</p>
+    <h2 class="sec reveal" style="--d:.05s">What I'm working on</h2>
+    <p class="sec-note reveal" style="--d:.1s">Three strands, one question: what happens to people when software organizes their work — and what we can build once we know. I study these with mixed methods and then write the tools the findings call for.</p>
+
+    <div class="agenda">
+      <article class="pillar reveal" style="--c:var(--labor)">
+        <span class="num">Strand one</span>
+        <h3>AI and the future of work</h3>
+        <p>How automation and algorithmic management reshape jobs, authority and inequality — beginning with the workers who feel it first. Published in <em>Sociology Lens</em>, with a second study at revise-and-resubmit.</p>
+        <div class="why"><b>Why it matters</b><span>Employers are adopting AI faster than anyone is measuring what it does to the people working alongside it. Evidence has to arrive before the policy does.</span></div>
+      </article>
+
+      <article class="pillar reveal" style="--c:var(--rsch);--d:.07s">
+        <span class="num">Strand two</span>
+        <h3>Platform labor across borders</h3>
+        <p>My thesis follows Bangladeshi freelancers selling into American and European markets — 24 in-depth interviews paired with secondary quantitative data, published through FAU.</p>
+        <div class="why"><b>Why it matters</b><span>A growing share of the work behind US firms is done on platforms, by people no employment law reaches. Understanding that market is a governance problem, not a curiosity.</span></div>
+      </article>
+
+      <article class="pillar reveal" style="--c:var(--eng);--d:.14s">
+        <span class="num">Strand three</span>
+        <h3>Public science infrastructure</h3>
+        <p>At Syracuse I build the interactive tools, AI-supported learning resources and trace-data analysis behind Gravity Spy — the volunteer project that classifies detector noise for LIGO, the observatory whose gravitational-wave detection won the 2017 Nobel Prize in Physics.</p>
+        <div class="why"><b>Why it matters</b><span>Volunteers process data at a scale no lab could staff. Keeping them engaged and well-taught extends the country's research capacity at almost no marginal cost.</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ==================== WRITING ==================== -->
+<section class="band" id="writing">
+  <div class="wrap">
+    <p class="eyebrow reveal">02 — Publications &amp; talks</p>
+    <h2 class="sec reveal" style="--d:.05s">The record</h2>
+    <p class="sec-note reveal" style="--d:.1s">Four peer-reviewed journal articles, a master's thesis in the FAU permanent collection, one revise-and-resubmit, and two conference presentations — all since 2025. Every entry links to its DOI.</p>
+
+    <article class="paper reveal" style="--c:var(--labor)">
+      <span class="yr">2026</span>
+      <span>
+        <h3><a href="https://digitalcommons.fau.edu/etd_general/311" target="_blank" rel="noopener" data-cursor>Trading Precarities: How Bangladeshi Freelancers Leverage the Digital Economy Amid Local Insecurity and AI Disruption</a></h3>
+        <span class="venue">Master's thesis, Florida Atlantic University · <span class="doi">FAU Digital Commons ↗</span></span>
+        <button class="cite" data-cursor data-cite="Hasan, N. B. (2026). Trading precarities: How Bangladeshi freelancers leverage the digital economy amid local insecurity and AI disruption [Master's thesis, Florida Atlantic University]. FAU Digital Commons. https://digitalcommons.fau.edu/etd_general/311">Copy citation</button>
+      </span>
+      <span class="pill">Thesis</span>
+    </article>
+
+    <article class="paper reveal" style="--c:var(--teach);--d:.04s">
+      <span class="yr">2026</span>
+      <span>
+        <h3><a href="https://doi.org/10.51583/ijltemas.2025.1412000118" target="_blank" rel="noopener" data-cursor>Raising Kids in a Digital World: The Role of Socioeconomic Status and Race in Screen Time Management</a></h3>
+        <span class="venue"><em>International Journal of Latest Technology in Engineering, Management &amp; Applied Science</em> · <span class="doi">10.51583/ijltemas.2025.1412000118 ↗</span></span>
+        <button class="cite" data-cursor data-cite="Hasan, N. B. (2026). Raising kids in a digital world: The role of socioeconomic status and race in screen time management. International Journal of Latest Technology in Engineering, Management &amp; Applied Science. https://doi.org/10.51583/ijltemas.2025.1412000118">Copy citation</button>
+      </span>
+      <span class="pill">Peer-reviewed</span>
+    </article>
+
+    <article class="paper reveal" style="--c:var(--eng);--d:.08s">
+      <span class="yr">2025</span>
+      <span>
+        <h3><a href="https://doi.org/10.1111/johs.70027" target="_blank" rel="noopener" data-cursor>AI Efficiency vs Human Empathy: A Paradox of AI and Human Agents in Service Support Interactions</a></h3>
+        <span class="venue"><em>Sociology Lens</em> (Wiley) · <span class="doi">10.1111/johs.70027 ↗</span></span>
+        <button class="cite" data-cursor data-cite="Hasan, N. B. (2025). AI efficiency vs human empathy: A paradox of AI and human agents in service support interactions. Sociology Lens. https://doi.org/10.1111/johs.70027">Copy citation</button>
+      </span>
+      <span class="pill">Peer-reviewed</span>
+    </article>
+
+    <article class="paper reveal" style="--c:var(--rsch);--d:.12s">
+      <span class="yr">2025</span>
+      <span>
+        <h3><a href="https://doi.org/10.47772/ijriss.2025.90400230" target="_blank" rel="noopener" data-cursor>The Growth of Online Freelancing in Bangladesh: Economic Integration and Labor Vulnerability</a></h3>
+        <span class="venue"><em>International Journal of Research and Innovation in Social Science</em> · <span class="doi">10.47772/ijriss.2025.90400230 ↗</span></span>
+        <button class="cite" data-cursor data-cite="Hasan, N. B. (2025). The growth of online freelancing in Bangladesh: Economic integration and labor vulnerability. International Journal of Research and Innovation in Social Science. https://doi.org/10.47772/ijriss.2025.90400230">Copy citation</button>
+      </span>
+      <span class="pill">Peer-reviewed</span>
+    </article>
+
+    <article class="paper reveal" style="--c:var(--rsch);--d:.16s">
+      <span class="yr">2025</span>
+      <span>
+        <h3><a href="https://doi.org/10.47191/ijsshr/v8-i10-52" target="_blank" rel="noopener" data-cursor>Gen-Z Uprisings in the Global South: Challenging Traditional Political Mobilization and Reshaping Civic Culture</a></h3>
+        <span class="venue">with Md Rubel Mia · <em>International Journal of Social Science and Human Research</em> · <span class="doi">10.47191/ijsshr/v8-i10-52 ↗</span></span>
+        <button class="cite" data-cursor data-cite="Mia, M. R., &amp; Hasan, N. B. (2025). Gen-Z uprisings in the Global South: Challenging traditional political mobilization and reshaping civic culture. International Journal of Social Science and Human Research. https://doi.org/10.47191/ijsshr/v8-i10-52">Copy citation</button>
+      </span>
+      <span class="pill">Peer-reviewed</span>
+    </article>
+
+    <article class="paper reveal" style="--c:var(--eng);--d:.2s">
+      <span class="yr">In review</span>
+      <span>
+        <h3>Survival or Transition? How AI Reconfigures Work, Control, and Inequality in the Global South</h3>
+        <span class="venue">Qualitative interviews · Hasan, Naim B.</span>
+      </span>
+      <span class="pill">Revise &amp; resubmit</span>
+    </article>
+
+    <article class="paper reveal" style="--c:var(--teach);--d:.24s">
+      <span class="yr">2025</span>
+      <span>
+        <h3>Education and Escape: Student Migration to the US from Bangladesh After the July 2024 Revolution</h3>
+        <span class="venue">Mid-South Sociological Association, 51st Annual Conference · South Carolina</span>
+      </span>
+      <span class="pill">Conference talk</span>
+    </article>
+
+    <article class="paper reveal" style="--c:var(--teach);--d:.28s">
+      <span class="yr">2025</span>
+      <span>
+        <h3>The Growth of Online Freelancing in Bangladesh: Economic Integration and Labor Vulnerability</h3>
+        <span class="venue">14th Annual SAGGSA Conference, Florida International University · Miami</span>
+      </span>
+      <span class="pill">Conference talk</span>
+    </article>
+  </div>
+</section>
+
+<div class="rule"></div>
+
 <!-- ==================== WORK ==================== -->
 <section class="band" id="work">
   <div class="wrap">
-    <p class="eyebrow reveal">01 — Experience</p>
+    <p class="eyebrow reveal">03 — Experience</p>
     <h2 class="sec reveal" style="--d:.05s">The codebook</h2>
     <p class="sec-note reveal" style="--d:.1s">Every role below is tagged the way I'd tag a transcript. Pick a code to bring its passages forward — nothing is deleted, just brought into focus.</p>
 
@@ -711,9 +893,9 @@ a.paper:hover .doi{ opacity:1; }
 <!-- ==================== PROJECTS ==================== -->
 <section class="band" id="projects">
   <div class="wrap">
-    <p class="eyebrow reveal">02 — Selected builds</p>
-    <h2 class="sec reveal" style="--d:.05s">Things I shipped</h2>
-    <p class="sec-note reveal" style="--d:.1s">Production systems, mostly Laravel + Vue on SQL. Each one solved a problem someone was paying to have solved.</p>
+    <p class="eyebrow reveal">04 — Applied systems</p>
+    <h2 class="sec reveal" style="--d:.05s">Systems I built</h2>
+    <p class="sec-note reveal" style="--d:.1s">Production systems, mostly Laravel and Vue on SQL. The same engineering I now point at research infrastructure — scrapers, dashboards and interfaces built to be used by people who are not engineers.</p>
 
     <div class="pgrid">
       <article class="card reveal tilt" style="--c:var(--eng)">
@@ -749,95 +931,12 @@ a.paper:hover .doi{ opacity:1; }
 
 <div class="rule"></div>
 
-<!-- ==================== WRITING ==================== -->
-<section class="band" id="writing">
-  <div class="wrap">
-    <p class="eyebrow reveal">03 — Writing &amp; talks</p>
-    <h2 class="sec reveal" style="--d:.05s">What I'm arguing</h2>
-    <p class="sec-note reveal" style="--d:.1s">Five peer-reviewed papers, a thesis, one revise-and-resubmit and two conference presentations. All of it circles one question: what happens to workers when the platform is the boss.</p>
-
-    <a class="paper reveal" href="https://digitalcommons.fau.edu/etd_general/311" target="_blank" rel="noopener" style="--c:var(--labor)" data-cursor>
-      <span class="yr">2026</span>
-      <span>
-        <h3>Trading Precarities: How Bangladeshi Freelancers Leverage the Digital Economy Amid Local Insecurity and AI Disruption</h3>
-        <span class="venue">Master's thesis, Florida Atlantic University · <span class="doi">FAU Digital Commons ↗</span></span>
-      </span>
-      <span class="pill">Thesis</span>
-    </a>
-
-    <a class="paper reveal" href="https://doi.org/10.51583/ijltemas.2025.1412000118" target="_blank" rel="noopener" style="--c:var(--teach);--d:.04s" data-cursor>
-      <span class="yr">2026</span>
-      <span>
-        <h3>Raising Kids in a Digital World: The Role of Socioeconomic Status and Race in Screen Time Management</h3>
-        <span class="venue"><em>International Journal of Latest Technology in Engineering, Management &amp; Applied Science</em> · <span class="doi">10.51583/ijltemas.2025.1412000118 ↗</span></span>
-      </span>
-      <span class="pill">Published</span>
-    </a>
-
-    <a class="paper reveal" href="https://doi.org/10.1111/johs.70027" target="_blank" rel="noopener" style="--c:var(--eng);--d:.08s" data-cursor>
-      <span class="yr">2025</span>
-      <span>
-        <h3>AI Efficiency vs Human Empathy: A Paradox of AI and Human Agents in Service Support Interactions</h3>
-        <span class="venue"><em>Sociology Lens</em> · <span class="doi">10.1111/johs.70027 ↗</span></span>
-      </span>
-      <span class="pill">Published</span>
-    </a>
-
-    <a class="paper reveal" href="https://doi.org/10.47772/ijriss.2025.90400230" target="_blank" rel="noopener" style="--c:var(--rsch);--d:.12s" data-cursor>
-      <span class="yr">2025</span>
-      <span>
-        <h3>The Growth of Online Freelancing in Bangladesh: Economic Integration and Labor Vulnerability</h3>
-        <span class="venue"><em>International Journal of Research and Innovation in Social Science</em> · <span class="doi">10.47772/ijriss.2025.90400230 ↗</span></span>
-      </span>
-      <span class="pill">Published</span>
-    </a>
-
-    <a class="paper reveal" href="https://doi.org/10.47191/ijsshr/v8-i10-52" target="_blank" rel="noopener" style="--c:var(--rsch);--d:.16s" data-cursor>
-      <span class="yr">2025</span>
-      <span>
-        <h3>Gen-Z Uprisings in the Global South: Challenging Traditional Political Mobilization and Reshaping Civic Culture</h3>
-        <span class="venue">with Md Rubel Mia · <em>International Journal of Social Science and Human Research</em> · <span class="doi">10.47191/ijsshr/v8-i10-52 ↗</span></span>
-      </span>
-      <span class="pill">Published</span>
-    </a>
-
-    <div class="paper reveal" style="--c:var(--eng);--d:.2s">
-      <span class="yr">In press</span>
-      <span>
-        <h3>Survival or Transition? How AI Reconfigures Work, Control, and Inequality in the Global South</h3>
-        <span class="venue">Qualitative interviews · Hasan, Naim B.</span>
-      </span>
-      <span class="pill">Revise &amp; resubmit</span>
-    </div>
-
-    <div class="paper reveal" style="--c:var(--teach);--d:.24s">
-      <span class="yr">2025</span>
-      <span>
-        <h3>Education and Escape: Student Migration to the US from Bangladesh After the July 2024 Revolution</h3>
-        <span class="venue">Mid-South Sociological Association, 51st Annual Conference · South Carolina</span>
-      </span>
-      <span class="pill">Talk</span>
-    </div>
-
-    <div class="paper reveal" style="--c:var(--teach);--d:.28s">
-      <span class="yr">2025</span>
-      <span>
-        <h3>The Growth of Online Freelancing in Bangladesh: Economic Integration and Labor Vulnerability</h3>
-        <span class="venue">14th Annual SAGGSA Conference, Florida International University · Miami</span>
-      </span>
-      <span class="pill">Talk</span>
-    </div>
-  </div>
-</section>
-
-<div class="rule"></div>
-
 <!-- ==================== TOOLKIT ==================== -->
 <section class="band" id="toolkit">
   <div class="wrap">
-    <p class="eyebrow reveal">04 — Methods &amp; stack</p>
+    <p class="eyebrow reveal">05 — Methods &amp; stack</p>
     <h2 class="sec reveal" style="--d:.05s">Two toolkits, one desk</h2>
-    <p class="sec-note reveal" style="--d:.1s">Research interests sit where these overlap: human-centered computing, human-centered AI, computational social science, gig economy and digital labor, platform studies, the future of work, STS, and mixed methods.</p>
+    <p class="sec-note reveal" style="--d:.1s">I do my own data collection and my own instrumentation. Research interests sit where these two columns overlap: human-centered computing, human-centered AI, computational social science, gig economy and digital labor, platform studies, the future of work, STS, and mixed methods.</p>
 
     <div class="two">
       <div class="panel reveal" style="--c:var(--eng)">
@@ -870,7 +969,7 @@ a.paper:hover .doi{ opacity:1; }
 <!-- ==================== EDUCATION ==================== -->
 <section class="band" id="education">
   <div class="wrap">
-    <p class="eyebrow reveal">05 — Education, funding &amp; training</p>
+    <p class="eyebrow reveal">06 — Education, funding &amp; recognition</p>
     <h2 class="sec reveal" style="--d:.05s">The paper trail</h2>
 
     <div class="edu">
@@ -905,17 +1004,17 @@ a.paper:hover .doi{ opacity:1; }
       </div>
 
       <div class="reveal" style="--d:.1s">
-        <p class="eyebrow" style="margin-bottom:16px">Awards &amp; scholarships</p>
+        <p class="eyebrow" style="margin-bottom:16px">Competitive awards &amp; fellowships</p>
         <ul class="awards">
-          <li><span class="amt">$28,000</span><p>Graduate Excellence Fellowship, Purdue University<small>PhD admission offer · declined</small></p></li>
-          <li><span class="amt">$3,000</span><p>American Institute of Bangladesh Studies (AIBS) Fellowship<small>2025 · Master's thesis project</small></p></li>
+          <li><span class="amt">$28,000</span><p>Graduate Excellence Fellowship, Purdue University<small>2026 · PhD admission offer · declined for Syracuse</small></p></li>
+          <li><span class="amt">$3,000</span><p>American Institute of Bangladesh Studies (AIBS) Fellowship<small>2025 · National competition · thesis fieldwork</small></p></li>
           <li><span class="amt">$1,200</span><p>FAU Graduate Thesis &amp; Dissertation Scholarship<small>2025 · Master's thesis project</small></p></li>
           <li><span class="amt">$1,000</span><p>Departmental Travel Grant, FAU<small>2025 · MSSA conference presentation</small></p></li>
           <li><span class="amt">—</span><p>Govt. Honors Scholarship for conduct, grades and attendance<small>2023 · Undergraduate</small></p></li>
           <li><span class="amt">—</span><p>Asian Youth Leader, Scholastic Foundation Nepal<small>2022</small></p></li>
         </ul>
 
-        <p class="eyebrow" style="margin:40px 0 16px">Memberships</p>
+        <p class="eyebrow" style="margin:40px 0 16px">Professional memberships</p>
         <div class="tags" style="--c:var(--labor)">
           <span>ASIS&amp;T</span><span>Mid-South Sociological Association</span><span>Dhaka University IT Society</span>
         </div>
@@ -929,21 +1028,22 @@ a.paper:hover .doi{ opacity:1; }
 <!-- ==================== CONTACT ==================== -->
 <section class="band contact" id="contact">
   <div class="wrap">
-    <p class="eyebrow reveal">06 — Contact</p>
+    <p class="eyebrow reveal">07 — Contact</p>
     <h2 class="sec reveal" style="--d:.05s">Let's talk about work</h2>
-    <p class="sec-note reveal" style="--d:.1s">Open to research collaborations, co-authorship and engineering consulting alongside the PhD. Fastest reply is by email.</p>
+    <p class="sec-note reveal" style="--d:.1s">Based in Syracuse, New York. Open to research collaboration, co-authorship, peer review, invited talks, and consulting on labor and AI questions alongside the PhD. Fastest reply is by email.</p>
 
     <div class="reveal" style="--d:.14s">
       <a class="big-link" href="mailto:nhasan01@syr.edu" style="--c:var(--eng)" data-cursor>Email<span class="go">nhasan01@syr.edu</span></a>
       <a class="big-link" href="https://www.linkedin.com/in/naimbh" target="_blank" rel="noopener" style="--c:var(--rsch)" data-cursor>LinkedIn<span class="go">in/naimbh ↗</span></a>
       <a class="big-link" href="https://naimbh.com/it" target="_blank" rel="noopener" style="--c:var(--labor)" data-cursor>Website<span class="go">naimbh.com ↗</span></a>
+      <a class="big-link" href="Naim-Bin-Hasan-CV.pdf" download style="--c:var(--teach)" data-cursor>CV<span class="go">PDF ↓</span></a>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="foot">
-    <span>Naim Bin Hasan · Syracuse, NY 13210</span>
+    <span>Naim Bin Hasan · Syracuse, NY · Last updated August 2026</span>
     <span class="legend">
       <b style="--c:var(--eng)"><i></i>Engineering</b>
       <b style="--c:var(--rsch)"><i></i>Research</b>
@@ -965,12 +1065,11 @@ a.paper:hover .doi{ opacity:1; }
   var root = document.documentElement;
 
   /* ---------- 0. DAY / NIGHT ----------
-     Starts from the visitor's system setting and follows it until they
-     choose for themselves. Self-hosting this file? Uncomment the two
-     localStorage lines to remember the choice between visits.       */
+     Starts from the visitor's system setting, follows it until they
+     choose for themselves, then remembers that choice between visits. */
   var sysDark = window.matchMedia('(prefers-color-scheme: dark)');
   var chosen  = null;
-  // chosen = localStorage.getItem('naim-theme');
+  try { chosen = localStorage.getItem('naim-theme'); } catch(e){ chosen = null; }
 
   function apply(theme){
     root.setAttribute('data-theme', theme);
@@ -989,7 +1088,7 @@ a.paper:hover .doi{ opacity:1; }
   $('#theme').addEventListener('click', function(){
     var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     chosen = next;
-    // localStorage.setItem('naim-theme', next);
+    try { localStorage.setItem('naim-theme', next); } catch(e){}
     if(document.startViewTransition && !reduce){
       document.startViewTransition(function(){ apply(next); });
     } else {
@@ -1038,12 +1137,13 @@ a.paper:hover .doi{ opacity:1; }
     var end = parseFloat(el.dataset.count);
     var dec = parseInt(el.dataset.dec || '0', 10);
     var suf = el.dataset.suffix || '';
-    if(reduce){ el.textContent = end.toFixed(dec) + suf; return; }
+    var pre = el.dataset.prefix || '';
+    if(reduce){ el.textContent = pre + end.toFixed(dec) + suf; return; }
     var dur = 1500, t0 = performance.now();
     (function step(now){
       var k = Math.min((now - t0) / dur, 1);
       var e = 1 - Math.pow(1 - k, 4);
-      el.textContent = (end * e).toFixed(dec) + suf;
+      el.textContent = pre + (end * e).toFixed(dec) + suf;
       if(k < 1) requestAnimationFrame(step);
     })(t0);
   }
@@ -1089,6 +1189,20 @@ a.paper:hover .doi{ opacity:1; }
       }
     });
   }
+  $$('.cite').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var text = btn.dataset.cite;
+      var done = function(){
+        btn.textContent = 'Citation copied ✓';
+        btn.classList.add('done');
+        setTimeout(function(){ btn.textContent = 'Copy citation'; btn.classList.remove('done'); }, 2200);
+      };
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done).catch(function(){});
+      }
+    });
+  });
+
   wireCopy($('#copyTop'), 'Copied ✓');
   wireCopy($('#copyHero'), 'Copied ✓');
 
