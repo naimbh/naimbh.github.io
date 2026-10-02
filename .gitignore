@@ -1,0 +1,6 @@
+.DS_Store
+# original, uncompressed sources — the site uses /images and /freelancer/images
+photos/
+successes/
+.claude/
+photos-original-backup/
