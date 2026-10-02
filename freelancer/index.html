@@ -217,6 +217,7 @@ a{ color:inherit; }
 @media(max-width:520px){ .back{ display:none; } .logo em{ display:none; } }
 @media(max-width:640px){
   body{ font-size:17px; }
+  .avail{ border-radius:14px; font-size:12.5px; }
   .nav{ gap:8px; padding-block:10px; }
   .band{ padding-block:64px; }
   h2{ font-size:clamp(32px,9vw,42px); }
@@ -266,8 +267,8 @@ h2{ font-weight:800; font-variation-settings:'wdth' 86; font-size:clamp(34px,5vw
 .hero{ padding-top:clamp(104px,12vw,150px); padding-bottom:clamp(48px,6vw,80px); }
 .hero-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:clamp(32px,5vw,64px); align-items:center; }
 @media(max-width:960px){ .hero-grid{ grid-template-columns:1fr; } }
-.avail{ display:inline-flex; flex-wrap:wrap; max-width:100%; align-items:center; gap:10px; font-family:var(--mono); font-size:13.5px; color:var(--ink-2); padding:8px 14px; border:1px solid var(--line); border-radius:99px; margin:0 0 26px; }
-.avail i{ width:8px; height:8px; border-radius:50%; background:var(--lime); box-shadow:0 0 0 0 rgba(200,245,96,.6); animation:ping 2s infinite; }
+.avail{ display:inline-flex; flex-wrap:nowrap; max-width:100%; align-items:flex-start; line-height:1.5; gap:10px; font-family:var(--mono); font-size:13.5px; color:var(--ink-2); padding:8px 14px; border:1px solid var(--line); border-radius:99px; margin:0 0 26px; }
+.avail i{ flex:none; margin-top:.45em; width:8px; height:8px; border-radius:50%; background:var(--lime); box-shadow:0 0 0 0 rgba(200,245,96,.6); animation:ping 2s infinite; }
 @keyframes ping{ 70%{ box-shadow:0 0 0 9px transparent; } 100%{ box-shadow:0 0 0 0 transparent; } }
 h1{ font-weight:800; font-variation-settings:'wdth' 80; font-size:clamp(42px,6vw,84px); line-height:.94; letter-spacing:-.05em; margin:0; }
 h1 .ln{ display:block; overflow:hidden; padding-bottom:.05em; }
@@ -330,7 +331,7 @@ h1 .stk b{ color:var(--violet); font-weight:500; } h1 .stk u{ text-decoration:no
 
 /* WORK */
 .filters{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 28px; }
-.f-chip{ font-family:var(--mono); font-size:13px; letter-spacing:.05em; text-transform:uppercase; padding:9px 15px; border-radius:99px; border:1px solid var(--line); background:transparent; color:var(--ink-2); cursor:pointer; transition:all .2s; }
+.f-chip{ min-height:40px; font-family:var(--mono); font-size:13px; letter-spacing:.05em; text-transform:uppercase; padding:9px 15px; border-radius:99px; border:1px solid var(--line); background:transparent; color:var(--ink-2); cursor:pointer; transition:all .2s; }
 .f-chip:hover{ color:var(--ink); border-color:var(--ink-3); }
 .f-chip.on{ background:var(--lime); color:var(--bg); border-color:var(--lime); }
 .work{ display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
@@ -398,7 +399,7 @@ h1 .stk b{ color:var(--violet); font-weight:500; } h1 .stk u{ text-decoration:no
 .cert{ display:block; padding:20px 22px; border-radius:16px; background:var(--card); border:1px solid var(--line-2); margin-bottom:12px; text-decoration:none; transition:transform .25s var(--snap), border-color .2s; }
 a.cert:hover{ transform:translateY(-3px); border-color:var(--lime); }
 .cert b{ display:block; font-size:18px; letter-spacing:-.015em; }
-.cert span{ font-family:var(--mono); font-size:13px; line-height:1.5; display:block; margin-top:4px; color:var(--ink-3); }
+.cert > span{ font-family:var(--mono); font-size:13px; line-height:1.5; display:block; margin-top:4px; color:var(--ink-3); }
 
 /* FAQ */
 .faq{ max-width:880px; }
@@ -702,10 +703,8 @@ footer{ padding:28px var(--pad) 36px; border-top:1px solid var(--line-2); }
   var $ = function(s,c){ return (c||document).querySelector(s); };
   var $$ = function(s,c){ return Array.prototype.slice.call((c||document).querySelectorAll(s)); };
 
-  requestAnimationFrame(function(){
-    $$('[data-line]').forEach(function(el){ el.classList.add('up'); });
-    $('#code').classList.add('run');
-  });
+  function heroIn(){ $$('[data-line]').forEach(function(el){ el.classList.add('up'); }); $('#code').classList.add('run'); }
+  requestAnimationFrame(heroIn); setTimeout(heroIn, 250);
 
   var menuBtn = $('#menuBtn');
   function setMenu(open){ $('#nav').classList.toggle('open', open); menuBtn.setAttribute('aria-expanded', String(open)); menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu'); }
