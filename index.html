@@ -582,22 +582,6 @@ h1 .ln:last-child > span{
 @media(max-width:700px){ .hero-photo{ width:min(56%,240px); order:-1; justify-self:start; margin-left:14px; } .hero-photo::before{ inset:-10px 10px 10px -10px; } .hero-photo figcaption{ font-size:12px; letter-spacing:.04em; padding:7px 10px; left:8px; right:auto; bottom:8px; white-space:nowrap; } }
 .hero-grid > *{ min-width:0; }
 
-/* ============================================================ STATS */
-.stats{
-  display:grid; grid-template-columns:repeat(5,1fr); gap:1px;
-  background:var(--line-2); border-block:1px solid var(--line-2);
-}
-.stat{ background:var(--bg-soft); padding:30px 22px 28px; }
-.stat b{
-  display:block; font-family:var(--display); font-weight:700; font-variation-settings:'wdth' 84;
-  font-size:clamp(30px,4.1vw,50px); line-height:1; letter-spacing:-.045em; margin-bottom:9px;
-}
-.stat span{ font-family:var(--mono); font-size:12.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--txt-3); line-height:1.55; display:block; }
-.stat:nth-child(1) b{color:var(--eng)} .stat:nth-child(2) b{color:var(--labor)}
-.stat:nth-child(3) b{color:var(--rsch)} .stat:nth-child(4) b{color:var(--teach)}
-.stat:nth-child(5) b{color:var(--txt)}
-@media(max-width:900px){ .stats{grid-template-columns:repeat(2,1fr)} .stat:last-child{grid-column:span 2} }
-
 /* ============================================================ CODEBOOK + WORK */
 .codebook{
   position:sticky; top:62px; z-index:60; margin:0 0 36px;
@@ -947,9 +931,6 @@ html:has(.lb[open]){ overflow:hidden; }
   .eyebrow{ font-size:11.5px; margin-bottom:12px; }
   h2.sec{ font-size:clamp(27px,7.6vw,34px); margin-bottom:10px; }
   .sec-note{ font-size:15.5px; margin-bottom:22px; }
-  .stat{ padding:16px 14px 14px; }
-  .stat b{ font-size:28px; margin-bottom:6px; }
-  .stat span{ font-size:11.5px; letter-spacing:.05em; }
   .agenda, .pgrid, .two{ gap:12px; }
   .pillar{ padding:18px 16px 16px 22px; border-radius:16px; }
   .pillar .num{ margin-bottom:8px; font-size:11.5px; }
@@ -1098,16 +1079,6 @@ html:has(.lb[open]){ overflow:hidden; }
   </div>
 </section>
 
-<!-- ==================== STATS ==================== -->
-<section style="padding-inline:0" aria-label="At a glance">
-  <div class="stats">
-    <div class="stat reveal"><b data-count="4" data-suffix="">4</b><span>Peer-reviewed<br>journal articles</span></div>
-    <div class="stat reveal" style="--d:.06s"><b data-count="100" data-suffix="+">100+</b><span>Production systems<br>shipped</span></div>
-    <div class="stat reveal" style="--d:.12s"><b data-count="4" data-suffix="+">4+</b><span>Years of software<br>development experience</span></div>
-    <div class="stat reveal" style="--d:.18s"><b data-count="170" data-suffix="+">170+</b><span>US undergraduates<br>taught and advised</span></div>
-    <div class="stat reveal" style="--d:.24s"><b data-count="3.92" data-dec="2">3.92</b><span>Graduate CGPA<br>at FAU</span></div>
-  </div>
-</section>
 
 <!-- ==================== RESEARCH AGENDA ==================== -->
 <section class="band" id="research">
@@ -1736,23 +1707,6 @@ html:has(.lb[open]){ overflow:hidden; }
     items.forEach(function(it){ if(it.isIntersecting){ it.target.classList.add('in'); io.unobserve(it.target); } });
   }, {rootMargin:'0px 0px -4% 0px', threshold:0});
   $$('.reveal').forEach(function(el){ io.observe(el); });
-
-  /* ---------- 4. count-up numbers ---------- */
-  function countUp(el){
-    var end = parseFloat(el.dataset.count), dec = parseInt(el.dataset.dec || '0', 10);
-    var suf = el.dataset.suffix || '', pre = el.dataset.prefix || '';
-    if(reduce) return;
-    var dur = 900, t0 = performance.now();
-    (function step(now){
-      var k = Math.min((now - t0) / dur, 1), e = 1 - Math.pow(1 - k, 4);
-      el.textContent = pre + (end * e).toFixed(dec) + suf;
-      if(k < 1) requestAnimationFrame(step);
-    })(t0);
-  }
-  var cio = new IntersectionObserver(function(items){
-    items.forEach(function(it){ if(it.isIntersecting){ countUp(it.target); cio.unobserve(it.target); } });
-  }, {threshold:0.6});
-  $$('[data-count]').forEach(function(el){ cio.observe(el); });
 
   /* ---------- 5. the codebook filter — highlights, never deletes ---------- */
   var chips = $$('.codebook .chip'), entries = $$('#entries .entry');
