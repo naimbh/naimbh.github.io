@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://naimbh.com/freelancer/</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://naimbh.com/freelancer/images/naim-bin-hasan-full-stack-web-developer.jpg</image:loc>
+      <image:title>Naim Bin Hasan — Full-Stack Web Developer</image:title>
+      <image:caption>Naim Bin Hasan, freelance full-stack web developer (Laravel, Vue.js, PHP)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://naimbh.com/freelancer/images/naim-bin-hasan-full-stack-web-developer-800.webp</image:loc>
+      <image:title>Naim Bin Hasan, freelance web developer</image:title>
+      <image:caption>Naim Bin Hasan, freelance full-stack web developer, in a tea garden in Bangladesh</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://naimbh.com/freelancer/images/naim-bin-hasan-freelance-web-developer-og.jpg</image:loc>
+      <image:title>Naim Bin Hasan — Freelance Web Developer</image:title>
+      <image:caption>Naim Bin Hasan, Top Rated full-stack web developer on Upwork</image:caption>
+    </image:image>
+  </url>
+</urlset>

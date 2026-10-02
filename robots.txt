@@ -1,4 +1,13 @@
+# robots.txt for naimbh.com — Naim Bin Hasan
 User-agent: *
 Allow: /
+Disallow: /404.html
+
+# Let image search index every photo
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /freelancer/images/
 
 Sitemap: https://naimbh.com/sitemap.xml
+Sitemap: https://naimbh.com/sitemap-main.xml
+Sitemap: https://naimbh.com/freelancer/sitemap.xml
