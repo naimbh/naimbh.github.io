@@ -3,6 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NQ25CLBB39"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NQ25CLBB39');
+</script>
 <script>document.documentElement.classList.add('js')</script>
 <title>Naim Bin Hasan — Freelance Full-Stack Web Developer | Laravel, Vue.js &amp; PHP</title>
 <meta name="description" content="Hire Naim Bin Hasan, a Top Rated full-stack web developer on Upwork with 100% Job Success. Custom Laravel, Vue.js and PHP web apps, dashboards, API integrations and fixes — 100+ projects delivered.">
@@ -752,6 +760,14 @@ footer{ padding:28px var(--pad) 36px; border-top:1px solid var(--line-2); }
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var $ = function(s,c){ return (c||document).querySelector(s); };
   var $$ = function(s,c){ return Array.prototype.slice.call((c||document).querySelectorAll(s)); };
+
+  function track(name, params){ try{ if(window.gtag) gtag('event', name, params || {}); }catch(e){} }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a'); if(!a) return;
+    var href = a.getAttribute('href') || '';
+    var where = /upwork\.com/.test(href) ? 'upwork' : /fiverr\.com/.test(href) ? 'fiverr' : href.indexOf('mailto:') === 0 ? 'email' : /linkedin\.com/.test(href) ? 'linkedin' : /github\.com/.test(href) ? 'github' : '';
+    if(where) track('contact_click', { channel: where, link_text: a.textContent.trim().slice(0,60) });
+  });
 
   function heroIn(){ $$('[data-line]').forEach(function(el){ el.classList.add('up'); }); $('#code').classList.add('run'); }
   requestAnimationFrame(heroIn); setTimeout(heroIn, 250);

@@ -3,6 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NQ25CLBB39"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NQ25CLBB39');
+</script>
 <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('naim-theme');document.documentElement.setAttribute('data-theme',t||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'))}catch(e){}</script>
 <title>Naim Bin Hasan | PhD Researcher at Syracuse University</title>
 <meta name="description" content="Naim Bin Hasan is a PhD researcher in Information Science &amp; Technology at Syracuse University studying AI and the future of work, human-computer interaction, digital labor and online freelancers.">
@@ -1659,6 +1667,15 @@ html:has(.lb[open]){ overflow:hidden; }
   var $$ = function(s,c){ return Array.prototype.slice.call((c||document).querySelectorAll(s)); };
   var root = document.documentElement;
 
+  /* ---------- analytics events ---------- */
+  function track(name, params){ try{ if(window.gtag) gtag('event', name, params || {}); }catch(e){} }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a'); if(!a) return;
+    var href = a.getAttribute('href') || '';
+    if(href.indexOf('/freelancer') === 0) track('hire_click', { link_text: a.textContent.trim().slice(0,60) });
+    else if(href.indexOf('mailto:') === 0) track('email_click', { link_url: href });
+  });
+
   /* ---------- 0. DAY / NIGHT ---------- */
   var sysDark = window.matchMedia('(prefers-color-scheme: dark)');
   var chosen  = null;
@@ -1744,6 +1761,7 @@ html:has(.lb[open]){ overflow:hidden; }
   $$('.cite').forEach(function(btn){
     btn.addEventListener('click', function(){
       if(!(navigator.clipboard && navigator.clipboard.writeText)) return;
+      track('copy_citation', { citation: btn.dataset.cite.slice(0,90) });
       navigator.clipboard.writeText(btn.dataset.cite).then(function(){
         btn.textContent = 'Citation copied ✓'; btn.classList.add('done');
         setTimeout(function(){ btn.textContent = 'Copy citation'; btn.classList.remove('done'); }, 2000);
@@ -1798,6 +1816,7 @@ html:has(.lb[open]){ overflow:hidden; }
     lbImg.src = a.getAttribute('href'); lbImg.alt = img.alt;
     lbImg.style.animation = 'none'; void lbImg.offsetWidth; lbImg.style.animation = '';
     $('#lbT').textContent = it.dataset.title;
+    track('view_photo', { photo_title: it.dataset.title, photo_category: it.dataset.cat });
     $('#lbC').textContent = img.alt;
     $('#lbN').textContent = (cur + 1) + ' / ' + list.length;
     var nxt = list[(cur + 1) % list.length]; if(nxt){ (new Image()).src = $('a', nxt).getAttribute('href'); }
