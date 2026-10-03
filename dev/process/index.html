@@ -295,7 +295,8 @@ h1 .ln{ display:block; overflow:hidden; padding-bottom:.05em; }
 .js h1 .ln > span{ display:block; transform:translateY(105%); }
 .js h1 .ln > span.up{ transform:none; transition:transform .7s var(--snap) var(--d,0s); }
 h1 .hl{ color:var(--lime); }
-h1 .nm{ font-size:.5em; letter-spacing:-.03em; color:var(--ink-2); margin-bottom:.12em; }
+h1 .nm{ font-family:var(--mono); font-weight:500; font-variation-settings:normal; font-size:.3em; letter-spacing:0; color:var(--lime); margin-bottom:.55em; }
+h1 .nm span::before{ content:'// '; color:var(--ink-4); }
 h1 .stk{ font-family:var(--mono); font-weight:500; font-size:.34em; letter-spacing:-.02em; color:var(--ink-2); display:block; margin-top:.35em; }
 h1 .stk b{ color:var(--violet); font-weight:500; } h1 .stk u{ text-decoration:none; color:var(--pink); }
 .intro{ color:var(--ink-2); font-size:clamp(18px,1.7vw,20px); max-width:52ch; margin:26px 0 0; }
