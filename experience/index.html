@@ -325,7 +325,7 @@ h2.sec, h1.sec{
 .hero{ padding-top:clamp(108px,13vw,160px); padding-bottom:clamp(56px,7vw,96px); }
 /* section pages (/research/ ...) */
 main.sub > .band:first-child{ padding-top:clamp(120px,12vw,168px); }
-.pg-more{ display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; padding-bottom:clamp(56px,7vw,96px); }
+.pg-more{ padding-inline:var(--pad); display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; padding-bottom:clamp(56px,7vw,96px); }
 .pg-more a{ display:inline-flex; align-items:center; gap:8px; padding:12px 20px; border:1px solid var(--line); border-radius:99px; color:var(--txt); text-decoration:none; font-weight:600; font-size:15px; transition:border-color .2s, color .2s; }
 .pg-more a:hover{ border-color:var(--rsch); color:var(--rsch); }
 .pg-more a.home{ color:var(--txt-2); }
@@ -731,6 +731,7 @@ html:has(.lb[open]){ overflow:hidden; }
 .foot .legend{ display:flex; flex-wrap:wrap; gap:16px; }
 .foot .legend b{ display:inline-flex; align-items:center; gap:7px; font-weight:400; }
 .foot .legend i{ width:7px;height:7px;border-radius:2px;background:var(--c); }
+.foot .oss{ flex-basis:100%; margin:0; padding-top:14px; border-top:1px dashed var(--line-2); }
 
 .su{ color:var(--su); font-weight:inherit; }
 .hero-bio strong .su{ font-weight:600; }
@@ -1064,13 +1065,14 @@ html.lenis, html.lenis body{ height:auto; }
 
 <footer>
   <div class="foot">
-    <span>© 2026 Naim Bin Hasan · 337 Hinds Hall, Syracuse, NY 13244 · <a href="https://dev.naimbh.com/" target="_blank" rel="noopener">Developer profile</a> · <a href="https://github.com/naimbh/naimbh.github.io" target="_blank" rel="noopener" title="Source code of this site on GitHub (MIT)">Open source on GitHub ↗</a></span>
+    <span>© 2026 Naim Bin Hasan · 337 Hinds Hall, Syracuse, NY 13244 · <a href="https://dev.naimbh.com/" target="_blank" rel="noopener">Developer profile</a></span>
     <span class="legend">
       <b style="--c:var(--eng)"><i></i>Engineering</b>
       <b style="--c:var(--rsch)"><i></i>Research</b>
       <b style="--c:var(--teach)"><i></i>Teaching</b>
       <b style="--c:var(--labor)"><i></i>Digital labor</b>
     </span>
+    <p class="oss">This site is open source. Free to reuse under the MIT license: <a href="https://github.com/naimbh/naimbh.github.io" target="_blank" rel="noopener">github.com/naimbh/naimbh.github.io ↗</a></p>
   </div>
 </footer>
 

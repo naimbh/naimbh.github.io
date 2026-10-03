@@ -281,7 +281,7 @@ h2, .sub h1{ font-weight:800; font-variation-settings:'wdth' 86; font-size:clamp
 .hero{ padding-top:clamp(104px,12vw,150px); padding-bottom:clamp(48px,6vw,80px); }
 /* section pages (/portfolio/ ...) */
 main.sub > section:first-child{ padding-top:clamp(116px,12vw,160px); }
-.pg-more{ display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; padding-bottom:clamp(48px,6vw,80px); }
+.pg-more{ padding-inline:var(--pad); display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; padding-bottom:clamp(48px,6vw,80px); }
 .pg-more a{ display:inline-flex; align-items:center; gap:8px; padding:12px 20px; border:1px solid var(--line); border-radius:99px; color:var(--ink); text-decoration:none; font-family:var(--mono); font-size:14px; transition:border-color .2s, color .2s; }
 .pg-more a:hover{ border-color:var(--lime); color:var(--lime); }
 .pg-more a.home{ color:var(--ink-2); }
@@ -439,6 +439,7 @@ h1 .stk b{ color:var(--violet); font-weight:500; } h1 .stk u{ text-decoration:no
 footer{ padding:28px var(--pad) 36px; border-top:1px solid var(--line-2); }
 .foot{ max-width:var(--maxw); margin:0 auto; display:flex; flex-wrap:wrap; gap:12px 28px; justify-content:space-between; font-family:var(--mono); font-size:13px; color:var(--ink-3); }
 .foot a{ color:var(--ink-2); white-space:nowrap; }
+.foot .oss{ flex-basis:100%; margin:0; padding-top:12px; border-top:1px dashed var(--line-2); }
 
 .su{ color:var(--su); }
 :focus-visible{ outline:2px solid var(--lime); outline-offset:3px; border-radius:6px; }
@@ -612,7 +613,8 @@ html.lenis, html.lenis body{ height:auto; }
 <footer>
   <div class="foot">
     <span>© 2026 Naim Bin Hasan · Freelance full-stack web developer · Syracuse, NY</span>
-    <span><a href="https://naimbh.com/" target="_blank" rel="noopener">Academic site ↗</a> · <a href="https://github.com/naimbh/naimbh.github.io" target="_blank" rel="noopener" title="Source code of this site on GitHub (MIT)">Open source on GitHub ↗</a></span>
+    <span><a href="https://naimbh.com/" target="_blank" rel="noopener">Academic site ↗</a></span>
+    <p class="oss">This site is open source. Free to reuse under the MIT license: <a href="https://github.com/naimbh/naimbh.github.io" target="_blank" rel="noopener">github.com/naimbh/naimbh.github.io ↗</a></p>
   </div>
 </footer>
 </div>
