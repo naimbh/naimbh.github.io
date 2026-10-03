@@ -308,6 +308,9 @@ h1 .stk b{ color:var(--violet); font-weight:500; } h1 .stk u{ text-decoration:no
 .hero-shot{ position:absolute; top:0; right:0; width:min(52%,280px); aspect-ratio:4/5; margin:0; border-radius:22px; overflow:hidden; border:1px solid var(--line); rotate:3deg; box-shadow:0 30px 60px -30px #000; transition:rotate .4s var(--snap); }
 .hero-shot:hover{ rotate:0deg; }
 .hero-shot img{ width:100%; height:100%; object-fit:cover; object-position:50% 12%; }
+/* round the photos themselves: mobile Safari ignores the card's clipping while they animate */
+.hero-shot img{ border-radius:inherit; }
+.hero-shot{ isolation:isolate; }
 .hero-shot figcaption{ position:absolute; top:12px; left:12px; font-family:var(--mono); font-size:12px; color:var(--on-lime); background:var(--lime-fill); padding:5px 9px; border-radius:8px; font-weight:700; }
 @media(max-width:960px){ .ide{ padding-top:190px; max-width:560px; } .hero-shot{ width:min(48%,230px); } }
 .hero-grid > *{ min-width:0; }
