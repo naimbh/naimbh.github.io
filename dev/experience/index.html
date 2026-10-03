@@ -534,9 +534,9 @@ html.lenis, html.lenis body{ height:auto; }
 .hero-shot figcaption{ transition:transform .45s var(--snap); z-index:2; }
 .hero-shot:hover figcaption{ transform:translateY(-3px) rotate(-3deg); }
 @media (prefers-reduced-motion: reduce){ .hero-shot, .hero-shot img{ transform:none !important; } }
-.hero-shot .xf{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 12%; opacity:0; transform:scale(1.045); pointer-events:none;
-  transition:opacity 1.2s cubic-bezier(.4,0,.2,1), transform 2.4s cubic-bezier(.22,1,.36,1); }
-.hero-shot .xf.show{ opacity:1; transform:scale(1); }
+.hero-shot .xf{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 12%; opacity:0; pointer-events:none;
+  transition:opacity 1.2s cubic-bezier(.4,0,.2,1); }
+.hero-shot .xf.show{ opacity:1; }
 .hero-shot .xf.reset{ transition:none; }
 @media (prefers-reduced-motion: reduce){ .hero-shot .xf{ transition:none; } }
 .links a{ position:relative; }
@@ -721,7 +721,7 @@ html.lenis, html.lenis body{ height:auto; }
   /* hero photo: a new solo photo every 3 seconds (same card, no other design change) */
   (function(){
     var img = document.getElementById('heroShot'); if(!img || reduce) return;
-    var card = img.closest('.hero-shot'), hover = false, i = 0, big = matchMedia('(min-width: 961px)').matches;
+    var card = img.closest('.hero-shot'), hover = false, i = 0, big = matchMedia('(min-width: 961px)').matches || img.clientWidth * (window.devicePixelRatio || 1) > 640;
     var P = [{"s": "/images/naim-bin-hasan-web-developer-florida-480.webp?v=4", "l": "/images/naim-bin-hasan-web-developer-florida-800.webp?v=4", "a": "Naim Bin Hasan, freelance full-stack web developer, on a nature trail in Florida"}, {"s": "/images/hero/naim-bin-hasan-tea-garden-bangladesh-640.webp?v=4", "l": "/images/hero/naim-bin-hasan-tea-garden-bangladesh-960.webp?v=4", "a": "Naim Bin Hasan in a tea garden forest in Bangladesh."}, {"s": "/images/hero/naim-bin-hasan-syracuse-university-school-of-information-studies-640.webp?v=4", "l": "/images/hero/naim-bin-hasan-syracuse-university-school-of-information-studies-960.webp?v=4", "a": "Naim Bin Hasan at the Syracuse University School of Information Studies (iSchool), where he is a PhD researcher in Information Science and Technology."}, {"s": "/images/hero/naim-bin-hasan-fau-graduation-portrait-boca-raton-640.webp?v=4", "l": "/images/hero/naim-bin-hasan-fau-graduation-portrait-boca-raton-960.webp?v=4", "a": "Graduation portrait of Naim Bin Hasan on the Florida Atlantic University campus in Boca Raton, Florida."}, {"s": "/images/hero/naim-bin-hasan-nature-boardwalk-640.webp?v=4", "l": "/images/hero/naim-bin-hasan-nature-boardwalk-960.webp?v=4", "a": "Naim Bin Hasan on a wetland boardwalk."}, {"s": "/images/hero/naim-bin-hasan-beach-bangladesh-football-jersey-640.webp?v=4", "l": "/images/hero/naim-bin-hasan-beach-bangladesh-football-jersey-960.webp?v=4", "a": "Naim Bin Hasan wearing the Bangladesh football jersey on the beach."}, {"s": "/images/hero/naim-bin-hasan-syracuse-university-campus-hall-of-languages-640.webp?v=4", "l": "/images/hero/naim-bin-hasan-syracuse-university-campus-hall-of-languages-960.webp?v=4", "a": "Naim Bin Hasan on the Syracuse University campus, with the Hall of Languages in the background."}, {"s": "/images/hero/naim-bin-hasan-miami-beach-night-street-640.webp?v=4", "l": "/images/hero/naim-bin-hasan-miami-beach-night-street-960.webp?v=4", "a": "Naim Bin Hasan under the neon of Miami Beach."}, {"s": "/images/hero/naim-bin-hasan-rice-university-phd-visit-640.webp?v=4", "l": "/images/hero/naim-bin-hasan-rice-university-phd-visit-960.webp?v=4", "a": "Naim Bin Hasan dressed for PhD visit day at Rice University."}, {"s": "/images/hero/naim-bin-hasan-curzon-hall-university-of-dhaka-640.webp?v=4", "l": "/images/hero/naim-bin-hasan-curzon-hall-university-of-dhaka-960.webp?v=4", "a": "Naim Bin Hasan with his motorbike in front of Curzon Hall, University of Dhaka."}, {"s": "/images/hero/naim-bin-hasan-downtown-syracuse-new-york-640.webp?v=4", "l": "/images/hero/naim-bin-hasan-downtown-syracuse-new-york-960.webp?v=4", "a": "Naim Bin Hasan exploring downtown Syracuse, New York."}];
     function url(p){ return big ? p.l : p.s; }
     card.addEventListener('pointerenter', function(){ hover = true; });
