@@ -25,6 +25,9 @@ ErrorDocument 404 /404.html
   # (naimbh.com/dev/... is handled by dev/.htaccess; this catches /dev and /freelancer)
   RewriteRule ^dev$ https://dev.naimbh.com/ [L,R=301]
   RewriteRule ^freelancer(?:/(.*))?$ https://dev.naimbh.com/$1 [L,R=301]
+
+  # /writing/ was renamed to /publications/
+  RewriteRule ^writing/?$ /publications/ [L,R=301]
 </IfModule>
 
 # Correct types for modern assets

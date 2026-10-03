@@ -38,7 +38,7 @@ SITES = [
             {"slug": "experience", "ids": ["work"], "label": "Experience",
              "title": "Experience | Naim Bin Hasan, Researcher & Developer",
              "desc": "Research, teaching and software engineering experience of Naim Bin Hasan, from the Syracuse University iSchool and Florida Atlantic University to full-stack development work."},
-            {"slug": "writing", "ids": ["writing"], "label": "Writing",
+            {"slug": "publications", "ids": ["writing"], "label": "Publications",
              "title": "Publications & Talks | Naim Bin Hasan",
              "desc": "Peer-reviewed journal articles, master's thesis and conference talks by Naim Bin Hasan (Hasan, N. B.) on AI, digital labor and Bangladeshi online freelancers.",
              "jsonld": ["ScholarlyArticle", "Thesis"]},
