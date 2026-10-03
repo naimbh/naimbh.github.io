@@ -1476,14 +1476,12 @@ h1 .ln:last-child > span{
 .tags span:hover{ transform:translateY(-2px); border-color:color-mix(in srgb,var(--c) 55%,transparent); color:var(--c); background:color-mix(in srgb,var(--c) 10%,transparent); }
 
 /* ============================================================ EDUCATION */
-.edu-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
-.degree.dcard{ padding:20px 22px 18px; border:1px solid var(--line-2); border-radius:18px; background:linear-gradient(165deg,var(--panel-a),var(--panel-b)); transition:border-color .25s, transform .3s var(--snap); }
-.dcard:hover{ border-color:var(--line); transform:translateY(-2px); }
-.dcard.wide{ grid-column:1 / -1; }
-.dcard .facts > div{ grid-template-columns:96px 1fr; }
-.recog{ display:grid; grid-template-columns:1.35fr 1fr; gap:clamp(24px,4vw,56px); margin-top:clamp(36px,5vw,56px); align-items:start; }
+.edu-list{ max-width:980px; }
+.edu-list .degree{ border-top:1px solid var(--line-2); }
+.edu-list .degree:first-child{ border-top:0; padding-top:4px; }
+.recog{ display:grid; grid-template-columns:1.35fr 1fr; gap:clamp(24px,4vw,56px); align-items:start; }
 .recog-side{ display:grid; gap:34px; }
-@media(max-width:900px){ .edu-grid{ grid-template-columns:1fr; } .recog{ grid-template-columns:1fr; } }
+@media(max-width:900px){ .recog{ grid-template-columns:1fr; } }
 .degree{ padding:26px 0; }
 .degree .deg{ font-family:var(--display); font-weight:700; font-variation-settings:'wdth' 90; font-size:clamp(21px,2.4vw,28px); letter-spacing:-.03em; line-height:1.15; margin:0; }
 .degree .uni{ font-family:var(--display); font-weight:600; font-size:clamp(17px,1.8vw,20px); letter-spacing:-.015em; color:var(--rsch); margin:6px 0 12px; }
@@ -1495,11 +1493,11 @@ h1 .ln:last-child > span{
 .degree .meta li.lk{ padding:0; border:0; background:none; }
 .degree .meta li.lk a{ font-size:inherit;  display:inline-block; padding:5px 10px; border-radius:99px; border:1px solid color-mix(in srgb,var(--eng) 50%,transparent); color:var(--eng); text-decoration:none; }
 .degree .facts{ margin:0; display:grid; gap:10px; }
-.degree .facts > div{ display:grid; grid-template-columns:104px 1fr; gap:14px; align-items:baseline; }
+.degree .facts > div{ display:grid; grid-template-columns:120px 1fr; gap:14px; align-items:baseline; }
 .degree .facts dt{ font-family:var(--mono); font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--txt-3); }
 .degree .facts dd{ margin:0; font-size:16.5px; line-height:1.55; color:var(--txt-2); }
 .degree .facts a{ color:var(--rsch); text-decoration:none; border-bottom:1px solid color-mix(in srgb,var(--rsch) 40%,transparent); }
-@media(max-width:640px){ .degree.dcard{ padding:16px; border-radius:14px; } .degree{ padding:18px 0; } .degree .uni{ margin:4px 0 10px; } .degree .facts > div{ grid-template-columns:1fr; gap:2px; } .degree .facts dd{ font-size:15.5px; } .degree .meta li{ font-size:11.5px; padding:4px 9px; } }
+@media(max-width:640px){ .degree{ padding:18px 0; } .degree .uni{ margin:4px 0 10px; } .degree .facts > div{ grid-template-columns:1fr; gap:2px; } .degree .facts dd{ font-size:15.5px; } .degree .meta li{ font-size:11.5px; padding:4px 9px; } }
 .side-h{ font-family:var(--display); font-weight:700; font-variation-settings:'wdth' 92; font-size:clamp(22px,2.4vw,28px); letter-spacing:-.025em; margin:0 0 18px; display:flex; align-items:center; gap:12px; }
 .side-h::before{ content:''; width:10px; height:10px; border-radius:3px; background:var(--c,var(--teach)); }
 .awards{ list-style:none; margin:0; padding:0; border-top:1px solid var(--line-2); }
@@ -1792,6 +1790,7 @@ html:has(.lb[open]){ overflow:hidden; }
   <div class="navlinks" id="navlinks">
     <a href="#research">Research</a>
     <a href="#education">Education</a>
+    <a href="#recognition">Awards</a>
     <a href="#writing">Writing</a>
     <a href="#work">Work</a>
     <a href="#projects">Projects</a>
@@ -1812,6 +1811,7 @@ html:has(.lb[open]){ overflow:hidden; }
   <a href="#top" data-sec="top" tabindex="-1"><span class="dot"></span><span class="lbl">Top</span></a>
   <a href="#research" data-sec="research" tabindex="-1"><span class="dot"></span><span class="lbl">Research</span></a>
   <a href="#education" data-sec="education" tabindex="-1"><span class="dot"></span><span class="lbl">Education</span></a>
+  <a href="#recognition" data-sec="recognition" tabindex="-1"><span class="dot"></span><span class="lbl">Awards</span></a>
   <a href="#writing" data-sec="writing" tabindex="-1"><span class="dot"></span><span class="lbl">Writing</span></a>
   <a href="#work" data-sec="work" tabindex="-1"><span class="dot"></span><span class="lbl">Work</span></a>
   <a href="#projects" data-sec="projects" tabindex="-1"><span class="dot"></span><span class="lbl">Projects</span></a>
@@ -1904,34 +1904,34 @@ html:has(.lb[open]){ overflow:hidden; }
 <section class="band" id="education">
   <div class="wrap">
     <p class="eyebrow reveal">The paper trail</p>
-    <h2 class="sec reveal" style="--d:.05s">Education, funding &amp; recognition</h2>
+    <h2 class="sec reveal" style="--d:.05s">Education</h2>
 
-    <div class="edu-grid">
-        <article class="degree dcard reveal">
+    <div class="edu-list">
+        <article class="degree reveal">
           <h3 class="deg">PhD, Information Science and Technology</h3>
           <p class="uni"><span class="su">Syracuse University</span> <span class="sub">School of Information Studies</span></p>
           <ul class="meta"><li>Fall 2026 — present</li><li>Syracuse, NY</li><li class="hi">Fully funded</li></ul>
           <dl class="facts"><div><dt>Funding</dt><dd>Graduate Research Assistantship, full support.</dd></div><div><dt>Working on</dt><dd>Gravity Spy — web tools, AI-supported learning resources and trace-data analysis for LIGO's citizen scientists.</dd></div></dl>
         </article>
-        <article class="degree dcard reveal" style="--d:.06s">
+        <article class="degree reveal" style="--d:.06s">
           <h3 class="deg">MA, Sociology</h3>
           <p class="uni">Florida Atlantic University <span class="sub">Department of Sociology</span></p>
           <ul class="meta"><li>Fall 2024 — Spring 2026</li><li>Boca Raton, FL</li><li class="hi">CGPA 3.92</li><li class="hi">Funded · GTA</li></ul>
           <dl class="facts"><div><dt>Thesis</dt><dd><a href="https://digitalcommons.fau.edu/etd_general/311" target="_blank" rel="noopener">Trading Precarities: How Bangladeshi Freelancers Leverage the Digital Economy Amid Local Insecurity and AI Disruption</a></dd></div><div><dt>Committee</dt><dd>Dr. Carter M. Koppelman (chair), Dr. Phillip A. Hough, Dr. Lotus Seeley.</dd></div><div><dt>Funding</dt><dd>Graduate Teaching Assistantship, AIBS Fellowship and FAU Thesis &amp; Dissertation Scholarship.</dd></div></dl>
         </article>
-        <article class="degree dcard reveal">
+        <article class="degree reveal">
           <h3 class="deg">MSS, Sociology</h3>
           <p class="uni">University of Dhaka <span class="sub">Department of Sociology</span></p>
           <ul class="meta"><li>2022 — 2024</li><li>Dhaka, Bangladesh</li><li class="hi">CGPA 3.38</li></ul>
           <dl class="facts"><div><dt>Focus</dt><dd>Development studies — development and underdevelopment, development in South Asia, and population, politics &amp; development.</dd></div><div><dt>Methods</dt><dd>Advanced Research Methodology.</dd></div></dl>
         </article>
-        <article class="degree dcard reveal" style="--d:.06s">
+        <article class="degree reveal" style="--d:.06s">
           <h3 class="deg">BSS (Honours), Sociology</h3>
           <p class="uni">University of Dhaka <span class="sub">Department of Sociology</span></p>
           <ul class="meta"><li>2017 — 2022</li><li>Dhaka, Bangladesh</li><li class="hi">CGPA 3.33</li></ul>
           <dl class="facts"><div><dt>Monograph</dt><dd>Playground Accessibility and Its Impacts on Youth: A Sociological Study in Dhaka City.</dd></div><div><dt>Coursework</dt><dd>Research Methodology · Sociology of Poverty · Migration &amp; Diaspora · Gender, Violence &amp; Development · Political Sociology</dd></div></dl>
         </article>
-        <article class="degree dcard wide reveal">
+        <article class="degree reveal">
           <h3 class="deg">Professional Certificate, Full Stack Software Development</h3>
           <p class="uni">IBM <span class="sub">via Coursera</span></p>
           <ul class="meta"><li>Completed May 2024</li><li>12 courses</li><li>Online</li><li class="lk"><a href="https://coursera.org/verify/professional-cert/5PAP4F43J5ZP" target="_blank" rel="noopener">Verify ↗</a></li></ul>
@@ -1939,6 +1939,16 @@ html:has(.lb[open]){ overflow:hidden; }
         </article>
     </div>
 
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ==================== RECOGNITION ==================== -->
+<section class="band" id="recognition">
+  <div class="wrap">
+    <p class="eyebrow reveal">Backed by</p>
+    <h2 class="sec reveal" style="--d:.05s">Funding &amp; recognition</h2>
     <div class="recog">
       <div class="reveal">
         <h3 class="side-h">Awards &amp; fellowships</h3>
