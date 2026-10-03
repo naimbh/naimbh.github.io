@@ -1659,6 +1659,9 @@ html.lenis, html.lenis body{ height:auto; }
 .hero-photo .frame .xf{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; pointer-events:none;
   transition:opacity 1.2s cubic-bezier(.4,0,.2,1); }
 .hero-photo .frame .xf.show{ opacity:1; }
+/* touch screens never tilt: keep the card flat so Safari doesn't redraw the photo blurry while it fades */
+.hero-photo .frame .xf{ will-change:opacity; }
+@media (hover:none), (pointer:coarse){ .hero-photo{ perspective:none; } .hero-photo .frame{ transform:none; transform-style:flat; } }
 .hero-photo .frame .xf.reset{ transition:none; }
 @media(max-width:700px){ .dk{ border-radius:18px; } .dk1{ transform:translate(-10px,6px) rotate(-6deg); } .dk2{ transform:translate(6px,9px) rotate(5deg); } .hero-photo figcaption.now{ display:none; } .hero{ overflow-x:clip; } }
 @media (prefers-reduced-motion: reduce){ .dk1.drop{ animation:none; } .hero-photo .frame .xf{ transition:none; } }
