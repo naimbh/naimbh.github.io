@@ -1,4 +1,5 @@
-# naimbh.com — Apache / LiteSpeed config (ignored by GitHub Pages)
+# dev.naimbh.com — document root is public_html/dev (Apache / LiteSpeed)
+# This file replaces the parent rewrite rules for everything inside /dev.
 
 Options -Indexes
 DirectoryIndex index.html
@@ -7,21 +8,17 @@ ErrorDocument 404 /404.html
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # www.naimbh.com -> https://naimbh.com
-  RewriteCond %{HTTP_HOST} ^www\.naimbh\.com$ [NC]
-  RewriteRule ^ https://naimbh.com%{REQUEST_URI} [L,R=301]
+  # Old address naimbh.com/dev/... (and www) -> https://dev.naimbh.com/...
+  RewriteCond %{HTTP_HOST} ^(www\.)?naimbh\.com$ [NC]
+  RewriteRule ^(.*)$ https://dev.naimbh.com/$1 [L,R=301]
 
-  # Force https (any host)
-  RewriteCond %{HTTPS} off
-  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  # www.dev. or http:// -> https://dev.naimbh.com
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteRule ^(.*)$ https://dev.naimbh.com/$1 [L,R=301]
 
-  # Never serve hidden files (.git, .htaccess, .cpanel.yml...) except .well-known (SSL)
+  # Never serve hidden files except .well-known (SSL)
   RewriteRule (^|/)\.(?!well-known/) - [F,L]
-
-  # The developer profile lives at https://dev.naimbh.com
-  # (naimbh.com/dev/... is handled by dev/.htaccess; this catches /dev and /freelancer)
-  RewriteRule ^dev$ https://dev.naimbh.com/ [L,R=301]
-  RewriteRule ^freelancer(?:/(.*))?$ https://dev.naimbh.com/$1 [L,R=301]
 </IfModule>
 
 # Correct types for modern assets

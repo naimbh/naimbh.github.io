@@ -1,8 +1,8 @@
 {
   "id": "/",
-  "name": "NaimBH.com",
-  "short_name": "NaimBH",
-  "description": "Naim Bin Hasan — PhD researcher at Syracuse University and full-stack web developer.",
+  "name": "NaimBH Dev",
+  "short_name": "NaimBH Dev",
+  "description": "Naim Bin Hasan — full-stack web developer (Laravel, Vue.js, PHP). Portfolio, services and reviews.",
   "lang": "en",
   "start_url": "/?source=pwa",
   "scope": "/",
@@ -13,11 +13,10 @@
     "browser"
   ],
   "orientation": "portrait-primary",
-  "background_color": "#0B0F1A",
-  "theme_color": "#0B0F1A",
+  "background_color": "#07090F",
+  "theme_color": "#07090F",
   "categories": [
-    "education",
-    "personalization",
+    "business",
     "productivity"
   ],
   "icons": [
@@ -54,8 +53,8 @@
   ],
   "shortcuts": [
     {
-      "name": "Research",
-      "url": "/#research",
+      "name": "Portfolio",
+      "url": "/#work",
       "icons": [
         {
           "src": "/icon-192.png",
@@ -64,8 +63,8 @@
       ]
     },
     {
-      "name": "Photo gallery",
-      "url": "/#gallery",
+      "name": "Contact",
+      "url": "/#contact",
       "icons": [
         {
           "src": "/icon-192.png",
@@ -76,11 +75,11 @@
   ],
   "screenshots": [
     {
-      "src": "/images/og/naim-bin-hasan.jpg",
+      "src": "/images/naim-bin-hasan-freelance-web-developer-florida-og.jpg",
       "sizes": "1200x630",
       "type": "image/jpeg",
       "form_factor": "wide",
-      "label": "Naim Bin Hasan — research"
+      "label": "Naim Bin Hasan — developer profile"
     }
   ]
 }
