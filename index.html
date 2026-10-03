@@ -1150,8 +1150,9 @@ a{color:inherit}
 .brand b span{ background:linear-gradient(90deg,var(--eng),var(--rsch) 50%,var(--labor)); -webkit-background-clip:text; background-clip:text; color:transparent; }
 .navlinks{ display:flex; gap:2px; }
 .navlinks a{
+  font-weight:700;
   font-family:var(--mono); font-size:13px; letter-spacing:.06em; text-transform:uppercase;
-  color:var(--txt-3); text-decoration:none; padding:8px 10px; border-radius:8px;
+  color:var(--txt-2); text-decoration:none; padding:8px 8px; border-radius:8px;
   transition:color .2s, background .2s;
 }
 .navlinks a:hover{ color:var(--txt); background:var(--hover); }
@@ -1639,7 +1640,7 @@ html:has(.lb[open]){ overflow:hidden; }
 .menu span:nth-child(1){ top:16px; } .menu span:nth-child(2){ top:24px; }
 .nav.open .menu span:nth-child(1){ top:20px; transform:rotate(45deg); }
 .nav.open .menu span:nth-child(2){ top:20px; transform:rotate(-45deg); }
-@media(max-width:1080px){
+@media(max-width:1180px){
   .menu{ display:block; order:3; }
   .tt{ order:2; } .hire{ order:4; }
   .navlinks{
@@ -1771,7 +1772,7 @@ html:has(.lb[open]){ overflow:hidden; }
   .members span{ font-size:17px; }
   .certs span, .certs a{ font-size:13.5px; }
   .chip{ font-size:12.5px; }
-  .navlinks a{ font-size:13.5px; }
+  .navlinks a{ font-size:13px; letter-spacing:.04em; }
 }
 </style>
 </head>
@@ -1788,11 +1789,12 @@ html:has(.lb[open]){ overflow:hidden; }
     <b>Naim<span>BH</span></b><span class="sr">Naim Bin Hasan — home</span>
   </a>
   <div class="navlinks" id="navlinks">
+    <a href="#top">Home</a>
     <a href="#research">Research</a>
     <a href="#education">Education</a>
-    <a href="#recognition">Awards</a>
+    <a href="#work">Experience</a>
     <a href="#writing">Writing</a>
-    <a href="#work">Work</a>
+    <a href="#recognition">Awards</a>
     <a href="#projects">Projects</a>
     <a href="#gallery">Gallery</a>
     <a href="#contact">Contact</a>
@@ -1811,9 +1813,9 @@ html:has(.lb[open]){ overflow:hidden; }
   <a href="#top" data-sec="top" tabindex="-1"><span class="dot"></span><span class="lbl">Top</span></a>
   <a href="#research" data-sec="research" tabindex="-1"><span class="dot"></span><span class="lbl">Research</span></a>
   <a href="#education" data-sec="education" tabindex="-1"><span class="dot"></span><span class="lbl">Education</span></a>
-  <a href="#recognition" data-sec="recognition" tabindex="-1"><span class="dot"></span><span class="lbl">Awards</span></a>
+  <a href="#work" data-sec="work" tabindex="-1"><span class="dot"></span><span class="lbl">Experience</span></a>
   <a href="#writing" data-sec="writing" tabindex="-1"><span class="dot"></span><span class="lbl">Writing</span></a>
-  <a href="#work" data-sec="work" tabindex="-1"><span class="dot"></span><span class="lbl">Work</span></a>
+  <a href="#recognition" data-sec="recognition" tabindex="-1"><span class="dot"></span><span class="lbl">Awards</span></a>
   <a href="#projects" data-sec="projects" tabindex="-1"><span class="dot"></span><span class="lbl">Projects</span></a>
   <a href="#toolkit" data-sec="toolkit" tabindex="-1"><span class="dot"></span><span class="lbl">Toolkit</span></a>
   <a href="#gallery" data-sec="gallery" tabindex="-1"><span class="dot"></span><span class="lbl">Gallery</span></a>
@@ -1944,104 +1946,6 @@ html:has(.lb[open]){ overflow:hidden; }
 
 <div class="rule"></div>
 
-<!-- ==================== RECOGNITION ==================== -->
-<section class="band" id="recognition">
-  <div class="wrap">
-    <p class="eyebrow reveal">Backed by</p>
-    <h2 class="sec reveal" style="--d:.05s">Funding &amp; recognition</h2>
-    <div class="recog">
-      <div class="reveal">
-        <h3 class="side-h">Awards &amp; fellowships</h3>
-        <ul class="awards">
-          <li><span class="amt">$28,000</span><p>Graduate Excellence Fellowship, Purdue University<small>2026 · PhD admission offer · declined for <span class="su">Syracuse</span></small></p></li>
-          <li><span class="amt">$500</span><p>Sociology Graduate Student Achievement Award, Florida Atlantic University<small>April 2026 · Department of Sociology</small><span class="why-line">Awarded to one final-year graduate student for extraordinary achievement.</span></p></li>
-          <li><span class="amt">$3,000</span><p>American Institute of Bangladesh Studies (AIBS) Fellowship<small>2025 · National competition · thesis fieldwork</small></p></li>
-          <li><span class="amt">$1,200</span><p>FAU Graduate Thesis &amp; Dissertation Scholarship<small>2025 · Master's thesis project</small></p></li>
-          <li><span class="amt">$1,000</span><p>Departmental Travel Grant, FAU<small>2025 · MSSA conference presentation</small></p></li>
-          <li><span class="amt hon">Honor</span><p>Govt. Honors Scholarship for conduct, grades and attendance<small>2023 · Undergraduate</small></p></li>
-          <li><span class="amt hon">Honor</span><p>Asian Youth Leader, Scholastic Foundation Nepal<small>2022</small></p></li>
-        </ul>
-      </div>
-      <div class="recog-side">
-        <div class="train reveal" style="--d:.06s">
-          <h3 class="side-h" style="--c:var(--eng)">Training &amp; certifications</h3>
-          <ul>
-            <li><b>Quantitative Methods</b><span>University of Amsterdam · Coursera · 2024</span></li>
-            <li><b>Social &amp; Behavioral Research Investigators</b><span>CITI Program · 2024</span></li>
-            <li><b>Sociological Research Workshop Series</b><span>Florida Atlantic University · 2024</span></li>
-          </ul>
-        </div>
-        <div class="reveal" style="--d:.1s">
-          <h3 class="side-h" style="--c:var(--labor)">Professional memberships</h3>
-          <div class="members">
-          <span>ASIS&amp;T</span><span>Mid-South Sociological Association</span><span>Dhaka University IT Society</span>
-        </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="rule"></div>
-
-<!-- ==================== WRITING ==================== -->
-<section class="band" id="writing">
-  <div class="wrap">
-    <p class="eyebrow reveal">The record</p>
-    <h2 class="sec reveal" style="--d:.05s">Publications &amp; talks</h2>
-    <p class="sec-note reveal" style="--d:.1s">Four peer-reviewed journal articles, a master's thesis in the FAU permanent collection, one revise-and-resubmit, and conference presentations — all since 2025. Cited as <span class="intext">Hasan, N. B.</span> — e.g. <span class="intext">(Hasan, 2026)</span>.</p>
-
-    <article class="paper reveal" style="--c:var(--labor)">
-      <span class="yr">2026</span>
-      <span>
-        <h3><a href="https://digitalcommons.fau.edu/etd_general/311" target="_blank" rel="noopener">Trading Precarities: How Bangladeshi Freelancers Leverage the Digital Economy Amid Local Insecurity and AI Disruption</a></h3>
-        <span class="venue">Master's thesis, Florida Atlantic University · <span class="doi">FAU Digital Commons ↗</span> <span class="intext">(Hasan, 2026)</span></span>
-        <button class="cite" data-cite="Hasan, N. B. (2026). Trading precarities: How Bangladeshi freelancers leverage the digital economy amid local insecurity and AI disruption [Master's thesis, Florida Atlantic University]. FAU Digital Commons. https://digitalcommons.fau.edu/etd_general/311">Copy citation</button>
-      </span>
-      <span class="pill">Thesis</span>
-    </article>
-
-    <article class="paper reveal" style="--c:var(--eng);--d:.06s">
-      <span class="yr">2025</span>
-      <span>
-        <h3><a href="https://doi.org/10.1111/johs.70027" target="_blank" rel="noopener">AI Efficiency vs Human Empathy: A Paradox of AI and Human Agents in Service Support Interactions</a></h3>
-        <span class="venue"><em>Sociology Lens</em> (Wiley) · <span class="doi">10.1111/johs.70027 ↗</span> <span class="intext">(Hasan, 2025)</span></span>
-        <button class="cite" data-cite="Hasan, N. B. (2025). AI efficiency vs human empathy: A paradox of AI and human agents in service support interactions. Sociology Lens. https://doi.org/10.1111/johs.70027">Copy citation</button>
-      </span>
-      <span class="pill">Peer-reviewed</span>
-    </article>
-
-    <article class="paper reveal" style="--c:var(--eng);--d:.12s">
-      <span class="yr">In review</span>
-      <span>
-        <h3>Survival or Transition? How AI Reconfigures Work, Control, and Inequality in the Global South</h3>
-        <span class="venue">Qualitative interviews · Hasan, Naim B.</span>
-      </span>
-      <span class="pill">Revise &amp; resubmit</span>
-    </article>
-
-    <article class="paper reveal" style="--c:var(--teach);--d:.18s">
-      <span class="yr">2025</span>
-      <span>
-        <h3>Education and Escape: Student Migration to the US from Bangladesh After the July 2024 Revolution</h3>
-        <span class="venue">Mid-South Sociological Association, 51st Annual Conference · South Carolina</span>
-      </span>
-      <span class="pill">Conference talk</span>
-    </article>
-
-    <article class="paper reveal" style="--c:var(--teach);--d:.24s">
-      <span class="yr">2025</span>
-      <span>
-        <h3>The Growth of Online Freelancing in Bangladesh: Economic Integration and Labor Vulnerability</h3>
-        <span class="venue">14th Annual SAGGSA Conference, Florida International University · Miami</span>
-      </span>
-      <span class="pill">Conference talk</span>
-    </article>
-  </div>
-</section>
-
-<div class="rule"></div>
-
 <!-- ==================== WORK ==================== -->
 <section class="band" id="work">
   <div class="wrap">
@@ -2123,6 +2027,104 @@ html:has(.lb[open]){ overflow:hidden; }
           </li>
         </ol>
       </section>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ==================== WRITING ==================== -->
+<section class="band" id="writing">
+  <div class="wrap">
+    <p class="eyebrow reveal">The record</p>
+    <h2 class="sec reveal" style="--d:.05s">Publications &amp; talks</h2>
+    <p class="sec-note reveal" style="--d:.1s">Four peer-reviewed journal articles, a master's thesis in the FAU permanent collection, one revise-and-resubmit, and conference presentations — all since 2025. Cited as <span class="intext">Hasan, N. B.</span> — e.g. <span class="intext">(Hasan, 2026)</span>.</p>
+
+    <article class="paper reveal" style="--c:var(--labor)">
+      <span class="yr">2026</span>
+      <span>
+        <h3><a href="https://digitalcommons.fau.edu/etd_general/311" target="_blank" rel="noopener">Trading Precarities: How Bangladeshi Freelancers Leverage the Digital Economy Amid Local Insecurity and AI Disruption</a></h3>
+        <span class="venue">Master's thesis, Florida Atlantic University · <span class="doi">FAU Digital Commons ↗</span> <span class="intext">(Hasan, 2026)</span></span>
+        <button class="cite" data-cite="Hasan, N. B. (2026). Trading precarities: How Bangladeshi freelancers leverage the digital economy amid local insecurity and AI disruption [Master's thesis, Florida Atlantic University]. FAU Digital Commons. https://digitalcommons.fau.edu/etd_general/311">Copy citation</button>
+      </span>
+      <span class="pill">Thesis</span>
+    </article>
+
+    <article class="paper reveal" style="--c:var(--eng);--d:.06s">
+      <span class="yr">2025</span>
+      <span>
+        <h3><a href="https://doi.org/10.1111/johs.70027" target="_blank" rel="noopener">AI Efficiency vs Human Empathy: A Paradox of AI and Human Agents in Service Support Interactions</a></h3>
+        <span class="venue"><em>Sociology Lens</em> (Wiley) · <span class="doi">10.1111/johs.70027 ↗</span> <span class="intext">(Hasan, 2025)</span></span>
+        <button class="cite" data-cite="Hasan, N. B. (2025). AI efficiency vs human empathy: A paradox of AI and human agents in service support interactions. Sociology Lens. https://doi.org/10.1111/johs.70027">Copy citation</button>
+      </span>
+      <span class="pill">Peer-reviewed</span>
+    </article>
+
+    <article class="paper reveal" style="--c:var(--eng);--d:.12s">
+      <span class="yr">In review</span>
+      <span>
+        <h3>Survival or Transition? How AI Reconfigures Work, Control, and Inequality in the Global South</h3>
+        <span class="venue">Qualitative interviews · Hasan, Naim B.</span>
+      </span>
+      <span class="pill">Revise &amp; resubmit</span>
+    </article>
+
+    <article class="paper reveal" style="--c:var(--teach);--d:.18s">
+      <span class="yr">2025</span>
+      <span>
+        <h3>Education and Escape: Student Migration to the US from Bangladesh After the July 2024 Revolution</h3>
+        <span class="venue">Mid-South Sociological Association, 51st Annual Conference · South Carolina</span>
+      </span>
+      <span class="pill">Conference talk</span>
+    </article>
+
+    <article class="paper reveal" style="--c:var(--teach);--d:.24s">
+      <span class="yr">2025</span>
+      <span>
+        <h3>The Growth of Online Freelancing in Bangladesh: Economic Integration and Labor Vulnerability</h3>
+        <span class="venue">14th Annual SAGGSA Conference, Florida International University · Miami</span>
+      </span>
+      <span class="pill">Conference talk</span>
+    </article>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ==================== RECOGNITION ==================== -->
+<section class="band" id="recognition">
+  <div class="wrap">
+    <p class="eyebrow reveal">Backed by</p>
+    <h2 class="sec reveal" style="--d:.05s">Funding &amp; recognition</h2>
+    <div class="recog">
+      <div class="reveal">
+        <h3 class="side-h">Awards &amp; fellowships</h3>
+        <ul class="awards">
+          <li><span class="amt">$28,000</span><p>Graduate Excellence Fellowship, Purdue University<small>2026 · PhD admission offer · declined for <span class="su">Syracuse</span></small></p></li>
+          <li><span class="amt">$500</span><p>Sociology Graduate Student Achievement Award, Florida Atlantic University<small>April 2026 · Department of Sociology</small><span class="why-line">Awarded to one final-year graduate student for extraordinary achievement.</span></p></li>
+          <li><span class="amt">$3,000</span><p>American Institute of Bangladesh Studies (AIBS) Fellowship<small>2025 · National competition · thesis fieldwork</small></p></li>
+          <li><span class="amt">$1,200</span><p>FAU Graduate Thesis &amp; Dissertation Scholarship<small>2025 · Master's thesis project</small></p></li>
+          <li><span class="amt">$1,000</span><p>Departmental Travel Grant, FAU<small>2025 · MSSA conference presentation</small></p></li>
+          <li><span class="amt hon">Honor</span><p>Govt. Honors Scholarship for conduct, grades and attendance<small>2023 · Undergraduate</small></p></li>
+          <li><span class="amt hon">Honor</span><p>Asian Youth Leader, Scholastic Foundation Nepal<small>2022</small></p></li>
+        </ul>
+      </div>
+      <div class="recog-side">
+        <div class="train reveal" style="--d:.06s">
+          <h3 class="side-h" style="--c:var(--eng)">Training &amp; certifications</h3>
+          <ul>
+            <li><b>Quantitative Methods</b><span>University of Amsterdam · Coursera · 2024</span></li>
+            <li><b>Social &amp; Behavioral Research Investigators</b><span>CITI Program · 2024</span></li>
+            <li><b>Sociological Research Workshop Series</b><span>Florida Atlantic University · 2024</span></li>
+          </ul>
+        </div>
+        <div class="reveal" style="--d:.1s">
+          <h3 class="side-h" style="--c:var(--labor)">Professional memberships</h3>
+          <div class="members">
+          <span>ASIS&amp;T</span><span>Mid-South Sociological Association</span><span>Dhaka University IT Society</span>
+        </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
