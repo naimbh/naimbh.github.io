@@ -1,5 +1,5 @@
 /* NaimBH.com service worker — fast repeat visits + offline support */
-const VERSION = 'naimbh-v13';
+const VERSION = 'naimbh-v14';
 const SHELL = [
   '/', '/freelancer/', '/offline.html', '/site.webmanifest',
   '/favicon.svg', '/favicon.ico', '/icon-192.png', '/icon-512.png', '/logo.svg',

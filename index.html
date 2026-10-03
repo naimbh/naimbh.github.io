@@ -3,17 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Google Analytics (GA4) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NQ25CLBB39"></script>
+<!-- Google Analytics (GA4) — loaded after the page is ready so it never slows the first paint -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-NQ25CLBB39');
+  (function(){
+    function load(){ var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-NQ25CLBB39'; document.head.appendChild(s); }
+    function idle(){ ('requestIdleCallback' in window) ? requestIdleCallback(load, { timeout: 2500 }) : setTimeout(load, 1200); }
+    if(document.readyState === 'complete') idle(); else window.addEventListener('load', idle);
+  })();
 </script>
 <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('naim-theme');document.documentElement.setAttribute('data-theme',t||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'))}catch(e){}</script>
-<title>Naim Bin Hasan | PhD Researcher at Syracuse University</title>
-<meta name="description" content="Naim Bin Hasan is a PhD researcher in Information Science &amp; Technology at Syracuse University studying AI and the future of work, HCI, digital labor and ICT4D.">
+<title>Naim Bin Hasan | PhD in IT Researcher at Syracuse University</title>
+<meta name="description" content="Naim Bin Hasan is a PhD in IT researcher at Syracuse University studying AI and the future of work, HCI, digital labor and ICT4D.">
 <meta name="author" content="Naim Bin Hasan">
 <meta name="keywords" content="Naim Bin Hasan, ICT4D, ICT for development, information systems for development, Global South, vibe coding, Naim, Naim Hasan, Naim B. Hasan, naimbh, Syracuse University, iSchool, PhD researcher, Information Science, AI and the future of work, human-computer interaction, HCI, digital labor, online freelancers, platform work, Bangladeshi freelancers, Florida Atlantic University, University of Dhaka, sociology">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -36,7 +40,7 @@
 <meta property="og:type" content="profile">
 <meta property="og:site_name" content="Naim Bin Hasan">
 <meta property="og:locale" content="en_US">
-<meta property="og:title" content="Naim Bin Hasan — PhD Researcher, Syracuse University">
+<meta property="og:title" content="Naim Bin Hasan — PhD in IT Researcher, Syracuse University">
 <meta property="og:description" content="Researching AI and the future of work, human-computer interaction, digital labor and online freelancers, and ICT for development (ICT4D). Former full-stack developer with 100+ shipped builds.">
 <meta property="og:url" content="https://naimbh.com/">
 <meta property="og:image" content="https://naimbh.com/images/og/naim-bin-hasan.jpg">
@@ -50,7 +54,7 @@
 <meta property="profile:username" content="naimbh">
 <meta property="fb:app_id" content="804507539951560">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Naim Bin Hasan — PhD Researcher, Syracuse University">
+<meta name="twitter:title" content="Naim Bin Hasan — PhD in IT Researcher, Syracuse University">
 <meta name="twitter:description" content="Researching AI and the future of work, HCI, digital labor and online freelancers, and ICT4D.">
 <meta name="twitter:image" content="https://naimbh.com/images/og/naim-bin-hasan.jpg">
 <meta name="twitter:image:alt" content="Naim Bin Hasan, PhD researcher, presenting his research">
@@ -79,7 +83,7 @@
       "@type": "ProfilePage",
       "@id": "https://naimbh.com/#profilepage",
       "url": "https://naimbh.com/",
-      "name": "Naim Bin Hasan | PhD Researcher at Syracuse University",
+      "name": "Naim Bin Hasan | PhD in IT Researcher at Syracuse University",
       "isPartOf": {
         "@id": "https://naimbh.com/#website"
       },
@@ -1004,9 +1008,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="/images/naim-bin-hasan-portrait-800.webp" imagesrcset="/images/naim-bin-hasan-portrait-480.webp 480w, /images/naim-bin-hasan-portrait-800.webp 768w" imagesizes="(max-width:700px) 240px, (max-width:1000px) 260px, 420px" fetchpriority="high">
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..500;1,6..72,400&family=JetBrains+Mono:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..500;1,6..72,400&family=JetBrains+Mono:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Newsreader:ital,opsz,wght@0,6..72,400..500;1,6..72,400&family=JetBrains+Mono:wght@400;500;700&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wdth,wght@75..100,500..800&amp;family=Newsreader:ital,wght@0,400..500;1,400&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wdth,wght@75..100,500..800&amp;family=Newsreader:ital,wght@0,400..500;1,400&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wdth,wght@75..100,500..800&amp;family=Newsreader:ital,wght@0,400..500;1,400&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap"></noscript>
 <style>
 /* ============================================================
    NAIM BIN HASAN — "coded transcript" system
@@ -1774,6 +1778,32 @@ html:has(.lb[open]){ overflow:hidden; }
   .chip{ font-size:12.5px; }
   .navlinks a{ font-size:13px; letter-spacing:.04em; }
 }
+
+/* smooth scrolling (Lenis) */
+html.lenis, html.lenis body{ height:auto; }
+.lenis.lenis-smooth{ scroll-behavior:auto !important; }
+.lenis.lenis-stopped{ overflow:hidden; }
+
+/* hero photo hover */
+.hero-photo{ --rx:0deg; --ry:0deg; --gx:50%; --gy:30%; perspective:1000px; }
+.hero-photo .frame{ transform:rotateX(var(--rx)) rotateY(var(--ry)); transform-style:preserve-3d; transition:transform .45s var(--ease), box-shadow .45s var(--ease); }
+.hero-photo:hover .frame{ transition:transform .12s linear, box-shadow .45s var(--ease); box-shadow:0 40px 80px -30px rgba(0,0,0,.8); }
+.hero-photo img{ transition:transform .7s var(--ease), filter .5s var(--ease); }
+.hero-photo:hover img{ transform:scale(1.07); filter:saturate(1.12) contrast(1.04); }
+.hero-photo .frame::after{ content:''; position:absolute; inset:0; pointer-events:none; opacity:0; transition:opacity .4s;
+  background:radial-gradient(420px circle at var(--gx) var(--gy), rgba(255,255,255,.22), transparent 55%); mix-blend-mode:soft-light; }
+.hero-photo:hover .frame::after{ opacity:1; }
+.hero-photo::before{ transition:transform .6s var(--snap), opacity .4s, filter .6s; }
+.hero-photo:hover::before{ transform:translate(-6px,6px) rotate(-1.5deg); opacity:.85; filter:hue-rotate(35deg); }
+.hero-photo figcaption{ transition:transform .45s var(--snap); }
+.hero-photo:hover figcaption{ transform:translateY(-4px); }
+@media (prefers-reduced-motion: reduce){ .hero-photo .frame, .hero-photo img, .hero-photo::before{ transform:none !important; } }
+.hero-photo figcaption.now{ display:flex; align-items:center; gap:8px; right:auto; max-width:calc(100% - 28px); text-transform:none; letter-spacing:.01em; }
+.now i{ flex:none; width:8px; height:8px; border-radius:50%; background:#3FD0E0; box-shadow:0 0 0 0 rgba(63,208,224,.7); animation:nowpulse 1.8s infinite; }
+@keyframes nowpulse{ 70%{ box-shadow:0 0 0 8px rgba(63,208,224,0); } 100%{ box-shadow:0 0 0 0 rgba(63,208,224,0); } }
+.now b{ font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#3FD0E0; }
+#nowTxt{ display:inline-block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; transition:opacity .35s, transform .35s var(--ease); }
+#nowTxt.out{ opacity:0; transform:translateY(6px); }
 </style>
 </head>
 <body>
@@ -1854,12 +1884,12 @@ html:has(.lb[open]){ overflow:hidden; }
       </div>
     </div>
 
-    <figure class="hero-photo">
+    <figure class="hero-photo" data-tilt>
       <div class="frame">
         <img src="/images/naim-bin-hasan-portrait-800.webp" srcset="/images/naim-bin-hasan-portrait-480.webp 480w, /images/naim-bin-hasan-portrait-800.webp 768w" sizes="(max-width:700px) 240px, (max-width:1000px) 260px, 420px" width="768" height="960" fetchpriority="high" decoding="async"
              alt="Naim Bin Hasan, PhD researcher at Syracuse University, presenting his research on AI and digital labor">
       </div>
-      <figcaption>Presenting my research</figcaption>
+      <figcaption class="now" aria-live="polite"><i aria-hidden="true"></i><b>Now</b><span id="nowTxt">analyzing 7,000 AI-tutor chats</span></figcaption>
     </figure>
   </div>
 </section>
@@ -2429,6 +2459,7 @@ html:has(.lb[open]){ overflow:hidden; }
 
 </div><!-- /shell -->
 
+<script src="/js/lenis.min.js"></script>
 <script>
 (function(){
   "use strict";
@@ -2472,6 +2503,54 @@ html:has(.lb[open]){ overflow:hidden; }
   /* ---------- 1. headline in, as soon as the DOM is ready ---------- */
   function heroIn(){ $$('[data-line]').forEach(function(el){ el.classList.add('up'); }); }
   requestAnimationFrame(heroIn); setTimeout(heroIn, 250);
+
+
+  /* ---------- smooth scrolling (mouse & trackpad only; touch keeps native scrolling) ---------- */
+  var lenis = null;
+  if(!reduce && window.Lenis && matchMedia('(pointer: fine)').matches){
+    lenis = new Lenis({ duration: 1.05, easing: function(t){ return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }, smoothWheel: true, wheelMultiplier: 1 });
+    (function raf(t){ lenis.raf(t); requestAnimationFrame(raf); })(performance.now());
+    document.addEventListener('click', function(e){
+      var a = e.target.closest('a[href^="#"]'); if(!a) return;
+      var id = a.getAttribute('href'); if(id.length < 2) return;
+      var el = document.querySelector(id); if(!el) return;
+      e.preventDefault();
+      lenis.scrollTo(el, { offset: -84 });
+      history.replaceState(null, '', id);
+    });
+    window.__lenis = lenis;
+  }
+
+  /* ---------- hero photo: 3D tilt toward the cursor ---------- */
+  if(!reduce && matchMedia('(pointer: fine)').matches){
+    document.querySelectorAll('[data-tilt]').forEach(function(card){
+      var raf = null;
+      card.addEventListener('pointermove', function(e){
+        var r = card.getBoundingClientRect(), px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+        if(raf) return;
+        raf = requestAnimationFrame(function(){
+          card.style.setProperty('--ry', ((px - .5) * 14).toFixed(2) + 'deg');
+          card.style.setProperty('--rx', ((.5 - py) * 12).toFixed(2) + 'deg');
+          card.style.setProperty('--gx', (px * 100).toFixed(1) + '%');
+          card.style.setProperty('--gy', (py * 100).toFixed(1) + '%');
+          raf = null;
+        });
+      });
+      card.addEventListener('pointerleave', function(){
+        card.style.setProperty('--rx', '0deg'); card.style.setProperty('--ry', '0deg');
+      });
+    });
+  }
+
+  /* ---------- hero photo: rotating "Now" ticker ---------- */
+  (function(){
+    var el = document.getElementById('nowTxt'); if(!el || reduce) return;
+    var lines = ['analyzing 7,000 AI-tutor chats', "building tools for LIGO's Gravity Spy", 'studying AI & the future of work', 'writing code at Syracuse iSchool'], i = 0;
+    setInterval(function(){
+      el.classList.add('out');
+      setTimeout(function(){ i = (i + 1) % lines.length; el.textContent = lines[i]; el.classList.remove('out'); }, 350);
+    }, 3200);
+  })();
 
   /* ---------- 1b. mobile menu ---------- */
   var menuBtn = $('#menuBtn');
@@ -2587,9 +2666,10 @@ html:has(.lb[open]){ overflow:hidden; }
     $('a', it).addEventListener('click', function(e){
       if(!lb.showModal) return;
       e.preventDefault();
-      show(visible().indexOf(it), 0); lb.showModal();
+      show(visible().indexOf(it), 0); lb.showModal(); if(lenis) lenis.stop();
     });
   });
+  lb.addEventListener('close', function(){ if(lenis) lenis.start(); });
   $('#lbX').addEventListener('click', function(){ lb.close(); });
   $('#lbP').addEventListener('click', function(){ show(cur - 1, -1); });
   $('#lbNx').addEventListener('click', function(){ show(cur + 1, 1); });
