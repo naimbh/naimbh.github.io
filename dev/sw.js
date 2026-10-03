@@ -1,5 +1,5 @@
 /* dev.naimbh.com service worker — fast repeat visits + offline support */
-const VERSION = 'naimbh-dev-v1';
+const VERSION = 'naimbh-dev-v2';
 const SHELL = [
   '/', '/offline.html', '/site.webmanifest',
   '/favicon.svg', '/favicon.ico', '/icon-192.png', '/icon-512.png', '/logo.svg', '/js/lenis.min.js',

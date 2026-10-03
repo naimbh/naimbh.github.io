@@ -86,4 +86,119 @@
       <image:caption>Illustration of ZeroEWaste — E-Waste Pickup Requests, built by Naim Bin Hasan</image:caption>
     </image:image>
   </url>
+  <!-- section pages: tools/build_pages.py -->
+  <url>
+    <loc>https://dev.naimbh.com/experience/</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dev.naimbh.com/services/</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dev.naimbh.com/portfolio/</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://dev.naimbh.com/images/projects/naim-bin-hasan-dohps-nonprofit-cms.svg</image:loc>
+      <image:title>Illustration of DOHPS — Nonprofit Website &amp; CMS</image:title>
+      <image:caption>Illustration of DOHPS — Nonprofit Website &amp; CMS, built by Naim Bin Hasan</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dev.naimbh.com/images/projects/naim-bin-hasan-journal-publishing-platform.svg</image:loc>
+      <image:title>Illustration of Scholarly Journal Platform</image:title>
+      <image:caption>Illustration of Scholarly Journal Platform, built by Naim Bin Hasan</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dev.naimbh.com/images/projects/naim-bin-hasan-edukit-college-counseling-saas.svg</image:loc>
+      <image:title>Illustration of EduKit — College Counseling Tool</image:title>
+      <image:caption>Illustration of EduKit — College Counseling Tool, built by Naim Bin Hasan</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dev.naimbh.com/images/projects/naim-bin-hasan-ezorders-online-ordering-system.svg</image:loc>
+      <image:title>Illustration of Ezorders — Restaurant &amp; Catering Ordering</image:title>
+      <image:caption>Illustration of Ezorders — Restaurant &amp; Catering Ordering, built by Naim Bin Hasan</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dev.naimbh.com/images/projects/naim-bin-hasan-reopen-chat-realtime-rooms.svg</image:loc>
+      <image:title>Illustration of reopen.chat — Live Chat Rooms</image:title>
+      <image:caption>Illustration of reopen.chat — Live Chat Rooms, built by Naim Bin Hasan</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dev.naimbh.com/images/projects/naim-bin-hasan-renewal-salesforce-contract-manager.svg</image:loc>
+      <image:title>Illustration of Renewal — Salesforce Contract Manager</image:title>
+      <image:caption>Illustration of Renewal — Salesforce Contract Manager, built by Naim Bin Hasan</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dev.naimbh.com/images/projects/naim-bin-hasan-spitalis-professional-marketplace.svg</image:loc>
+      <image:title>Illustration of Spitalis — Professional Marketplace</image:title>
+      <image:caption>Illustration of Spitalis — Professional Marketplace, built by Naim Bin Hasan</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dev.naimbh.com/images/projects/naim-bin-hasan-law-firm-trilingual-cms.svg</image:loc>
+      <image:title>Illustration of Law Firm Website — Syed Haider Ali &amp; Associates</image:title>
+      <image:caption>Illustration of Law Firm Website — Syed Haider Ali &amp; Associates, built by Naim Bin Hasan</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dev.naimbh.com/images/projects/naim-bin-hasan-student-association-website.svg</image:loc>
+      <image:title>Illustration of Bangladeshi Students Association — FAU</image:title>
+      <image:caption>Illustration of Bangladeshi Students Association — FAU, built by Naim Bin Hasan</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dev.naimbh.com/images/projects/naim-bin-hasan-creator-subscription-platform.svg</image:loc>
+      <image:title>Illustration of AllAdmirers — Creator Subscription Platform</image:title>
+      <image:caption>Illustration of AllAdmirers — Creator Subscription Platform, built by Naim Bin Hasan</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dev.naimbh.com/images/projects/naim-bin-hasan-whatsapp-chat-calling-spa.svg</image:loc>
+      <image:title>Illustration of WhatsApp Chat API &amp; Browser Calling SPA</image:title>
+      <image:caption>Illustration of WhatsApp Chat API &amp; Browser Calling SPA, built by Naim Bin Hasan</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dev.naimbh.com/images/projects/naim-bin-hasan-weatherfit-react-weather-app.svg</image:loc>
+      <image:title>Illustration of WeatherFit — What to Wear</image:title>
+      <image:caption>Illustration of WeatherFit — What to Wear, Hour by Hour, built by Naim Bin Hasan</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://dev.naimbh.com/images/projects/naim-bin-hasan-zeroewaste-pickup-requests.svg</image:loc>
+      <image:title>Illustration of ZeroEWaste — E-Waste Pickup Requests</image:title>
+      <image:caption>Illustration of ZeroEWaste — E-Waste Pickup Requests, built by Naim Bin Hasan</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://dev.naimbh.com/reviews/</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dev.naimbh.com/stack/</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dev.naimbh.com/process/</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dev.naimbh.com/faq/</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dev.naimbh.com/contact/</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- /section pages -->
 </urlset>
