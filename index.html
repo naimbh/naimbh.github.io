@@ -1804,6 +1804,22 @@ html.lenis, html.lenis body{ height:auto; }
 .now b{ font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#3FD0E0; }
 #nowTxt{ display:inline-block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; transition:opacity .35s, transform .35s var(--ease); }
 #nowTxt.out{ opacity:0; transform:translateY(6px); }
+.hero-photo::before{ display:none !important; }
+.deck{ position:absolute; inset:0; z-index:-1; pointer-events:none; }
+.dk{ position:absolute; inset:0; border-radius:28px; overflow:hidden; border:1px solid var(--line); background:var(--surface);
+  box-shadow:0 24px 50px -24px rgba(0,0,0,.7); transition:transform .8s var(--snap); }
+.dk img{ width:100%; height:100%; object-fit:cover; opacity:0; filter:saturate(.9) brightness(.92); transition:opacity .5s; }
+.dk img.ok{ opacity:1; }
+.dk1{ transform:translate(-30px,14px) rotate(-8deg); }
+.dk2{ transform:translate(30px,22px) rotate(8deg); }
+.hero-photo:hover .dk1{ transform:translate(-48px,8px) rotate(-13deg); }
+.hero-photo:hover .dk2{ transform:translate(50px,22px) rotate(13deg); }
+.dk1.drop{ animation:dkdrop .75s var(--snap); }
+@keyframes dkdrop{ from{ transform:translate(0,0) rotate(0) scale(1.02); } }
+#heroImg.swap{ animation:heroin .7s var(--ease); }
+@keyframes heroin{ from{ opacity:0; transform:scale(1.08); filter:blur(6px); } }
+@media(max-width:700px){ .dk{ border-radius:18px; } .dk1{ transform:translate(-10px,6px) rotate(-6deg); } .dk2{ transform:translate(6px,9px) rotate(5deg); } .hero-photo figcaption.now{ display:none; } .hero{ overflow-x:clip; } }
+@media (prefers-reduced-motion: reduce){ .dk1.drop, #heroImg.swap{ animation:none; } }
 </style>
 </head>
 <body>
@@ -1885,8 +1901,9 @@ html.lenis, html.lenis body{ height:auto; }
     </div>
 
     <figure class="hero-photo" data-tilt>
+      <div class="deck" aria-hidden="true"><div class="dk dk2"><img alt="" decoding="async"></div><div class="dk dk1"><img alt="" decoding="async"></div></div>
       <div class="frame">
-        <img src="/images/naim-bin-hasan-portrait-800.webp" srcset="/images/naim-bin-hasan-portrait-480.webp 480w, /images/naim-bin-hasan-portrait-800.webp 768w" sizes="(max-width:700px) 240px, (max-width:1000px) 260px, 420px" width="768" height="960" fetchpriority="high" decoding="async"
+        <img id="heroImg" src="/images/naim-bin-hasan-portrait-800.webp" srcset="/images/naim-bin-hasan-portrait-480.webp 480w, /images/naim-bin-hasan-portrait-800.webp 768w" sizes="(max-width:700px) 240px, (max-width:1000px) 260px, 420px" width="768" height="960" fetchpriority="high" decoding="async"
              alt="Naim Bin Hasan, PhD researcher at Syracuse University, presenting his research on AI and digital labor">
       </div>
       <figcaption class="now" aria-live="polite"><i aria-hidden="true"></i><b>Now</b><span id="nowTxt">analyzing 7,000 AI-tutor chats</span></figcaption>
@@ -2541,6 +2558,34 @@ html.lenis, html.lenis body{ height:auto; }
       });
     });
   }
+
+  /* ---------- hero photo stack: rotate every 3s, previous photos fall onto the deck ---------- */
+  (function(){
+    var front = document.getElementById('heroImg'); if(!front) return;
+    var fig = front.closest('.hero-photo'), d1 = $('.dk1', fig), d2 = $('.dk2', fig), i1 = $('img', d1), i2 = $('img', d2);
+    var P = [{"s": "/images/naim-bin-hasan-portrait-480.webp", "l": "/images/naim-bin-hasan-portrait-800.webp", "a": "Naim Bin Hasan, PhD researcher at Syracuse University, presenting his research on AI and digital labor"}, {"s": "/images/gallery/naim-bin-hasan-syracuse-university-school-of-information-studies-640.webp", "l": "/images/gallery/naim-bin-hasan-syracuse-university-school-of-information-studies-960.webp", "a": "Naim Bin Hasan at the Syracuse University School of Information Studies (iSchool), where he is a PhD researcher in Information Science and Technology."}, {"s": "/images/gallery/naim-bin-hasan-syracuse-university-campus-hall-of-languages-640.webp", "l": "/images/gallery/naim-bin-hasan-syracuse-university-campus-hall-of-languages-960.webp", "a": "Naim Bin Hasan on the Syracuse University campus, with the Hall of Languages in the background."}, {"s": "/images/gallery/naim-bin-hasan-fau-sociology-graduate-student-achievement-award-640.webp", "l": "/images/gallery/naim-bin-hasan-fau-sociology-graduate-student-achievement-award-960.webp", "a": "Naim Bin Hasan receiving the Florida Atlantic University Sociology Graduate Student Achievement Award, April 2026."}, {"s": "/images/gallery/naim-bin-hasan-fau-graduation-portrait-boca-raton-640.webp", "l": "/images/gallery/naim-bin-hasan-fau-graduation-portrait-boca-raton-960.webp", "a": "Graduation portrait of Naim Bin Hasan on the Florida Atlantic University campus in Boca Raton, Florida."}, {"s": "/images/gallery/naim-bin-hasan-rice-university-phd-visit-640.webp", "l": "/images/gallery/naim-bin-hasan-rice-university-phd-visit-960.webp", "a": "Naim Bin Hasan dressed for PhD visit day at Rice University."}, {"s": "/images/gallery/naim-bin-hasan-department-of-sociology-university-of-dhaka-640.webp", "l": "/images/gallery/naim-bin-hasan-department-of-sociology-university-of-dhaka-960.webp", "a": "Naim Bin Hasan at the Department of Sociology, University of Dhaka, where he earned his BSS and MSS."}, {"s": "/images/gallery/naim-bin-hasan-sociology-mural-university-of-dhaka-640.webp", "l": "/images/gallery/naim-bin-hasan-sociology-mural-university-of-dhaka-960.webp", "a": "Naim Bin Hasan in front of the sociology mural at the University of Dhaka."}, {"s": "/images/gallery/naim-bin-hasan-curzon-hall-university-of-dhaka-640.webp", "l": "/images/gallery/naim-bin-hasan-curzon-hall-university-of-dhaka-960.webp", "a": "Naim Bin Hasan with his motorbike in front of Curzon Hall, University of Dhaka."}, {"s": "/images/gallery/naim-bin-hasan-intellectual-resistance-conference-2026-640.webp", "l": "/images/gallery/naim-bin-hasan-intellectual-resistance-conference-2026-960.webp", "a": "Naim Bin Hasan at the 4th Intellectual Resistance Conference, 2026."}, {"s": "/images/gallery/naim-bin-hasan-florida-nature-trail-640.webp", "l": "/images/gallery/naim-bin-hasan-florida-nature-trail-960.webp", "a": "Naim Bin Hasan on a nature trail in Florida."}, {"s": "/images/gallery/naim-bin-hasan-tea-garden-bangladesh-640.webp", "l": "/images/gallery/naim-bin-hasan-tea-garden-bangladesh-960.webp", "a": "Naim Bin Hasan in a tea garden forest in Bangladesh."}];
+    var big = matchMedia('(min-width: 701px)').matches, i = 0, hover = false;
+    function url(p){ return big ? p.l : p.s; }
+    function set(img, src){ img.classList.remove('ok'); img.onload = function(){ img.classList.add('ok'); }; img.src = src; if(img.complete && img.naturalWidth) img.classList.add('ok'); }
+    function preload(p){ var im = new Image(); im.src = url(p); return im; }
+    // fill the deck once the page has loaded so it never competes with the first paint
+    window.addEventListener('load', function(){ set(i1, url(P[P.length - 1])); set(i2, url(P[P.length - 2])); preload(P[1]); });
+    if(reduce) return;
+    fig.addEventListener('pointerenter', function(){ hover = true; });
+    fig.addEventListener('pointerleave', function(){ hover = false; });
+    setInterval(function(){
+      if(hover || document.hidden) return;
+      var next = (i + 1) % P.length, nx = P[next], pre = preload(nx);
+      function swap(){
+        set(i2, i1.src || url(P[i])); set(i1, front.currentSrc || front.src);
+        d1.classList.remove('drop'); void d1.offsetWidth; d1.classList.add('drop');
+        front.removeAttribute('srcset'); front.src = url(nx); front.alt = nx.a;
+        front.classList.remove('swap'); void front.offsetWidth; front.classList.add('swap');
+        i = next; preload(P[(i + 1) % P.length]);
+      }
+      if(pre.complete) swap(); else { pre.onload = swap; pre.onerror = function(){}; }
+    }, 3000);
+  })();
 
   /* ---------- hero photo: rotating "Now" ticker ---------- */
   (function(){
