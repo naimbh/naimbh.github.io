@@ -135,6 +135,5 @@ A link back to [naimbh.com](https://naimbh.com) is appreciated but not required.
 ## Contact
 
 **Naim Bin Hasan**, PhD Researcher, School of Information Studies (iSchool), Syracuse University
-337 Hinds Hall, Syracuse, NY 13244 · [nhasan01@syr.edu](mailto:nhasan01@syr.edu)
-Freelance work: [dev.naimbh.com](https://dev.naimbh.com) · [contact@naimbh.com](mailto:contact@naimbh.com)
+Academic: [naimbh.com](https://naimbh.com/contact/) · Freelance work: [dev.naimbh.com](https://dev.naimbh.com/contact/)
 [LinkedIn](https://www.linkedin.com/in/naimbh) · [GitHub](https://github.com/naimbh)
