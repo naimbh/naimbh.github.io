@@ -171,7 +171,10 @@
         "Laravel",
         "Vue.js",
         "Vibe coding",
-        "AI-assisted software development"
+        "AI-assisted software development",
+        "R",
+        "Python",
+        "Trace data analysis"
       ],
       "knowsLanguage": [
         "English",
@@ -1378,32 +1381,40 @@ h1 .ln:last-child > span{
   font-family:var(--mono); font-size:12.5px; letter-spacing:.03em; padding:7px 11px; border-radius:8px;
   color:var(--txt-2); background:var(--chipbg); border:1px solid var(--line-2);
 }
-.more-link{ display:inline-flex; margin-top:26px; }
+.more-link{ display:inline-flex; margin-top:22px; }
+.pjgrid{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+@media(max-width:1100px){ .pjgrid{ grid-template-columns:repeat(2,1fr); } }
+@media(max-width:560px){ .pjgrid{ grid-template-columns:1fr; gap:10px; } }
+.pj{ border-radius:16px; overflow:hidden; border:1px solid var(--line-2); background:linear-gradient(160deg,var(--surface),var(--surface-2)); transition:transform .3s var(--snap), border-color .25s, box-shadow .3s; }
+.pj:hover{ transform:translateY(-4px); border-color:color-mix(in srgb,var(--c) 45%,transparent); box-shadow:var(--shadow); }
+.pj img{ width:100%; aspect-ratio:16/9; object-fit:cover; border-bottom:1px solid var(--line-2); }
+.pj > div{ padding:12px 14px 14px; }
+.pj h3{ font-family:var(--display); font-weight:700; font-size:16.5px; letter-spacing:-.02em; line-height:1.25; margin:0 0 4px; }
+.pj p{ font-size:14.5px; line-height:1.45; color:var(--txt-2); margin:0; }
+.pj-live{ display:inline-block; margin-top:6px; font-family:var(--mono); font-size:12px; color:var(--c); text-decoration:none; border-bottom:1px solid color-mix(in srgb,var(--c) 40%,transparent); }
+@media(max-width:560px){ .pj{ display:grid; grid-template-columns:120px 1fr; } .pj img{ height:100%; aspect-ratio:auto; border-bottom:0; border-right:1px solid var(--line-2); } .pj > div{ padding:10px 12px; } .pj h3{ font-size:15px; } .pj p{ font-size:13.5px; } }
 
 /* ============================================================ RESEARCH AGENDA */
-.agenda{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+.agenda{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
 @media(max-width:860px){ .agenda{grid-template-columns:1fr} }
 .pillar{
-  position:relative; overflow:hidden; border-radius:20px; padding:30px 28px 26px 34px;
+  position:relative; overflow:hidden; border-radius:18px; padding:20px 22px 20px 28px;
   border:1px solid var(--line-2); background:linear-gradient(165deg,var(--panel-a),var(--panel-b));
   transition:border-color .3s, transform .35s var(--snap), box-shadow .3s;
 }
 .pillar::after{ content:''; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--c); }
 .pillar:hover{ border-color:color-mix(in srgb,var(--c) 40%,transparent); transform:translateY(-4px); box-shadow:var(--shadow); }
-.pillar .num{ display:block; font-family:var(--mono); font-size:12.5px; letter-spacing:.13em; text-transform:uppercase; color:var(--c); margin-bottom:12px; }
-.pillar h3{ font-family:var(--display); font-weight:700; font-variation-settings:'wdth' 92; font-size:clamp(22px,2.4vw,28px); letter-spacing:-.03em; line-height:1.14; margin:0 0 12px; }
-.pillar p{ color:var(--txt-2); font-size:17px; margin:0 0 16px; }
-.pillar .why{ border-top:1px solid var(--line-2); padding-top:14px; }
-.pillar .why b{ display:block; font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--txt-3); font-weight:500; margin-bottom:7px; }
-.pillar .why span{ font-size:16px; color:var(--txt-2); line-height:1.55; }
+.pillar .num{ display:block; font-family:var(--mono); font-size:11.5px; letter-spacing:.13em; text-transform:uppercase; color:var(--c); margin-bottom:8px; }
+.pillar h3{ font-family:var(--display); font-weight:700; font-variation-settings:'wdth' 92; font-size:clamp(20px,2vw,24px); letter-spacing:-.03em; line-height:1.14; margin:0 0 8px; }
+.pillar p{ color:var(--txt-2); font-size:16px; line-height:1.55; margin:0; }
 
 /* ============================================================ WRITING */
 .paper{
-  display:grid; grid-template-columns:118px 1fr auto; gap:26px; align-items:baseline;
-  padding:24px 0; border-top:1px solid var(--line-2); text-decoration:none;
+  display:grid; grid-template-columns:92px 1fr auto; gap:18px; align-items:baseline;
+  padding:14px 0; border-top:1px solid var(--line-2); text-decoration:none;
   transition:background .3s, padding-inline .3s var(--snap);
 }
-.paper:hover{ background:linear-gradient(90deg,color-mix(in srgb,var(--c) 12%,transparent),transparent 70%); padding-inline:16px; }
+.paper:hover{ background:linear-gradient(90deg,color-mix(in srgb,var(--c) 10%,transparent),transparent 70%); padding-inline:12px; }
 .paper h3 a{
   text-decoration:none; background-image:linear-gradient(var(--c),var(--c));
   background-repeat:no-repeat; background-position:0 100%; background-size:0% 1px;
@@ -1411,24 +1422,23 @@ h1 .ln:last-child > span{
 }
 .paper:hover h3 a{ background-size:100% 1px; }
 .cite{
-  display:inline-flex; align-items:center; gap:7px; margin-top:8px; padding:10px 0; min-height:40px;
-  font-family:var(--mono); font-size:12.5px; letter-spacing:.1em; text-transform:uppercase;
+  display:inline-flex; align-items:center; margin-left:10px; padding:2px 0; vertical-align:baseline;
+  font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
   color:var(--txt-3); background:none; border:0; cursor:pointer; transition:color .2s;
 }
 .cite:hover{ color:var(--c); }
 .cite.done{ color:var(--eng); }
-.paper .yr{ font-family:var(--mono); font-size:13.5px; letter-spacing:.07em; color:var(--txt-3); }
+.paper .yr{ font-family:var(--mono); font-size:12.5px; letter-spacing:.06em; color:var(--txt-3); }
 .paper h3{
-  font-family:var(--serif); font-weight:500; font-size:clamp(19px,2.2vw,26px);
-  line-height:1.32; letter-spacing:-.01em; margin:0 0 8px; max-width:54ch;
+  font-family:var(--serif); font-weight:500; font-size:clamp(17px,1.8vw,21px);
+  line-height:1.3; letter-spacing:-.01em; margin:0 0 4px; max-width:62ch;
 }
-.paper .venue{ font-family:var(--mono); font-size:13.5px; color:var(--txt-2); letter-spacing:.03em; }
-.paper .venue em{ font-family:var(--serif); font-style:italic; font-size:17px; color:var(--txt-2); }
-.intext{ font-family:var(--mono); font-size:.82em; letter-spacing:.02em; color:var(--txt-3); white-space:nowrap; }
-.paper .doi{ font-family:var(--mono); font-size:13px; color:var(--c); }
+.paper .venue{ font-family:var(--mono); font-size:12.5px; color:var(--txt-2); letter-spacing:.02em; }
+.paper .venue em{ font-family:var(--serif); font-style:italic; font-size:15px; color:var(--txt-2); }
+.paper .doi{ font-family:var(--mono); font-size:12px; color:var(--c); }
 .pill{
-  font-family:var(--mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase;
-  padding:7px 12px; border-radius:99px; white-space:nowrap;
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.09em; text-transform:uppercase;
+  padding:4px 10px; border-radius:99px; white-space:nowrap;
   border:1px solid color-mix(in srgb,var(--c) 50%,transparent);
   color:var(--c); background:color-mix(in srgb,var(--c) 12%,transparent);
 }
@@ -1457,6 +1467,9 @@ h1 .ln:last-child > span{
   border:1px solid var(--line-2); background:var(--chipbg); color:var(--txt-2);
   transition:transform .25s var(--snap), border-color .2s, color .2s, background .2s;
 }
+.panel h4{ display:flex; align-items:center; gap:8px; }
+.panel h4::before{ content:''; width:8px; height:8px; border-radius:2px; background:var(--c); }
+.panel .tags span{ color:color-mix(in srgb,var(--c) 80%,var(--txt)); border-color:color-mix(in srgb,var(--c) 38%,transparent); background:color-mix(in srgb,var(--c) 10%,transparent); }
 .tags span:hover{ transform:translateY(-2px); border-color:color-mix(in srgb,var(--c) 55%,transparent); color:var(--c); background:color-mix(in srgb,var(--c) 10%,transparent); }
 
 /* ============================================================ EDUCATION */
@@ -1664,10 +1677,6 @@ html:has(.lb[open]){ overflow:hidden; }
   .pillar .num{ margin-bottom:8px; font-size:11.5px; }
   .pillar h3, .card h3{ font-size:20px; margin-bottom:8px; }
   .pillar p, .card p{ font-size:15.5px; line-height:1.55; }
-  .pillar p{ margin-bottom:12px; }
-  .pillar .why{ padding-top:10px; }
-  .pillar .why b{ font-size:11px; margin-bottom:4px; }
-  .pillar .why span{ font-size:14.5px; }
   .card{ padding:18px 16px 16px; border-radius:16px; }
   .card .idx{ margin-bottom:10px; font-size:11.5px; }
   .card p{ margin-bottom:14px; }
@@ -1679,13 +1688,11 @@ html:has(.lb[open]){ overflow:hidden; }
   .codebook{ position:static; padding:8px; gap:6px; margin-bottom:18px; }
   .codebook .cb-lbl{ display:none; }
   .chip{ font-size:11px; padding:5px 10px; min-height:32px; }
-  .paper{ padding:16px 0; gap:8px 12px; }
+  .paper{ padding:12px 0; gap:6px 12px; }
   .paper:hover{ padding-inline:0; }
-  .paper h3{ font-size:18px; margin-bottom:4px; }
-  .paper .venue{ font-size:12.5px; }
-  .paper .venue em{ font-size:15px; }
-  .pill{ font-size:11px; padding:5px 10px; }
-  .cite{ min-height:34px; padding:6px 0; margin-top:4px; font-size:11.5px; }
+  .paper h3{ font-size:17px; }
+  .paper .venue{ font-size:11.5px; }
+  .cite{ display:inline-flex; margin:4px 0 0; min-height:28px; }
   .certs{ gap:6px; margin-top:14px; }
   .certs span, .certs a{ border-radius:12px; width:100%; font-size:12px; padding:8px 12px; }
   .side-h{ font-size:21px; margin-bottom:12px; }
@@ -1704,6 +1711,7 @@ html:has(.lb[open]){ overflow:hidden; }
   .menu{ width:40px; height:40px; } .menu span{ left:11px; right:11px; } .menu span:nth-child(1){ top:15px; } .menu span:nth-child(2){ top:23px; } .nav.open .menu span:nth-child(1), .nav.open .menu span:nth-child(2){ top:19px; }
   .tt{ width:52px; } [data-theme="light"] .tt .knob{ transform:translateX(22px); }
 }
+@media(max-width:360px){ .brand .sig{ display:none; } .hire{ padding:8px 11px; font-size:11px; letter-spacing:.03em; } .nav{ gap:6px; } }
 @media(max-width:340px){ .hire .arw{ display:none; } .brand b{ font-size:16px; } }
 
 @media (prefers-reduced-motion: reduce){
@@ -1711,6 +1719,42 @@ html:has(.lb[open]){ overflow:hidden; }
   *,*::before,*::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
   .js .reveal{ opacity:1; transform:none; }
   .js h1 .ln > span{ transform:none; }
+}
+
+/* ---------- desktop: slightly larger reading sizes ---------- */
+@media(min-width:1101px){
+  body{ font-size:19px; }
+  .sec-note{ font-size:19.5px; }
+  .eyebrow{ font-size:13.5px; }
+  .lede{ font-size:clamp(24px,2.5vw,32px); }
+  .hero-bio{ font-size:20px; }
+  .interests li{ font-size:13.5px; }
+  .pillar p{ font-size:17.5px; }
+  .pillar h3{ font-size:clamp(22px,2.1vw,26px); }
+  .degree .deg{ font-size:clamp(23px,2.4vw,29px); }
+  .degree .uni{ font-size:21px; }
+  .degree .meta li, .chain .meta li{ font-size:13px; }
+  .degree .facts dt{ font-size:12px; }
+  .degree .facts dd, .chain .pts{ font-size:17.5px; }
+  .org-hd .uni{ font-size:24px; }
+  .org-hd .yrs{ font-size:13.5px; }
+  .chain .deg{ font-size:clamp(20px,1.9vw,23px); }
+  .paper h3{ font-size:clamp(19px,1.8vw,23px); }
+  .paper .venue{ font-size:13.5px; }
+  .paper .venue em{ font-size:16.5px; }
+  .paper .yr{ font-size:13.5px; }
+  .cite{ font-size:12px; }
+  .pj h3{ font-size:18px; }
+  .pj p{ font-size:15.5px; }
+  .panel h4{ font-size:13px; }
+  .tags span{ font-size:14px; }
+  .awards li p{ font-size:19px; }
+  .awards li small{ font-size:13.5px; }
+  .awards li .why-line{ font-size:16px; }
+  .members span{ font-size:17px; }
+  .certs span, .certs a{ font-size:13.5px; }
+  .chip{ font-size:12.5px; }
+  .navlinks a{ font-size:13.5px; }
 }
 </style>
 </head>
@@ -1728,10 +1772,10 @@ html:has(.lb[open]){ overflow:hidden; }
   </a>
   <div class="navlinks" id="navlinks">
     <a href="#research">Research</a>
+    <a href="#education">Education</a>
     <a href="#writing">Writing</a>
     <a href="#work">Work</a>
     <a href="#projects">Projects</a>
-    <a href="#education">Education</a>
     <a href="#gallery">Gallery</a>
     <a href="#contact">Contact</a>
   </div>
@@ -1748,11 +1792,11 @@ html:has(.lb[open]){ overflow:hidden; }
 <div class="rail" id="rail" aria-hidden="true">
   <a href="#top" data-sec="top" tabindex="-1"><span class="dot"></span><span class="lbl">Top</span></a>
   <a href="#research" data-sec="research" tabindex="-1"><span class="dot"></span><span class="lbl">Research</span></a>
+  <a href="#education" data-sec="education" tabindex="-1"><span class="dot"></span><span class="lbl">Education</span></a>
   <a href="#writing" data-sec="writing" tabindex="-1"><span class="dot"></span><span class="lbl">Writing</span></a>
   <a href="#work" data-sec="work" tabindex="-1"><span class="dot"></span><span class="lbl">Work</span></a>
   <a href="#projects" data-sec="projects" tabindex="-1"><span class="dot"></span><span class="lbl">Projects</span></a>
   <a href="#toolkit" data-sec="toolkit" tabindex="-1"><span class="dot"></span><span class="lbl">Toolkit</span></a>
-  <a href="#education" data-sec="education" tabindex="-1"><span class="dot"></span><span class="lbl">Education</span></a>
   <a href="#gallery" data-sec="gallery" tabindex="-1"><span class="dot"></span><span class="lbl">Gallery</span></a>
   <a href="#contact" data-sec="contact" tabindex="-1"><span class="dot"></span><span class="lbl">Contact</span></a>
 </div>
@@ -1811,30 +1855,103 @@ html:has(.lb[open]){ overflow:hidden; }
       <article class="pillar reveal" style="--c:var(--eng)">
         <span class="num">01 · Interest</span>
         <h3>AI and the future of work</h3>
-        <p>How automation, generative AI and algorithmic management reshape jobs, skills, authority and inequality — starting with the workers who feel it first. Published in <em>Sociology Lens</em>, with a second study at revise-and-resubmit.</p>
-        <div class="why"><b>Why it matters</b><span>Employers are adopting AI faster than anyone is measuring what it does to the people working alongside it. Evidence has to arrive before the policy does.</span></div>
+        <p>How automation, generative AI and algorithmic management reshape jobs, skills and inequality — starting with the workers who feel it first. Published in <em>Sociology Lens</em>, with a second study at revise-and-resubmit.</p>
       </article>
 
       <article class="pillar reveal" style="--c:var(--rsch);--d:.06s">
         <span class="num">02 · Interest</span>
         <h3>Human–computer interaction</h3>
-        <p>How students and workers actually use AI agents and tools. In my research practicum with the AI Programming Research Group, I analyze thousands of student conversations with an AI tutor chatbot to see which kinds of help-seeking support learning. I also design interactive web tools and AI-supported learning resources for Gravity Spy, the citizen-science project behind LIGO.</p>
-        <div class="why"><b>Why it matters</b><span>Good design decides whether AI helps people or quietly pushes them out. HCI turns that question into something we can test and build.</span></div>
+        <p>How students and workers actually use AI agents and tools. I analyze thousands of student conversations with an AI tutor chatbot (AI Programming Research Group) and build learning tools for Gravity Spy, the citizen-science project behind LIGO.</p>
       </article>
 
       <article class="pillar reveal" style="--c:var(--teach);--d:.12s">
         <span class="num">03 · Interest</span>
         <h3>Digital labor &amp; online freelancers</h3>
-        <p>Platform and gig work, and the ratings, deadlines and algorithms that manage it — with a focus on online freelancers. My master's thesis follows Bangladeshi freelancers selling into global markets on Upwork and Fiverr: 24 in-depth interviews paired with secondary quantitative data. I was one of them first, with 100+ client projects before the PhD.</p>
-        <div class="why"><b>Why it matters</b><span>Millions of people now earn a living online, beyond the reach of most employment law. How they adapt to AI will shape the future of work far beyond any one country.</span></div>
+        <p>Platform and gig work and the algorithms that manage it. My master's thesis follows Bangladeshi freelancers on Upwork and Fiverr through 24 in-depth interviews — work I did myself first, with 100+ client projects.</p>
       </article>
 
       <article class="pillar reveal" style="--c:var(--labor);--d:.18s">
         <span class="num">04 · Interest</span>
         <h3>ICT for development (ICT4D)</h3>
-        <p>How information systems, digital platforms and mobile internet open — or close — economic opportunity in the Global South. I study who gains access to global digital markets, which infrastructures and skills it takes, and how AI is reshaping that path for workers in countries like Bangladesh.</p>
-        <div class="why"><b>Why it matters</b><span>Governments and NGOs are betting on digital jobs as a development strategy. Information science can show which systems actually widen opportunity — and which deepen the divide.</span></div>
+        <p>How information systems, platforms and mobile internet open — or close — economic opportunity in the Global South, and how AI is reshaping that path for workers in countries like Bangladesh.</p>
       </article>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ==================== EDUCATION ==================== -->
+<section class="band" id="education">
+  <div class="wrap">
+    <p class="eyebrow reveal">The paper trail</p>
+    <h2 class="sec reveal" style="--d:.05s">Education, funding &amp; recognition</h2>
+
+    <div class="edu">
+      <div>
+        <div class="degree reveal">
+          <h3 class="deg">PhD, Information Science and Technology</h3>
+          <p class="uni"><span class="su">Syracuse University</span> <span class="sub">School of Information Studies</span></p>
+          <ul class="meta"><li>Fall 2026 — present</li><li>Syracuse, NY</li><li class="hi">Fully funded</li></ul>
+          <dl class="facts">
+            <div><dt>Funding</dt><dd>Graduate Research Assistantship, full support.</dd></div>
+            <div><dt>Working on</dt><dd>Gravity Spy — interactive web tools, AI-supported learning resources and trace-data analysis for the citizen scientists behind LIGO.</dd></div>
+          </dl>
+        </div>
+
+        <div class="degree reveal" style="--d:.06s">
+          <h3 class="deg">MA, Sociology</h3>
+          <p class="uni">Florida Atlantic University</p>
+          <ul class="meta"><li>Fall 2024 — Spring 2026</li><li>Boca Raton, FL</li><li class="hi">CGPA 3.92</li><li class="hi">Funded · GTA</li></ul>
+          <dl class="facts">
+            <div><dt>Thesis</dt><dd><a href="https://digitalcommons.fau.edu/etd_general/311" target="_blank" rel="noopener">Trading Precarities: How Bangladeshi Freelancers Leverage the Digital Economy Amid Local Insecurity and AI Disruption</a> — in-depth interviews with secondary quantitative analysis.</dd></div>
+            <div><dt>Committee</dt><dd>Dr. Carter M. Koppelman (chair), Dr. Phillip A. Hough, Dr. Lotus Seeley.</dd></div>
+            <div><dt>Funding</dt><dd>Graduate Teaching Assistantship, plus the AIBS Fellowship and the FAU Thesis &amp; Dissertation Scholarship.</dd></div>
+          </dl>
+        </div>
+
+        <div class="degree reveal" style="--d:.1s">
+          <h3 class="deg">Professional Certificate, Full Stack Software Development</h3>
+          <p class="uni">IBM <span class="sub">via Coursera</span></p>
+          <ul class="meta"><li>Completed May 2024</li><li>12 courses</li><li>Online</li><li class="lk"><a href="https://coursera.org/verify/professional-cert/5PAP4F43J5ZP" target="_blank" rel="noopener">Verify ↗</a></li></ul>
+          <dl class="facts">
+            <div><dt>Courses</dt><dd>Cloud Computing · Web Development (HTML, CSS, JavaScript) · Git &amp; GitHub · React · Node.js &amp; Express · Python for Data Science &amp; AI · AI Apps with Flask · Django &amp; SQL · Docker, Kubernetes &amp; OpenShift · Microservices &amp; Serverless · Capstone Project · Final Assessment</dd></div>
+          </dl>
+        </div>
+
+        <div class="degree reveal" style="--d:.12s">
+          <h3 class="deg">MSS &amp; BSS, Sociology</h3>
+          <p class="uni">University of Dhaka</p>
+          <ul class="meta"><li>2018 — 2024</li><li>Dhaka, Bangladesh</li></ul>
+          <dl class="facts">
+            <div><dt>Monograph</dt><dd>Playground Accessibility and Its Impacts on Youth: A Sociological Study in Dhaka City.</dd></div>
+          </dl>
+        </div>
+
+        <div class="certs reveal" style="--d:.16s">
+          <span>Quantitative Methods — University of Amsterdam</span>
+          <span>CITI: Social &amp; Behavioral Research Investigators (IRB)</span>
+          <span>FAU Workshop: Global Tech Industry Labor</span>
+        </div>
+      </div>
+
+      <div class="reveal" style="--d:.1s">
+        <h3 class="side-h">Awards &amp; fellowships</h3>
+        <ul class="awards">
+          <li><span class="amt">$28,000</span><p>Graduate Excellence Fellowship, Purdue University<small>2026 · PhD admission offer · declined for <span class="su">Syracuse</span></small></p></li>
+          <li><span class="amt">$500</span><p>Sociology Graduate Student Achievement Award, Florida Atlantic University<small>April 2026 · Department of Sociology</small><span class="why-line">Awarded to one final-year graduate student for extraordinary achievement.</span></p></li>
+          <li><span class="amt">$3,000</span><p>American Institute of Bangladesh Studies (AIBS) Fellowship<small>2025 · National competition · thesis fieldwork</small></p></li>
+          <li><span class="amt">$1,200</span><p>FAU Graduate Thesis &amp; Dissertation Scholarship<small>2025 · Master's thesis project</small></p></li>
+          <li><span class="amt">$1,000</span><p>Departmental Travel Grant, FAU<small>2025 · MSSA conference presentation</small></p></li>
+          <li><span class="amt hon">Honor</span><p>Govt. Honors Scholarship for conduct, grades and attendance<small>2023 · Undergraduate</small></p></li>
+          <li><span class="amt hon">Honor</span><p>Asian Youth Leader, Scholastic Foundation Nepal<small>2022</small></p></li>
+        </ul>
+
+        <h3 class="side-h" style="--c:var(--labor);margin-top:44px">Professional memberships</h3>
+        <div class="members">
+          <span>ASIS&amp;T</span><span>Mid-South Sociological Association</span><span>Dhaka University IT Society</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1852,7 +1969,7 @@ html:has(.lb[open]){ overflow:hidden; }
       <span class="yr">2026</span>
       <span>
         <h3><a href="https://digitalcommons.fau.edu/etd_general/311" target="_blank" rel="noopener">Trading Precarities: How Bangladeshi Freelancers Leverage the Digital Economy Amid Local Insecurity and AI Disruption</a></h3>
-        <span class="venue">Master's thesis, Florida Atlantic University · <span class="doi">FAU Digital Commons ↗</span> <span class="intext">(Hasan, 2026)</span></span><br>
+        <span class="venue">Master's thesis, Florida Atlantic University · <span class="doi">FAU Digital Commons ↗</span> <span class="intext">(Hasan, 2026)</span></span>
         <button class="cite" data-cite="Hasan, N. B. (2026). Trading precarities: How Bangladeshi freelancers leverage the digital economy amid local insecurity and AI disruption [Master's thesis, Florida Atlantic University]. FAU Digital Commons. https://digitalcommons.fau.edu/etd_general/311">Copy citation</button>
       </span>
       <span class="pill">Thesis</span>
@@ -1862,7 +1979,7 @@ html:has(.lb[open]){ overflow:hidden; }
       <span class="yr">2025</span>
       <span>
         <h3><a href="https://doi.org/10.1111/johs.70027" target="_blank" rel="noopener">AI Efficiency vs Human Empathy: A Paradox of AI and Human Agents in Service Support Interactions</a></h3>
-        <span class="venue"><em>Sociology Lens</em> (Wiley) · <span class="doi">10.1111/johs.70027 ↗</span> <span class="intext">(Hasan, 2025)</span></span><br>
+        <span class="venue"><em>Sociology Lens</em> (Wiley) · <span class="doi">10.1111/johs.70027 ↗</span> <span class="intext">(Hasan, 2025)</span></span>
         <button class="cite" data-cite="Hasan, N. B. (2025). AI efficiency vs human empathy: A paradox of AI and human agents in service support interactions. Sociology Lens. https://doi.org/10.1111/johs.70027">Copy citation</button>
       </span>
       <span class="pill">Peer-reviewed</span>
@@ -1942,8 +2059,8 @@ html:has(.lb[open]){ overflow:hidden; }
           </li>
           <li class="entry" data-codes="rsch" style="--n1:var(--rsch);--n2:var(--rsch)">
             <h3 class="deg">Research Assistant — Fulbright Global Scholar Project</h3>
-            <ul class="meta"><li>2025</li><li>Dr. Phillip A. Hough</li><li>NVivo</li><li class="hi">24 interviews</li></ul>
-            <ul class="pts"><li>Coded and analyzed in-depth interviews on coffee-farming livelihoods in Colombia, Kenya and Vietnam, feeding a forthcoming book manuscript.</li></ul>
+            <ul class="meta"><li>Spring 2025</li><li>Dr. Phillip A. Hough</li><li>NVivo</li><li class="hi">24 interviews</li></ul>
+            <ul class="pts"><li>Coded and analyzed in-depth interviews on coffee-farming livelihoods in Colombia, Kenya and Vietnam for the forthcoming book manuscript <em>Cultivating a Taste</em>.</li></ul>
           </li>
         </ol>
       </section>
@@ -1991,38 +2108,42 @@ html:has(.lb[open]){ overflow:hidden; }
   <div class="wrap">
     <p class="eyebrow reveal">Systems I built</p>
     <h2 class="sec reveal" style="--d:.05s">Applied systems</h2>
-    <p class="sec-note reveal" style="--d:.1s">Production systems, mostly Laravel and Vue on SQL — the same engineering I now point at research infrastructure.</p>
-
-    <div class="pgrid">
-      <article class="card reveal tilt" style="--c:var(--eng)">
-        <div class="idx">Scraping &amp; data</div>
-        <h3>News Aggregation &amp; Scraping App</h3>
-        <p>A scraper web app that pulls, cleans and displays content against rules the user defines — the same pipeline I later reused for research data collection.</p>
-        <div class="stack"><span>PHP</span><span>SQL</span><span>Cron</span><span>DOM parsing</span></div>
+    <p class="sec-note reveal" style="--d:.1s">A few of the full-stack platforms I've shipped — custom CMSs, SaaS, payments and real-time apps. The full portfolio lives on my developer profile.</p>
+    <div class="pjgrid">
+      <article class="pj reveal" style="--c:var(--eng)">
+        <img src="/freelancer/images/projects/naim-bin-hasan-dohps-nonprofit-cms.svg" width="640" height="360" loading="lazy" decoding="async" alt="Illustration of DOHPS — Nonprofit CMS, built by Naim Bin Hasan">
+        <div><h3>DOHPS — Nonprofit CMS</h3><p>Scholarships, donations, jobs, multilingual CMS &amp; SEO.</p><a class="pj-live" href="https://dohps.org" target="_blank" rel="noopener">dohps.org ↗</a></div>
       </article>
-
-      <article class="card reveal tilt" style="--c:var(--labor);--d:.06s">
-        <div class="idx">Realtime</div>
-        <h3>Real-Time Chat &amp; Calling Platform</h3>
-        <p>Synchronous text and voice for an insurance company's operations team, wired through the Twilio API and kept in sync across agents.</p>
-        <div class="stack"><span>Laravel</span><span>Vue.js</span><span>SQL</span><span>Twilio API</span><span>WebSockets</span></div>
+      <article class="pj reveal" style="--c:var(--rsch);--d:.03s">
+        <img src="/freelancer/images/projects/naim-bin-hasan-journal-publishing-platform.svg" width="640" height="360" loading="lazy" decoding="async" alt="Illustration of Scholarly Journal Platform, built by Naim Bin Hasan">
+        <div><h3>Scholarly Journal Platform</h3><p>Submissions, peer review, Word-to-PDF typesetting.</p></div>
       </article>
-
-      <article class="card reveal tilt" style="--c:var(--rsch);--d:.12s">
-        <div class="idx">CMS</div>
-        <h3>Collaborative Knowledge Portal</h3>
-        <p>A multi-user CMS with drag-and-drop composition and role-based access control, so non-technical teams could publish without breaking each other's work.</p>
-        <div class="stack"><span>Laravel</span><span>Vue.js</span><span>SQL</span><span>RBAC</span></div>
+      <article class="pj reveal" style="--c:var(--eng);--d:.06s">
+        <img src="/freelancer/images/projects/naim-bin-hasan-edukit-college-counseling-saas.svg" width="640" height="360" loading="lazy" decoding="async" alt="Illustration of EduKit — Counseling SaaS, built by Naim Bin Hasan">
+        <div><h3>EduKit — Counseling SaaS</h3><p>College data, plans, Razorpay checkout, PDF reports.</p></div>
       </article>
-
-      <article class="card reveal tilt" style="--c:var(--teach);--d:.18s">
-        <div class="idx">SPA</div>
-        <h3>Interactive Task Management System</h3>
-        <p>A responsive single-page task tracker with live SQL-backed visualizations, built so a distributed team could see workload at a glance.</p>
-        <div class="stack"><span>Laravel</span><span>Vue.js</span><span>SQL</span><span>Charting</span></div>
+      <article class="pj reveal" style="--c:var(--teach);--d:.09s">
+        <img src="/freelancer/images/projects/naim-bin-hasan-ezorders-online-ordering-system.svg" width="640" height="360" loading="lazy" decoding="async" alt="Illustration of Ezorders — Ordering, built by Naim Bin Hasan">
+        <div><h3>Ezorders — Ordering</h3><p>Stripe, Twilio, DoorDash dispatch, kitchen printing.</p></div>
+      </article>
+      <article class="pj reveal" style="--c:var(--labor)">
+        <img src="/freelancer/images/projects/naim-bin-hasan-reopen-chat-realtime-rooms.svg" width="640" height="360" loading="lazy" decoding="async" alt="Illustration of reopen.chat — Live Chat, built by Naim Bin Hasan">
+        <div><h3>reopen.chat — Live Chat</h3><p>Rooms, DMs, moderation, Pusher WebSockets.</p></div>
+      </article>
+      <article class="pj reveal" style="--c:var(--eng);--d:.03s">
+        <img src="/freelancer/images/projects/naim-bin-hasan-renewal-salesforce-contract-manager.svg" width="640" height="360" loading="lazy" decoding="async" alt="Illustration of Renewal — Salesforce, built by Naim Bin Hasan">
+        <div><h3>Renewal — Salesforce</h3><p>Contract renewals synced with Salesforce via OAuth.</p></div>
+      </article>
+      <article class="pj reveal" style="--c:var(--teach);--d:.06s">
+        <img src="/freelancer/images/projects/naim-bin-hasan-law-firm-trilingual-cms.svg" width="640" height="360" loading="lazy" decoding="async" alt="Illustration of Law Firm — Trilingual CMS, built by Naim Bin Hasan">
+        <div><h3>Law Firm — Trilingual CMS</h3><p>Bangla, English &amp; German site with full CMS.</p><a class="pj-live" href="https://shaiderlaw.com" target="_blank" rel="noopener">shaiderlaw.com ↗</a></div>
+      </article>
+      <article class="pj reveal" style="--c:var(--labor);--d:.09s">
+        <img src="/freelancer/images/projects/naim-bin-hasan-whatsapp-chat-calling-spa.svg" width="640" height="360" loading="lazy" decoding="async" alt="Illustration of WhatsApp Chat and Calling, built by Naim Bin Hasan">
+        <div><h3>WhatsApp Chat &amp; Calling</h3><p>Multi-agent inbox, browser calls, live stats.</p></div>
       </article>
     </div>
-    <a class="btn pink more-link reveal" href="/freelancer/#work" target="_blank" rel="noopener">Full developer portfolio <span class="arw">↗</span></a>
+    <a class="btn pink more-link reveal" href="/freelancer/#work" target="_blank" rel="noopener">See all 13 projects <span class="arw">↗</span></a>
   </div>
 </section>
 
@@ -2039,102 +2160,25 @@ html:has(.lb[open]){ overflow:hidden; }
       <div class="panel reveal" style="--c:var(--eng)">
         <div class="ph"><i></i><b>Build</b></div>
         <h3>Software engineering</h3>
-        <h4>Languages</h4>
-        <div class="tags"><span>Python</span><span>PHP</span><span>JavaScript</span><span>SQL</span></div>
-        <h4>Frameworks</h4>
-        <div class="tags"><span>Laravel</span><span>Vue.js</span><span>React</span><span>Livewire</span></div>
-        <h4>Infrastructure</h4>
-        <div class="tags"><span>Git / GitHub</span><span>REST APIs</span><span>Cloud deployment</span><span>UX/UI prototyping</span><span>Twilio</span></div>
-        <h4>AI-assisted development</h4>
-        <div class="tags"><span>Vibe coding</span><span>Claude Code</span><span>ChatGPT</span><span>Rapid prototyping</span></div>
+        <h4 style="--c:var(--eng)">Languages</h4>
+        <div class="tags" style="--c:var(--eng)"><span>Python</span><span>R</span><span>PHP</span><span>JavaScript</span><span>SQL</span></div>
+        <h4 style="--c:var(--rsch)">Frameworks</h4>
+        <div class="tags" style="--c:var(--rsch)"><span>Laravel</span><span>Vue.js</span><span>React</span><span>Livewire</span></div>
+        <h4 style="--c:var(--teach)">Infrastructure</h4>
+        <div class="tags" style="--c:var(--teach)"><span>Git / GitHub</span><span>REST APIs</span><span>Cloud deployment</span><span>UX/UI prototyping</span><span>Twilio</span></div>
+        <h4 style="--c:var(--labor)">AI-assisted development</h4>
+        <div class="tags" style="--c:var(--labor)"><span>Vibe coding</span><span>Claude Code</span><span>ChatGPT</span><span>Rapid prototyping</span></div>
       </div>
 
       <div class="panel reveal" style="--c:var(--rsch);--d:.08s">
         <div class="ph"><i></i><b>Study</b></div>
         <h3>Social research</h3>
-        <h4>Qualitative &amp; ethnographic</h4>
-        <div class="tags"><span>Digital ethnography</span><span>In-depth interviewing</span><span>Thematic analysis</span><span>NVivo</span></div>
-        <h4>Quantitative &amp; computational</h4>
-        <div class="tags"><span>Survey design</span><span>SPSS</span><span>Web scraping</span><span>Trace data analysis</span><span>API integration (Apify)</span></div>
-        <h4>Coursework</h4>
-        <div class="tags"><span>Social Statistics I &amp; II</span><span>Advanced Research Methodology</span><span>Advanced Qualitative Methods</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="rule"></div>
-
-<!-- ==================== EDUCATION ==================== -->
-<section class="band" id="education">
-  <div class="wrap">
-    <p class="eyebrow reveal">The paper trail</p>
-    <h2 class="sec reveal" style="--d:.05s">Education, funding &amp; recognition</h2>
-
-    <div class="edu">
-      <div>
-        <div class="degree reveal">
-          <h3 class="deg">PhD, Information Science and Technology</h3>
-          <p class="uni"><span class="su">Syracuse University</span> <span class="sub">School of Information Studies</span></p>
-          <ul class="meta"><li>Fall 2026 — present</li><li>Syracuse, NY</li><li class="hi">Fully funded</li></ul>
-          <dl class="facts">
-            <div><dt>Funding</dt><dd>Graduate Research Assistantship, full support.</dd></div>
-            <div><dt>Working on</dt><dd>Gravity Spy — interactive web tools, AI-supported learning resources and trace-data analysis for the citizen scientists behind LIGO.</dd></div>
-          </dl>
-        </div>
-
-        <div class="degree reveal" style="--d:.06s">
-          <h3 class="deg">MA, Sociology</h3>
-          <p class="uni">Florida Atlantic University</p>
-          <ul class="meta"><li>Fall 2024 — Spring 2026</li><li>Boca Raton, FL</li><li class="hi">CGPA 3.92</li><li class="hi">Funded · GTA</li></ul>
-          <dl class="facts">
-            <div><dt>Thesis</dt><dd><a href="https://digitalcommons.fau.edu/etd_general/311" target="_blank" rel="noopener">Trading Precarities: How Bangladeshi Freelancers Leverage the Digital Economy Amid Local Insecurity and AI Disruption</a> — in-depth interviews with secondary quantitative analysis.</dd></div>
-            <div><dt>Committee</dt><dd>Dr. Carter M. Koppelman (chair), Dr. Phillip A. Hough, Dr. Lotus Seeley.</dd></div>
-            <div><dt>Funding</dt><dd>Graduate Teaching Assistantship, plus the AIBS Fellowship and the FAU Thesis &amp; Dissertation Scholarship.</dd></div>
-          </dl>
-        </div>
-
-        <div class="degree reveal" style="--d:.1s">
-          <h3 class="deg">Professional Certificate, Full Stack Software Development</h3>
-          <p class="uni">IBM <span class="sub">via Coursera</span></p>
-          <ul class="meta"><li>Completed May 2024</li><li>12 courses</li><li>Online</li><li class="lk"><a href="https://coursera.org/verify/professional-cert/5PAP4F43J5ZP" target="_blank" rel="noopener">Verify ↗</a></li></ul>
-          <dl class="facts">
-            <div><dt>Courses</dt><dd>Cloud Computing · Web Development (HTML, CSS, JavaScript) · Git &amp; GitHub · React · Node.js &amp; Express · Python for Data Science &amp; AI · AI Apps with Flask · Django &amp; SQL · Docker, Kubernetes &amp; OpenShift · Microservices &amp; Serverless · Capstone Project · Final Assessment</dd></div>
-          </dl>
-        </div>
-
-        <div class="degree reveal" style="--d:.12s">
-          <h3 class="deg">MSS &amp; BSS, Sociology</h3>
-          <p class="uni">University of Dhaka</p>
-          <ul class="meta"><li>2018 — 2024</li><li>Dhaka, Bangladesh</li></ul>
-          <dl class="facts">
-            <div><dt>Monograph</dt><dd>Playground Accessibility and Its Impacts on Youth: A Sociological Study in Dhaka City.</dd></div>
-          </dl>
-        </div>
-
-        <div class="certs reveal" style="--d:.16s">
-          <span>Quantitative Methods — University of Amsterdam</span>
-          <span>CITI: Social &amp; Behavioral Research Investigators (IRB)</span>
-          <span>FAU Workshop: Global Tech Industry Labor</span>
-        </div>
-      </div>
-
-      <div class="reveal" style="--d:.1s">
-        <h3 class="side-h">Awards &amp; fellowships</h3>
-        <ul class="awards">
-          <li><span class="amt">$28,000</span><p>Graduate Excellence Fellowship, Purdue University<small>2026 · PhD admission offer · declined for <span class="su">Syracuse</span></small></p></li>
-          <li><span class="amt">$500</span><p>Sociology Graduate Student Achievement Award, Florida Atlantic University<small>April 2026 · Department of Sociology</small><span class="why-line">Awarded to one final-year graduate student for extraordinary achievement.</span></p></li>
-          <li><span class="amt">$3,000</span><p>American Institute of Bangladesh Studies (AIBS) Fellowship<small>2025 · National competition · thesis fieldwork</small></p></li>
-          <li><span class="amt">$1,200</span><p>FAU Graduate Thesis &amp; Dissertation Scholarship<small>2025 · Master's thesis project</small></p></li>
-          <li><span class="amt">$1,000</span><p>Departmental Travel Grant, FAU<small>2025 · MSSA conference presentation</small></p></li>
-          <li><span class="amt hon">Honor</span><p>Govt. Honors Scholarship for conduct, grades and attendance<small>2023 · Undergraduate</small></p></li>
-          <li><span class="amt hon">Honor</span><p>Asian Youth Leader, Scholastic Foundation Nepal<small>2022</small></p></li>
-        </ul>
-
-        <h3 class="side-h" style="--c:var(--labor);margin-top:44px">Professional memberships</h3>
-        <div class="members">
-          <span>ASIS&amp;T</span><span>Mid-South Sociological Association</span><span>Dhaka University IT Society</span>
-        </div>
+        <h4 style="--c:var(--rsch)">Qualitative &amp; ethnographic</h4>
+        <div class="tags" style="--c:var(--rsch)"><span>Digital ethnography</span><span>In-depth interviewing</span><span>Thematic analysis</span><span>NVivo</span></div>
+        <h4 style="--c:var(--eng)">Quantitative &amp; computational</h4>
+        <div class="tags" style="--c:var(--eng)"><span>R &amp; RStudio</span><span>Sequence &amp; text analysis</span><span>Survey design</span><span>SPSS</span><span>Web scraping</span><span>Trace data analysis</span><span>API integration (Apify)</span></div>
+        <h4 style="--c:var(--teach)">Coursework</h4>
+        <div class="tags" style="--c:var(--teach)"><span>Social Statistics I &amp; II</span><span>Advanced Research Methodology</span><span>Advanced Qualitative Methods</span></div>
       </div>
     </div>
   </div>
