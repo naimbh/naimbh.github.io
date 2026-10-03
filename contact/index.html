@@ -911,6 +911,9 @@ html.lenis, html.lenis body{ height:auto; }
   box-shadow:0 24px 50px -24px rgba(0,0,0,.7); transition:transform .8s var(--snap); }
 .dk img{ width:100%; height:100%; object-fit:cover; opacity:0; filter:saturate(.9) brightness(.92); transition:opacity .9s ease; }
 .dk img.ok{ opacity:1; }
+/* round the photos themselves: while they animate, mobile Safari draws them on their own layer and ignores the card's overflow clipping */
+.hero-photo .frame img, .dk img{ border-radius:inherit; }
+.hero-photo .frame, .dk{ isolation:isolate; }
 .dk1{ transform:translate(-30px,14px) rotate(-8deg); }
 .dk2{ transform:translate(30px,22px) rotate(8deg); }
 .hero-photo:hover .dk1{ transform:translate(-48px,8px) rotate(-13deg); }
