@@ -18,6 +18,9 @@ ErrorDocument 404 /404.html
   # Never serve hidden files (.git, .htaccess, .cpanel.yml...) except .well-known (SSL)
   RewriteRule (^|/)\.(?!well-known/) - [F,L]
 
+  # Build scripts are not part of the site
+  RewriteRule ^tools/ - [F,L]
+
   # The developer profile lives at https://dev.naimbh.com
   # (naimbh.com/dev/... is handled by dev/.htaccess; this catches /dev and /freelancer)
   RewriteRule ^dev$ https://dev.naimbh.com/ [L,R=301]
