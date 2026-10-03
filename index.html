@@ -114,7 +114,9 @@
         "Naim Hasan",
         "Naim B. Hasan",
         "Naim BH",
-        "naimbh"
+        "naimbh",
+        "Hasan, N. B.",
+        "Hasan, Naim Bin"
       ],
       "givenName": "Naim",
       "familyName": "Bin Hasan",
@@ -1317,27 +1319,33 @@ h1 .ln:last-child > span{
 .chip.on i{ transform:scale(1.35); background:color-mix(in srgb,var(--on-accent) 55%,transparent); }
 .chip .n{ opacity:.75; font-size:11px; }
 
-.entry{
-  display:grid; grid-template-columns:14px 1fr; gap:0 18px; align-items:start;
-  padding:20px 0; border-top:1px solid var(--line-2);
-  transition:opacity .35s var(--ease), filter .35s var(--ease);
-}
-.entry.mute, .js .entry.reveal.in.mute{ opacity:.28; filter:saturate(.25); }
+.org-grp{ padding:22px 0 8px; border-top:1px solid var(--line-2); }
+.org-hd{ display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:4px 16px; margin-bottom:14px; }
+.org-hd .uni{ font-family:var(--display); font-weight:700; font-size:clamp(19px,2vw,23px); letter-spacing:-.02em; color:var(--rsch); margin:0; }
+.org-hd .uni .su{ color:var(--su); }
+.org-hd .uni .sub{ font-weight:400; color:var(--txt-3); font-size:.72em; margin-left:6px; letter-spacing:0; }
+.org-hd .yrs{ font-family:var(--mono); font-size:12.5px; color:var(--txt-3); letter-spacing:.04em; white-space:nowrap; }
+.chain{ list-style:none; margin:0; padding:0 0 0 26px; position:relative; }
+.chain::before{ content:''; position:absolute; left:7px; top:10px; bottom:22px; width:2px; border-radius:2px;
+  background:linear-gradient(color-mix(in srgb,var(--txt-3) 55%,transparent), color-mix(in srgb,var(--txt-3) 15%,transparent)); }
+.chain .entry{ position:relative; padding:0 0 16px; transition:opacity .35s var(--ease), filter .35s var(--ease); }
+.chain .entry::before{ content:''; position:absolute; left:-26px; top:5px; width:16px; height:16px; border-radius:50%;
+  background:linear-gradient(135deg,var(--n1) 50%,var(--n2) 50%); box-shadow:0 0 0 4px var(--bg); transition:transform .3s var(--snap); }
+.chain .entry:hover::before{ transform:scale(1.2); }
+.entry.mute{ opacity:.28; filter:saturate(.25); }
 .entry.mute:hover{ opacity:.6; }
-.stripes{ display:flex; flex-direction:column; gap:4px; padding-top:6px; }
-.stripes i{ width:4px; height:22px; border-radius:3px; background:var(--c); transition:height .3s var(--snap); }
-.entry:hover .stripes i{ height:30px; }
-.xp .deg{ font-family:var(--display); font-weight:700; font-variation-settings:'wdth' 90; font-size:clamp(20px,2.2vw,25px); letter-spacing:-.03em; line-height:1.2; margin:0; }
-.xp .uni{ font-family:var(--display); font-weight:600; font-size:clamp(16px,1.6vw,18px); letter-spacing:-.015em; color:var(--rsch); margin:4px 0 10px; }
-.xp .uni .su{ color:var(--su); }
-.xp .uni .sub{ font-weight:400; color:var(--txt-3); font-size:.88em; margin-left:6px; }
-.xp .meta{ list-style:none; padding:0; margin:0 0 10px; display:flex; flex-wrap:wrap; gap:6px; }
-.xp .meta li{ font-family:var(--mono); font-size:12px; letter-spacing:.02em; color:var(--txt-2); padding:4px 10px; border-radius:99px; border:1px solid var(--line); background:var(--chipbg); }
-.xp .meta li.hi{ color:var(--teach); border-color:color-mix(in srgb,var(--teach) 45%,transparent); background:color-mix(in srgb,var(--teach) 10%,transparent); }
-.xp .pts{ margin:0; padding-left:18px; color:var(--txt-2); font-size:16px; line-height:1.55; }
-.xp .pts li{ margin:0 0 4px; }
-.xp .pts li::marker{ color:var(--txt-4); }
-@media(max-width:640px){ .entry{ padding:14px 0; gap:0 14px; } .xp .uni{ margin:3px 0 8px; } .xp .meta li{ font-size:11px; padding:3px 8px; } .xp .pts{ font-size:15px; padding-left:16px; } }
+.chain .deg{ font-family:var(--display); font-weight:700; font-variation-settings:'wdth' 90; font-size:clamp(18px,1.9vw,22px); letter-spacing:-.025em; line-height:1.25; margin:0 0 8px; }
+.chain .meta{ list-style:none; padding:0; margin:0 0 8px; display:flex; flex-wrap:wrap; gap:6px; }
+.chain .meta li{ font-family:var(--mono); font-size:12px; letter-spacing:.02em; color:var(--txt-2); padding:4px 10px; border-radius:99px; border:1px solid var(--line); background:var(--chipbg); }
+.chain .meta li.hi{ color:var(--teach); border-color:color-mix(in srgb,var(--teach) 45%,transparent); background:color-mix(in srgb,var(--teach) 10%,transparent); }
+.chain .pts{ margin:0; padding-left:18px; color:var(--txt-2); font-size:16px; line-height:1.55; }
+.chain .pts li{ margin:0 0 4px; }
+.chain .pts li::marker{ color:var(--txt-4); }
+@media(max-width:640px){
+  .org-grp{ padding:16px 0 4px; } .org-hd{ margin-bottom:10px; } .org-hd .uni .sub{ display:block; margin:2px 0 0; }
+  .chain{ padding-left:22px; } .chain::before{ left:6px; } .chain .entry::before{ left:-22px; width:14px; height:14px; }
+  .chain .entry{ padding-bottom:12px; } .chain .meta li{ font-size:11px; padding:3px 8px; } .chain .pts{ font-size:15px; padding-left:16px; }
+}
 
 /* ============================================================ PROJECTS */
 .pgrid{ display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
@@ -1416,6 +1424,7 @@ h1 .ln:last-child > span{
 }
 .paper .venue{ font-family:var(--mono); font-size:13.5px; color:var(--txt-2); letter-spacing:.03em; }
 .paper .venue em{ font-family:var(--serif); font-style:italic; font-size:17px; color:var(--txt-2); }
+.intext{ font-family:var(--mono); font-size:.82em; letter-spacing:.02em; color:var(--txt-3); white-space:nowrap; }
 .paper .doi{ font-family:var(--mono); font-size:13px; color:var(--c); }
 .pill{
   font-family:var(--mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase;
@@ -1837,13 +1846,13 @@ html:has(.lb[open]){ overflow:hidden; }
   <div class="wrap">
     <p class="eyebrow reveal">The record</p>
     <h2 class="sec reveal" style="--d:.05s">Publications &amp; talks</h2>
-    <p class="sec-note reveal" style="--d:.1s">Four peer-reviewed journal articles, a master's thesis in the FAU permanent collection, one revise-and-resubmit, and conference presentations — all since 2025.</p>
+    <p class="sec-note reveal" style="--d:.1s">Four peer-reviewed journal articles, a master's thesis in the FAU permanent collection, one revise-and-resubmit, and conference presentations — all since 2025. Cited as <span class="intext">Hasan, N. B.</span> — e.g. <span class="intext">(Hasan, 2026)</span>.</p>
 
     <article class="paper reveal" style="--c:var(--labor)">
       <span class="yr">2026</span>
       <span>
         <h3><a href="https://digitalcommons.fau.edu/etd_general/311" target="_blank" rel="noopener">Trading Precarities: How Bangladeshi Freelancers Leverage the Digital Economy Amid Local Insecurity and AI Disruption</a></h3>
-        <span class="venue">Master's thesis, Florida Atlantic University · <span class="doi">FAU Digital Commons ↗</span></span><br>
+        <span class="venue">Master's thesis, Florida Atlantic University · <span class="doi">FAU Digital Commons ↗</span> <span class="intext">(Hasan, 2026)</span></span><br>
         <button class="cite" data-cite="Hasan, N. B. (2026). Trading precarities: How Bangladeshi freelancers leverage the digital economy amid local insecurity and AI disruption [Master's thesis, Florida Atlantic University]. FAU Digital Commons. https://digitalcommons.fau.edu/etd_general/311">Copy citation</button>
       </span>
       <span class="pill">Thesis</span>
@@ -1853,7 +1862,7 @@ html:has(.lb[open]){ overflow:hidden; }
       <span class="yr">2025</span>
       <span>
         <h3><a href="https://doi.org/10.1111/johs.70027" target="_blank" rel="noopener">AI Efficiency vs Human Empathy: A Paradox of AI and Human Agents in Service Support Interactions</a></h3>
-        <span class="venue"><em>Sociology Lens</em> (Wiley) · <span class="doi">10.1111/johs.70027 ↗</span></span><br>
+        <span class="venue"><em>Sociology Lens</em> (Wiley) · <span class="doi">10.1111/johs.70027 ↗</span> <span class="intext">(Hasan, 2025)</span></span><br>
         <button class="cite" data-cite="Hasan, N. B. (2025). AI efficiency vs human empathy: A paradox of AI and human agents in service support interactions. Sociology Lens. https://doi.org/10.1111/johs.70027">Copy citation</button>
       </span>
       <span class="pill">Peer-reviewed</span>
@@ -1907,75 +1916,70 @@ html:has(.lb[open]){ overflow:hidden; }
     </div>
 
     <div id="entries">
-      <article class="entry reveal" data-codes="eng rsch">
-        <div class="stripes"><i style="--c:var(--eng)"></i><i style="--c:var(--rsch)"></i></div>
-        <div class="xp">
-          <h3 class="deg">Graduate Research Assistant</h3>
-          <p class="uni"><span class="su">Syracuse University</span> <span class="sub">School of Information Studies</span></p>
-          <ul class="meta"><li>2026 — Present</li><li>Syracuse, NY</li><li class="hi">Fully funded</li></ul>
-          <ul class="pts"><li>Contribute to Gravity Spy, the citizen-science project supporting the Nobel Prize-winning LIGO gravitational-wave observatory.</li><li>Design interactive web tools, build AI-supported learning resources and analyze trace data to deepen volunteer engagement.</li></ul>
-        </div>
-      </article>
+      <section class="org-grp reveal">
+        <header class="org-hd"><p class="uni"><span class="su">Syracuse University</span> <span class="sub">School of Information Studies · Syracuse, NY</span></p><span class="yrs">Fall 2026 — Present</span></header>
+        <ol class="chain">
+          <li class="entry" data-codes="eng rsch" style="--n1:var(--eng);--n2:var(--rsch)">
+            <h3 class="deg">Graduate Research Assistant</h3>
+            <ul class="meta"><li>Fall 2026 — Present</li><li class="hi">Fully funded</li></ul>
+            <ul class="pts"><li>Contribute to Gravity Spy, the citizen-science project supporting the Nobel Prize-winning LIGO gravitational-wave observatory.</li><li>Design interactive web tools, build AI-supported learning resources and analyze trace data to deepen volunteer engagement.</li></ul>
+          </li>
+          <li class="entry" data-codes="rsch eng" style="--n1:var(--rsch);--n2:var(--eng)">
+            <h3 class="deg">Research Practicum — Student–AI Chatbot Interactions</h3>
+            <ul class="meta"><li>Fall 2026</li><li>IST 810</li><li class="hi">~7,000 interactions</li></ul>
+            <ul class="pts"><li>With the AI Programming Research Group and Dr. Kevin Crowston: analyzing student conversations with the AI tutor chatbot in IST 256, Syracuse's introductory Python course, across three semesters.</li><li>Testing whether <em>adaptive</em> help-seeking (asking the AI to explain) versus <em>executive</em> help-seeking (asking it to do the work) relates to learning — statistical, sequence and text analysis in R, toward a co-authored paper.</li></ul>
+          </li>
+        </ol>
+      </section>
 
-      <article class="entry reveal" data-codes="rsch eng">
-        <div class="stripes"><i style="--c:var(--rsch)"></i><i style="--c:var(--eng)"></i></div>
-        <div class="xp">
-          <h3 class="deg">Research Practicum — Student–AI Chatbot Interactions</h3>
-          <p class="uni">AI Programming Research Group <span class="sub">Dr. Kevin Crowston · <span class="su">Syracuse University</span> iSchool</span></p>
-          <ul class="meta"><li>Fall 2026 — Present</li><li>IST 810</li><li class="hi">~7,000 interactions</li></ul>
-          <ul class="pts"><li>Analyzing student conversations with the AI tutor chatbot in IST 256, Syracuse's introductory Python course, across three semesters.</li><li>Testing whether <em>adaptive</em> help-seeking (asking the AI to explain) versus <em>executive</em> help-seeking (asking it to do the work) relates to learning — statistical, sequence and text analysis in R, toward a co-authored paper.</li></ul>
-        </div>
-      </article>
+      <section class="org-grp reveal" style="--d:.05s">
+        <header class="org-hd"><p class="uni">Florida Atlantic University <span class="sub">Department of Sociology · Boca Raton, FL</span></p><span class="yrs">Fall 2024 — Spring 2026</span></header>
+        <ol class="chain">
+          <li class="entry" data-codes="teach" style="--n1:var(--teach);--n2:var(--teach)">
+            <h3 class="deg">Graduate Teaching Assistant</h3>
+            <ul class="meta"><li>Fall 2024 — Spring 2026</li><li>Social Problems · Family &amp; Society</li><li class="hi">170+ students</li></ul>
+            <ul class="pts"><li>Taught, assisted and graded undergraduate courses, coaching students through research methods, data analysis and digital tools.</li></ul>
+          </li>
+          <li class="entry" data-codes="rsch" style="--n1:var(--rsch);--n2:var(--rsch)">
+            <h3 class="deg">Research Assistant — Fulbright Global Scholar Project</h3>
+            <ul class="meta"><li>2025</li><li>Dr. Phillip A. Hough</li><li>NVivo</li><li class="hi">24 interviews</li></ul>
+            <ul class="pts"><li>Coded and analyzed in-depth interviews on coffee-farming livelihoods in Colombia, Kenya and Vietnam, feeding a forthcoming book manuscript.</li></ul>
+          </li>
+        </ol>
+      </section>
 
-      <article class="entry reveal" data-codes="teach">
-        <div class="stripes"><i style="--c:var(--teach)"></i></div>
-        <div class="xp">
-          <h3 class="deg">Graduate Teaching Assistant</h3>
-          <p class="uni">Florida Atlantic University <span class="sub">Department of Sociology</span></p>
-          <ul class="meta"><li>2024 — 2026</li><li>Boca Raton, FL</li><li class="hi">170+ students</li></ul>
-          <ul class="pts"><li>Taught, assisted and graded undergraduate courses.</li><li>Coached students through research methods, data analysis and the digital tools their coursework depends on.</li></ul>
-        </div>
-      </article>
+      <section class="org-grp reveal" style="--d:.10s">
+        <header class="org-hd"><p class="uni">Autism After 21 <span class="sub">Florida · Internship</span></p><span class="yrs">Summer 2025</span></header>
+        <ol class="chain">
+          <li class="entry" data-codes="teach rsch" style="--n1:var(--teach);--n2:var(--rsch)">
+            <h3 class="deg">SOAR Program Counselor</h3>
+            <ul class="meta"><li>Summer 2025</li></ul>
+            <ul class="pts"><li>Ran pre-employment skills training for young adults on the autism spectrum and analyzed program assessment data for outcome evaluation.</li></ul>
+          </li>
+        </ol>
+      </section>
 
-      <article class="entry reveal" data-codes="rsch">
-        <div class="stripes"><i style="--c:var(--rsch)"></i></div>
-        <div class="xp">
-          <h3 class="deg">Research Assistant</h3>
-          <p class="uni">Fulbright Global Scholar Project <span class="sub">Dr. Phillip A. Hough</span></p>
-          <ul class="meta"><li>2025</li><li>NVivo</li><li class="hi">24 interviews</li></ul>
-          <ul class="pts"><li>Coded and analyzed in-depth interviews on coffee-farming livelihoods in Colombia, Kenya and Vietnam, feeding a forthcoming book manuscript.</li></ul>
-        </div>
-      </article>
+      <section class="org-grp reveal">
+        <header class="org-hd"><p class="uni">Zilberman Insurance <span class="sub">Remote</span></p><span class="yrs">2020 — 2023</span></header>
+        <ol class="chain">
+          <li class="entry" data-codes="eng" style="--n1:var(--eng);--n2:var(--eng)">
+            <h3 class="deg">Full Stack Software Developer</h3>
+            <ul class="meta"><li>2020 — 2023</li><li>Laravel · Vue.js · SQL</li></ul>
+            <ul class="pts"><li>Built and maintained enterprise web applications, including real-time, API-integrated dashboards operations staff used daily across 100,000+ SQL rows.</li></ul>
+          </li>
+        </ol>
+      </section>
 
-      <article class="entry reveal" data-codes="teach rsch">
-        <div class="stripes"><i style="--c:var(--teach)"></i><i style="--c:var(--rsch)"></i></div>
-        <div class="xp">
-          <h3 class="deg">SOAR Program Counselor</h3>
-          <p class="uni">Autism After 21 <span class="sub">Florida</span></p>
-          <ul class="meta"><li>2025</li><li>Internship</li></ul>
-          <ul class="pts"><li>Ran pre-employment skills training for young adults on the autism spectrum and analyzed program assessment data for outcome evaluation.</li></ul>
-        </div>
-      </article>
-
-      <article class="entry reveal" data-codes="eng">
-        <div class="stripes"><i style="--c:var(--eng)"></i></div>
-        <div class="xp">
-          <h3 class="deg">Full Stack Software Developer</h3>
-          <p class="uni">Zilberman Insurance <span class="sub">Remote</span></p>
-          <ul class="meta"><li>2020 — 2023</li><li>Laravel · Vue.js · SQL</li></ul>
-          <ul class="pts"><li>Built and maintained enterprise web applications, including real-time, API-integrated dashboards operations staff used daily across 100,000+ SQL rows.</li></ul>
-        </div>
-      </article>
-
-      <article class="entry reveal" data-codes="eng labor">
-        <div class="stripes"><i style="--c:var(--eng)"></i><i style="--c:var(--labor)"></i></div>
-        <div class="xp">
-          <h3 class="deg">Freelance Web Developer</h3>
-          <p class="uni">Fiverr &amp; Upwork <span class="sub">Remote</span></p>
-          <ul class="meta"><li>2019 — 2023</li><li class="hi">Top Rated</li><li class="hi">100% Job Success</li><li class="hi">100+ projects</li></ul>
-          <ul class="pts"><li>Delivered web apps, dashboards and e-commerce systems — working under the ratings, deadlines and algorithmic management I now research. The fieldwork came before the field.</li></ul>
-        </div>
-      </article>
+      <section class="org-grp reveal" style="--d:.05s">
+        <header class="org-hd"><p class="uni">Fiverr &amp; Upwork <span class="sub">Remote</span></p><span class="yrs">2019 — 2023</span></header>
+        <ol class="chain">
+          <li class="entry" data-codes="eng labor" style="--n1:var(--eng);--n2:var(--labor)">
+            <h3 class="deg">Freelance Web Developer</h3>
+            <ul class="meta"><li>2019 — 2023</li><li class="hi">Top Rated</li><li class="hi">100% Job Success</li><li class="hi">100+ projects</li></ul>
+            <ul class="pts"><li>Delivered web apps, dashboards and e-commerce systems — working under the ratings, deadlines and algorithmic management I now research. The fieldwork came before the field.</li></ul>
+          </li>
+        </ol>
+      </section>
     </div>
   </div>
 </section>
