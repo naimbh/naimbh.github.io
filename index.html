@@ -1808,18 +1808,21 @@ html.lenis, html.lenis body{ height:auto; }
 .deck{ position:absolute; inset:0; z-index:-1; pointer-events:none; }
 .dk{ position:absolute; inset:0; border-radius:28px; overflow:hidden; border:1px solid var(--line); background:var(--surface);
   box-shadow:0 24px 50px -24px rgba(0,0,0,.7); transition:transform .8s var(--snap); }
-.dk img{ width:100%; height:100%; object-fit:cover; opacity:0; filter:saturate(.9) brightness(.92); transition:opacity .5s; }
+.dk img{ width:100%; height:100%; object-fit:cover; opacity:0; filter:saturate(.9) brightness(.92); transition:opacity .9s ease; }
 .dk img.ok{ opacity:1; }
 .dk1{ transform:translate(-30px,14px) rotate(-8deg); }
 .dk2{ transform:translate(30px,22px) rotate(8deg); }
 .hero-photo:hover .dk1{ transform:translate(-48px,8px) rotate(-13deg); }
 .hero-photo:hover .dk2{ transform:translate(50px,22px) rotate(13deg); }
-.dk1.drop{ animation:dkdrop .75s var(--snap); }
-@keyframes dkdrop{ from{ transform:translate(0,0) rotate(0) scale(1.02); } }
-#heroImg.swap{ animation:heroin .7s var(--ease); }
-@keyframes heroin{ from{ opacity:0; transform:scale(1.08); filter:blur(6px); } }
+.dk1.drop{ animation:dkdrop 1.3s cubic-bezier(.22,1,.36,1); }
+@keyframes dkdrop{ from{ transform:translate(0,0) rotate(0) scale(1.01); opacity:.6; } }
+
+.hero-photo .frame .xf{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transform:scale(1.045); pointer-events:none;
+  transition:opacity 1.2s cubic-bezier(.4,0,.2,1), transform 2.4s cubic-bezier(.22,1,.36,1); }
+.hero-photo .frame .xf.show{ opacity:1; transform:scale(1); }
+.hero-photo .frame .xf.reset{ transition:none; }
 @media(max-width:700px){ .dk{ border-radius:18px; } .dk1{ transform:translate(-10px,6px) rotate(-6deg); } .dk2{ transform:translate(6px,9px) rotate(5deg); } .hero-photo figcaption.now{ display:none; } .hero{ overflow-x:clip; } }
-@media (prefers-reduced-motion: reduce){ .dk1.drop, #heroImg.swap{ animation:none; } }
+@media (prefers-reduced-motion: reduce){ .dk1.drop{ animation:none; } .hero-photo .frame .xf{ transition:none; } }
 </style>
 </head>
 <body>
@@ -1905,6 +1908,7 @@ html.lenis, html.lenis body{ height:auto; }
       <div class="frame">
         <img id="heroImg" src="/images/naim-bin-hasan-portrait-800.webp" srcset="/images/naim-bin-hasan-portrait-480.webp 480w, /images/naim-bin-hasan-portrait-800.webp 768w" sizes="(max-width:700px) 240px, (max-width:1000px) 260px, 420px" width="768" height="960" fetchpriority="high" decoding="async"
              alt="Naim Bin Hasan, PhD researcher at Syracuse University, presenting his research on AI and digital labor">
+        <img class="xf" alt="" aria-hidden="true" decoding="async">
       </div>
       <figcaption class="now" aria-live="polite"><i aria-hidden="true"></i><b>Now</b><span id="nowTxt">analyzing 7,000 AI-tutor chats</span></figcaption>
     </figure>
@@ -2577,10 +2581,19 @@ html.lenis, html.lenis body{ height:auto; }
       if(hover || document.hidden) return;
       var next = (i + 1) % P.length, nx = P[next], pre = preload(nx);
       function swap(){
-        set(i2, i1.src || url(P[i])); set(i1, front.currentSrc || front.src);
+        var xf = $('.xf', fig), was = front.currentSrc || front.src;
+        // deck: the outgoing photo settles onto the pile (both already cached, so no flicker)
+        i2.src = i1.src || url(P[i]); i2.classList.add('ok');
+        i1.src = was; i1.classList.add('ok');
         d1.classList.remove('drop'); void d1.offsetWidth; d1.classList.add('drop');
-        front.removeAttribute('srcset'); front.src = url(nx); front.alt = nx.a;
-        front.classList.remove('swap'); void front.offsetWidth; front.classList.add('swap');
+        // front: crossfade the new photo in over the current one
+        xf.classList.add('reset'); xf.classList.remove('show'); xf.src = url(nx); void xf.offsetWidth; xf.classList.remove('reset');
+        requestAnimationFrame(function(){ xf.classList.add('show'); });
+        setTimeout(function(){
+          front.removeAttribute('srcset'); front.src = url(nx); front.alt = nx.a;
+          var done = function(){ xf.classList.add('reset'); xf.classList.remove('show'); };
+          (front.decode ? front.decode().then(done, done) : done());
+        }, 1300);
         i = next; preload(P[(i + 1) % P.length]);
       }
       if(pre.complete) swap(); else { pre.onload = swap; pre.onerror = function(){}; }

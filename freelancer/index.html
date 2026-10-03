@@ -802,9 +802,11 @@ html.lenis, html.lenis body{ height:auto; }
 .hero-shot figcaption{ transition:transform .45s var(--snap); z-index:2; }
 .hero-shot:hover figcaption{ transform:translateY(-3px) rotate(-3deg); }
 @media (prefers-reduced-motion: reduce){ .hero-shot, .hero-shot img{ transform:none !important; } }
-#heroShot.swap{ animation:shotin .7s var(--ease); }
-@keyframes shotin{ from{ opacity:0; transform:scale(1.08); filter:blur(6px); } }
-@media (prefers-reduced-motion: reduce){ #heroShot.swap{ animation:none; } }
+.hero-shot .xf{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 12%; opacity:0; transform:scale(1.045); pointer-events:none;
+  transition:opacity 1.2s cubic-bezier(.4,0,.2,1), transform 2.4s cubic-bezier(.22,1,.36,1); }
+.hero-shot .xf.show{ opacity:1; transform:scale(1); }
+.hero-shot .xf.reset{ transition:none; }
+@media (prefers-reduced-motion: reduce){ .hero-shot .xf{ transition:none; } }
 </style>
 </head>
 <body>
@@ -859,7 +861,7 @@ html.lenis, html.lenis body{ height:auto; }
       </div>
 
       <div class="ide rv" style="--d:.15s">
-        <figure class="hero-shot" data-tilt><img id="heroShot" src="/freelancer/images/naim-bin-hasan-web-developer-florida-480.webp" srcset="/freelancer/images/naim-bin-hasan-web-developer-florida-480.webp 480w, /freelancer/images/naim-bin-hasan-web-developer-florida-800.webp 800w" sizes="300px" width="480" height="600" fetchpriority="high" decoding="async" alt="Naim Bin Hasan, freelance full-stack web developer, on a nature trail in Florida"><figcaption>hi, I'm Naim 👋</figcaption></figure>
+        <figure class="hero-shot" data-tilt><img id="heroShot" src="/freelancer/images/naim-bin-hasan-web-developer-florida-480.webp" srcset="/freelancer/images/naim-bin-hasan-web-developer-florida-480.webp 480w, /freelancer/images/naim-bin-hasan-web-developer-florida-800.webp 800w" sizes="300px" width="480" height="600" fetchpriority="high" decoding="async" alt="Naim Bin Hasan, freelance full-stack web developer, on a nature trail in Florida"><img class="xf" alt="" aria-hidden="true" decoding="async"><figcaption>hi, I'm Naim 👋</figcaption></figure>
         <div class="win">
           <div class="win-top"><i></i><i></i><i></i><span>ProjectController.php</span><figure class="me"><b></b>naim · online<img src="/freelancer/images/naim-bin-hasan-web-developer-florida-480.webp" width="480" height="600" decoding="async" alt=""></figure></div>
 <pre class="code" id="code" aria-label="Code sample: a Laravel controller that ships a client project"><span class="l" style="--i:0"><span class="k">class</span> <span class="f">ProjectController</span> <span class="k">extends</span> Controller</span><span class="l" style="--i:1">{</span><span class="l" style="--i:2">  <span class="k">public function</span> <span class="f">ship</span>(<span class="f">Brief</span> <span class="v">$brief</span>)</span><span class="l" style="--i:3">  {</span><span class="l" style="--i:4">    <span class="v">$app</span> = <span class="f">Laravel</span>::<span class="f">build</span>(<span class="v">$brief</span>)</span><span class="l" style="--i:5">      -&gt;<span class="f">frontend</span>(<span class="s">'vue'</span>)</span><span class="l" style="--i:6">      -&gt;<span class="f">integrate</span>([<span class="s">'twilio'</span>, <span class="s">'whatsapp'</span>, <span class="s">'meta'</span>])</span><span class="l" style="--i:7">      -&gt;<span class="f">test</span>()-&gt;<span class="f">deploy</span>();</span><span class="l" style="--i:8"></span><span class="l" style="--i:9">    <span class="c">// 100% job success, 5.0 ★ reviews</span></span><span class="l" style="--i:10">    <span class="k">return</span> <span class="v">$app</span>-&gt;<span class="f">handover</span>(<span class="g">docs: true</span>);</span><span class="l" style="--i:11">  }</span><span class="l" style="--i:12">}<span class="caret"></span></span></pre>
@@ -1213,8 +1215,14 @@ html.lenis, html.lenis body{ height:auto; }
       if(hover || document.hidden) return;
       var next = (i + 1) % P.length, pre = new Image();
       pre.onload = function(){
-        img.removeAttribute('srcset'); img.src = pre.src; img.alt = P[next].a;
-        img.classList.remove('swap'); void img.offsetWidth; img.classList.add('swap');
+        var xf = card.querySelector('.xf');
+        xf.classList.add('reset'); xf.classList.remove('show'); xf.src = pre.src; void xf.offsetWidth; xf.classList.remove('reset');
+        requestAnimationFrame(function(){ xf.classList.add('show'); });
+        setTimeout(function(){
+          img.removeAttribute('srcset'); img.src = pre.src; img.alt = P[next].a;
+          var done = function(){ xf.classList.add('reset'); xf.classList.remove('show'); };
+          (img.decode ? img.decode().then(done, done) : done());
+        }, 1300);
         i = next; (new Image()).src = url(P[(i + 1) % P.length]);
       };
       pre.src = url(P[next]);
