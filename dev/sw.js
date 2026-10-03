@@ -1,9 +1,9 @@
-/* NaimBH.com service worker — fast repeat visits + offline support */
-const VERSION = 'naimbh-v22';
+/* dev.naimbh.com service worker — fast repeat visits + offline support */
+const VERSION = 'naimbh-dev-v1';
 const SHELL = [
   '/', '/offline.html', '/site.webmanifest',
-  '/favicon.svg', '/favicon.ico', '/icon-192.png', '/icon-512.png', '/logo.svg',
-  '/images/naim-bin-hasan-portrait-480.webp', '/images/naim-bin-hasan-portrait-800.webp'
+  '/favicon.svg', '/favicon.ico', '/icon-192.png', '/icon-512.png', '/logo.svg', '/js/lenis.min.js',
+  '/images/naim-bin-hasan-web-developer-florida-480.webp'
 ];
 
 self.addEventListener('install', e => {

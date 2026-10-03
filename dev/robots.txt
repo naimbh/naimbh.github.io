@@ -1,0 +1,10 @@
+# robots.txt for dev.naimbh.com — Naim Bin Hasan, full-stack web developer
+User-agent: *
+Allow: /
+Disallow: /404.html
+Disallow: /offline.html
+
+User-agent: Googlebot-Image
+Allow: /images/
+
+Sitemap: https://dev.naimbh.com/sitemap.xml
