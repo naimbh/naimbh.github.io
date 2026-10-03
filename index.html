@@ -200,7 +200,34 @@
       ],
       "subjectOf": {
         "@id": "https://naimbh.com/freelancer/#webpage"
-      }
+      },
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "IBM Full Stack Software Developer Professional Certificate",
+          "credentialCategory": "Professional Certificate",
+          "dateCreated": "2024-05-05",
+          "url": "https://coursera.org/verify/professional-cert/5PAP4F43J5ZP",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "IBM"
+          },
+          "about": [
+            "Introduction to Cloud Computing",
+            "Introduction to Web Development with HTML, CSS, JavaScript",
+            "Getting Started with Git and GitHub",
+            "Developing Front-End Apps with React",
+            "Developing Back-End Apps with Node.js and Express",
+            "Python for Data Science, AI & Development",
+            "Developing AI Applications with Python and Flask",
+            "Django Application Development with SQL and Databases",
+            "Introduction to Containers w/ Docker, Kubernetes & OpenShift",
+            "Application Development using Microservices and Serverless",
+            "Full Stack Application Development Capstone Project",
+            "Full Stack Software Developer Assessment"
+          ]
+        }
+      ]
     },
     {
       "@type": "ScholarlyArticle",
@@ -1439,6 +1466,15 @@ h1 .ln:last-child > span{
 .degree a{ color:var(--rsch); text-decoration:none; border-bottom:1px solid color-mix(in srgb,var(--rsch) 40%,transparent); }
 .side-h{ font-family:var(--display); font-weight:700; font-variation-settings:'wdth' 92; font-size:clamp(22px,2.4vw,28px); letter-spacing:-.025em; margin:0 0 18px; display:flex; align-items:center; gap:12px; }
 .side-h::before{ content:''; width:10px; height:10px; border-radius:3px; background:var(--c,var(--teach)); }
+.degree.ibm{ position:relative; margin:8px 0; padding:22px 22px 20px; border-radius:18px; border:1px solid color-mix(in srgb,var(--eng) 45%,transparent);
+  background:linear-gradient(160deg,color-mix(in srgb,var(--eng) 10%,transparent),transparent 70%); }
+.degree.ibm .badge{ display:inline-block; font-family:var(--mono); font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--eng); border:1px solid color-mix(in srgb,var(--eng) 45%,transparent); padding:4px 10px; border-radius:99px; margin-bottom:12px; }
+.degree.ibm .meta a{ color:var(--eng); border-bottom-color:color-mix(in srgb,var(--eng) 40%,transparent); }
+.degree.ibm .meta b{ color:var(--eng); }
+.courses{ list-style:none; margin:14px 0 0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:6px 14px; }
+.courses li{ display:flex; gap:10px; align-items:baseline; font-size:15.5px; line-height:1.4; color:var(--txt-2); padding:7px 0; border-top:1px solid var(--line-2); }
+.courses li b{ font-family:var(--mono); font-size:12px; font-weight:500; color:var(--eng); flex:none; }
+@media(max-width:640px){ .degree.ibm{ padding:16px; } .courses{ grid-template-columns:1fr; gap:0; } .courses li{ font-size:14.5px; padding:6px 0; } }
 .awards{ list-style:none; margin:0; padding:0; display:grid; gap:12px; }
 .awards li{
   display:grid; grid-template-columns:auto 1fr; gap:16px; align-items:center;
@@ -2080,6 +2116,14 @@ html:has(.lb[open]){ overflow:hidden; }
           <p><span class="k">Funded by</span>AIBS Fellowship and the FAU Thesis &amp; Dissertation Scholarship.</p>
         </div>
 
+        <div class="degree ibm reveal" style="--d:.1s">
+          <span class="badge">Professional certificate · Highlight</span>
+          <h3>IBM Full Stack Software Developer — IBM, via Coursera</h3>
+          <div class="meta"><span>Completed May 2024</span><span><b>12 courses</b></span><span>Online, non-credit</span><a href="https://coursera.org/verify/professional-cert/5PAP4F43J5ZP" target="_blank" rel="noopener">Verify ↗</a><a href="/freelancer/certificates/naim-bin-hasan-ibm-full-stack-software-developer-certificate.pdf" target="_blank" rel="noopener">Certificate PDF ↗</a></div>
+          <p>Cloud-native full-stack development from front end to deployment: React, Node.js &amp; Express, Python, Flask and Django, SQL and NoSQL databases, Docker, Kubernetes &amp; OpenShift, microservices, serverless and CI/CD — finishing with a capstone that delivered a SaaS application on the cloud.</p>
+          <ol class="courses"><li><b>01</b>Introduction to Cloud Computing</li><li><b>02</b>Introduction to Web Development with HTML, CSS, JavaScript</li><li><b>03</b>Getting Started with Git and GitHub</li><li><b>04</b>Developing Front-End Apps with React</li><li><b>05</b>Developing Back-End Apps with Node.js and Express</li><li><b>06</b>Python for Data Science, AI &amp; Development</li><li><b>07</b>Developing AI Applications with Python and Flask</li><li><b>08</b>Django Application Development with SQL and Databases</li><li><b>09</b>Introduction to Containers w/ Docker, Kubernetes &amp; OpenShift</li><li><b>10</b>Application Development using Microservices and Serverless</li><li><b>11</b>Full Stack Application Development Capstone Project</li><li><b>12</b>Full Stack Software Developer Assessment</li></ol>
+        </div>
+
         <div class="degree reveal" style="--d:.12s">
           <h3>MSS &amp; BSS, Sociology — University of Dhaka</h3>
           <div class="meta"><span>2018 — 2024</span><span>Dhaka, Bangladesh</span></div>
@@ -2087,7 +2131,6 @@ html:has(.lb[open]){ overflow:hidden; }
         </div>
 
         <div class="certs reveal" style="--d:.16s">
-          <a href="/freelancer/certificates/naim-bin-hasan-ibm-full-stack-software-developer-certificate.pdf" target="_blank" rel="noopener">IBM Full Stack Software Developer — 12 courses, Coursera ↗</a>
           <span>Quantitative Methods — University of Amsterdam</span>
           <span>CITI: Social &amp; Behavioral Research Investigators (IRB)</span>
           <span>FAU Workshop: Global Tech Industry Labor</span>
