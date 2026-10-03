@@ -802,6 +802,9 @@ html.lenis, html.lenis body{ height:auto; }
 .hero-shot figcaption{ transition:transform .45s var(--snap); z-index:2; }
 .hero-shot:hover figcaption{ transform:translateY(-3px) rotate(-3deg); }
 @media (prefers-reduced-motion: reduce){ .hero-shot, .hero-shot img{ transform:none !important; } }
+#heroShot.swap{ animation:shotin .7s var(--ease); }
+@keyframes shotin{ from{ opacity:0; transform:scale(1.08); filter:blur(6px); } }
+@media (prefers-reduced-motion: reduce){ #heroShot.swap{ animation:none; } }
 </style>
 </head>
 <body>
@@ -856,7 +859,7 @@ html.lenis, html.lenis body{ height:auto; }
       </div>
 
       <div class="ide rv" style="--d:.15s">
-        <figure class="hero-shot" data-tilt><img src="/freelancer/images/naim-bin-hasan-web-developer-florida-480.webp" srcset="/freelancer/images/naim-bin-hasan-web-developer-florida-480.webp 480w, /freelancer/images/naim-bin-hasan-web-developer-florida-800.webp 800w" sizes="300px" width="480" height="600" fetchpriority="high" decoding="async" alt="Naim Bin Hasan, freelance full-stack web developer, on a nature trail in Florida"><figcaption>hi, I'm Naim 👋</figcaption></figure>
+        <figure class="hero-shot" data-tilt><img id="heroShot" src="/freelancer/images/naim-bin-hasan-web-developer-florida-480.webp" srcset="/freelancer/images/naim-bin-hasan-web-developer-florida-480.webp 480w, /freelancer/images/naim-bin-hasan-web-developer-florida-800.webp 800w" sizes="300px" width="480" height="600" fetchpriority="high" decoding="async" alt="Naim Bin Hasan, freelance full-stack web developer, on a nature trail in Florida"><figcaption>hi, I'm Naim 👋</figcaption></figure>
         <div class="win">
           <div class="win-top"><i></i><i></i><i></i><span>ProjectController.php</span><figure class="me"><b></b>naim · online<img src="/freelancer/images/naim-bin-hasan-web-developer-florida-480.webp" width="480" height="600" decoding="async" alt=""></figure></div>
 <pre class="code" id="code" aria-label="Code sample: a Laravel controller that ships a client project"><span class="l" style="--i:0"><span class="k">class</span> <span class="f">ProjectController</span> <span class="k">extends</span> Controller</span><span class="l" style="--i:1">{</span><span class="l" style="--i:2">  <span class="k">public function</span> <span class="f">ship</span>(<span class="f">Brief</span> <span class="v">$brief</span>)</span><span class="l" style="--i:3">  {</span><span class="l" style="--i:4">    <span class="v">$app</span> = <span class="f">Laravel</span>::<span class="f">build</span>(<span class="v">$brief</span>)</span><span class="l" style="--i:5">      -&gt;<span class="f">frontend</span>(<span class="s">'vue'</span>)</span><span class="l" style="--i:6">      -&gt;<span class="f">integrate</span>([<span class="s">'twilio'</span>, <span class="s">'whatsapp'</span>, <span class="s">'meta'</span>])</span><span class="l" style="--i:7">      -&gt;<span class="f">test</span>()-&gt;<span class="f">deploy</span>();</span><span class="l" style="--i:8"></span><span class="l" style="--i:9">    <span class="c">// 100% job success, 5.0 ★ reviews</span></span><span class="l" style="--i:10">    <span class="k">return</span> <span class="v">$app</span>-&gt;<span class="f">handover</span>(<span class="g">docs: true</span>);</span><span class="l" style="--i:11">  }</span><span class="l" style="--i:12">}<span class="caret"></span></span></pre>
@@ -1196,6 +1199,27 @@ html.lenis, html.lenis body{ height:auto; }
       if(e.key === 'Tab'){ e.preventDefault(); document.execCommand('insertText', false, '  '); }
     });
   }
+
+  /* hero photo: a new solo photo every 3 seconds (same card, no other design change) */
+  (function(){
+    var img = document.getElementById('heroShot'); if(!img || reduce) return;
+    var card = img.closest('.hero-shot'), hover = false, i = 0, big = matchMedia('(min-width: 961px)').matches;
+    var P = [{"s": "/freelancer/images/naim-bin-hasan-web-developer-florida-480.webp", "l": "/freelancer/images/naim-bin-hasan-web-developer-florida-800.webp", "a": "Naim Bin Hasan, freelance full-stack web developer, on a nature trail in Florida"}, {"s": "/images/gallery/naim-bin-hasan-tea-garden-bangladesh-640.webp", "l": "/images/gallery/naim-bin-hasan-tea-garden-bangladesh-960.webp", "a": "Naim Bin Hasan in a tea garden forest in Bangladesh."}, {"s": "/images/gallery/naim-bin-hasan-syracuse-university-school-of-information-studies-640.webp", "l": "/images/gallery/naim-bin-hasan-syracuse-university-school-of-information-studies-960.webp", "a": "Naim Bin Hasan at the Syracuse University School of Information Studies (iSchool), where he is a PhD researcher in Information Science and Technology."}, {"s": "/images/gallery/naim-bin-hasan-fau-graduation-portrait-boca-raton-640.webp", "l": "/images/gallery/naim-bin-hasan-fau-graduation-portrait-boca-raton-960.webp", "a": "Graduation portrait of Naim Bin Hasan on the Florida Atlantic University campus in Boca Raton, Florida."}, {"s": "/images/gallery/naim-bin-hasan-nature-boardwalk-640.webp", "l": "/images/gallery/naim-bin-hasan-nature-boardwalk-960.webp", "a": "Naim Bin Hasan on a wetland boardwalk."}, {"s": "/images/gallery/naim-bin-hasan-beach-bangladesh-football-jersey-640.webp", "l": "/images/gallery/naim-bin-hasan-beach-bangladesh-football-jersey-960.webp", "a": "Naim Bin Hasan wearing the Bangladesh football jersey on the beach."}, {"s": "/images/gallery/naim-bin-hasan-syracuse-university-campus-hall-of-languages-640.webp", "l": "/images/gallery/naim-bin-hasan-syracuse-university-campus-hall-of-languages-960.webp", "a": "Naim Bin Hasan on the Syracuse University campus, with the Hall of Languages in the background."}, {"s": "/images/gallery/naim-bin-hasan-miami-beach-night-street-640.webp", "l": "/images/gallery/naim-bin-hasan-miami-beach-night-street-960.webp", "a": "Naim Bin Hasan under the neon of Miami Beach."}, {"s": "/images/gallery/naim-bin-hasan-rice-university-phd-visit-640.webp", "l": "/images/gallery/naim-bin-hasan-rice-university-phd-visit-960.webp", "a": "Naim Bin Hasan dressed for PhD visit day at Rice University."}, {"s": "/images/gallery/naim-bin-hasan-curzon-hall-university-of-dhaka-640.webp", "l": "/images/gallery/naim-bin-hasan-curzon-hall-university-of-dhaka-960.webp", "a": "Naim Bin Hasan with his motorbike in front of Curzon Hall, University of Dhaka."}, {"s": "/images/gallery/naim-bin-hasan-downtown-syracuse-new-york-640.webp", "l": "/images/gallery/naim-bin-hasan-downtown-syracuse-new-york-960.webp", "a": "Naim Bin Hasan exploring downtown Syracuse, New York."}];
+    function url(p){ return big ? p.l : p.s; }
+    card.addEventListener('pointerenter', function(){ hover = true; });
+    card.addEventListener('pointerleave', function(){ hover = false; });
+    window.addEventListener('load', function(){ (new Image()).src = url(P[1]); });
+    setInterval(function(){
+      if(hover || document.hidden) return;
+      var next = (i + 1) % P.length, pre = new Image();
+      pre.onload = function(){
+        img.removeAttribute('srcset'); img.src = pre.src; img.alt = P[next].a;
+        img.classList.remove('swap'); void img.offsetWidth; img.classList.add('swap');
+        i = next; (new Image()).src = url(P[(i + 1) % P.length]);
+      };
+      pre.src = url(P[next]);
+    }, 3000);
+  })();
 
   function heroIn(){ $$('[data-line]').forEach(function(el){ el.classList.add('up'); }); $('#code').classList.add('run'); }
   requestAnimationFrame(heroIn); setTimeout(heroIn, 250);
