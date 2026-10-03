@@ -43,8 +43,8 @@
 <meta property="og:title" content="Naim Bin Hasan — PhD in IT Researcher, Syracuse University">
 <meta property="og:description" content="Researching AI and the future of work, human-computer interaction, digital labor and online freelancers, and ICT for development (ICT4D). Former full-stack developer with 100+ shipped builds.">
 <meta property="og:url" content="https://naimbh.com/">
-<meta property="og:image" content="https://naimbh.com/images/og/naim-bin-hasan-academic-site.jpg?v=2">
-<meta property="og:image:secure_url" content="https://naimbh.com/images/og/naim-bin-hasan-academic-site.jpg?v=2">
+<meta property="og:image" content="https://naimbh.com/images/og/naim-bin-hasan-academic-site.jpg?v=3">
+<meta property="og:image:secure_url" content="https://naimbh.com/images/og/naim-bin-hasan-academic-site.jpg?v=3">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -56,7 +56,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Naim Bin Hasan — PhD in IT Researcher, Syracuse University">
 <meta name="twitter:description" content="Researching AI and the future of work, human-computer interaction, digital labor and online freelancers, and ICT for development (ICT4D). Former full-stack developer with 100+ shipped builds.">
-<meta name="twitter:image" content="https://naimbh.com/images/og/naim-bin-hasan-academic-site.jpg?v=2">
+<meta name="twitter:image" content="https://naimbh.com/images/og/naim-bin-hasan-academic-site.jpg?v=3">
 <meta name="twitter:image:alt" content="Homepage of naimbh.com: Naim Bin Hasan, PhD researcher at Syracuse University (iSchool)">
 
 <script type="application/ld+json">
@@ -1850,6 +1850,8 @@ html.lenis, html.lenis body{ height:auto; }
 .hero-photo .frame .xf{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; pointer-events:none;
   transition:opacity 1.2s cubic-bezier(.4,0,.2,1); }
 .hero-photo .frame .xf.show{ opacity:1; }
+.hero-photo .frame .hi{ position:absolute; top:14px; left:14px; z-index:2; font-family:var(--mono); font-size:12.5px; font-weight:700; color:var(--bg); background:var(--eng); padding:5px 10px; border-radius:8px; pointer-events:none; }
+@media(max-width:700px){ .hero-photo .frame .hi{ font-size:10.5px; padding:4px 7px; top:8px; left:8px; } }
 /* touch screens never tilt: keep the card flat so Safari doesn't redraw the photo blurry while it fades */
 .hero-photo .frame .xf{ will-change:opacity; }
 @media (hover:none), (pointer:coarse){ .hero-photo{ perspective:none; } .hero-photo .frame{ transform:none; transform-style:flat; } }
@@ -1957,6 +1959,7 @@ html.lenis, html.lenis body{ height:auto; }
         <img id="heroImg" src="/images/naim-bin-hasan-portrait-800.webp?v=4" srcset="/images/naim-bin-hasan-portrait-480.webp?v=4 480w, /images/naim-bin-hasan-portrait-800.webp?v=4 768w" sizes="(max-width:700px) 240px, (max-width:1000px) 260px, 420px" width="768" height="960" fetchpriority="high" decoding="async"
              alt="Naim Bin Hasan, PhD researcher at Syracuse University, presenting his research on AI and digital labor">
         <img class="xf" alt="" aria-hidden="true" decoding="async">
+        <span class="hi">hi, I'm Naim 👋</span>
       </div>
       <figcaption class="now" aria-live="polite"><i aria-hidden="true"></i><b>Now</b><span id="nowTxt">analyzing 7,000 AI-tutor chats</span></figcaption>
     </figure>
