@@ -1387,7 +1387,7 @@ h1 .ln:last-child > span{
 @media(max-width:600px){ .pjgrid{ grid-template-columns:1fr; gap:12px; } }
 .pj{ display:flex; flex-direction:column; border-radius:18px; overflow:hidden; border:1px solid var(--line-2); background:linear-gradient(160deg,var(--surface),var(--surface-2)); transition:transform .3s var(--snap), border-color .25s, box-shadow .3s; }
 .pj:hover{ transform:translateY(-4px); border-color:color-mix(in srgb,var(--c) 45%,transparent); box-shadow:var(--shadow); }
-.pj img{ width:100%; aspect-ratio:16/9; object-fit:cover; border-bottom:1px solid var(--line-2); transition:transform .5s var(--ease); }
+.pj img{ width:100%; height:auto; aspect-ratio:16/9; object-fit:contain; background:#0A0E17; border-bottom:1px solid var(--line-2); transition:transform .5s var(--ease); }
 .pj:hover img{ transform:scale(1.03); }
 .pj-b{ padding:16px 18px 18px; display:flex; flex-direction:column; flex:1; }
 .pj-tag{ font-family:var(--mono); font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--c); }
@@ -1395,7 +1395,7 @@ h1 .ln:last-child > span{
 .pj p{ font-size:15.5px; line-height:1.5; color:var(--txt-2); margin:0 0 12px; }
 .pj .stack{ margin-top:auto; }
 .pj-live{ align-self:flex-start; display:inline-block; margin-top:10px; font-family:var(--mono); font-size:12.5px; color:var(--c); text-decoration:none; border-bottom:1px solid color-mix(in srgb,var(--c) 40%,transparent); }
-@media(max-width:600px){ .pj img{ aspect-ratio:16/8; } .pj-b{ padding:12px 14px 14px; } .pj h3{ font-size:17px; } .pj p{ font-size:14.5px; margin-bottom:10px; } }
+@media(max-width:600px){ .pj img{ aspect-ratio:16/9; } .pj-b{ padding:12px 14px 14px; } .pj h3{ font-size:17px; } .pj p{ font-size:14.5px; margin-bottom:10px; } }
 
 /* ============================================================ RESEARCH AGENDA */
 .agenda{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }

@@ -483,17 +483,45 @@ a{ color:inherit; }
 @media(max-width:860px){ .vibe{ grid-template-columns:1fr; } .vibe ul{ grid-template-columns:repeat(3,1fr); } }
 @media(max-width:560px){ .vibe ul{ grid-template-columns:1fr; } .vibe{ padding:20px; border-radius:16px; } .vibe h2{ font-size:26px; } .vibe p:not(.kicker){ font-size:15.5px; } .vibe li{ padding:10px 14px; } .vibe li b{ font-size:17px; } }
 
-/* IBM CERTIFICATE */
-.ibm-card{ padding:22px; border-radius:18px; margin-bottom:16px; border:1px solid color-mix(in srgb,var(--cyan) 45%,transparent);
   background:linear-gradient(160deg,color-mix(in srgb,var(--cyan) 12%,var(--card)),var(--card) 70%); }
-.ibm-badge{ display:inline-block; font-family:var(--mono); font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--cyan); border:1px solid color-mix(in srgb,var(--cyan) 45%,transparent); padding:4px 10px; border-radius:99px; }
-.ibm-card h3{ font-size:22px; letter-spacing:-.02em; margin:12px 0 4px; }
-.ibm-meta{ font-family:var(--mono); font-size:13px; color:var(--ink-3); margin:0 0 10px; }
-.courses{ list-style:none; margin:0; padding:0; }
-.courses li{ display:flex; gap:10px; align-items:baseline; font-size:14.5px; line-height:1.4; color:var(--ink-2); padding:7px 0; border-top:1px solid var(--line-2); }
-.courses li b{ font-family:var(--mono); font-size:12px; font-weight:500; color:var(--cyan); flex:none; }
-.ibm-links{ display:flex; flex-wrap:wrap; gap:8px 16px; margin-top:12px; }
-.ibm-links a{ font-family:var(--mono); font-size:13px; color:var(--cyan); text-decoration:none; border-bottom:1px solid color-mix(in srgb,var(--cyan) 40%,transparent); }
+
+/* EXPERIENCE — organization chain + side lists */
+.exp{ display:grid; grid-template-columns:1.25fr .75fr; gap:clamp(24px,4vw,56px); align-items:start; }
+@media(max-width:900px){ .exp{ grid-template-columns:1fr; } }
+.xorg{ padding:18px 0 4px; border-top:1px solid var(--line-2); }
+.xorg header{ display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:4px 14px; margin-bottom:12px; }
+.xo{ margin:0; font-weight:700; font-size:clamp(18px,1.9vw,21px); letter-spacing:-.02em; color:var(--violet); }
+.xo span:not(.su){ font-weight:400; font-size:.74em; color:var(--ink-3); margin-left:6px; letter-spacing:0; }
+.xy{ font-family:var(--mono); font-size:12.5px; color:var(--ink-3); white-space:nowrap; }
+.xorg ol{ list-style:none; margin:0; padding:0 0 0 26px; position:relative; }
+.xorg ol::before{ content:''; position:absolute; left:7px; top:10px; bottom:18px; width:2px; border-radius:2px; background:linear-gradient(color-mix(in srgb,var(--ink-3) 55%,transparent),transparent); }
+.xorg ol > li{ position:relative; padding-bottom:14px; }
+.xorg ol > li::before{ content:''; position:absolute; left:-26px; top:5px; width:16px; height:16px; border-radius:50%; background:var(--c); box-shadow:0 0 0 4px var(--bg); }
+.xorg h3{ font-size:clamp(18px,1.8vw,21px); letter-spacing:-.02em; margin:0 0 8px; line-height:1.25; }
+.pills{ list-style:none; padding:0; margin:0 0 8px; display:flex; flex-wrap:wrap; gap:6px; }
+.pills li{ font-family:var(--mono); font-size:12px; color:var(--ink-2); padding:4px 10px; border-radius:99px; border:1px solid var(--line); background:var(--tint); }
+.pills li.hi{ color:var(--lime); border-color:color-mix(in srgb,var(--lime) 45%,transparent); background:color-mix(in srgb,var(--lime) 10%,transparent); }
+.xorg p:not(.xo){ margin:0; color:var(--ink-2); font-size:16px; line-height:1.55; }
+.xside{ display:grid; gap:28px; }
+.xh{ font-family:var(--mono); font-size:13px; letter-spacing:.1em; text-transform:uppercase; color:var(--lime); font-weight:500; margin:0 0 10px; }
+.xh::before{ content:'// '; color:var(--ink-4); }
+.xlist ul{ list-style:none; margin:0; padding:0; border-top:1px solid var(--line-2); }
+.xlist li{ position:relative; padding:12px 4px 12px 14px; border-bottom:1px solid var(--line-2); }
+.xlist li::before{ content:''; position:absolute; left:0; top:15px; bottom:15px; width:3px; border-radius:3px; background:color-mix(in srgb,var(--cyan) 70%,transparent); }
+.xlist b{ display:block; font-size:16.5px; letter-spacing:-.01em; line-height:1.3; }
+.xlist li > span{ display:block; font-family:var(--mono); font-size:12.5px; color:var(--ink-3); margin-top:3px; }
+.xlist li p{ margin:6px 0 0; font-size:14px; line-height:1.5; color:var(--ink-2); }
+.xl{ display:flex; gap:14px; margin-top:6px; }
+.xl a{ font-family:var(--mono); font-size:12.5px; color:var(--cyan); text-decoration:none; border-bottom:1px solid color-mix(in srgb,var(--cyan) 40%,transparent); }
+@media(max-width:640px){ .xorg{ padding:14px 0 2px; } .xo{ font-size:17px; } .xo span:not(.su){ display:block; margin:2px 0 0; } .xorg ol{ padding-left:22px; } .xorg ol::before{ left:6px; } .xorg ol > li::before{ left:-22px; width:14px; height:14px; } .xorg h3{ font-size:17px; } .pills li{ font-size:11px; padding:3px 8px; } .xorg p:not(.xo){ font-size:15px; } .xlist b{ font-size:15.5px; } }
+
+/* PAGINATION */
+.pager{ display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:8px; margin-top:26px; }
+.pager button{ font-family:var(--mono); font-size:13px; min-width:40px; height:40px; padding:0 12px; border-radius:12px; border:1px solid var(--line); background:var(--tint); color:var(--ink-2); cursor:pointer; transition:transform .2s var(--snap), background .2s, color .2s, border-color .2s; }
+.pager button:hover:not(:disabled){ transform:translateY(-2px); color:var(--ink); border-color:var(--ink-3); }
+.pager button[aria-current="page"]{ background:var(--lime-fill); color:var(--on-lime); border-color:var(--lime-fill); font-weight:700; }
+.pager button:disabled{ opacity:.35; cursor:default; }
+.pager .info{ width:100%; text-align:center; font-family:var(--mono); font-size:12px; color:var(--ink-3); margin-top:2px; }
 
 /* BUTTONS */
 .btn{
@@ -564,9 +592,6 @@ h1 .stk b{ color:var(--violet); font-weight:500; } h1 .stk u{ text-decoration:no
 .win-top .me img{ width:30px; height:30px; border-radius:50%; object-fit:cover; object-position:50% 20%; border:2px solid var(--lime); }
 .win-top .me b{ width:7px; height:7px; border-radius:50%; background:var(--lime); }
 @media(max-width:560px){ .win-top > span{ display:none; } }
-.portrait{ margin:0 0 18px; border-radius:20px; overflow:hidden; border:1px solid var(--line); aspect-ratio:4/5; max-width:360px; }
-.portrait img{ width:100%; height:100%; object-fit:cover; transition:transform .6s var(--ease); }
-.portrait:hover img{ transform:scale(1.04); }
 
 /* PROOF STRIP */
 .proof{ display:grid; grid-template-columns:repeat(5,1fr); border-block:1px solid var(--line-2); background:var(--line-2); gap:1px; margin-top:clamp(56px,7vw,90px); }
@@ -593,15 +618,16 @@ h1 .stk b{ color:var(--violet); font-weight:500; } h1 .stk u{ text-decoration:no
 .f-chip{ min-height:40px; font-family:var(--mono); font-size:13px; letter-spacing:.05em; text-transform:uppercase; padding:9px 15px; border-radius:99px; border:1px solid var(--line); background:transparent; color:var(--ink-2); cursor:pointer; transition:all .2s; }
 .f-chip:hover{ color:var(--ink); border-color:var(--ink-3); }
 .f-chip.on{ background:var(--lime-fill); color:var(--on-lime); border-color:var(--lime-fill); }
-.work{ display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
-@media(max-width:860px){ .work{ grid-template-columns:1fr; } }
+.work{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+@media(max-width:1000px){ .work{ grid-template-columns:repeat(2,1fr); } }
+@media(max-width:640px){ .work{ grid-template-columns:1fr; } }
 .w-card{ display:flex; flex-direction:column; border-radius:20px; background:var(--card); border:1px solid var(--line-2); overflow:hidden; transition:transform .3s var(--snap), border-color .25s, opacity .3s; }
 .w-card:hover{ transform:translateY(-5px); border-color:color-mix(in srgb,var(--c) 45%,transparent); }
 .w-card[hidden]{ display:none; }
 .w-card.pop{ animation:pop .4s var(--snap) both; }
 @keyframes pop{ from{ opacity:0; transform:scale(.95); } }
 .shot{ margin:0; aspect-ratio:16/9; background:var(--card-2); border-bottom:1px solid var(--line-2); overflow:hidden; }
-.shot img{ width:100%; height:100%; object-fit:cover; transition:transform .6s var(--ease); }
+.shot img{ width:100%; height:100%; object-fit:contain; transition:transform .6s var(--ease); }
 .w-card:hover .shot img{ transform:scale(1.04); }
 .w-body .live{ display:inline-flex; margin-top:14px; font-family:var(--mono); font-size:13px; color:var(--c); text-decoration:none; border-bottom:1px solid color-mix(in srgb,var(--c) 40%,transparent); }
 .w-body .live:hover{ border-color:var(--c); }
@@ -650,19 +676,8 @@ h1 .stk b{ color:var(--violet); font-weight:500; } h1 .stk u{ text-decoration:no
 .step p{ color:var(--ink-2); font-size:16.5px; margin:0; }
 
 /* EXPERIENCE */
-.tl{ border-left:2px solid var(--line); margin-left:6px; }
-.tl-item{ position:relative; padding:0 0 34px 30px; }
-.tl-item::before{ content:''; position:absolute; left:-8px; top:6px; width:14px; height:14px; border-radius:50%; background:var(--bg); border:3px solid var(--c); }
-.tl-item .when{ font-family:var(--mono); font-size:13.5px; color:var(--ink-3); letter-spacing:.05em; }
-.tl-item h3{ font-size:clamp(20px,2.2vw,25px); letter-spacing:-.025em; margin:4px 0 4px; }
-.tl-item .org{ font-family:var(--mono); font-size:14px; color:var(--c); margin:0 0 8px; }
-.tl-item p{ color:var(--ink-2); font-size:17px; margin:0; max-width:70ch; }
 .exp{ display:grid; grid-template-columns:1.3fr .7fr; gap:clamp(28px,5vw,64px); }
 @media(max-width:900px){ .exp{ grid-template-columns:1fr; } }
-.cert{ display:block; padding:20px 22px; border-radius:16px; background:var(--card); border:1px solid var(--line-2); margin-bottom:12px; text-decoration:none; transition:transform .25s var(--snap), border-color .2s; }
-a.cert:hover{ transform:translateY(-3px); border-color:var(--lime); }
-.cert b{ display:block; font-size:18px; letter-spacing:-.015em; }
-.cert > span{ font-family:var(--mono); font-size:13px; line-height:1.5; display:block; margin-top:4px; color:var(--ink-3); }
 
 /* FAQ */
 .faq{ max-width:880px; }
@@ -734,7 +749,6 @@ footer{ padding:28px var(--pad) 36px; border-top:1px solid var(--line-2); }
   .f-chip{ font-size:11.5px; padding:7px 12px; min-height:36px; }
   .work{ gap:12px; }
   .w-card{ border-radius:16px; }
-  .shot{ aspect-ratio:16/8; }
   .w-body{ padding:16px 16px 18px; }
   .w-body h3{ font-size:19px; margin:6px 0 6px; }
   .w-body p{ font-size:14.5px; margin-bottom:12px; }
@@ -751,15 +765,7 @@ footer{ padding:28px var(--pad) 36px; border-top:1px solid var(--line-2); }
   .step{ padding:14px; border-radius:14px; }
   .step h3{ font-size:16.5px; margin:10px 0 4px; }
   .step p{ font-size:13.5px; }
-  .tl-item{ padding:0 0 22px 22px; }
-  .tl-item h3{ font-size:18.5px; }
-  .tl-item .org{ font-size:12.5px; margin-bottom:4px; }
-  .tl-item p{ font-size:14.5px; }
-  .portrait{ max-width:220px; margin-bottom:14px; }
-  .cert{ padding:14px 16px; margin-bottom:8px; border-radius:14px; }
-  .cert b{ font-size:16px; }
-  .cert > span{ font-size:12px; }
-  .faq summary{ font-size:16.5px; padding:14px 36px 14px 0; }
+                  .faq summary{ font-size:16.5px; padding:14px 36px 14px 0; }
   .faq details p{ font-size:15px; margin-bottom:16px; }
   .final h2{ font-size:clamp(36px,11vw,52px); }
   .c-links{ grid-template-columns:1fr 1fr; gap:10px; margin-top:24px; }
@@ -823,7 +829,7 @@ footer{ padding:28px var(--pad) 36px; border-top:1px solid var(--line-2); }
       </div>
 
       <div class="ide rv" style="--d:.15s">
-        <figure class="hero-shot"><img src="/freelancer/images/naim-bin-hasan-full-stack-web-developer-480.webp" srcset="/freelancer/images/naim-bin-hasan-full-stack-web-developer-480.webp 480w, /freelancer/images/naim-bin-hasan-full-stack-web-developer-800.webp 800w" sizes="300px" width="480" height="600" fetchpriority="high" decoding="async" alt="Naim Bin Hasan, freelance full-stack web developer, in a tea garden in Bangladesh"><figcaption>hi, I'm Naim 👋</figcaption></figure>
+        <figure class="hero-shot"><img src="/freelancer/images/naim-bin-hasan-full-stack-web-developer-480.webp" srcset="/freelancer/images/naim-bin-hasan-full-stack-web-developer-480.webp 480w, /freelancer/images/naim-bin-hasan-full-stack-web-developer-800.webp 800w" sizes="300px" width="480" height="600" fetchpriority="high" decoding="async" alt="Naim Bin Hasan, freelance full-stack web developer, on a nature trail in Florida"><figcaption>hi, I'm Naim 👋</figcaption></figure>
         <div class="win">
           <div class="win-top"><i></i><i></i><i></i><span>ProjectController.php</span><figure class="me"><b></b>naim · online<img src="/freelancer/images/naim-bin-hasan-full-stack-web-developer-480.webp" width="480" height="600" decoding="async" alt=""></figure></div>
 <pre class="code" id="code" aria-label="Code sample: a Laravel controller that ships a client project"><span class="l" style="--i:0"><span class="k">class</span> <span class="f">ProjectController</span> <span class="k">extends</span> Controller</span><span class="l" style="--i:1">{</span><span class="l" style="--i:2">  <span class="k">public function</span> <span class="f">ship</span>(<span class="f">Brief</span> <span class="v">$brief</span>)</span><span class="l" style="--i:3">  {</span><span class="l" style="--i:4">    <span class="v">$app</span> = <span class="f">Laravel</span>::<span class="f">build</span>(<span class="v">$brief</span>)</span><span class="l" style="--i:5">      -&gt;<span class="f">frontend</span>(<span class="s">'vue'</span>)</span><span class="l" style="--i:6">      -&gt;<span class="f">integrate</span>([<span class="s">'twilio'</span>, <span class="s">'whatsapp'</span>, <span class="s">'meta'</span>])</span><span class="l" style="--i:7">      -&gt;<span class="f">test</span>()-&gt;<span class="f">deploy</span>();</span><span class="l" style="--i:8"></span><span class="l" style="--i:9">    <span class="c">// 100% job success, 5.0 ★ reviews</span></span><span class="l" style="--i:10">    <span class="k">return</span> <span class="v">$app</span>-&gt;<span class="f">handover</span>(<span class="g">docs: true</span>);</span><span class="l" style="--i:11">  }</span><span class="l" style="--i:12">}<span class="caret"></span></span></pre>
@@ -838,6 +844,60 @@ footer{ padding:28px var(--pad) 36px; border-top:1px solid var(--line-2); }
     <div class="rv" style="--d:.1s"><b>5.0 ★</b><span>Average client rating</span></div>
     <div class="rv" style="--d:.15s"><b>100+</b><span>Projects delivered</span></div>
     <div class="rv" style="--d:.2s"><b>2019</b><span>Shipping since</span></div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="band" id="experience">
+  <div class="wrap">
+    <p class="kicker rv">experience</p>
+    <h2 class="rv" style="--d:.04s">Where I've built</h2>
+    <div class="exp">
+      <div class="xchain">
+        <section class="xorg rv">
+          <header><p class="xo"><span class="su">Syracuse University</span> <span>School of Information Studies</span></p><span class="xy">Fall 2026 — Present</span></header>
+          <ol>
+            <li style="--c:var(--violet)"><h3>Research Software &amp; Web Tools</h3><ul class="pills"><li>Fall 2026 — Present</li><li>Gravity Spy / LIGO</li></ul><p>Interactive web tools and AI-supported learning resources for a citizen-science project, alongside a PhD in Information Science &amp; Technology.</p></li>
+          </ol>
+        </section>
+        <section class="xorg rv">
+          <header><p class="xo">Zilberman Insurance <span>Remote</span></p><span class="xy">Sep 2020 — Jan 2023</span></header>
+          <ol>
+            <li style="--c:var(--lime)"><h3>Full-Stack Developer</h3><ul class="pills"><li>Laravel · Vue.js · MySQL</li><li>Twilio · Meta APIs</li></ul><p>Built and ran the apps that automated the company's daily operations, including real-time chat, calling and dashboards.</p></li>
+          </ol>
+        </section>
+        <section class="xorg rv">
+          <header><p class="xo">Upwork &amp; Fiverr <span>Remote</span></p><span class="xy">2019 — 2023</span></header>
+          <ol>
+            <li style="--c:var(--cyan)"><h3>Freelance Full-Stack Developer</h3><ul class="pills"><li class="hi">Top Rated</li><li class="hi">100% Job Success</li><li>100+ projects</li></ul><p>Web apps, dashboards, CMSs and e-commerce builds in PHP, Laravel, Vue.js and WordPress, with five-star reviews.</p></li>
+          </ol>
+        </section>
+        <section class="xorg rv">
+          <header><p class="xo">AmaderKantho24 <span>Dhaka · Part-time</span></p><span class="xy">Jun 2019 — Jan 2020</span></header>
+          <ol>
+            <li style="--c:var(--pink)"><h3>Lead Web Developer</h3><ul class="pills"><li>PHP · MySQL</li></ul><p>Maintained and supervised the full web application for an online news portal.</p></li>
+          </ol>
+        </section>
+      </div>
+      <aside class="xside">
+        <div class="xlist rv">
+          <h3 class="xh">Education</h3>
+          <ul>
+            <li><b>PhD, Information Science &amp; Technology</b><span><span class="su">Syracuse University</span> · 2026 — present</span></li>
+            <li><b>MA, Sociology</b><span>Florida Atlantic University · 2024 — 2026</span></li>
+            <li><b>MSS &amp; BSS (Honours), Sociology</b><span>University of Dhaka · 2017 — 2024</span></li>
+            <li><b>Professional Certificate, Full Stack Software Development</b><span>IBM via Coursera · May 2024 · 12 courses</span><p>Cloud · HTML, CSS &amp; JavaScript · Git · React · Node.js &amp; Express · Python · Flask · Django &amp; SQL · Docker, Kubernetes &amp; OpenShift · Microservices &amp; Serverless · Capstone</p><span class="xl"><a href="https://coursera.org/verify/professional-cert/5PAP4F43J5ZP" target="_blank" rel="noopener">Verify ↗</a><a href="/freelancer/certificates/naim-bin-hasan-ibm-full-stack-software-developer-certificate.pdf" target="_blank" rel="noopener">Certificate PDF ↗</a></span></li>
+          </ul>
+        </div>
+        <div class="xlist rv" style="--d:.06s">
+          <h3 class="xh">Certifications</h3>
+          <ul>
+            <li><b>Introduction to Cyber Security</b><span>Simplilearn · Dec 2022 · ID 4055257</span></li>
+            <li><b>IELTS — English Proficiency</b><span>Verified by Upwork · native or bilingual English</span></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
   </div>
 </section>
 
@@ -945,6 +1005,8 @@ footer{ padding:28px var(--pad) 36px; border-top:1px solid var(--line-2); }
       </article>
     </div>
 
+    <nav class="pager" id="pager" aria-label="Project pages"></nav>
+
     <div class="more-work rv">
       <h3>More builds</h3>
       <ul><li><b>Social-media-style forum</b><span>Laravel · third-party APIs · delivered with Trello sprints</span></li><li><b>Task tracker &amp; outliner with shortcuts</b><span>Vue.js SPA · Laravel API · live charts</span></li><li><b>Payroll management customization</b><span>Laravel · reports · five-star review</span></li><li><b>News aggregation &amp; scraping app</b><span>PHP · cron · DOM parsing</span></li><li><b>Collaborative knowledge portal</b><span>Laravel · Vue · role-based access</span></li><li><b>AmaderKantho24 news portal</b><span>Lead web developer · PHP · MySQL</span></li></ul>
@@ -995,37 +1057,6 @@ footer{ padding:28px var(--pad) 36px; border-top:1px solid var(--line-2); }
       <div class="step rv" style="--d:.05s"><h3>Scope &amp; quote</h3><p>A written scope with fixed-price milestones or an hourly estimate — your choice.</p></div>
       <div class="step rv" style="--d:.1s"><h3>Build in milestones</h3><p>Working previews you can click through, with updates as each piece lands.</p></div>
       <div class="step rv" style="--d:.15s"><h3>Launch &amp; handover</h3><p>Deployment, documentation and support so your team can run with it.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section class="band" id="experience">
-  <div class="wrap">
-    <p class="kicker rv">experience</p>
-    <h2 class="rv" style="--d:.04s">Where I've built</h2>
-    <div class="exp">
-      <div class="tl">
-        <div class="tl-item rv" style="--c:var(--violet)"><span class="when">2026 — present</span><h3>Research Software &amp; Web Tools</h3><p class="org"><span class="su">Syracuse University</span> · Gravity Spy / LIGO</p><p>Design interactive web tools and AI-supported learning resources for a citizen-science project, alongside a PhD in Information Science &amp; Technology.</p></div>
-        <div class="tl-item rv" style="--c:var(--lime)"><span class="when">Sep 2020 — Jan 2023</span><h3>Full-Stack Developer (Remote)</h3><p class="org">Zilberman Insurance</p><p>Built and ran the apps that automated the company's daily operations — Laravel, PHP, Vue.js, MySQL, and Twilio and Meta APIs for real-time chat and calling.</p></div>
-        <div class="tl-item rv" style="--c:var(--cyan)"><span class="when">2019 — 2023</span><h3>Freelance Full-Stack Developer</h3><p class="org">Upwork · Fiverr</p><p>100+ projects in PHP, Laravel, Vue.js and WordPress. Top Rated on Upwork with 100% Job Success and five-star reviews.</p></div>
-        <div class="tl-item rv" style="--c:var(--pink)"><span class="when">Jun 2019 — Jan 2020</span><h3>Lead Web Developer (Part-time)</h3><p class="org">AmaderKantho24</p><p>Maintained and supervised the full web application for an online news portal.</p></div>
-      </div>
-      <div>
-        <div class="ibm-card rv">
-          <span class="ibm-badge">Education · Professional certificate</span>
-          <h3>IBM Full Stack Software Developer</h3>
-          <p class="ibm-meta">IBM via Coursera · Completed May 2024 · 12 courses</p>
-          <ol class="courses"><li><b>01</b>Introduction to Cloud Computing</li><li><b>02</b>Introduction to Web Development with HTML, CSS, JavaScript</li><li><b>03</b>Getting Started with Git and GitHub</li><li><b>04</b>Developing Front-End Apps with React</li><li><b>05</b>Developing Back-End Apps with Node.js and Express</li><li><b>06</b>Python for Data Science, AI &amp; Development</li><li><b>07</b>Developing AI Applications with Python and Flask</li><li><b>08</b>Django Application Development with SQL and Databases</li><li><b>09</b>Introduction to Containers w/ Docker, Kubernetes &amp; OpenShift</li><li><b>10</b>Application Development using Microservices and Serverless</li><li><b>11</b>Full Stack Application Development Capstone Project</li><li><b>12</b>Full Stack Software Developer Assessment</li></ol>
-          <div class="ibm-links"><a href="https://coursera.org/verify/professional-cert/5PAP4F43J5ZP" target="_blank" rel="noopener">Verify on Coursera ↗</a><a href="/freelancer/certificates/naim-bin-hasan-ibm-full-stack-software-developer-certificate.pdf" target="_blank" rel="noopener">Certificate PDF ↗</a></div>
-        </div>
-        <figure class="portrait rv"><img src="/freelancer/images/naim-bin-hasan-full-stack-web-developer-800.webp" srcset="/freelancer/images/naim-bin-hasan-full-stack-web-developer-480.webp 480w, /freelancer/images/naim-bin-hasan-full-stack-web-developer-800.webp 800w" sizes="(max-width:900px) 90vw, 360px" width="800" height="1000" loading="lazy" decoding="async" alt="Naim Bin Hasan, freelance full-stack web developer, in a tea garden in Bangladesh"></figure>
-        <p class="kicker rv">certifications</p>
-
-        <div class="cert rv" style="--d:.05s"><b>Introduction to Cyber Security</b><span>Simplilearn · Dec 2022 · ID 4055257</span></div>
-        <div class="cert rv" style="--d:.1s"><b>IELTS — English Proficiency</b><span>Verified by Upwork · English: native or bilingual</span></div>
-        <div class="cert rv" style="--d:.15s"><b>Education</b><span>PhD student, <span class="su">Syracuse University</span> · MA, Florida Atlantic University · BSS, University of Dhaka</span></div>
-      </div>
     </div>
   </div>
 </section>
@@ -1127,19 +1158,39 @@ footer{ padding:28px var(--pad) 36px; border-top:1px solid var(--line-2); }
   }, {rootMargin:'0px 0px -4% 0px', threshold:0});
   $$('.rv').forEach(function(el){ io.observe(el); });
 
-  var chips = $$('.f-chip'), cards = $$('#workGrid .w-card');
+  var chips = $$('.f-chip'), cards = $$('#workGrid .w-card'), pager = $('#pager'), PER = 6, filter = 'all', page = 1;
+  function matches(card){ return filter === 'all' || card.dataset.f.split(' ').indexOf(filter) > -1; }
+  function render(scroll){
+    var list = cards.filter(matches), pages = Math.max(1, Math.ceil(list.length / PER));
+    if(page > pages) page = pages;
+    cards.forEach(function(c){ c.hidden = true; c.classList.remove('pop'); });
+    list.slice((page - 1) * PER, page * PER).forEach(function(c, i){
+      c.hidden = false; c.classList.add('in');
+      if(!reduce){ void c.offsetWidth; c.style.animationDelay = (i * 0.04) + 's'; c.classList.add('pop'); }
+    });
+    var h = '';
+    if(pages > 1){
+      h += '<button type="button" data-p="' + (page - 1) + '"' + (page === 1 ? ' disabled' : '') + ' aria-label="Previous page">←</button>';
+      for(var p = 1; p <= pages; p++) h += '<button type="button" data-p="' + p + '"' + (p === page ? ' aria-current="page"' : '') + '>' + p + '</button>';
+      h += '<button type="button" data-p="' + (page + 1) + '"' + (page === pages ? ' disabled' : '') + ' aria-label="Next page">→</button>';
+    }
+    var from = (page - 1) * PER + 1, to = Math.min(page * PER, list.length);
+    h += '<span class="info">Showing ' + from + '–' + to + ' of ' + list.length + ' projects</span>';
+    pager.innerHTML = h;
+    if(scroll) document.getElementById('work').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+  }
+  pager.addEventListener('click', function(e){
+    var b = e.target.closest('button'); if(!b || b.disabled) return;
+    page = parseInt(b.dataset.p, 10); render(true);
+  });
   chips.forEach(function(chip){
     chip.addEventListener('click', function(){
-      var f = chip.dataset.f;
+      filter = chip.dataset.f; page = 1;
       chips.forEach(function(c){ var on = c === chip; c.classList.toggle('on', on); c.setAttribute('aria-pressed', String(on)); });
-      cards.forEach(function(card, i){
-        var show = f === 'all' || card.dataset.f.split(' ').indexOf(f) > -1;
-        card.hidden = !show;
-        card.classList.remove('pop');
-        if(show && !reduce){ void card.offsetWidth; card.style.animationDelay = (i % 4) * 0.04 + 's'; card.classList.add('pop'); }
-      });
+      render(false);
     });
   });
+  render(false);
 })();
 </script>
 <script>
