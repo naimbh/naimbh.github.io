@@ -26,6 +26,11 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
+<meta name="application-name" content="NaimBH.com">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="NaimBH.com">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
 <!-- Open Graph / social sharing -->
 <meta property="og:type" content="profile">
@@ -507,7 +512,7 @@ h2.sec{
 .hero{ padding-top:clamp(108px,13vw,160px); padding-bottom:clamp(56px,7vw,96px); }
 .hero-grid{ display:grid; grid-template-columns:1.25fr .75fr; gap:clamp(28px,5vw,72px); align-items:center; }
 @media(max-width:700px){ .hero-grid{ grid-template-columns:1fr; } }
-@media(min-width:701px) and (max-width:1000px){ .hero-grid{ grid-template-columns:1.35fr .65fr; gap:32px; } .lede{ font-size:22px; } }
+@media(min-width:701px) and (max-width:1000px){ .hero-grid{ grid-template-columns:1.35fr .65fr; gap:32px; } .lede{ font-size:22px; } .hero-cta{ gap:10px; margin-top:28px; } .hero-cta .btn{ padding:11px 16px; font-size:12px; gap:8px; white-space:nowrap; } .hero-cta .btn .xl{ display:none; } }
 .hero-top{
   display:flex; flex-wrap:wrap; gap:10px 18px; align-items:center; margin:0 0 22px;
   font-family:var(--mono); font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--txt-3);
@@ -1020,7 +1025,7 @@ html:has(.lb[open]){ overflow:hidden; }
     <span class="knob"></span>
   </button>
   <button class="menu" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navlinks"><span></span><span></span></button>
-  <a class="hire" href="/freelancer/" title="Naim Bin Hasan — freelance full-stack web developer">Hire me <span class="arw">↗</span></a>
+  <a class="hire" href="/freelancer/" target="_blank" rel="noopener" title="Naim Bin Hasan — full-stack web developer profile">Dev Profile <span class="arw">↗</span></a>
 </nav>
 </header>
 
@@ -1064,7 +1069,7 @@ html:has(.lb[open]){ overflow:hidden; }
       <div class="hero-cta">
         <a class="btn solid" href="#research">See <span class="xl">my </span>research <span class="arw">→</span></a>
         <a class="btn ghost" href="#gallery"><span class="xl">Photo </span>gallery</a>
-        <a class="btn pink" href="/freelancer/">Hire me<span class="xl"> as a developer</span> <span class="arw">↗</span></a>
+        <a class="btn pink" href="/freelancer/" target="_blank" rel="noopener">Dev<span class="xl">eloper</span> Profile <span class="arw">↗</span></a>
       </div>
     </div>
 
@@ -1097,7 +1102,7 @@ html:has(.lb[open]){ overflow:hidden; }
       <article class="pillar reveal" style="--c:var(--rsch);--d:.06s">
         <span class="num">02 · Interest</span>
         <h3>Human–computer interaction</h3>
-        <p>How people actually work with AI agents, interfaces and online tools. At <span class="su">Syracuse</span> I design interactive web tools and AI-supported learning resources for Gravity Spy, the citizen-science project that helps LIGO classify detector noise.</p>
+        <p>How students and workers actually use AI agents and tools. In my research practicum with the AI Programming Research Group, I analyze thousands of student conversations with an AI tutor chatbot to see which kinds of help-seeking support learning. I also design interactive web tools and AI-supported learning resources for Gravity Spy, the citizen-science project behind LIGO.</p>
         <div class="why"><b>Why it matters</b><span>Good design decides whether AI helps people or quietly pushes them out. HCI turns that question into something we can test and build.</span></div>
       </article>
 
@@ -1187,9 +1192,9 @@ html:has(.lb[open]){ overflow:hidden; }
 
     <div class="codebook reveal" style="--d:.14s" role="group" aria-label="Filter experience by code">
       <span class="cb-lbl">Codes</span>
-      <button class="chip on" data-code="all" style="--c:var(--txt)" aria-pressed="true"><i></i>All <span class="n">6</span></button>
-      <button class="chip" data-code="eng" style="--c:var(--eng)" aria-pressed="false"><i></i>Engineering <span class="n">3</span></button>
-      <button class="chip" data-code="rsch" style="--c:var(--rsch)" aria-pressed="false"><i></i>Research <span class="n">3</span></button>
+      <button class="chip on" data-code="all" style="--c:var(--txt)" aria-pressed="true"><i></i>All <span class="n">7</span></button>
+      <button class="chip" data-code="eng" style="--c:var(--eng)" aria-pressed="false"><i></i>Engineering <span class="n">4</span></button>
+      <button class="chip" data-code="rsch" style="--c:var(--rsch)" aria-pressed="false"><i></i>Research <span class="n">4</span></button>
       <button class="chip" data-code="teach" style="--c:var(--teach)" aria-pressed="false"><i></i>Teaching <span class="n">2</span></button>
       <button class="chip" data-code="labor" style="--c:var(--labor)" aria-pressed="false"><i></i>Digital labor <span class="n">1</span></button>
     </div>
@@ -1204,6 +1209,19 @@ html:has(.lb[open]){ overflow:hidden; }
           <ul>
             <li>Contribute to Gravity Spy, the citizen science project supporting the Nobel Prize-winning LIGO gravitational wave observatory.</li>
             <li>Design interactive web tools, build AI-supported learning resources, and analyze trace data to deepen volunteer engagement.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="entry reveal" data-codes="rsch eng">
+        <div class="stripes"><i style="--c:var(--rsch)"></i><i style="--c:var(--eng)"></i></div>
+        <div class="when">Fall 2026 — Present</div>
+        <div>
+          <h3>Research Practicum — Student–AI Chatbot Interactions</h3>
+          <p class="org">AI Programming Research Group · Dr. Kevin Crowston · <span class="su">Syracuse University</span> iSchool</p>
+          <ul>
+            <li>Analyzing ~7,000 student–bot interactions with the AI tutor chatbot in IST 256, Syracuse's introductory Python course, across three semesters.</li>
+            <li>Testing whether <em>adaptive</em> help-seeking (asking the AI to explain) versus <em>executive</em> help-seeking (asking it to do the work) relates to learning outcomes, using statistical, sequence and text analysis in R — toward a co-authored paper.</li>
           </ul>
         </div>
       </article>
@@ -1314,7 +1332,7 @@ html:has(.lb[open]){ overflow:hidden; }
         <div class="stack"><span>Laravel</span><span>Vue.js</span><span>SQL</span><span>Charting</span></div>
       </article>
     </div>
-    <a class="btn pink more-link reveal" href="/freelancer/#work">Full developer portfolio <span class="arw">↗</span></a>
+    <a class="btn pink more-link reveal" href="/freelancer/#work" target="_blank" rel="noopener">Full developer portfolio <span class="arw">↗</span></a>
   </div>
 </section>
 
@@ -1612,13 +1630,13 @@ html:has(.lb[open]){ overflow:hidden; }
   <div class="wrap">
     <p class="eyebrow reveal">08 — Contact</p>
     <h2 class="sec reveal" style="--d:.05s">Let's talk about work</h2>
-    <p class="sec-note reveal" style="--d:.1s">Based in Syracuse, New York. Open to research collaboration, co-authorship, peer review, invited talks, and consulting on labor and AI questions alongside the PhD. Need a web app built? That's the <a href="/freelancer/" style="color:var(--labor)">freelance side</a>.</p>
+    <p class="sec-note reveal" style="--d:.1s">Based in Syracuse, New York. Open to research collaboration, co-authorship, peer review, invited talks, and consulting on labor and AI questions alongside the PhD. Need a web app built? That's my <a href="/freelancer/" target="_blank" rel="noopener" style="color:var(--labor)">developer profile</a>.</p>
 
     <div class="reveal" style="--d:.14s">
       <a class="big-link" href="mailto:nhasan01@syr.edu" style="--c:var(--eng)">Email<span class="go">nhasan01@syr.edu</span></a>
       <a class="big-link" href="https://www.linkedin.com/in/naimbh" target="_blank" rel="noopener me" style="--c:var(--rsch)">LinkedIn<span class="go">in/naimbh ↗</span></a>
       <a class="big-link" href="https://github.com/naimbh" target="_blank" rel="noopener me" style="--c:var(--teach)">GitHub<span class="go">naimbh ↗</span></a>
-      <a class="big-link" href="/freelancer/" style="--c:var(--labor)">Hire me<span class="go">freelance web developer ↗</span></a>
+      <a class="big-link" href="/freelancer/" target="_blank" rel="noopener" style="--c:var(--labor)">Dev Profile<span class="go">full-stack web developer ↗</span></a>
     </div>
   </div>
 </section>
@@ -1626,7 +1644,7 @@ html:has(.lb[open]){ overflow:hidden; }
 
 <footer>
   <div class="foot">
-    <span>© 2026 Naim Bin Hasan · Syracuse, NY · <a href="/freelancer/">Freelance web developer</a></span>
+    <span>© 2026 Naim Bin Hasan · Syracuse, NY · <a href="/freelancer/" target="_blank" rel="noopener">Developer profile</a></span>
     <span class="legend">
       <b style="--c:var(--eng)"><i></i>Engineering</b>
       <b style="--c:var(--rsch)"><i></i>Research</b>
@@ -1652,7 +1670,7 @@ html:has(.lb[open]){ overflow:hidden; }
   document.addEventListener('click', function(e){
     var a = e.target.closest('a'); if(!a) return;
     var href = a.getAttribute('href') || '';
-    if(href.indexOf('/freelancer') === 0) track('hire_click', { link_text: a.textContent.trim().slice(0,60) });
+    if(href.indexOf('/freelancer') === 0) track('dev_profile_click', { link_text: a.textContent.trim().slice(0,60) });
     else if(href.indexOf('mailto:') === 0) track('email_click', { link_url: href });
   });
 
@@ -1808,6 +1826,11 @@ html:has(.lb[open]){ overflow:hidden; }
     sx = null;
   });
 })();
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function(){ navigator.serviceWorker.register('/sw.js').catch(function(){}); });
+}
 </script>
 </body>
 </html>
