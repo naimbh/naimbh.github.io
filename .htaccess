@@ -15,8 +15,11 @@ ErrorDocument 404 /404.html
   # Never serve hidden files (.git, .htaccess, .cpanel.yml...) except .well-known (SSL)
   RewriteRule (^|/)\.(?!well-known/) - [F,L]
 
-  # /freelancer -> /freelancer/
-  RewriteRule ^freelancer$ /freelancer/ [L,R=301]
+  # /dev -> /dev/
+  RewriteRule ^dev$ /dev/ [L,R=301]
+
+  # old address: /freelancer(/...) -> /dev(/...) permanently
+  RewriteRule ^freelancer(/.*)?$ /dev$1 [L,R=301]
 </IfModule>
 
 # Correct types for modern assets

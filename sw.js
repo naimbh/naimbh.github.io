@@ -1,10 +1,10 @@
 /* NaimBH.com service worker — fast repeat visits + offline support */
-const VERSION = 'naimbh-v19';
+const VERSION = 'naimbh-v21';
 const SHELL = [
-  '/', '/freelancer/', '/offline.html', '/site.webmanifest',
+  '/', '/dev/', '/offline.html', '/site.webmanifest',
   '/favicon.svg', '/favicon.ico', '/icon-192.png', '/icon-512.png', '/logo.svg',
   '/images/naim-bin-hasan-portrait-480.webp', '/images/naim-bin-hasan-portrait-800.webp',
-  '/freelancer/images/naim-bin-hasan-web-developer-florida-480.webp'
+  '/dev/images/naim-bin-hasan-web-developer-florida-480.webp'
 ];
 
 self.addEventListener('install', e => {

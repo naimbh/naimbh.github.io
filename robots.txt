@@ -2,12 +2,13 @@
 User-agent: *
 Allow: /
 Disallow: /404.html
+Disallow: /offline.html
 
 # Let image search index every photo
 User-agent: Googlebot-Image
 Allow: /images/
-Allow: /freelancer/images/
+Allow: /dev/images/
 
 Sitemap: https://naimbh.com/sitemap.xml
 Sitemap: https://naimbh.com/sitemap-main.xml
-Sitemap: https://naimbh.com/freelancer/sitemap.xml
+Sitemap: https://naimbh.com/dev/sitemap.xml
