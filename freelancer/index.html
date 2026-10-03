@@ -3,17 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Google Analytics (GA4) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NQ25CLBB39"></script>
+<!-- Google Analytics (GA4) — loaded after the page is ready so it never slows the first paint -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-NQ25CLBB39');
+  (function(){
+    function load(){ var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-NQ25CLBB39'; document.head.appendChild(s); }
+    function idle(){ ('requestIdleCallback' in window) ? requestIdleCallback(load, { timeout: 2500 }) : setTimeout(load, 1200); }
+    if(document.readyState === 'complete') idle(); else window.addEventListener('load', idle);
+  })();
 </script>
 <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('naim-theme');document.documentElement.setAttribute('data-theme',t||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'))}catch(e){}</script>
 <title>Naim Bin Hasan — Freelance Full-Stack Web Developer | Laravel, Vue.js &amp; PHP</title>
-<meta name="description" content="Hire Naim Bin Hasan, a Top Rated full-stack web developer on Upwork with 100% Job Success. Custom Laravel, Vue.js and PHP web apps, dashboards, API integrations and fixes — 100+ projects delivered.">
+<meta name="description" content="Hire Naim Bin Hasan, a Top Rated full-stack web developer on Upwork (100% Job Success): custom Laravel, Vue.js &amp; PHP apps, dashboards and API integrations.">
 <meta name="author" content="Naim Bin Hasan">
 <meta name="keywords" content="Naim Bin Hasan, vibe coding, vibe coder, AI-assisted development, Claude Code, freelance web developer, full stack web developer, Laravel developer, Vue.js developer, PHP developer, hire Laravel developer, Livewire, MySQL, Twilio API, WhatsApp API integration, Upwork Top Rated, Fiverr, Bangladesh web developer, Syracuse web developer">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -378,9 +382,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="/freelancer/images/naim-bin-hasan-web-developer-florida-480.webp" fetchpriority="high">
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500;700&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wdth,wght@75..100,500..800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wdth,wght@75..100,500..800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wdth,wght@75..100,500..800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap"></noscript>
 <style>
 /* ============================================================
    NAIM BIN HASAN — FREELANCE DEVELOPER
@@ -522,6 +526,10 @@ a{ color:inherit; }
 .pager button[aria-current="page"]{ background:var(--lime-fill); color:var(--on-lime); border-color:var(--lime-fill); font-weight:700; }
 .pager button:disabled{ opacity:.35; cursor:default; }
 .pager .info{ width:100%; text-align:center; font-family:var(--mono); font-size:12px; color:var(--ink-3); margin-top:2px; }
+
+/* editable code window (desktop) */
+.code.editable{ cursor:text; outline:none; }
+.code.editable:focus .caret{ display:none; }
 
 /* BUTTONS */
 .btn{
@@ -777,6 +785,23 @@ footer{ padding:28px var(--pad) 36px; border-top:1px solid var(--line-2); }
 }
 @media(max-width:360px){ .stack-grid, .steps{ grid-template-columns:1fr; } .c-links{ grid-template-columns:1fr; } }
 
+
+/* smooth scrolling (Lenis) */
+html.lenis, html.lenis body{ height:auto; }
+.lenis.lenis-smooth{ scroll-behavior:auto !important; }
+.lenis.lenis-stopped{ overflow:hidden; }
+
+/* hero photo hover */
+.hero-shot{ --rx:0deg; --ry:0deg; --gx:50%; --gy:30%; transform:perspective(900px) rotateX(var(--rx)) rotateY(var(--ry)); transition:rotate .5s var(--snap), transform .45s var(--ease), box-shadow .45s; }
+.hero-shot:hover{ rotate:0deg; transition:rotate .5s var(--snap), transform .12s linear, box-shadow .45s; box-shadow:0 40px 80px -30px #000, 0 0 0 2px color-mix(in srgb,var(--lime) 60%,transparent); z-index:3; }
+.hero-shot img{ transition:transform .7s var(--ease), filter .5s var(--ease); }
+.hero-shot:hover img{ transform:scale(1.08); filter:saturate(1.15) contrast(1.04); }
+.hero-shot::after{ content:''; position:absolute; inset:0; pointer-events:none; opacity:0; transition:opacity .4s;
+  background:radial-gradient(360px circle at var(--gx) var(--gy), rgba(255,255,255,.25), transparent 55%); mix-blend-mode:soft-light; }
+.hero-shot:hover::after{ opacity:1; }
+.hero-shot figcaption{ transition:transform .45s var(--snap); z-index:2; }
+.hero-shot:hover figcaption{ transform:translateY(-3px) rotate(-3deg); }
+@media (prefers-reduced-motion: reduce){ .hero-shot, .hero-shot img{ transform:none !important; } }
 </style>
 </head>
 <body>
@@ -831,7 +856,7 @@ footer{ padding:28px var(--pad) 36px; border-top:1px solid var(--line-2); }
       </div>
 
       <div class="ide rv" style="--d:.15s">
-        <figure class="hero-shot"><img src="/freelancer/images/naim-bin-hasan-web-developer-florida-480.webp" srcset="/freelancer/images/naim-bin-hasan-web-developer-florida-480.webp 480w, /freelancer/images/naim-bin-hasan-web-developer-florida-800.webp 800w" sizes="300px" width="480" height="600" fetchpriority="high" decoding="async" alt="Naim Bin Hasan, freelance full-stack web developer, on a nature trail in Florida"><figcaption>hi, I'm Naim 👋</figcaption></figure>
+        <figure class="hero-shot" data-tilt><img src="/freelancer/images/naim-bin-hasan-web-developer-florida-480.webp" srcset="/freelancer/images/naim-bin-hasan-web-developer-florida-480.webp 480w, /freelancer/images/naim-bin-hasan-web-developer-florida-800.webp 800w" sizes="300px" width="480" height="600" fetchpriority="high" decoding="async" alt="Naim Bin Hasan, freelance full-stack web developer, on a nature trail in Florida"><figcaption>hi, I'm Naim 👋</figcaption></figure>
         <div class="win">
           <div class="win-top"><i></i><i></i><i></i><span>ProjectController.php</span><figure class="me"><b></b>naim · online<img src="/freelancer/images/naim-bin-hasan-web-developer-florida-480.webp" width="480" height="600" decoding="async" alt=""></figure></div>
 <pre class="code" id="code" aria-label="Code sample: a Laravel controller that ships a client project"><span class="l" style="--i:0"><span class="k">class</span> <span class="f">ProjectController</span> <span class="k">extends</span> Controller</span><span class="l" style="--i:1">{</span><span class="l" style="--i:2">  <span class="k">public function</span> <span class="f">ship</span>(<span class="f">Brief</span> <span class="v">$brief</span>)</span><span class="l" style="--i:3">  {</span><span class="l" style="--i:4">    <span class="v">$app</span> = <span class="f">Laravel</span>::<span class="f">build</span>(<span class="v">$brief</span>)</span><span class="l" style="--i:5">      -&gt;<span class="f">frontend</span>(<span class="s">'vue'</span>)</span><span class="l" style="--i:6">      -&gt;<span class="f">integrate</span>([<span class="s">'twilio'</span>, <span class="s">'whatsapp'</span>, <span class="s">'meta'</span>])</span><span class="l" style="--i:7">      -&gt;<span class="f">test</span>()-&gt;<span class="f">deploy</span>();</span><span class="l" style="--i:8"></span><span class="l" style="--i:9">    <span class="c">// 100% job success, 5.0 ★ reviews</span></span><span class="l" style="--i:10">    <span class="k">return</span> <span class="v">$app</span>-&gt;<span class="f">handover</span>(<span class="g">docs: true</span>);</span><span class="l" style="--i:11">  }</span><span class="l" style="--i:12">}<span class="caret"></span></span></pre>
@@ -1105,12 +1130,51 @@ footer{ padding:28px var(--pad) 36px; border-top:1px solid var(--line-2); }
 </footer>
 </div>
 
+<script src="/js/lenis.min.js"></script>
 <script>
 (function(){
   "use strict";
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var $ = function(s,c){ return (c||document).querySelector(s); };
   var $$ = function(s,c){ return Array.prototype.slice.call((c||document).querySelectorAll(s)); };
+
+
+  /* ---------- smooth scrolling (mouse & trackpad only; touch keeps native scrolling) ---------- */
+  var lenis = null;
+  if(!reduce && window.Lenis && matchMedia('(pointer: fine)').matches){
+    lenis = new Lenis({ duration: 1.05, easing: function(t){ return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }, smoothWheel: true, wheelMultiplier: 1 });
+    (function raf(t){ lenis.raf(t); requestAnimationFrame(raf); })(performance.now());
+    document.addEventListener('click', function(e){
+      var a = e.target.closest('a[href^="#"]'); if(!a) return;
+      var id = a.getAttribute('href'); if(id.length < 2) return;
+      var el = document.querySelector(id); if(!el) return;
+      e.preventDefault();
+      lenis.scrollTo(el, { offset: -84 });
+      history.replaceState(null, '', id);
+    });
+    window.__lenis = lenis;
+  }
+
+  /* ---------- hero photo: 3D tilt toward the cursor ---------- */
+  if(!reduce && matchMedia('(pointer: fine)').matches){
+    document.querySelectorAll('[data-tilt]').forEach(function(card){
+      var raf = null;
+      card.addEventListener('pointermove', function(e){
+        var r = card.getBoundingClientRect(), px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+        if(raf) return;
+        raf = requestAnimationFrame(function(){
+          card.style.setProperty('--ry', ((px - .5) * 14).toFixed(2) + 'deg');
+          card.style.setProperty('--rx', ((.5 - py) * 12).toFixed(2) + 'deg');
+          card.style.setProperty('--gx', (px * 100).toFixed(1) + '%');
+          card.style.setProperty('--gy', (py * 100).toFixed(1) + '%');
+          raf = null;
+        });
+      });
+      card.addEventListener('pointerleave', function(){
+        card.style.setProperty('--rx', '0deg'); card.style.setProperty('--ry', '0deg');
+      });
+    });
+  }
 
   function track(name, params){ try{ if(window.gtag) gtag('event', name, params || {}); }catch(e){} }
   document.addEventListener('click', function(e){
@@ -1119,6 +1183,19 @@ footer{ padding:28px var(--pad) 36px; border-top:1px solid var(--line-2); }
     var where = /upwork\.com/.test(href) ? 'upwork' : /fiverr\.com/.test(href) ? 'fiverr' : href.indexOf('mailto:') === 0 ? 'email' : /linkedin\.com/.test(href) ? 'linkedin' : /github\.com/.test(href) ? 'github' : '';
     if(where) track('contact_click', { channel: where, link_text: a.textContent.trim().slice(0,60) });
   });
+
+  /* ProjectController.php: editable on desktop */
+  if(matchMedia('(pointer: fine)').matches){
+    var code = $('#code');
+    try { code.contentEditable = 'plaintext-only'; } catch(err){ code.contentEditable = 'true'; }
+    if(code.contentEditable !== 'plaintext-only') code.contentEditable = 'true';
+    code.spellcheck = false; code.classList.add('editable');
+    code.setAttribute('aria-label', 'Editable code sample: a Laravel controller — click to type');
+    code.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') code.blur();
+      if(e.key === 'Tab'){ e.preventDefault(); document.execCommand('insertText', false, '  '); }
+    });
+  }
 
   function heroIn(){ $$('[data-line]').forEach(function(el){ el.classList.add('up'); }); $('#code').classList.add('run'); }
   requestAnimationFrame(heroIn); setTimeout(heroIn, 250);
@@ -1179,7 +1256,7 @@ footer{ padding:28px var(--pad) 36px; border-top:1px solid var(--line-2); }
     var from = (page - 1) * PER + 1, to = Math.min(page * PER, list.length);
     h += '<span class="info">Showing ' + from + '–' + to + ' of ' + list.length + ' projects</span>';
     pager.innerHTML = h;
-    if(scroll) document.getElementById('work').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    if(scroll){ var w = document.getElementById('work'); if(window.__lenis) window.__lenis.scrollTo(w, { offset: -70 }); else w.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }
   }
   pager.addEventListener('click', function(e){
     var b = e.target.closest('button'); if(!b || b.disabled) return;
