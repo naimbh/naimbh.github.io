@@ -215,57 +215,47 @@
       <image:title>Naim Bin Hasan under the neon of Miami Beach.</image:title>
       <image:caption>Naim Bin Hasan under the neon of Miami Beach.</image:caption>
     </image:image>
-    <image:image>
-      <image:loc>https://naimbh.com/images/gallery/naim-bin-hasan-wedding-portrait-1400.webp</image:loc>
-      <image:title>Wedding portrait of Naim Bin Hasan.</image:title>
-      <image:caption>Wedding portrait of Naim Bin Hasan.</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://naimbh.com/images/gallery/naim-bin-hasan-wedding-day-bangladesh-1400.webp</image:loc>
-      <image:title>Naim Bin Hasan on his wedding day in Bangladesh.</image:title>
-      <image:caption>Naim Bin Hasan on his wedding day in Bangladesh.</image:caption>
-    </image:image>
   </url>
   <!-- section pages: tools/build_pages.py -->
   <url>
     <loc>https://naimbh.com/research/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://naimbh.com/education/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://naimbh.com/experience/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://naimbh.com/publications/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://naimbh.com/awards/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://naimbh.com/projects/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://naimbh.com/gallery/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -458,20 +448,10 @@
       <image:title>Naim Bin Hasan under the neon of Miami Beach.</image:title>
       <image:caption>Naim Bin Hasan under the neon of Miami Beach.</image:caption>
     </image:image>
-    <image:image>
-      <image:loc>https://naimbh.com/images/gallery/naim-bin-hasan-wedding-portrait-1400.webp</image:loc>
-      <image:title>Wedding portrait of Naim Bin Hasan.</image:title>
-      <image:caption>Wedding portrait of Naim Bin Hasan.</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://naimbh.com/images/gallery/naim-bin-hasan-wedding-day-bangladesh-1400.webp</image:loc>
-      <image:title>Naim Bin Hasan on his wedding day in Bangladesh.</image:title>
-      <image:caption>Naim Bin Hasan on his wedding day in Bangladesh.</image:caption>
-    </image:image>
   </url>
   <url>
     <loc>https://naimbh.com/contact/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
