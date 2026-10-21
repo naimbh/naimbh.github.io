@@ -644,6 +644,8 @@ h1 .ln:last-child > span{
 .amt{ grid-column:2; grid-row:1; font-family:var(--mono); font-weight:500; font-size:13px; letter-spacing:.02em; color:var(--teach); white-space:nowrap; padding:3px 9px; border-radius:99px; border:1px solid color-mix(in srgb,var(--teach) 40%,transparent); background:color-mix(in srgb,var(--teach) 9%,transparent); }
 .amt.hon{ color:var(--rsch); border-color:color-mix(in srgb,var(--rsch) 40%,transparent); background:color-mix(in srgb,var(--rsch) 9%,transparent); font-size:11px; letter-spacing:.08em; text-transform:uppercase; }
 .train{ margin-top:0; }
+.train.confs{ margin-top:clamp(40px,5vw,64px); max-width:760px; }
+.train.confs li::before{ background:color-mix(in srgb,var(--teach) 70%,transparent); }
 .train ul{ list-style:none; margin:0; padding:0; border-top:1px solid var(--line-2); }
 .train li{ padding:12px 4px 12px 14px; border-bottom:1px solid var(--line-2); position:relative; }
 .train li::before{ content:''; position:absolute; left:0; top:15px; bottom:15px; width:3px; border-radius:3px; background:color-mix(in srgb,var(--eng) 70%,transparent); }
@@ -1058,6 +1060,15 @@ html.lenis, html.lenis body{ height:auto; }
       </span>
       <span class="pill">Conference talk</span>
     </article>
+
+    <div class="train confs reveal">
+      <h3 class="side-h" style="--c:var(--teach)">Conferences attended</h3>
+      <ul>
+        <li><b>4th Annual Intellectual Resistance Conference</b><span>Florida Atlantic University · Boca Raton, FL · Feb 28, 2026</span></li>
+        <li><b>Mid-South Sociological Association, 51st Annual Conference</b><span>North Augusta, SC · Oct 15 — 18, 2025</span></li>
+        <li><b>14th Annual SAGGSA Conference: Disrupting Hegemony</b><span>Florida International University · Miami, FL · Mar 14, 2025</span></li>
+      </ul>
+    </div>
   </div>
 </section>
 

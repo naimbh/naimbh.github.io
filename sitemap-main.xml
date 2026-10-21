@@ -215,6 +215,16 @@
       <image:title>Naim Bin Hasan under the neon of Miami Beach.</image:title>
       <image:caption>Naim Bin Hasan under the neon of Miami Beach.</image:caption>
     </image:image>
+    <image:image>
+      <image:loc>https://naimbh.com/images/gallery/naim-bin-hasan-wedding-portrait-1400.webp</image:loc>
+      <image:title>Wedding portrait of Naim Bin Hasan.</image:title>
+      <image:caption>Wedding portrait of Naim Bin Hasan.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://naimbh.com/images/gallery/naim-bin-hasan-wedding-day-bangladesh-1400.webp</image:loc>
+      <image:title>Naim Bin Hasan on his wedding day in Bangladesh.</image:title>
+      <image:caption>Naim Bin Hasan on his wedding day in Bangladesh.</image:caption>
+    </image:image>
   </url>
   <!-- section pages: tools/build_pages.py -->
   <url>
@@ -447,6 +457,16 @@
       <image:loc>https://naimbh.com/images/gallery/naim-bin-hasan-miami-beach-night-street-1400.webp</image:loc>
       <image:title>Naim Bin Hasan under the neon of Miami Beach.</image:title>
       <image:caption>Naim Bin Hasan under the neon of Miami Beach.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://naimbh.com/images/gallery/naim-bin-hasan-wedding-portrait-1400.webp</image:loc>
+      <image:title>Wedding portrait of Naim Bin Hasan.</image:title>
+      <image:caption>Wedding portrait of Naim Bin Hasan.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://naimbh.com/images/gallery/naim-bin-hasan-wedding-day-bangladesh-1400.webp</image:loc>
+      <image:title>Naim Bin Hasan on his wedding day in Bangladesh.</image:title>
+      <image:caption>Naim Bin Hasan on his wedding day in Bangladesh.</image:caption>
     </image:image>
   </url>
   <url>
