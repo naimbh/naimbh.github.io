@@ -1,0 +1,44 @@
+# Naim Bin Hasan
+
+> Naim Bin Hasan is a PhD researcher in Information Science and Technology at the Syracuse University School of Information Studies (iSchool), Syracuse, New York. He studies AI and the future of work, human-computer interaction, digital labor and online freelancers, and ICT for development (ICT4D). Before research, he worked as a full-stack web developer with 100+ freelance projects on Fiverr and Upwork. He is cited as Hasan, N. B.
+
+## Current position
+- PhD, Information Science and Technology, Syracuse University iSchool (Fall 2026 to present), fully funded through a Graduate Research Assistantship.
+- Graduate Research Assistant on Gravity Spy, the citizen-science project supporting the LIGO gravitational-wave observatory: interactive web tools, AI-supported learning resources and trace-data analysis.
+- Research practicum (IST 810) with the AI Programming Research Group and Dr. Kevin Crowston: analysis of about 7,000 student interactions with the AI tutor chatbot in IST 256, Syracuse's introductory Python course.
+
+## Education
+- MA, Sociology, Florida Atlantic University (2024 to 2026). Thesis: "Trading Precarities: How Bangladeshi Freelancers Leverage the Digital Economy Amid Local Insecurity and AI Disruption" (24 in-depth interviews).
+- MSS and BSS (Honours), Sociology, University of Dhaka (2017 to 2024).
+- Professional Certificate, Full Stack Software Development, IBM via Coursera (May 2024).
+
+## Publications
+- Hasan, N. B. (2025). AI efficiency vs human empathy: A paradox of AI and human agents in service support interactions. Sociology Lens (Wiley). https://doi.org/10.1111/johs.70027
+- Hasan, N. B. (2026). Trading precarities: How Bangladeshi freelancers leverage the digital economy amid local insecurity and AI disruption [Master's thesis, Florida Atlantic University]. https://digitalcommons.fau.edu/etd_general/311
+- Survival or Transition? How AI Reconfigures Work, Control, and Inequality in the Global South (revise and resubmit).
+- The Growth of Online Freelancing in Bangladesh: Economic Integration and Labor Vulnerability (talk, 14th Annual SAGGSA Conference, Florida International University, 2025).
+- Conferences: 4th Annual Intellectual Resistance Conference (FAU, 2026; paper presenter and one of four organizers); Mid-South Sociological Association 51st Annual Conference (2025); 14th Annual SAGGSA Conference (FIU, 2025).
+
+## Awards
+- Graduate Excellence Fellowship offer, Purdue University (2026, $28,000; declined for Syracuse).
+- Sociology Graduate Student Achievement Award, Florida Atlantic University (April 2026).
+- Provost's Certificate of Recognition for Publishing, Florida Atlantic University (March 2026).
+- American Institute of Bangladesh Studies (AIBS) Fellowship (2025, $3,000).
+- FAU Graduate Thesis and Dissertation Scholarship (2025).
+
+## Pages
+- [Research interests](https://naimbh.com/research/)
+- [Education](https://naimbh.com/education/)
+- [Experience](https://naimbh.com/experience/)
+- [Publications and talks](https://naimbh.com/publications/)
+- [Awards and fellowships](https://naimbh.com/awards/)
+- [Projects, methods and stack](https://naimbh.com/projects/)
+- [Contact](https://naimbh.com/contact/)
+
+## Contact and profiles
+- ORCID: https://orcid.org/0009-0002-4930-7241
+- Email: nhasan01@syr.edu
+- Office: 337 Hinds Hall, Syracuse University, Syracuse, NY 13244
+- Developer profile: https://dev.naimbh.com/
+- LinkedIn: https://www.linkedin.com/in/naimbh
+- GitHub: https://github.com/naimbh

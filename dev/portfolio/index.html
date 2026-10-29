@@ -76,7 +76,7 @@
       "breadcrumb": {
         "@id": "https://dev.naimbh.com/portfolio/#breadcrumb"
       },
-      "dateModified": "2026-10-21"
+      "dateModified": "2026-10-28"
     },
     {
       "@type": "BreadcrumbList",
@@ -95,6 +95,134 @@
           "item": "https://dev.naimbh.com/portfolio/"
         }
       ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://dev.naimbh.com/#website",
+      "url": "https://dev.naimbh.com/",
+      "name": "Naim Bin Hasan — Full-Stack Web Developer",
+      "publisher": {
+        "@id": "https://naimbh.com/#person"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://naimbh.com/#person",
+      "name": "Naim Bin Hasan",
+      "url": "https://naimbh.com/",
+      "jobTitle": [
+        "Full-Stack Web Developer",
+        "PhD Researcher in Information Science and Technology"
+      ],
+      "sameAs": [
+        "https://orcid.org/0009-0002-4930-7241",
+        "https://www.linkedin.com/in/naimbh",
+        "https://github.com/naimbh",
+        "https://facebook.com/NaimBH",
+        "https://www.fiverr.com/naimbh",
+        "https://www.upwork.com/freelancers/~01e4b24e49872b2354"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://dev.naimbh.com/#service",
+      "name": "Naim Bin Hasan — Full-Stack Web Development",
+      "description": "Freelance full-stack web development: scalable custom web apps and SaaS products, SEO-friendly CMS websites, dashboards and real-time apps, e-commerce and payments, API integrations, and fixes or new features for existing projects.",
+      "url": "https://dev.naimbh.com/",
+      "image": "https://dev.naimbh.com/images/naim-bin-hasan-web-developer-site.jpg",
+      "email": "contact@naimbh.com",
+      "founder": {
+        "@id": "https://naimbh.com/#person"
+      },
+      "provider": {
+        "@id": "https://naimbh.com/#person"
+      },
+      "areaServed": "Worldwide",
+      "knowsLanguage": [
+        "English",
+        "Bengali"
+      ],
+      "serviceType": [
+        "Web application development",
+        "SaaS development",
+        "CMS website development",
+        "E-commerce development",
+        "API integration",
+        "Website migration and modernization",
+        "Website maintenance",
+        "AI-assisted rapid prototyping (vibe coding)"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Web development services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Custom web applications and SaaS products"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "SEO-friendly CMS websites"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Dashboards and real-time apps"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Twilio, WhatsApp, Meta and REST API integrations"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "E-commerce, subscriptions and payments"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Fixes, upgrades and new features for existing projects"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Vibe coding: AI-assisted rapid prototyping with engineer review"
+            }
+          }
+        ]
+      },
+      "sameAs": [
+        "https://www.upwork.com/freelancers/~01e4b24e49872b2354",
+        "https://www.fiverr.com/naimbh",
+        "https://github.com/naimbh",
+        "https://www.linkedin.com/in/naimbh"
+      ],
+      "logo": "https://naimbh.com/logo.svg",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "email": "contact@naimbh.com",
+        "availableLanguage": [
+          "English",
+          "Bengali"
+        ]
+      }
     }
   ]
 }
@@ -274,6 +402,7 @@ section{ position:relative; padding:0 var(--pad); }
 .kicker::before{ content:'// '; color:var(--ink-4); }
 h2, .sub h1{ font-weight:800; font-variation-settings:'wdth' 86; font-size:clamp(34px,5vw,62px); line-height:1; letter-spacing:-.04em; margin:0 0 16px; }
 .note{ color:var(--ink-2); max-width:58ch; margin:0 0 44px; font-size:18.5px; }
+.note:has(+ .note){ margin-bottom:14px; }
 .js .rv{ opacity:0; transform:translateY(16px) scale(.985); }
 .js .rv.in{ opacity:1; transform:none; transition:opacity .45s var(--ease) calc(var(--d,0s)*.6), transform .55s var(--snap) calc(var(--d,0s)*.6); }
 
@@ -583,7 +712,8 @@ html.lenis, html.lenis body{ height:auto; }
 <section class="band" id="work">
   <div class="wrap">
     <p class="kicker rv">selected work</p>
-    <h1 class="rv" style="--d:.04s">Projects I've shipped</h1>
+    <h1 class="rv" style="--d:.04s">Web development portfolio: projects I've shipped</h1>
+    <p class="note pg-intro rv">Selected full-stack projects by Naim Bin Hasan, including live CMS websites for a Bangladeshi nonprofit (dohps.org) and a trilingual law firm (shaiderlaw.com), a scholarly journal platform, an EdTech SaaS, restaurant ordering with Stripe and DoorDash, and a real-time chat app.</p>
     <p class="note rv" style="--d:.08s">Full-stack builds from scratch — custom CMSs, SaaS platforms, payments, real-time apps and API integrations — for clients on Upwork, Fiverr and direct contracts.</p>
     <div class="filters rv" role="group" aria-label="Filter projects">
       <button class="f-chip on" data-f="all" aria-pressed="true">All <span class="n">13</span></button>
@@ -596,55 +726,55 @@ html.lenis, html.lenis body{ height:auto; }
     <div class="work" id="workGrid">
       <article class="w-card rv" data-f="saas cms" style="--c:var(--lime)">
         <figure class="shot"><img src="/images/projects/naim-bin-hasan-dohps-nonprofit-cms.svg" width="640" height="360" loading="lazy" decoding="async" alt="Illustration of DOHPS — Nonprofit Website & CMS, built by Naim Bin Hasan"></figure>
-        <div class="w-body"><span class="tag">Nonprofit CMS · Live</span><h3>DOHPS — Nonprofit Website &amp; CMS</h3><p>Full website and admin CMS for a Bangladeshi nonprofit (since 2008): online scholarship applications with review workflow, donation management, job postings, success stories, media library, homepage builder, multilingual content and a per-page SEO manager.</p><div class="chips"><span>Laravel</span><span>Vue.js</span><span>MySQL</span><span>Spatie Translatable</span><span>SEO</span></div><a class="live" href="https://dohps.org" target="_blank" rel="noopener">dohps.org ↗</a></div>
+        <div class="w-body"><span class="tag">Nonprofit CMS · Live</span><h3>DOHPS — Nonprofit Website &amp; CMS</h3><p>Full website and admin CMS for a Bangladeshi nonprofit (since 2008): online scholarship applications with review workflow, donation management, job postings, success stories, media library, homepage builder, multilingual content and a per-page SEO manager.</p><div class="chips"><span>CMS</span><span>Multilingual</span><span>Donations</span><span>Scholarship workflow</span><span>Per-page SEO</span></div><a class="live" href="https://dohps.org" target="_blank" rel="noopener">dohps.org ↗</a></div>
       </article>
       <article class="w-card rv" data-f="saas cms" style="--c:var(--violet);--d:.05s">
         <figure class="shot"><img src="/images/projects/naim-bin-hasan-journal-publishing-platform.svg" width="640" height="360" loading="lazy" decoding="async" alt="Illustration of Scholarly Journal Platform, built by Naim Bin Hasan"></figure>
-        <div class="w-body"><span class="tag">Publishing platform</span><h3>Scholarly Journal Platform</h3><p>An open-access journal system: public reading site, author submissions, reviewer portal, editorial decisions, volumes &amp; issues, article payments, email templates, sitemaps &amp; feeds — plus an automatic Word-to-PDF typesetter.</p><div class="chips"><span>Laravel 13</span><span>Bootstrap 5</span><span>AdminLTE</span><span>PHPWord + mPDF</span><span>Roles &amp; permissions</span></div></div>
+        <div class="w-body"><span class="tag">Publishing platform</span><h3>Scholarly Journal Platform</h3><p>An open-access journal system: public reading site, author submissions, reviewer portal, editorial decisions, volumes &amp; issues, article payments, email templates, sitemaps &amp; feeds — plus an automatic Word-to-PDF typesetter.</p><div class="chips"><span>Peer-review workflow</span><span>Article payments</span><span>Word-to-PDF typesetting</span><span>Roles &amp; permissions</span></div></div>
       </article>
       <article class="w-card rv" data-f="saas commerce" style="--c:var(--cyan)">
         <figure class="shot"><img src="/images/projects/naim-bin-hasan-edukit-college-counseling-saas.svg" width="640" height="360" loading="lazy" decoding="async" alt="Illustration of EduKit — College Counseling Tool, built by Naim Bin Hasan"></figure>
-        <div class="w-body"><span class="tag">EdTech SaaS</span><h3>EduKit — College Counseling Tool</h3><p>A paid counseling SaaS comparing colleges by cutoffs, placements, fees, research and scholarships, with subscription plans, coupons, cart &amp; Razorpay checkout, Google sign-in and PDF reports.</p><div class="chips"><span>Laravel</span><span>Inertia.js</span><span>Vue 3</span><span>Razorpay</span><span>Socialite</span></div></div>
+        <div class="w-body"><span class="tag">EdTech SaaS</span><h3>EduKit — College Counseling Tool</h3><p>A paid counseling SaaS comparing colleges by cutoffs, placements, fees, research and scholarships, with subscription plans, coupons, cart &amp; Razorpay checkout, Google sign-in and PDF reports.</p><div class="chips"><span>SaaS</span><span>Subscriptions</span><span>Razorpay checkout</span><span>Google sign-in</span><span>PDF reports</span></div></div>
       </article>
       <article class="w-card rv" data-f="commerce realtime" style="--c:var(--amber);--d:.05s">
         <figure class="shot"><img src="/images/projects/naim-bin-hasan-ezorders-online-ordering-system.svg" width="640" height="360" loading="lazy" decoding="async" alt="Illustration of Ezorders — Restaurant & Catering Ordering, built by Naim Bin Hasan"></figure>
-        <div class="w-body"><span class="tag">Ordering &amp; delivery</span><h3>Ezorders — Restaurant &amp; Catering Ordering</h3><p>Multi-store online ordering with menus, modifiers and promos, Stripe payments, Twilio phone verification, DoorDash delivery dispatch, automatic kitchen-receipt printing via PrintNode, and sales reports.</p><div class="chips"><span>Laravel</span><span>Stripe</span><span>Twilio</span><span>DoorDash API</span><span>PrintNode</span></div></div>
+        <div class="w-body"><span class="tag">Ordering &amp; delivery</span><h3>Ezorders — Restaurant &amp; Catering Ordering</h3><p>Multi-store online ordering with menus, modifiers and promos, Stripe payments, Twilio phone verification, DoorDash delivery dispatch, automatic kitchen-receipt printing via PrintNode, and sales reports.</p><div class="chips"><span>Online ordering</span><span>Stripe</span><span>Twilio</span><span>DoorDash API</span><span>PrintNode</span></div></div>
       </article>
       <article class="w-card rv" data-f="realtime" style="--c:var(--pink)">
         <figure class="shot"><img src="/images/projects/naim-bin-hasan-reopen-chat-realtime-rooms.svg" width="640" height="360" loading="lazy" decoding="async" alt="Illustration of reopen.chat — Live Chat Rooms, built by Naim Bin Hasan"></figure>
-        <div class="w-body"><span class="tag">Real-time app</span><h3>reopen.chat — Live Chat Rooms</h3><p>A real-time chat community: public rooms, private messages, favorites, moderator tools with bans and blocks, custom themes, captcha-protected sign-up and a JSON API.</p><div class="chips"><span>Laravel 11</span><span>Pusher</span><span>WebSockets</span><span>REST API</span><span>Pest</span></div></div>
+        <div class="w-body"><span class="tag">Real-time app</span><h3>reopen.chat — Live Chat Rooms</h3><p>A real-time chat community: public rooms, private messages, favorites, moderator tools with bans and blocks, custom themes, captcha-protected sign-up and a JSON API.</p><div class="chips"><span>Real-time chat</span><span>WebSockets</span><span>Moderation tools</span><span>REST API</span><span>Automated tests</span></div></div>
       </article>
       <article class="w-card rv" data-f="saas realtime" style="--c:var(--cyan);--d:.05s">
         <figure class="shot"><img src="/images/projects/naim-bin-hasan-renewal-salesforce-contract-manager.svg" width="640" height="360" loading="lazy" decoding="async" alt="Illustration of Renewal — Salesforce Contract Manager, built by Naim Bin Hasan"></figure>
-        <div class="w-body"><span class="tag">CRM integration</span><h3>Renewal — Salesforce Contract Manager</h3><p>Campaign and contract-renewal management connected to Salesforce through OAuth and the REST API, with call scripts, categories and live notifications.</p><div class="chips"><span>Laravel</span><span>Salesforce API</span><span>OAuth</span><span>Pusher</span></div></div>
+        <div class="w-body"><span class="tag">CRM integration</span><h3>Renewal — Salesforce Contract Manager</h3><p>Campaign and contract-renewal management connected to Salesforce through OAuth and the REST API, with call scripts, categories and live notifications.</p><div class="chips"><span>CRM integration</span><span>Salesforce API</span><span>OAuth</span><span>Live notifications</span></div></div>
       </article>
       <article class="w-card rv" data-f="saas realtime commerce" style="--c:var(--lime)">
         <figure class="shot"><img src="/images/projects/naim-bin-hasan-spitalis-professional-marketplace.svg" width="640" height="360" loading="lazy" decoding="async" alt="Illustration of Spitalis — Professional Marketplace, built by Naim Bin Hasan"></figure>
-        <div class="w-body"><span class="tag">Marketplace</span><h3>Spitalis — Professional Marketplace</h3><p>Professional profiles with education and work history, reviews and ratings, role management, in-app messaging and payout disbursements, with Google sign-in.</p><div class="chips"><span>Laravel</span><span>Chatify</span><span>Socialite</span><span>Role management</span></div></div>
+        <div class="w-body"><span class="tag">Marketplace</span><h3>Spitalis — Professional Marketplace</h3><p>Professional profiles with education and work history, reviews and ratings, role management, in-app messaging and payout disbursements, with Google sign-in.</p><div class="chips"><span>Marketplace</span><span>In-app messaging</span><span>Google sign-in</span><span>Payouts</span><span>Role management</span></div></div>
       </article>
       <article class="w-card rv" data-f="cms" style="--c:var(--amber);--d:.05s">
         <figure class="shot"><img src="/images/projects/naim-bin-hasan-law-firm-trilingual-cms.svg" width="640" height="360" loading="lazy" decoding="async" alt="Illustration of Law Firm Website — Syed Haider Ali & Associates, built by Naim Bin Hasan"></figure>
-        <div class="w-body"><span class="tag">Trilingual CMS · Live</span><h3>Law Firm Website — Syed Haider Ali &amp; Associates</h3><p>A Bangla, English and German law-firm site with a full CMS for lawyers, practice areas, portfolio files, pages and per-page SEO.</p><div class="chips"><span>Laravel</span><span>Vue.js</span><span>Spatie Translatable</span><span>SEO</span></div><a class="live" href="https://shaiderlaw.com" target="_blank" rel="noopener">shaiderlaw.com ↗</a></div>
+        <div class="w-body"><span class="tag">Trilingual CMS · Live</span><h3>Law Firm Website — Syed Haider Ali &amp; Associates</h3><p>A Bangla, English and German law-firm site with a full CMS for lawyers, practice areas, portfolio files, pages and per-page SEO.</p><div class="chips"><span>Trilingual CMS</span><span>Practice-area pages</span><span>Portfolio files</span><span>Per-page SEO</span></div><a class="live" href="https://shaiderlaw.com" target="_blank" rel="noopener">shaiderlaw.com ↗</a></div>
       </article>
       <article class="w-card rv" data-f="cms" style="--c:var(--lime)">
         <figure class="shot"><img src="/images/projects/naim-bin-hasan-student-association-website.svg" width="640" height="360" loading="lazy" decoding="async" alt="Illustration of Bangladeshi Students Association — FAU, built by Naim Bin Hasan"></figure>
-        <div class="w-body"><span class="tag">Community CMS</span><h3>Bangladeshi Students Association — FAU</h3><p>Website and CMS for a university student association: member profiles, content pages, events and SEO, all editable by non-technical officers.</p><div class="chips"><span>Laravel 11</span><span>Vue.js</span><span>CMS</span><span>SEO</span></div></div>
+        <div class="w-body"><span class="tag">Community CMS</span><h3>Bangladeshi Students Association — FAU</h3><p>Website and CMS for a university student association: member profiles, content pages, events and SEO, all editable by non-technical officers.</p><div class="chips"><span>CMS</span><span>Member profiles</span><span>Events</span><span>SEO</span></div></div>
       </article>
       <article class="w-card rv" data-f="commerce realtime" style="--c:var(--pink);--d:.05s">
         <figure class="shot"><img src="/images/projects/naim-bin-hasan-creator-subscription-platform.svg" width="640" height="360" loading="lazy" decoding="async" alt="Illustration of AllAdmirers — Creator Subscription Platform, built by Naim Bin Hasan"></figure>
-        <div class="w-body"><span class="tag">Customization</span><h3>AllAdmirers — Creator Subscription Platform</h3><p>Customized and launched a creator-economy platform: paid subscriptions, pay-per-view posts, tips, live streaming, stories and messaging, with Stripe Connect and multiple payment gateways.</p><div class="chips"><span>Laravel</span><span>Laravel Cashier</span><span>Stripe Connect</span><span>FFmpeg</span><span>PWA</span></div></div>
+        <div class="w-body"><span class="tag">Customization</span><h3>AllAdmirers — Creator Subscription Platform</h3><p>Customized and launched a creator-economy platform: paid subscriptions, pay-per-view posts, tips, live streaming, stories and messaging, with Stripe Connect and multiple payment gateways.</p><div class="chips"><span>Subscriptions</span><span>Stripe Connect</span><span>Pay-per-view</span><span>Live streaming</span><span>PWA</span></div></div>
       </article>
       <article class="w-card rv" data-f="realtime saas" style="--c:var(--lime)">
         <figure class="shot"><img src="/images/projects/naim-bin-hasan-whatsapp-chat-calling-spa.svg" width="640" height="360" loading="lazy" decoding="async" alt="Illustration of WhatsApp Chat API & Browser Calling SPA, built by Naim Bin Hasan"></figure>
-        <div class="w-body"><span class="tag">SaaS · Real-time</span><h3>WhatsApp Chat API &amp; Browser Calling SPA</h3><p>A multi-agent WhatsApp inbox with in-browser calling and a live statistics dashboard for an insurance company's operations team, synced across every agent.</p><div class="chips"><span>Laravel</span><span>Vue.js</span><span>Twilio</span><span>WhatsApp API</span><span>WebSockets</span></div></div>
+        <div class="w-body"><span class="tag">SaaS · Real-time</span><h3>WhatsApp Chat API &amp; Browser Calling SPA</h3><p>A multi-agent WhatsApp inbox with in-browser calling and a live statistics dashboard for an insurance company's operations team, synced across every agent.</p><div class="chips"><span>WhatsApp API</span><span>Twilio</span><span>Browser calling</span><span>Live dashboard</span><span>WebSockets</span></div></div>
       </article>
       <article class="w-card rv" data-f="app" style="--c:var(--amber);--d:.05s">
         <figure class="shot"><img src="/images/projects/naim-bin-hasan-weatherfit-react-weather-app.svg" width="640" height="360" loading="lazy" decoding="async" alt="Illustration of WeatherFit — What to Wear, Hour by Hour, built by Naim Bin Hasan"></figure>
-        <div class="w-body"><span class="tag">Front-end app</span><h3>WeatherFit — What to Wear, Hour by Hour</h3><p>A weather app whose headline card shows what to wear hour by hour, with current conditions, an hourly chart and a ten-day outlook. No backend, no API key.</p><div class="chips"><span>React</span><span>TypeScript</span><span>Vite</span><span>PWA</span></div></div>
+        <div class="w-body"><span class="tag">Front-end app</span><h3>WeatherFit — What to Wear, Hour by Hour</h3><p>A weather app whose headline card shows what to wear hour by hour, with current conditions, an hourly chart and a ten-day outlook. No backend, no API key.</p><div class="chips"><span>PWA</span><span>Hourly forecasts</span><span>Mobile-first</span></div></div>
       </article>
       <article class="w-card rv" data-f="app" style="--c:var(--lime)">
         <figure class="shot"><img src="/images/projects/naim-bin-hasan-zeroewaste-pickup-requests.svg" width="640" height="360" loading="lazy" decoding="async" alt="Illustration of ZeroEWaste — E-Waste Pickup Requests, built by Naim Bin Hasan"></figure>
-        <div class="w-body"><span class="tag">Request system</span><h3>ZeroEWaste — E-Waste Pickup Requests</h3><p>A pickup-request system for electronic waste: a public scheduling form and an admin panel to track and manage collections.</p><div class="chips"><span>Laravel 11</span><span>Blade</span><span>Pest</span></div></div>
+        <div class="w-body"><span class="tag">Request system</span><h3>ZeroEWaste — E-Waste Pickup Requests</h3><p>A pickup-request system for electronic waste: a public scheduling form and an admin panel to track and manage collections.</p><div class="chips"><span>Scheduling form</span><span>Admin panel</span><span>Automated tests</span></div></div>
       </article>
     </div>
 

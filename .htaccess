@@ -20,9 +20,15 @@ ErrorDocument 404 /404.html
 
   # Build scripts are not part of the site
   RewriteRule ^tools/ - [F,L]
+  RewriteRule ^(README\.md|LICENSE|naimbh\.com-audit/.*)$ - [F,L]
+
+  # Old address on the ORCID profile
+  RewriteRule ^academic/?$ / [L,R=301]
 
   # The developer profile lives at https://dev.naimbh.com
   # (naimbh.com/dev/... is handled by dev/.htaccess; this catches /dev and /freelancer)
+  RewriteRule ^dev/([\w-]+)$ https://dev.naimbh.com/$1/ [L,R=301]
+  RewriteRule ^freelancer/([\w-]+)$ https://dev.naimbh.com/$1/ [L,R=301]
   RewriteRule ^dev$ https://dev.naimbh.com/ [L,R=301]
   RewriteRule ^freelancer(?:/(.*))?$ https://dev.naimbh.com/$1 [L,R=301]
 
@@ -60,6 +66,8 @@ AddType application/manifest+json .webmanifest
   Header always set X-Content-Type-Options "nosniff"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Strict-Transport-Security "max-age=15552000; includeSubDomains"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), interest-cohort=()"
   <FilesMatch "\.html$">
     Header set Cache-Control "no-cache"
   </FilesMatch>

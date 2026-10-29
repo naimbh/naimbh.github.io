@@ -76,7 +76,7 @@
       "breadcrumb": {
         "@id": "https://naimbh.com/contact/#breadcrumb"
       },
-      "dateModified": "2026-10-21"
+      "dateModified": "2026-10-28"
     },
     {
       "@type": "BreadcrumbList",
@@ -94,6 +94,30 @@
           "name": "Contact",
           "item": "https://naimbh.com/contact/"
         }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://naimbh.com/#website",
+      "url": "https://naimbh.com/",
+      "name": "Naim Bin Hasan",
+      "publisher": {
+        "@id": "https://naimbh.com/#person"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://naimbh.com/#person",
+      "name": "Naim Bin Hasan",
+      "url": "https://naimbh.com/",
+      "jobTitle": "PhD Researcher in Information Science and Technology",
+      "sameAs": [
+        "https://orcid.org/0009-0002-4930-7241",
+        "https://www.linkedin.com/in/naimbh",
+        "https://github.com/naimbh",
+        "https://facebook.com/NaimBH",
+        "https://www.fiverr.com/naimbh",
+        "https://www.upwork.com/freelancers/~01e4b24e49872b2354"
       ]
     }
   ]
@@ -315,6 +339,7 @@ h2.sec, h1.sec{
   font-size:clamp(32px,4.8vw,60px); line-height:1.02; letter-spacing:-.035em; margin:0 0 14px;
 }
 .sec-note{ color:var(--txt-2); max-width:60ch; margin:0 0 46px; font-size:18px; }
+.sec-note:has(+ .sec-note){ margin-bottom:14px; }
 
 /* reveal — short, snappy, slight overshoot */
 .js .reveal{ opacity:0; transform:translateY(16px) scale(.985); }
@@ -991,7 +1016,7 @@ html.lenis, html.lenis body{ height:auto; }
 <section class="band contact" id="contact">
   <div class="wrap">
     <p class="eyebrow reveal">Let's talk about work</p>
-    <h1 class="sec reveal" style="--d:.05s">Contact</h1>
+    <h1 class="sec reveal" style="--d:.05s">Contact Naim Bin Hasan</h1>
     <p class="sec-note reveal" style="--d:.1s">Based in Syracuse, New York. Open to research collaboration, co-authorship, peer review, invited talks, and consulting on labor and AI questions alongside the PhD. Need a web app built? That's my <a href="https://dev.naimbh.com/" target="_blank" rel="noopener" style="color:var(--labor)">developer profile</a>.</p>
 
     <address class="office reveal" style="--d:.12s">
@@ -1007,6 +1032,7 @@ html.lenis, html.lenis body{ height:auto; }
       <a class="big-link" href="mailto:nhasan01@syr.edu" style="--c:var(--eng)">Email<span class="go">nhasan01@syr.edu</span></a>
       <a class="big-link" href="https://www.linkedin.com/in/naimbh" target="_blank" rel="noopener me" style="--c:var(--rsch)">LinkedIn<span class="go">in/naimbh ↗</span></a>
       <a class="big-link" href="https://github.com/naimbh" target="_blank" rel="noopener me" style="--c:var(--teach)">GitHub<span class="go">naimbh ↗</span></a>
+      <a class="big-link" href="https://orcid.org/0009-0002-4930-7241" target="_blank" rel="noopener me" style="--c:var(--eng)">ORCID<span class="go">0009-0002-4930-7241 ↗</span></a>
       <a class="big-link" href="https://dev.naimbh.com/" target="_blank" rel="noopener" style="--c:var(--labor)">Dev Profile<span class="go">full-stack web developer ↗</span></a>
     </div>
   </div>

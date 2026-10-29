@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://dev.naimbh.com/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -89,21 +89,15 @@
   <!-- section pages: tools/build_pages.py -->
   <url>
     <loc>https://dev.naimbh.com/experience/</loc>
-    <lastmod>2026-10-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-10-28</lastmod>
   </url>
   <url>
     <loc>https://dev.naimbh.com/services/</loc>
-    <lastmod>2026-10-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-10-28</lastmod>
   </url>
   <url>
     <loc>https://dev.naimbh.com/portfolio/</loc>
-    <lastmod>2026-10-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-10-28</lastmod>
     <image:image>
       <image:loc>https://dev.naimbh.com/images/projects/naim-bin-hasan-dohps-nonprofit-cms.svg</image:loc>
       <image:title>Illustration of DOHPS — Nonprofit Website &amp; CMS</image:title>
@@ -172,33 +166,23 @@
   </url>
   <url>
     <loc>https://dev.naimbh.com/reviews/</loc>
-    <lastmod>2026-10-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-10-28</lastmod>
   </url>
   <url>
     <loc>https://dev.naimbh.com/stack/</loc>
-    <lastmod>2026-10-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-10-28</lastmod>
   </url>
   <url>
     <loc>https://dev.naimbh.com/process/</loc>
-    <lastmod>2026-10-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-10-28</lastmod>
   </url>
   <url>
     <loc>https://dev.naimbh.com/faq/</loc>
-    <lastmod>2026-10-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-10-28</lastmod>
   </url>
   <url>
     <loc>https://dev.naimbh.com/contact/</loc>
-    <lastmod>2026-10-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-10-28</lastmod>
   </url>
   <!-- /section pages -->
 </urlset>
