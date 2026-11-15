@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Naim Bin Hasan | 3D</title>
+<meta name="description" content="An interactive 3D journey through the research, education and work of Naim Bin Hasan, PhD researcher at the Syracuse University iSchool.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://naimbh.com/">
+<meta name="theme-color" content="#05070D">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wdth,wght@75..100,500..800&amp;family=Newsreader:ital,wght@0,400..500;1,400&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+<style>
+:root{
+  color-scheme: dark;
+  --bg:#05070D; --tile:rgba(9,13,24,.74); --line:rgba(236,239,247,.14);
+  --txt:#F2F4FA; --txt-2:#D3D9E8; --txt-3:#9AA6C2;
+  --eng:#3FD0E0; --rsch:#B39BFF; --teach:#FFC24B; --labor:#FF6FA8;
+  --display:'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+  --serif:'Newsreader', Georgia, serif;
+  --mono:'JetBrains Mono', ui-monospace, Menlo, monospace;
+  --pad:clamp(16px,5vw,72px);
+  --ease:cubic-bezier(.16,1,.3,1);
+  --tx:0; --ty:0;
+}
+*{ box-sizing:border-box; }
+html{ background:var(--bg); -webkit-text-size-adjust:100%; }
+body{ margin:0; background:radial-gradient(1200px 800px at 50% 40%, #111a33 0%, var(--bg) 62%); color:var(--txt); font:18px/1.6 var(--serif); overflow-x:clip; }
+a{ color:inherit; }
+#scene{ position:fixed; inset:0; width:100%; height:100%; display:block; z-index:0; touch-action:pan-y; }
+.no-webgl #scene{ display:none; }
+
+/* ---------- loader ---------- */
+#loader{ position:fixed; inset:0; z-index:50; display:grid; place-items:center; background:var(--bg); transition:opacity .9s var(--ease), visibility .9s; }
+#loader.gone{ opacity:0; visibility:hidden; }
+#loader p{ font:500 13px var(--mono); letter-spacing:.14em; text-transform:uppercase; color:var(--txt-3); margin:18px 0 0; text-align:center; }
+.orb{ width:54px; height:54px; margin:0 auto; border-radius:50%; background:conic-gradient(var(--eng),var(--rsch),var(--labor),var(--teach),var(--eng)); animation:spin 1.1s linear infinite; mask:radial-gradient(circle, transparent 52%, #000 54%); -webkit-mask:radial-gradient(circle, transparent 52%, #000 54%); }
+@keyframes spin{ to{ transform:rotate(1turn); } }
+
+/* ---------- header, rail, hud ---------- */
+header{ position:fixed; z-index:20; top:0; left:0; right:0; display:flex; align-items:center; gap:12px; padding:16px var(--pad); pointer-events:none; }
+header > *{ pointer-events:auto; }
+.brand{ display:flex; align-items:center; gap:10px; text-decoration:none; font:800 20px var(--display); letter-spacing:-.02em; margin-right:auto; }
+.brand i{ display:inline-flex; gap:3px; }
+.brand i b{ width:3px; height:18px; border-radius:2px; display:block; }
+.brand span{ color:var(--rsch); }
+.pill{ font:600 12.5px var(--mono); letter-spacing:.06em; text-transform:uppercase; text-decoration:none; padding:10px 15px; border-radius:99px; border:1px solid var(--line); background:rgba(10,14,24,.55); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); transition:border-color .2s, color .2s; white-space:nowrap; color:var(--txt); cursor:pointer; }
+.pill:hover{ border-color:var(--eng); color:var(--eng); }
+.pill.hot{ background:var(--labor); color:#170510; border-color:transparent; }
+.pill.hot:hover{ color:#170510; filter:brightness(1.08); }
+.rail{ position:fixed; z-index:20; right:clamp(10px,2vw,28px); top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:6px; }
+.rail button{ all:unset; cursor:pointer; display:flex; align-items:center; justify-content:flex-end; gap:10px; padding:5px 0; font:500 11.5px var(--mono); letter-spacing:.1em; text-transform:uppercase; color:var(--txt-3); }
+.rail button span{ opacity:0; transform:translateX(6px); transition:opacity .25s, transform .25s; }
+.rail button i{ width:9px; height:9px; border-radius:50%; border:1.5px solid var(--txt-3); transition:all .3s var(--ease); }
+.rail button:hover span, .rail button:focus-visible span, .rail button.on span{ opacity:1; transform:none; }
+.rail button.on{ color:var(--txt); }
+.rail button.on i{ background:var(--c,var(--eng)); border-color:var(--c,var(--eng)); box-shadow:0 0 14px var(--c,var(--eng)); transform:scale(1.25); }
+.rail button:focus-visible{ outline:2px solid var(--eng); outline-offset:4px; border-radius:4px; }
+.hud{ position:fixed; z-index:20; left:var(--pad); bottom:18px; font:500 12px var(--mono); letter-spacing:.08em; color:var(--txt-3); text-transform:uppercase; display:flex; align-items:center; gap:10px; pointer-events:none; }
+.hud b{ color:var(--c,var(--eng)); font-weight:500; }
+.hud .dot{ width:7px; height:7px; border-radius:50%; background:var(--c,var(--eng)); box-shadow:0 0 10px var(--c,var(--eng)); }
+.hint{ position:fixed; z-index:20; left:50%; bottom:18px; transform:translateX(-50%); font:500 12px var(--mono); letter-spacing:.12em; text-transform:uppercase; color:var(--txt-3); display:flex; align-items:center; gap:10px; transition:opacity .5s; pointer-events:none; white-space:nowrap; }
+.hint .mouse{ width:16px; height:24px; border:1.5px solid var(--txt-3); border-radius:9px; position:relative; }
+.hint .mouse::after{ content:''; position:absolute; left:50%; top:5px; width:2px; height:5px; margin-left:-1px; border-radius:2px; background:var(--txt-2); animation:wheel 1.6s infinite; }
+@keyframes wheel{ 0%{ opacity:0; transform:translateY(0); } 30%{ opacity:1; } 100%{ opacity:0; transform:translateY(7px); } }
+.hint.hide{ opacity:0; }
+
+/* ---------- the 3D content ---------- */
+main{ position:relative; z-index:10; }
+.stop{ min-height:100vh; display:flex; align-items:center; justify-content:center; padding:110px var(--pad) 90px; perspective:1500px; perspective-origin:50% 45%; pointer-events:none; }
+.stage{ width:min(1080px,100%); transform-style:preserve-3d; will-change:transform, opacity;
+  transform: translateZ(var(--fz,0px)) rotateX(calc(var(--fx,0) * 1deg + var(--ty) * -5deg)) rotateY(calc(var(--tx) * 7deg)); }
+.stage > *{ transform-style:preserve-3d; }
+.head{ text-align:center; transform:translateZ(90px); margin-bottom:clamp(22px,3vw,38px); }
+.eyebrow{ font:500 12.5px var(--mono); letter-spacing:.16em; text-transform:uppercase; color:var(--c,var(--eng)); margin:0 0 12px; }
+.eyebrow em{ font-style:normal; color:var(--txt-3); }
+h1,h2,h3{ font-family:var(--display); letter-spacing:-.03em; margin:0; }
+h2{ font-weight:800; font-variation-settings:'wdth' 86; font-size:clamp(40px,6.2vw,86px); line-height:.95; text-shadow:0 10px 40px rgba(0,0,0,.65); }
+h2 span{ color:var(--c,var(--eng)); }
+.head p{ max-width:56ch; margin:14px auto 0; color:var(--txt); font-size:clamp(17px,1.5vw,20px); text-shadow:0 1px 3px #000, 0 2px 18px rgba(0,0,0,.95), 0 0 40px rgba(0,0,0,.9); }
+
+.grid{ display:grid; gap:clamp(12px,1.6vw,20px); grid-template-columns:repeat(var(--cols,2),1fr); }
+.tile{ pointer-events:auto; position:relative; background:var(--tile); border:1px solid var(--line); border-radius:20px; padding:clamp(18px,2vw,26px);
+  backdrop-filter:blur(14px) saturate(1.2); -webkit-backdrop-filter:blur(14px) saturate(1.2);
+  box-shadow:0 30px 70px -30px rgba(0,0,0,.95), inset 0 1px 0 rgba(255,255,255,.06);
+  transform:translateZ(var(--z,40px)); transition:transform .5s var(--ease), border-color .3s, box-shadow .3s; }
+.tile:nth-child(odd){ --z:30px; } .tile:nth-child(3n){ --z:60px; }
+.tile:hover{ transform:translateZ(110px); border-color:var(--k,var(--c,var(--eng))); box-shadow:0 40px 90px -30px rgba(0,0,0,.95), 0 0 0 1px var(--k,var(--c,var(--eng))), 0 0 44px -10px var(--k,var(--c,var(--eng))); }
+.tile::before{ content:''; display:block; width:26px; height:3px; border-radius:2px; background:var(--k,var(--c,var(--eng))); margin-bottom:14px; box-shadow:0 0 14px var(--k,var(--c,var(--eng))); }
+.tile h3{ font-weight:700; font-size:clamp(19px,1.7vw,23px); line-height:1.2; letter-spacing:-.015em; }
+.tile p{ margin:8px 0 0; font-size:16px; line-height:1.5; color:var(--txt-2); }
+.tile small{ display:block; font:500 12.5px/1.55 var(--mono); color:var(--txt-3); margin-top:8px; letter-spacing:.02em; }
+.tile .big{ display:block; font:800 clamp(30px,3.2vw,44px)/1 var(--display); letter-spacing:-.04em; color:var(--k,var(--c,var(--eng))); margin-bottom:10px; font-variation-settings:'wdth' 85; }
+.tile .num{ position:absolute; top:16px; right:18px; font:500 12px var(--mono); color:var(--txt-3); }
+.tile a{ text-decoration:none; } .tile a:hover{ text-decoration:underline; text-underline-offset:3px; }
+.more{ display:block; width:max-content; margin:clamp(20px,2.4vw,30px) auto 0; transform:translateZ(70px); pointer-events:auto; font:600 13px var(--mono); letter-spacing:.06em; text-transform:uppercase; text-decoration:none; color:var(--c,var(--eng)); padding:12px 20px; border-radius:99px; border:1px solid var(--line); background:rgba(9,13,24,.6); transition:border-color .2s; }
+.more:hover{ border-color:var(--c,var(--eng)); }
+
+/* hero */
+.hero .head{ margin:0; transform:translateZ(120px); }
+.hero h1{ font-weight:800; font-variation-settings:'wdth' 78; font-size:clamp(64px,12.5vw,190px); line-height:.86; letter-spacing:-.055em; margin:8px 0 22px; text-shadow:0 20px 60px rgba(0,0,0,.6); }
+.hero h1 span{ display:block; background:linear-gradient(90deg,var(--eng),var(--rsch) 50%,var(--labor)); -webkit-background-clip:text; background-clip:text; color:transparent; filter:drop-shadow(0 10px 40px rgba(0,0,0,.6)); }
+.hero .lede{ font:500 clamp(20px,2.2vw,28px)/1.3 var(--display); color:var(--txt); max-width:30ch; margin:0 auto 26px; text-shadow:0 2px 24px rgba(0,0,0,.9); }
+.chips{ display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin:0 auto 28px; transform:translateZ(60px); }
+.chip{ pointer-events:auto; font:500 12.5px var(--mono); letter-spacing:.04em; padding:9px 14px; border-radius:99px; border:1px solid color-mix(in srgb,var(--k) 45%,transparent); background:color-mix(in srgb,var(--k) 12%,rgba(9,13,24,.7)); color:var(--txt); }
+.cta{ display:flex; flex-wrap:wrap; justify-content:center; gap:10px; transform:translateZ(80px); }
+.btn{ pointer-events:auto; font:600 13px var(--mono); letter-spacing:.06em; text-transform:uppercase; text-decoration:none; padding:14px 22px; border-radius:99px; border:1px solid var(--line); background:rgba(10,14,24,.6); cursor:pointer; color:var(--txt); transition:transform .25s var(--ease), border-color .2s; }
+.btn:hover{ transform:translateY(-3px); border-color:var(--eng); }
+.btn.go{ background:var(--txt); color:#05070D; border-color:transparent; }
+
+/* gallery: the photos are the content */
+.gallery.stop{ align-items:flex-start; padding-top:96px; }
+.gallery .head{ transform:translateZ(40px); }
+.gallery .tip{ pointer-events:auto; display:inline-flex; gap:10px; margin-top:16px; font:500 12.5px var(--mono); letter-spacing:.06em; text-transform:uppercase; color:var(--txt-2); padding:10px 16px; border-radius:99px; border:1px solid var(--line); background:rgba(9,13,24,.6); }
+.gallery .more{ position:fixed; left:50%; bottom:22px; transform:translateX(-50%); margin:0; z-index:15; opacity:var(--gv,0); pointer-events:var(--gp,none); transition:opacity .3s; }
+
+/* contact links */
+.links a.tile{ display:flex; flex-direction:column; text-decoration:none; }
+.links a.tile:hover h3{ text-decoration:none; }
+.links a.tile span{ font:500 13px var(--mono); color:var(--txt-3); margin-top:6px; letter-spacing:.03em; }
+
+/* lightbox */
+dialog{ border:0; padding:0; background:rgba(3,5,10,.92); width:100vw; height:100dvh; max-width:none; max-height:none; color:var(--txt); }
+dialog::backdrop{ background:rgba(0,0,0,.6); }
+dialog figure{ margin:0; height:100%; display:grid; place-content:center; justify-items:center; padding:60px 16px 20px; }
+dialog img{ max-width:min(92vw,1100px); max-height:78dvh; border-radius:14px; box-shadow:0 30px 90px rgba(0,0,0,.7); }
+dialog figcaption{ font:600 20px var(--display); margin-top:14px; text-align:center; }
+dialog .x{ position:absolute; top:16px; right:16px; }
+dialog .nav{ position:absolute; top:50%; transform:translateY(-50%); }
+dialog .prev{ left:16px; } dialog .next{ right:16px; }
+
+.skip{ position:absolute; left:-999px; }
+.skip:focus{ left:16px; top:16px; z-index:99; background:var(--txt); color:#000; padding:8px 12px; border-radius:8px; }
+
+@media (max-width:900px){
+  .grid{ --cols:1 !important; }
+  .stop{ padding:96px 16px 80px; }
+  .rail, .hud{ display:none; }
+  .pill.cls{ display:none; }
+  .hero h1{ margin-top:16px; }
+  .tile:hover{ transform:translateZ(var(--z,40px)); }
+  body{ font-size:17px; }
+}
+@media (min-width:901px) and (max-width:1100px){ .grid.c4{ --cols:2 !important; } }
+@media (max-width:420px){ .pill.dev{ display:none; } }
+@media (prefers-reduced-motion: reduce){ .stage{ transform:none !important; opacity:1 !important; } .orb{ animation:none; } .tile{ transition:none; } }
+</style>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+} }
+</script>
+</head>
+<body>
+<a class="skip" href="#home">Skip to content</a>
+<div id="loader" role="status"><div><div class="orb"></div><p id="loadTxt">Assembling particles…</p></div></div>
+<canvas id="scene" aria-hidden="true"></canvas>
+
+<header>
+  <a class="brand" href="/" aria-label="NaimBH — classic site"><i aria-hidden="true"><b style="background:var(--eng)"></b><b style="background:var(--rsch)"></b><b style="background:var(--teach)"></b><b style="background:var(--labor)"></b></i>Naim<span>BH</span></a>
+  <a class="pill cls" href="/">Classic site</a>
+  <a class="pill hot dev" href="https://dev.naimbh.com/" target="_blank" rel="noopener">Dev Profile ↗</a>
+</header>
+
+<nav class="rail" aria-label="Sections" id="rail"></nav>
+<div class="hud" id="hud" aria-hidden="true"><span class="dot"></span><span id="hudTxt"></span></div>
+<div class="hint" id="hint" aria-hidden="true"><span class="mouse"></span>Scroll, swipe or use the arrow keys</div>
+
+<main>
+  <section class="stop hero" id="home" data-label="Home" data-c="var(--eng)" data-cap="The globe: my path from <b>Dhaka</b> to <b>Boca Raton</b> to <b>Syracuse</b>">
+    <div class="stage">
+      <div class="head">
+        <p class="eyebrow">PhD researcher <em>·</em> Syracuse University (iSchool)</p>
+        <h1>Naim<span>Bin Hasan</span></h1>
+        <p class="lede">I study how AI and online platforms are changing work — and I build the software, too.</p>
+      </div>
+      <div class="chips">
+        <span class="chip" style="--k:var(--eng)">AI &amp; the future of work</span>
+        <span class="chip" style="--k:var(--rsch)">Human–computer interaction</span>
+        <span class="chip" style="--k:var(--teach)">Digital labor &amp; freelancers</span>
+        <span class="chip" style="--k:var(--labor)">ICT for development</span>
+      </div>
+      <div class="cta"><button class="btn go" type="button" data-go="1">Start the journey ↓</button><a class="btn" href="/">Classic site</a></div>
+    </div>
+  </section>
+
+  <section class="stop" id="research" data-label="Research" data-c="var(--rsch)" data-cap="Four connected interests, <b>one network</b>">
+    <div class="stage">
+      <div class="head"><p class="eyebrow">01 <em>/</em> Research interests</p><h2>Four interests, <span>one question</span></h2>
+        <p>What happens to people when software and AI organize their work — and what should we build once we know?</p></div>
+      <div class="grid">
+        <article class="tile" style="--k:var(--eng)"><span class="num">01</span><h3>AI and the future of work</h3><p>How automation, generative AI and algorithmic management reshape jobs, skills and inequality, starting with the workers who feel it first. Published in <i>Sociology Lens</i>.</p></article>
+        <article class="tile" style="--k:var(--rsch)"><span class="num">02</span><h3>Human–computer interaction</h3><p>How students and workers actually use AI tools: thousands of conversations with an AI tutor chatbot, and learning tools for Gravity Spy, which supports LIGO.</p></article>
+        <article class="tile" style="--k:var(--teach)"><span class="num">03</span><h3>Digital labor and online freelancers</h3><p>Platform work and the algorithms that manage it. My thesis follows Bangladeshi freelancers on Upwork and Fiverr through 24 in-depth interviews.</p></article>
+        <article class="tile" style="--k:var(--labor)"><span class="num">04</span><h3>ICT for development</h3><p>How platforms and mobile internet open, or close, economic opportunity in the Global South, and how AI is reshaping that path.</p></article>
+      </div>
+      <a class="more" href="/research/">Full research page →</a>
+    </div>
+  </section>
+
+  <section class="stop" id="education" data-label="Education" data-c="var(--teach)" data-cap="The paper trail: <b>four degrees</b>, one rising helix">
+    <div class="stage">
+      <div class="head"><p class="eyebrow">02 <em>/</em> Education</p><h2>The paper <span>trail</span></h2></div>
+      <div class="grid c4" style="--cols:4">
+        <article class="tile" style="--k:var(--eng)"><span class="big">2026 →</span><h3>PhD, Information Science &amp; Technology</h3><small>Syracuse University iSchool · fully funded</small></article>
+        <article class="tile" style="--k:var(--rsch)"><span class="big">3.92</span><h3>MA, Sociology</h3><small>Florida Atlantic University · 2024 — 2026 · thesis: “Trading Precarities”</small></article>
+        <article class="tile" style="--k:var(--labor)"><span class="big">MSS</span><h3>Master of Social Science, Sociology</h3><small>University of Dhaka · 2022 — 2024</small></article>
+        <article class="tile" style="--k:var(--teach)"><span class="big">BSS</span><h3>Bachelor of Social Science (Honours)</h3><small>University of Dhaka · 2017 — 2022</small></article>
+      </div>
+      <a class="more" href="/education/">All education details →</a>
+    </div>
+  </section>
+
+  <section class="stop" id="experience" data-label="Experience" data-c="var(--eng)" data-cap="A city of <b>things I've built</b>">
+    <div class="stage">
+      <div class="head"><p class="eyebrow">03 <em>/</em> Experience</p><h2>Research by day, <span>systems by design</span></h2></div>
+      <div class="grid">
+        <article class="tile" style="--k:var(--eng)"><h3>Graduate Research Assistant</h3><small>Syracuse University iSchool · Fall 2026 — present</small><p>Interactive web tools, AI-supported learning resources and trace-data analysis for Gravity Spy.</p></article>
+        <article class="tile" style="--k:var(--rsch)"><h3>Graduate Teaching Assistant</h3><small>Florida Atlantic University · 2024 — 2026</small><p>Taught and graded Social Problems and Family &amp; Society for 170+ students.</p></article>
+        <article class="tile" style="--k:var(--teach)"><h3>Lead Full-Stack Developer</h3><small>Zilberman Insurance · junior 2020 — 2022, lead 2023</small><p>Real-time, API-integrated dashboards that operations staff used daily, across 100,000+ SQL rows.</p></article>
+        <article class="tile" style="--k:var(--labor)"><h3>Freelance Full-Stack Developer</h3><small>Upwork &amp; Fiverr · 2019 — 2023</small><p>Top Rated with 100% Job Success: 100+ web apps, dashboards and e-commerce builds.</p></article>
+      </div>
+      <a class="more" href="/experience/">Full experience →</a>
+    </div>
+  </section>
+
+  <section class="stop" id="publications" data-label="Publications" data-c="var(--rsch)" data-cap="Pages of research, <b>fanned open</b>">
+    <div class="stage">
+      <div class="head"><p class="eyebrow">04 <em>/</em> Publications and talks</p><h2>On the <span>record</span></h2></div>
+      <div class="grid">
+        <article class="tile" style="--k:var(--eng)"><small>2025 · Peer-reviewed · <i>Sociology Lens</i> (Wiley)</small><h3><a href="https://doi.org/10.1111/johs.70027" target="_blank" rel="noopener">AI Efficiency vs Human Empathy: A Paradox of AI and Human Agents in Service Support Interactions ↗</a></h3><p>Recognized with FAU's Provost's Certificate for Publishing.</p></article>
+        <article class="tile" style="--k:var(--labor)"><small>2026 · Master's thesis · Florida Atlantic University</small><h3><a href="https://digitalcommons.fau.edu/etd_general/311" target="_blank" rel="noopener">Trading Precarities: How Bangladeshi Freelancers Leverage the Digital Economy ↗</a></h3><p>Based on 24 in-depth interviews.</p></article>
+        <article class="tile" style="--k:var(--rsch)"><small>Revise and resubmit</small><h3>Survival or Transition? How AI Reconfigures Work, Control, and Inequality in the Global South</h3></article>
+        <article class="tile" style="--k:var(--teach)"><small>Conferences</small><h3>Three conference presentations</h3><p>Intellectual Resistance 2026 (one of four organizers), Mid-South Sociological Association 2025 and SAGGSA 2025.</p></article>
+      </div>
+      <a class="more" href="/publications/">All publications →</a>
+    </div>
+  </section>
+
+  <section class="stop" id="awards" data-label="Awards" data-c="var(--teach)" data-cap="Recognition, <b>as a galaxy</b>">
+    <div class="stage">
+      <div class="head"><p class="eyebrow">05 <em>/</em> Funding and recognition</p><h2>Backed <span>by</span></h2></div>
+      <div class="grid c4" style="--cols:4">
+        <article class="tile" style="--k:var(--teach)"><span class="big">$28,000</span><h3>Graduate Excellence Fellowship offer</h3><small>Purdue University · 2026 · declined for Syracuse</small></article>
+        <article class="tile" style="--k:var(--labor)"><span class="big">$3,000</span><h3>AIBS Fellowship</h3><small>American Institute of Bangladesh Studies · 2025</small></article>
+        <article class="tile" style="--k:var(--rsch)"><span class="big">1 of 1</span><h3>Sociology Graduate Student Achievement Award</h3><small>Florida Atlantic University · 2026</small></article>
+        <article class="tile" style="--k:var(--eng)"><span class="big">Honor</span><h3>Provost's Certificate for Publishing</h3><small>Florida Atlantic University · 2026</small></article>
+      </div>
+      <a class="more" href="/awards/">Every award →</a>
+    </div>
+  </section>
+
+  <section class="stop gallery" id="gallery" data-label="Gallery" data-c="var(--labor)" data-cap="Moments, <b>in orbit</b>">
+    <div class="stage">
+      <div class="head"><p class="eyebrow">06 <em>/</em> Gallery</p><h2>From Dhaka <span>to Syracuse</span></h2>
+        <span class="tip">↔ Drag to spin · click a photo to open it</span></div>
+    </div>
+    <a class="more" href="/gallery/">See all 40 photos →</a>
+  </section>
+
+  <section class="stop" id="contact" data-label="Contact" data-c="var(--labor)" data-cap="Open channel: <b>let's talk</b>">
+    <div class="stage">
+      <div class="head"><p class="eyebrow">07 <em>/</em> Contact</p><h2>Let's talk <span>about work</span></h2>
+        <p>Open to research collaboration, co-authorship, peer review and invited talks. Office: 337 Hinds Hall, Syracuse University.</p></div>
+      <div class="grid links c4" style="--cols:4">
+        <a class="tile" href="mailto:nhasan01@syr.edu" style="--k:var(--eng)"><h3>Email</h3><span>nhasan01@syr.edu</span></a>
+        <a class="tile" href="https://www.linkedin.com/in/naimbh" target="_blank" rel="noopener me" style="--k:var(--rsch)"><h3>LinkedIn ↗</h3><span>in/naimbh</span></a>
+        <a class="tile" href="https://orcid.org/0009-0002-4930-7241" target="_blank" rel="noopener me" style="--k:var(--teach)"><h3>ORCID ↗</h3><span>0009-0002-4930-7241</span></a>
+        <a class="tile" href="https://dev.naimbh.com/" target="_blank" rel="noopener" style="--k:var(--labor)"><h3>Dev Profile ↗</h3><span>hire me for a web app</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<dialog id="lb" aria-label="Photo viewer">
+  <button class="pill x" type="button" id="lbX">Close ✕</button>
+  <button class="pill nav prev" type="button" id="lbP" aria-label="Previous photo">←</button>
+  <button class="pill nav next" type="button" id="lbN" aria-label="Next photo">→</button>
+  <figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
+</dialog>
+
+<script type="module">
+import * as THREE from 'three';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const fine = matchMedia('(pointer: fine)').matches;
+const small = () => innerWidth < 900;
+const $ = s => document.querySelector(s);
+const root = document.documentElement;
+const stops = [...document.querySelectorAll('.stop')];
+const stages = stops.map(s => s.querySelector('.stage'));
+const S = stops.length;
+
+/* ---------- navigation (works with or without WebGL) ---------- */
+const rail = $('#rail');
+stops.forEach((st, i) => {
+  const b = document.createElement('button');
+  b.type = 'button'; b.style.setProperty('--c', st.dataset.c);
+  b.innerHTML = `<span>${st.dataset.label}</span><i></i>`;
+  b.setAttribute('aria-label', 'Go to ' + st.dataset.label);
+  b.addEventListener('click', () => go(i));
+  rail.appendChild(b);
+});
+function go(i){ i = Math.max(0, Math.min(S - 1, i)); stops[i].scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); }
+document.querySelectorAll('[data-go]').forEach(b => b.addEventListener('click', () => go(+b.dataset.go)));
+addEventListener('keydown', e => {
+  if (document.querySelector('dialog[open]') || /input|textarea/i.test(e.target.tagName)) return;
+  const now = Math.round(state.cur);
+  if (['ArrowDown', 'ArrowRight', 'PageDown'].includes(e.key)) { e.preventDefault(); go(now + 1); }
+  if (['ArrowUp', 'ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); go(now - 1); }
+});
+
+const state = { cur: 0, target: 0, active: -1 };
+function readTarget(){
+  const mid = scrollY + innerHeight * .5;
+  let i = 0;
+  while (i < S - 1 && stops[i + 1].offsetTop <= mid) i++;
+  if (i >= S - 1) return S - 1;
+  const a = stops[i].offsetTop, b = stops[i + 1].offsetTop;
+  const t = Math.min(1, Math.max(0, ((mid - a) / (b - a) - .55) / .4));   // hold the shape while reading
+  return i + t * t * (3 - 2 * t);
+}
+function setActive(i){
+  if (i === state.active) return;
+  state.active = i;
+  [...rail.children].forEach((b, k) => { b.classList.toggle('on', k === i); b.toggleAttribute('aria-current', k === i); });
+  $('#hud').style.setProperty('--c', stops[i].dataset.c);
+  $('#hudTxt').innerHTML = stops[i].dataset.cap;
+  $('#hint').classList.toggle('hide', i > 0);
+}
+addEventListener('scroll', () => { state.target = readTarget(); }, { passive: true });
+addEventListener('resize', () => { state.target = readTarget(); });
+state.target = readTarget(); state.cur = state.target; setActive(Math.round(state.cur));
+
+/* ---------- content in 3D: fly in and out with scroll, tilt with the mouse ---------- */
+let tx = 0, ty = 0, mx = 0, my = 0;
+if (fine && !reduce) addEventListener('pointermove', e => { mx = e.clientX / innerWidth * 2 - 1; my = e.clientY / innerHeight * 2 - 1; }, { passive: true });
+function stageFrame(){
+  if (reduce) return;
+  tx += (mx - tx) * .06; ty += (my - ty) * .06;
+  root.style.setProperty('--tx', tx.toFixed(4)); root.style.setProperty('--ty', ty.toFixed(4));
+  const vh = innerHeight, c = vh * .5;
+  stops.forEach((st, i) => {
+    const r = st.getBoundingClientRect();
+    let d = 0;                                      // 0 while the section crosses the middle of the screen
+    if (r.top > c) d = (r.top - c) / vh; else if (r.bottom < c) d = -(c - r.bottom) / vh;
+    d = Math.max(-1.2, Math.min(1.2, d * 1.6));
+    const s = stages[i];
+    s.style.setProperty('--fx', (d * 38).toFixed(2));
+    s.style.setProperty('--fz', (-Math.abs(d) * 520).toFixed(1) + 'px');
+    s.style.opacity = Math.max(0, 1 - Math.abs(d) * 1.15).toFixed(3);
+  });
+  const gv = Math.max(0, 1 - Math.abs(state.cur - 6) * 2.2);
+  root.style.setProperty('--gv', gv.toFixed(2)); root.style.setProperty('--gp', gv > .5 ? 'auto' : 'none');
+}
+
+/* ---------- 3D scene ---------- */
+let renderer;
+try {
+  renderer = new THREE.WebGLRenderer({ canvas: $('#scene'), antialias: false, alpha: true, powerPreference: 'high-performance' });
+} catch (e) {
+  root.classList.add('no-webgl');
+  $('#loader').classList.add('gone');
+  (function loop(){ state.cur = state.target; setActive(Math.round(state.cur)); stageFrame(); requestAnimationFrame(loop); })();
+}
+if (renderer) start();
+
+function start(){
+  const mobile = small() || !fine;
+  const N = mobile ? 9000 : 18000;
+  const PR = Math.min(devicePixelRatio, mobile ? 1.6 : 2);
+  renderer.setPixelRatio(PR);
+  renderer.setSize(innerWidth, innerHeight);
+  renderer.autoClear = false;
+
+  const scene = new THREE.Scene(), photoScene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(48, innerWidth / innerHeight, .1, 200);
+  camera.position.set(0, 0, 8);
+  const world = new THREE.Group(), photoWorld = new THREE.Group();
+  scene.add(world); photoScene.add(photoWorld);
+
+  /* --- seeded random, colors, helpers --- */
+  let seed = 7;
+  const rnd = () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+  const g = () => (rnd() + rnd() + rnd() - 1.5) / 1.5;
+  const C = { eng:[.25,.82,.88], rsch:[.70,.61,1], teach:[1,.76,.29], labor:[1,.44,.66], white:[.9,.93,1], dim:[.22,.32,.55] };
+  const mix = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t];
+  const scale = (c, k) => [c[0] * k, c[1] * k, c[2] * k];
+  const rotX = (p, a) => [p[0], p[1] * Math.cos(a) - p[2] * Math.sin(a), p[1] * Math.sin(a) + p[2] * Math.cos(a)];
+  const rotZ = (p, a) => [p[0] * Math.cos(a) - p[1] * Math.sin(a), p[0] * Math.sin(a) + p[1] * Math.cos(a), p[2]];
+  const fib = (k, n, r) => { const y = 1 - 2 * (k + .5) / n, rr = Math.sqrt(1 - y * y), th = k * 2.399963; return [Math.cos(th) * rr * r, y * r, Math.sin(th) * rr * r]; };
+  const D = Math.PI / 180;
+  const ll = (lat, lon, r) => [r * Math.cos(lat * D) * Math.cos(lon * D), r * Math.sin(lat * D), -r * Math.cos(lat * D) * Math.sin(lon * D)];
+  const slerp = (a, b, t) => { const d = Math.acos(Math.min(1, a[0]*b[0] + a[1]*b[1] + a[2]*b[2])), s = Math.sin(d); const ka = Math.sin((1 - t) * d) / s, kb = Math.sin(t * d) / s; return [a[0]*ka + b[0]*kb, a[1]*ka + b[1]*kb, a[2]*ka + b[2]*kb]; };
+  function shape(fn){
+    const pos = new Float32Array(N * 3), col = new Float32Array(N * 3);
+    for (let i = 0; i < N; i++) { const r = fn(i, i / N); pos[i*3] = r[0]; pos[i*3+1] = r[1]; pos[i*3+2] = r[2]; col[i*3] = r[3][0]; col[i*3+1] = r[3][1]; col[i*3+2] = r[3][2]; }
+    return { pos, col };
+  }
+
+  // 0 · globe with the Dhaka → Boca Raton → Syracuse path
+  const cities = [[23.8, 90.4], [26.37, -80.1], [43.05, -76.15]];
+  const nSphere = Math.floor(N * .72);
+  const globe = shape((i, u) => {
+    const R = 2.4;
+    if (i < nSphere) return [...fib(i, nSphere, R), mix(C.dim, C.eng, rnd() * .55)];
+    if (u < .84) { const c = cities[i % 3]; return [...ll(c[0] + g() * 1.6, c[1] + g() * 1.6, R * (1.01 + rnd() * .08)), C.teach]; }
+    const leg = rnd() < .5 ? 0 : 1, t = rnd();
+    const p = slerp(ll(...cities[leg], 1), ll(...cities[leg + 1], 1), t), lift = R * (1 + .42 * Math.sin(Math.PI * t));
+    return [p[0] * lift + g() * .02, p[1] * lift + g() * .02, p[2] * lift + g() * .02, leg ? C.labor : C.rsch];
+  });
+
+  // 1 · research: four clusters, all connected
+  const tet = [[1,1,1],[-1,-1,1],[-1,1,-1],[1,-1,-1]].map(v => v.map(x => x * 1.45));
+  const tcol = [C.eng, C.rsch, C.teach, C.labor];
+  const edges = [[0,1],[0,2],[0,3],[1,2],[1,3],[2,3]];
+  const research = shape((i, u) => {
+    if (u < .7) { const k = i % 4, c = tet[k], r = .72 * Math.cbrt(rnd()); const d = fib(Math.floor(rnd() * 999), 999, r);
+      return [c[0] + d[0], c[1] + d[1], c[2] + d[2], mix(tcol[k], C.white, r < .2 ? .6 : 0)]; }
+    const e = edges[i % 6], a = tet[e[0]], b = tet[e[1]], t = rnd();
+    return [a[0] + (b[0] - a[0]) * t + g() * .035, a[1] + (b[1] - a[1]) * t + g() * .035, a[2] + (b[2] - a[2]) * t + g() * .035, scale(mix(tcol[e[0]], tcol[e[1]], t), .55)];
+  });
+
+  // 2 · education: a double helix rising through four degree rings
+  const ringCol = [C.teach, C.labor, C.rsch, C.eng];
+  const education = shape((i, u) => {
+    if (u < .5) { const t = rnd(), s = i % 2, a = t * Math.PI * 5 + s * Math.PI, y = -2.5 + 5 * t;
+      return [Math.cos(a) * 1.35 + g() * .04, y + g() * .04, Math.sin(a) * 1.35 + g() * .04, s ? C.eng : C.rsch]; }
+    if (u < .6) { const t = Math.floor(rnd() * 26) / 26, a = t * Math.PI * 5, y = -2.5 + 5 * t, k = rnd() * 2 - 1;
+      return [Math.cos(a) * 1.35 * k, y, Math.sin(a) * 1.35 * k, scale(C.white, .5)]; }
+    const k = i % 4, y = -1.9 + k * 1.27, a = rnd() * Math.PI * 2, r = 2.1 + g() * .05 - k * .1;
+    return [Math.cos(a) * r, y + g() * .03, Math.sin(a) * r, ringCol[k]];
+  });
+
+  // 3 · experience: a small city of systems
+  const towers = []; for (let x = -3; x <= 3; x++) for (let z = -3; z <= 3; z++) towers.push([x * .7, z * .7, .3 + Math.pow(rnd(), 2) * 3]);
+  const city = shape((i, u) => {
+    const base = -1.8;
+    if (u < .14) { const along = rnd() * 5 - 2.5, line = (Math.floor(rnd() * 15) - 7) * .35;
+      return [...(rnd() < .5 ? [along, base, line] : [line, base, along]), scale(C.dim, 1.3)]; }
+    const [x, z, h] = towers[Math.floor(rnd() * towers.length)], w = .22, sx = rnd() < .5 ? -w : w, sz = rnd() < .5 ? -w : w;
+    let p;
+    if (rnd() < .6) p = [x + sx, base + rnd() * h, z + sz];
+    else { const t = rnd() * 2 * w - w; p = rnd() < .5 ? [x + t, base + h, z + sz] : [x + sx, base + h, z + t]; }
+    return [p[0] + g() * .008, p[1], p[2] + g() * .008, mix(C.eng, C.rsch, Math.min(1, (p[1] - base) / 3.2))];
+  });
+
+  // 4 · publications: an open book seen from its bottom edge, pages fanned toward you
+  const book = shape((i, u) => {
+    const K = 17, k = i % K, a = -1.35 + 2.7 * k / (K - 1), uu = Math.sqrt(rnd()) * 2.7;
+    let v = rnd() * 2.4 - 1.2; const line = rnd() < .4;
+    if (line) v = Math.round(v * 6) / 6;
+    const bend = .25 * Math.sin(uu / 2.7 * Math.PI) * (a < 0 ? -1 : 1);
+    const p = rotX([Math.sin(a) * uu + Math.cos(a) * bend, Math.cos(a) * uu - Math.sin(a) * bend - 1.3, v], .38);
+    const edge = Math.abs(k - (K - 1) / 2) / ((K - 1) / 2);
+    return [...p, line ? mix(C.white, C.rsch, .25 + edge * .5) : scale(mix(C.rsch, C.eng, edge), .75)];
+  });
+
+  // 5 · awards: a spiral galaxy
+  const galaxy = shape((i, u) => {
+    if (u < .08) return [...fib(i, N * .08, .32 * Math.cbrt(rnd())), mix(C.white, C.teach, .4)];
+    const r = .3 + Math.pow(rnd(), .7) * 3, arm = i % 4, a = r * 1.8 + arm * Math.PI / 2 + g() * .32 / (r * .5 + .3);
+    return [...rotX([Math.cos(a) * r, g() * .12 * (1.6 - r / 3), Math.sin(a) * r], .55), mix(C.teach, arm % 2 ? C.labor : C.rsch, Math.min(1, r / 2.6))];
+  });
+
+  // 6 · gallery: a halo that frames the photos
+  const halo = shape(() => {
+    const a = rnd() * Math.PI * 2, b = rnd() * Math.PI * 2, R = 3.4, r = .13 + rnd() * .12;
+    const p = rotZ(rotX([(R + r * Math.cos(b)) * Math.cos(a), r * Math.sin(b), (R + r * Math.cos(b)) * Math.sin(a)], 1.25), .2);
+    return [...p, mix(C.labor, C.rsch, (Math.sin(a * 2) + 1) / 2)];
+  });
+
+  // 7 · contact: a planet with a ring
+  const planet = shape((i, u) => {
+    if (u < .56) { const p = fib(i, N * .56, 1.25); return [...p, mix(C.labor, C.teach, (p[1] + 1.25) / 2.5)]; }
+    const a = rnd() * Math.PI * 2, r = 1.8 + Math.pow(rnd(), 1.5) * 1.4;
+    return [...rotZ(rotX([Math.cos(a) * r, g() * .025, Math.sin(a) * r], .42), .22), mix(C.eng, C.white, rnd() * .5)];
+  });
+
+  const shapes = [globe, research, education, city, book, galaxy, halo, planet];
+
+  /* --- the morphing particle system --- */
+  const geo = new THREE.BufferGeometry();
+  const mk = () => new THREE.BufferAttribute(new Float32Array(N * 3), 3);
+  const aFrom = mk(), aTo = mk(), cFrom = mk(), cTo = mk();
+  const rand = new Float32Array(N); for (let i = 0; i < N; i++) rand[i] = rnd();
+  geo.setAttribute('position', aFrom);
+  geo.setAttribute('aFrom', aFrom); geo.setAttribute('aTo', aTo);
+  geo.setAttribute('cFrom', cFrom); geo.setAttribute('cTo', cTo);
+  geo.setAttribute('aRand', new THREE.BufferAttribute(rand, 1));
+  geo.boundingSphere = new THREE.Sphere(new THREE.Vector3(), 8);
+  const uniforms = {
+    uMix: { value: 0 }, uTime: { value: 0 }, uSize: { value: mobile ? 34 : 30 }, uPR: { value: PR }, uDim: { value: 1 },
+    uMouse: { value: new THREE.Vector3(99, 99, 99) }, uRepel: { value: 0 }, uMotion: { value: reduce ? 0 : 1 }
+  };
+  const mat = new THREE.ShaderMaterial({
+    uniforms, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
+    vertexShader: `
+      attribute vec3 aFrom; attribute vec3 aTo; attribute vec3 cFrom; attribute vec3 cTo; attribute float aRand;
+      uniform float uMix, uTime, uSize, uPR, uRepel, uMotion, uDim; uniform vec3 uMouse;
+      varying vec3 vColor; varying float vAlpha;
+      void main(){
+        float t = clamp((uMix - aRand * .35) / .65, 0., 1.);
+        t = t * t * (3. - 2. * t);
+        vec3 p = mix(aFrom, aTo, t);
+        float mid = sin(t * 3.14159);
+        p += uMotion * mid * 1.3 * vec3(sin(aRand * 40. + uTime * .7), cos(aRand * 31. + uTime * .9), sin(aRand * 17. - uTime * .6));
+        p += uMotion * .025 * vec3(sin(uTime * 1.3 + aRand * 20.), cos(uTime * 1.1 + aRand * 12.), sin(uTime * .9 + aRand * 7.));
+        vec3 d = p - uMouse; float dist = length(d);
+        p += normalize(d + 1e-4) * uRepel * smoothstep(1.2, 0., dist) * .8;
+        vec4 mv = modelViewMatrix * vec4(p, 1.);
+        gl_Position = projectionMatrix * mv;
+        gl_PointSize = uSize * uPR * (.45 + aRand * .9) / -mv.z;
+        vColor = mix(cFrom, cTo, t) * uDim;
+        vAlpha = .55 + .45 * sin(uTime * 1.7 + aRand * 60.) * uMotion;
+      }`,
+    fragmentShader: `
+      varying vec3 vColor; varying float vAlpha;
+      void main(){
+        float d = length(gl_PointCoord - .5);
+        if (d > .5) discard;
+        gl_FragColor = vec4(vColor, smoothstep(.5, 0., d) * vAlpha);
+      }`
+  });
+  const points = new THREE.Points(geo, mat);
+  world.add(points);
+  let seg = -1;
+  function setSegment(i){
+    i = Math.max(0, Math.min(S - 2, i));
+    if (i === seg) return;
+    seg = i;
+    aFrom.array.set(shapes[i].pos); aTo.array.set(shapes[i + 1].pos);
+    cFrom.array.set(shapes[i].col); cTo.array.set(shapes[i + 1].col);
+    aFrom.needsUpdate = aTo.needsUpdate = cFrom.needsUpdate = cTo.needsUpdate = true;
+  }
+
+  /* --- distant stars --- */
+  const starN = mobile ? 900 : 2200, sp = new Float32Array(starN * 3);
+  for (let i = 0; i < starN; i++) sp.set(fib(i, starN, 25 + rnd() * 30), i * 3);
+  const sGeo = new THREE.BufferGeometry(); sGeo.setAttribute('position', new THREE.BufferAttribute(sp, 3));
+  const stars = new THREE.Points(sGeo, new THREE.PointsMaterial({ color: 0x8c9ac0, size: .09, transparent: true, opacity: .7, depthWrite: false }));
+  scene.add(stars);
+
+  /* --- gallery: photos on a helix, center stage --- */
+  const PHOTOS = [
+    ['syracuse-university-school-of-information-studies', 'At the Syracuse iSchool'],
+    ['fau-sociology-graduate-student-achievement-award', 'Sociology Graduate Student Achievement Award'],
+    ['curzon-hall-university-of-dhaka', 'Curzon Hall, University of Dhaka'],
+    ['presenting-research-academic-conference', 'Presenting the research'],
+    ['tea-garden-bangladesh', 'Tea country'],
+    ['fau-graduation-portrait-boca-raton', 'MA in Sociology, done'],
+    ['syracuse-university-campus-hall-of-languages', 'Syracuse campus'],
+    ['intellectual-resistance-conference-2026', '4th Intellectual Resistance Conference'],
+    ['sociology-mural-university-of-dhaka', 'The sociology wall'],
+    ['kayaking-florida-springs', 'On the water'],
+    ['with-fau-sociology-faculty-graduation', 'With my professors'],
+    ['rice-university-phd-visit', 'Visit day, Rice'],
+    ['miami-beach-night-street', 'Miami nights'],
+    ['purdue-university-sociology-phd-visit', 'Purdue Sociology'],
+    ['florida-atlantic-university-graduation-gateway', 'Through the FAU gateway'],
+    ['beach-bangladesh-football-jersey', 'Bangladesh jersey, beach day'],
+    ['syracuse-university-sign', 'Orange, officially'],
+    ['university-of-dhaka-campus-motorbike', 'Riding through campus'],
+  ];
+  const helix = new THREE.Group(); photoWorld.add(helix);
+  const plane = new THREE.PlaneGeometry(1, 1);
+  const cards = PHOTOS.map(([slug, title], i) => {
+    const m = new THREE.Mesh(plane, new THREE.MeshBasicMaterial({ transparent: true, opacity: 0, side: THREE.DoubleSide, toneMapped: false }));
+    const a = i * (Math.PI * 2 / 9), r = 2.5;
+    m.position.set(Math.sin(a) * r, (i - (PHOTOS.length - 1) / 2) * .17, Math.cos(a) * r);
+    m.rotation.y = a;
+    m.scale.set(.9, 1.2, 1);
+    m.userData = { slug, title, i };
+    helix.add(m);
+    return m;
+  });
+  let photosLoaded = false;
+  function loadPhotos(){
+    if (photosLoaded) return; photosLoaded = true;
+    const tl = new THREE.TextureLoader();
+    cards.forEach(m => tl.load(`/images/gallery/naim-bin-hasan-${m.userData.slug}-640.webp?v=4`, tex => {
+      tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 4;
+      m.material.map = tex; m.material.needsUpdate = true;
+      m.userData.ar = tex.image.width / tex.image.height;
+    }));
+  }
+
+  /* --- bloom (desktop) --- */
+  let composer = null;
+  if (!mobile) {
+    composer = new EffectComposer(renderer);
+    composer.addPass(new RenderPass(scene, camera));
+    composer.addPass(new UnrealBloomPass(new THREE.Vector2(innerWidth, innerHeight), .55, .55, .1));
+    composer.addPass(new OutputPass());
+  }
+
+  /* --- layout: the shapes sit behind the content, centered --- */
+  function layout(){
+    const m = small();
+    camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix();
+    renderer.setSize(innerWidth, innerHeight);
+    if (composer) composer.setSize(innerWidth, innerHeight);
+    const s = m ? Math.min(1, innerWidth / innerHeight * 1.25) : 1.05;
+    world.position.set(0, 0, -1.5); world.scale.setScalar(s);
+    photoWorld.position.set(0, m ? -.2 : -.45, 0); photoWorld.scale.setScalar(m ? Math.min(.95, innerWidth / innerHeight * 1.2) : 1);
+  }
+  layout();
+  addEventListener('resize', layout);
+
+  /* --- pointer: parallax, particle repel, photo drag and pick --- */
+  const pointer = new THREE.Vector2(9, 9), ray = new THREE.Raycaster(), tmp = new THREE.Vector3(), plane3 = new THREE.Plane();
+  let px = 0, py = 0, repel = 0, lastMove = 0, drag = null, spin = 0, spinV = 0;
+  const canvas = renderer.domElement;
+  addEventListener('pointermove', e => {
+    px = e.clientX / innerWidth * 2 - 1; py = -(e.clientY / innerHeight) * 2 + 1;
+    pointer.set(px, py); lastMove = performance.now();
+    if (drag) { const dx = e.clientX - drag.x; drag.moved += Math.abs(dx); spinV = dx * .006; spin += dx * .006; drag.x = e.clientX; }
+  }, { passive: true });
+  const galleryOn = () => Math.abs(state.cur - 6) < .35;
+  function pick(){
+    if (!galleryOn()) return null;
+    ray.setFromCamera(pointer, camera);
+    const hits = ray.intersectObjects(cards, false);
+    for (const h of hits) {                          // nearest photo that faces the viewer
+      const n = new THREE.Vector3(0, 0, 1).applyQuaternion(h.object.getWorldQuaternion(new THREE.Quaternion()));
+      if (n.dot(ray.ray.direction) < 0 && h.object.material.opacity > .5) return h.object;
+    }
+    return null;
+  }
+  addEventListener('pointerdown', e => {
+    if (e.target.closest('.tile, .more, header, .rail, dialog, .btn, .tip')) return;
+    pointer.set(e.clientX / innerWidth * 2 - 1, -(e.clientY / innerHeight) * 2 + 1);
+    if (galleryOn()) drag = { x: e.clientX, moved: 0 };
+  });
+  addEventListener('pointerup', () => {
+    if (!drag) return;
+    const wasClick = drag.moved < 6; drag = null;
+    if (wasClick) { const m = pick(); if (m) openPhoto(m.userData.i); }
+  });
+  const lb = $('#lb'); let shown = 0;
+  function openPhoto(i){
+    shown = (i + PHOTOS.length) % PHOTOS.length;
+    const [slug, title] = PHOTOS[shown];
+    $('#lbImg').src = `/images/gallery/naim-bin-hasan-${slug}-1400.webp?v=4`;
+    $('#lbImg').alt = `Naim Bin Hasan: ${title}`;
+    $('#lbCap').textContent = title;
+    if (!lb.open) lb.showModal();
+  }
+  $('#lbX').addEventListener('click', () => lb.close());
+  $('#lbP').addEventListener('click', () => openPhoto(shown - 1));
+  $('#lbN').addEventListener('click', () => openPhoto(shown + 1));
+  lb.addEventListener('keydown', e => { if (e.key === 'ArrowRight') openPhoto(shown + 1); if (e.key === 'ArrowLeft') openPhoto(shown - 1); });
+  lb.addEventListener('click', e => { if (e.target === lb || e.target.tagName === 'FIGURE') lb.close(); });
+
+  /* --- render loop --- */
+  const clock = new THREE.Clock();
+  let first = true;
+  function frame(){
+    const dt = Math.min(.05, clock.getDelta()), time = clock.elapsedTime;
+    state.cur += reduce ? (state.target - state.cur) : (state.target - state.cur) * Math.min(1, dt * 3.4);
+    if (Math.abs(state.target - state.cur) < .0005) state.cur = state.target;
+    setActive(Math.round(state.cur));
+    stageFrame();
+
+    setSegment(Math.min(S - 2, Math.floor(state.cur)));
+    uniforms.uMix.value = Math.min(1, state.cur - seg);
+    uniforms.uTime.value = time;
+    // a little dimmer while you read, brighter while flying between shapes
+    const travel = Math.abs(state.target - state.cur);
+    uniforms.uDim.value += ((state.cur < .5 ? .95 : .5 + Math.min(.45, travel * 2.5)) - uniforms.uDim.value) * .08;
+
+    points.rotation.y += reduce ? 0 : dt * (.07 + travel * 1.6);
+    points.rotation.x = Math.sin(time * .2) * .08 * uniforms.uMotion.value;
+
+    camera.position.x += (px * .5 - camera.position.x) * .04;
+    camera.position.y += (py * .3 - camera.position.y) * .04;
+    camera.lookAt(0, 0, 0);
+
+    const recent = performance.now() - lastMove < 1800 && !mobile;
+    repel += ((recent ? 1 : 0) - repel) * .08;
+    uniforms.uRepel.value = repel;
+    if (recent) {
+      ray.setFromCamera(pointer, camera);
+      world.getWorldPosition(tmp);
+      plane3.setFromNormalAndCoplanarPoint(camera.getWorldDirection(new THREE.Vector3()).negate(), tmp);
+      const hitP = ray.ray.intersectPlane(plane3, new THREE.Vector3());
+      if (hitP) uniforms.uMouse.value.copy(points.worldToLocal(hitP));
+    }
+
+    const vis = Math.max(0, 1 - Math.abs(state.cur - 6) * 1.7);
+    if (state.cur > 4.2) loadPhotos();
+    if (!drag) { spinV *= .94; spin += spinV + (reduce ? 0 : dt * .14); }
+    helix.rotation.y = spin + (state.cur - 6) * 1.6;
+    helix.visible = vis > .01;
+    const hover = vis > .5 && !drag && recent ? pick() : null;
+    cards.forEach(m => {
+      m.material.opacity = m.material.map ? vis : 0;
+      const target = m === hover ? 1.38 : 1.2;
+      m.scale.y += (target - m.scale.y) * .2;
+      m.scale.x = m.scale.y * (m.userData.ar || .75);
+    });
+    canvas.style.cursor = hover ? 'pointer' : (vis > .5 ? 'grab' : '');
+    stars.rotation.y = time * .006;
+
+    renderer.clear();
+    if (composer) composer.render(); else renderer.render(scene, camera);
+    renderer.clearDepth();
+    renderer.render(photoScene, camera);
+
+    if (first) { first = false; setTimeout(() => $('#loader').classList.add('gone'), 250); }
+    requestAnimationFrame(frame);
+  }
+  $('#loadTxt').textContent = `Assembling ${N.toLocaleString()} particles…`;
+  requestAnimationFrame(frame);
+}
+</script>
+</body>
+</html>
