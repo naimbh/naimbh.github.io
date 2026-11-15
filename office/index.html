@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Naim Bin Hasan | The Office</title>
+<meta name="description" content="Knock on Naim Bin Hasan's office door and ask him about his research, education, experience, publications and awards.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://naimbh.com/">
+<meta name="theme-color" content="#EFE7DA">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wdth,wght@75..100,500..800&amp;family=Newsreader:ital,wght@0,400..600;1,400&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Caveat:wght@600;700&amp;display=swap">
+<style>
+:root{
+  --wall:#EFE7DA; --wall-2:#E6DCCB; --paper:#FFFDF8; --floor:#5A4231;
+  --ink:#141824; --ink-2:#394155; --ink-3:#5F677C; --line:#DDD2BF;
+  --eng:#08707F; --rsch:#5A2FD0; --teach:#8A5800; --labor:#BF1A5D;
+  --eng-bg:#D9F1F3; --rsch-bg:#E9E3FF; --teach-bg:#FCEFD2; --labor-bg:#FCE0EB;
+  --display:'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+  --serif:'Newsreader', Georgia, serif;
+  --mono:'JetBrains Mono', ui-monospace, Menlo, monospace;
+  --hand:'Caveat', cursive;
+  --pad:clamp(16px,4vw,48px);
+  --ease:cubic-bezier(.16,1,.3,1);
+  --shadow:0 1px 2px rgba(40,30,15,.08), 0 12px 32px -12px rgba(40,30,15,.28);
+}
+*{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; }
+body{ margin:0; min-height:100vh; background:var(--wall); color:var(--ink); font:18px/1.6 var(--serif);
+  background-image:radial-gradient(rgba(120,90,50,.06) 1px, transparent 1px); background-size:22px 22px; }
+a{ color:inherit; }
+button{ font:inherit; color:inherit; cursor:pointer; }
+:focus-visible{ outline:3px solid var(--rsch); outline-offset:3px; border-radius:6px; }
+.sr{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+
+/* ---------- top bar ---------- */
+.top{ position:fixed; z-index:30; top:0; left:0; right:0; display:flex; align-items:center; gap:10px; padding:14px var(--pad); pointer-events:none; }
+.top > *{ pointer-events:auto; }
+.brand{ display:flex; align-items:center; gap:10px; text-decoration:none; font:800 19px var(--display); letter-spacing:-.02em; margin-right:auto; }
+.brand i{ display:inline-flex; gap:3px; } .brand i b{ width:3px; height:17px; border-radius:2px; display:block; }
+.brand span{ color:var(--rsch); }
+.pill{ font:600 12.5px var(--mono); letter-spacing:.05em; text-transform:uppercase; text-decoration:none; padding:9px 14px; border-radius:99px; border:1.5px solid var(--line); background:var(--paper); white-space:nowrap; transition:border-color .2s; }
+.pill:hover{ border-color:var(--ink); }
+.pill.off{ color:var(--ink-3); text-decoration:line-through; }
+
+/* ---------- scenes ---------- */
+.scene{ display:none; min-height:100vh; padding:92px var(--pad) 60px; }
+.scene.on{ display:block; animation:enter .7s var(--ease); }
+@keyframes enter{ from{ opacity:0; transform:translateY(18px) scale(.985); } }
+.wrap{ max-width:1120px; margin:0 auto; }
+.eyebrow{ font:600 12.5px var(--mono); letter-spacing:.14em; text-transform:uppercase; color:var(--k, var(--eng)); margin:0 0 10px; }
+h1,h2,h3{ font-family:var(--display); letter-spacing:-.03em; margin:0; }
+.btn{ display:inline-flex; align-items:center; gap:10px; font:700 17px var(--display); padding:15px 26px; border-radius:99px; border:2px solid var(--ink); background:var(--paper); text-decoration:none; transition:transform .2s var(--ease), box-shadow .2s; }
+.btn:hover{ transform:translateY(-2px); box-shadow:var(--shadow); }
+.btn.go{ background:var(--ink); color:var(--paper); }
+.linkish{ background:none; border:0; padding:8px 4px; font:500 14px var(--mono); color:var(--ink-3); text-decoration:underline; text-underline-offset:4px; }
+.linkish:hover{ color:var(--ink); }
+
+/* ---------- 1 · the hallway and the door ---------- */
+#s-door{ padding-top:76px; display:none; }
+#s-door.on{ display:grid; place-items:center; }
+.hall{ display:grid; grid-template-columns:minmax(0,1fr) auto; gap:clamp(28px,6vw,90px); align-items:center; max-width:1080px; width:100%; transition:transform 1.1s cubic-bezier(.7,0,.3,1), opacity 1.1s; transform-origin:72% 55%; }
+.hall.zoom{ transform:scale(2.6); opacity:0; }
+.intro h1{ font:800 clamp(52px,7.5vw,104px)/.9 var(--display); font-variation-settings:'wdth' 80; letter-spacing:-.05em; margin:0 0 18px; }
+.intro h1 span{ display:block; color:var(--rsch); }
+.intro p.sub{ font-size:clamp(18px,1.6vw,21px); color:var(--ink-2); max-width:34ch; margin:0 0 26px; }
+.intro .row{ display:flex; flex-wrap:wrap; align-items:center; gap:14px; }
+.knock-btn{ font-size:19px; padding:17px 30px; }
+.knock-btn.pulse{ animation:pulse 2.2s infinite; }
+@keyframes pulse{ 0%{ box-shadow:0 0 0 0 rgba(20,24,36,.35); } 70%{ box-shadow:0 0 0 18px rgba(20,24,36,0); } 100%{ box-shadow:0 0 0 0 rgba(20,24,36,0); } }
+
+.doorway{ position:relative; width:clamp(230px,24vw,320px); aspect-ratio:320/580; perspective:1400px; }
+.doorway::before{ content:''; position:absolute; inset:-16px -16px 0; border-radius:8px 8px 0 0; background:#2c2219; box-shadow:inset 0 0 0 4px #1d160f; }   /* frame */
+.inside{ position:absolute; inset:0; overflow:hidden; background:radial-gradient(120% 80% at 50% 30%, #fff3d6 0%, #f7c97a 45%, #b4793a 100%); display:grid; place-items:center; }
+.inside span{ font:700 34px var(--hand); color:#5a3410; transform:rotate(-4deg); }
+.door{ position:absolute; inset:0; border:0; padding:0; background:linear-gradient(90deg,#6b4428,#7d5232 45%,#6a4327); border-radius:3px; transform-origin:0 50%; transition:transform 1.25s cubic-bezier(.65,0,.25,1); box-shadow:inset 0 0 0 2px rgba(0,0,0,.15), 10px 0 30px -10px rgba(0,0,0,.4); }
+.door .panel{ position:absolute; left:13%; right:13%; border:3px solid rgba(0,0,0,.22); border-radius:6px; box-shadow:inset 0 0 0 2px rgba(255,255,255,.06); }
+.door .p1{ top:6%; height:36%; } .door .p2{ top:48%; height:46%; }
+.door .plate{ position:absolute; left:50%; top:20%; transform:translateX(-50%); width:72%; background:linear-gradient(135deg,#f0d28a,#b88f3e); border-radius:10px; padding:10px 8px 8px; text-align:center; color:#2b1d08; box-shadow:0 3px 8px rgba(0,0,0,.35); }
+.door .plate b{ display:block; font:800 clamp(28px,3vw,40px)/1 var(--display); }
+.door .plate strong{ display:block; font:700 clamp(13px,1.2vw,16px) var(--display); margin-top:4px; }
+.door .plate small{ display:block; font:700 clamp(17px,1.5vw,21px) var(--hand); margin-top:2px; }
+.door .knob{ position:absolute; right:9%; top:52%; width:18px; height:18px; border-radius:50%; background:radial-gradient(circle at 35% 35%, #fff2c4, #c99a3c 60%, #7a5718); box-shadow:0 2px 4px rgba(0,0,0,.4); }
+.door.knock{ animation:knock .16s ease-in-out; }
+@keyframes knock{ 50%{ transform:translateX(3px) rotate(.25deg); } }
+.door.open{ transform:rotateY(-104deg); }
+.under{ position:absolute; left:4px; right:4px; bottom:-3px; height:4px; border-radius:2px; background:#ffd28a; box-shadow:0 0 14px 4px rgba(255,190,90,.7); animation:breathe 2.4s infinite; }
+@keyframes breathe{ 50%{ opacity:.45; } }
+.floor{ position:absolute; left:-40%; right:-40%; bottom:-28px; height:28px; background:linear-gradient(#5a4231,#3e2d21); border-radius:2px; }
+.bubble-pop{ position:absolute; left:50%; top:-74px; transform:translate(-50%,10px) scale(.9); opacity:0; font:700 30px var(--hand); background:var(--paper); padding:6px 22px; border-radius:20px; box-shadow:var(--shadow); white-space:nowrap; transition:all .4s var(--ease); pointer-events:none; }
+.bubble-pop::after{ content:''; position:absolute; left:50%; bottom:-10px; margin-left:-10px; border:10px solid transparent; border-bottom:0; border-top-color:var(--paper); }
+.bubble-pop.on{ opacity:1; transform:translate(-50%,0) scale(1); }
+
+/* ---------- 2 · the front desk ---------- */
+.desk{ display:grid; grid-template-columns:minmax(220px,340px) minmax(0,1fr); gap:clamp(24px,4vw,56px); align-items:start; }
+.me{ margin:0; position:sticky; top:96px; }
+.me img{ width:100%; height:auto; aspect-ratio:4/5; object-fit:cover; border-radius:24px; box-shadow:var(--shadow); border:6px solid var(--paper); display:block; }
+.me figcaption{ margin-top:14px; }
+.me figcaption b{ display:block; font:800 24px var(--display); letter-spacing:-.02em; }
+.me figcaption span{ display:block; font:500 13px var(--mono); color:var(--ink-3); letter-spacing:.04em; margin-top:3px; }
+.speech{ position:relative; background:var(--paper); border-radius:22px; padding:22px 26px; box-shadow:var(--shadow); font:500 clamp(19px,1.8vw,23px)/1.45 var(--display); letter-spacing:-.01em; min-height:3.2em; }
+.speech::before{ content:''; position:absolute; left:-12px; top:28px; border:12px solid transparent; border-left:0; border-right-color:var(--paper); }
+.caret{ display:inline-block; width:2px; height:1em; background:var(--ink); vertical-align:-3px; margin-left:2px; animation:blink 1s steps(1) infinite; }
+@keyframes blink{ 50%{ opacity:0; } }
+.ask{ font:600 13px var(--mono); letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3); margin:26px 0 12px; }
+.menu{ display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:12px; }
+.card{ text-align:left; display:grid; grid-template-columns:auto 1fr; gap:4px 14px; align-items:center; padding:16px 18px; border-radius:18px; border:2px solid transparent; background:var(--paper); box-shadow:var(--shadow); transition:transform .25s var(--ease), border-color .2s;
+  opacity:0; animation:rise .5s var(--ease) forwards; animation-delay:calc(var(--n) * 60ms + 200ms); }
+@keyframes rise{ from{ opacity:0; transform:translateY(12px); } to{ opacity:1; transform:none; } }
+.card:hover{ transform:translateY(-3px); border-color:var(--k); }
+.card .ic{ grid-row:span 2; width:48px; height:48px; border-radius:14px; display:grid; place-items:center; font-size:24px; background:var(--kb); }
+.card b{ font:700 18px var(--display); letter-spacing:-.01em; }
+.card small{ font:400 15px/1.35 var(--serif); color:var(--ink-3); }
+.card .seen{ font:600 11px var(--mono); color:var(--k); letter-spacing:.06em; margin-left:6px; }
+.leave{ margin-top:22px; }
+
+/* ---------- 3 · rooms ---------- */
+.room-h{ display:grid; gap:4px; margin-bottom:clamp(22px,3vw,34px); }
+.back{ justify-self:start; margin-bottom:16px; }
+.room-h h2{ font:800 clamp(38px,5.4vw,70px)/.95 var(--display); font-variation-settings:'wdth' 84; letter-spacing:-.045em; }
+.room-h .lede{ font-size:clamp(18px,1.6vw,21px); color:var(--ink-2); max-width:60ch; margin:12px 0 0; }
+
+/* research: whiteboard with sticky notes */
+.board{ background:#FBFCFD; border:10px solid #c7ccd6; border-radius:14px; padding:clamp(20px,3vw,40px); box-shadow:var(--shadow); position:relative; }
+.board .q{ font:700 clamp(26px,3vw,38px)/1.15 var(--hand); color:#3b2fa0; margin:0 0 24px; }
+.notes{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(16px,2.4vw,30px); }
+.note{ position:relative; padding:26px 24px 24px; background:var(--nb); box-shadow:0 2px 3px rgba(0,0,0,.08), 0 14px 24px -14px rgba(0,0,0,.35); transform:rotate(var(--r)); transition:transform .3s var(--ease); }
+.note:hover{ transform:rotate(0) scale(1.02); }
+.note::before{ content:''; position:absolute; top:-8px; left:50%; width:16px; height:16px; margin-left:-8px; border-radius:50%; background:radial-gradient(circle at 35% 35%,#ff8fb3,#c2185b); box-shadow:0 2px 3px rgba(0,0,0,.3); }
+.note .n{ font:600 12px var(--mono); color:rgba(0,0,0,.5); }
+.note h3{ font:800 clamp(21px,2vw,25px)/1.15 var(--display); margin:4px 0 8px; }
+.note p{ margin:0; font-size:17px; line-height:1.5; color:#2a2433; }
+
+/* education: diploma wall */
+.route{ font:700 clamp(24px,2.6vw,32px) var(--hand); color:var(--teach); margin:0 0 18px; }
+.diplomas{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; }
+.diploma{ background:#2b1d10; padding:9px; border-radius:6px; box-shadow:var(--shadow); }
+.diploma > div{ height:100%; background:radial-gradient(circle at 50% 40%, #fffaf0, #f1e6cc); border:2px solid #a88a54; outline:1px solid #a88a54; outline-offset:-8px; padding:22px 16px 18px; text-align:center; display:flex; flex-direction:column; gap:6px; }
+.diploma .u{ font:700 13px var(--mono); letter-spacing:.08em; color:var(--c); }
+.diploma .yr{ font:600 13px var(--mono); color:#6b5a3a; }
+.diploma h3{ font:600 21px/1.2 var(--serif); letter-spacing:0; }
+.diploma .f{ font:italic 400 17px var(--serif); color:#4a3d27; }
+.diploma .note2{ margin-top:auto; font:400 15px/1.4 var(--serif); color:#4a3d27; padding-top:8px; border-top:1px dashed #c9b48a; }
+.cert{ margin-top:18px; display:flex; flex-wrap:wrap; align-items:center; gap:12px 18px; background:#0f62fe; color:#fff; border-radius:14px; padding:16px 20px; }
+.cert b{ font:800 22px var(--display); } .cert span{ font:500 14px var(--mono); opacity:.9; }
+
+/* experience: a terminal on the desk */
+.monitor{ background:#1b1e27; border-radius:18px; padding:12px; box-shadow:var(--shadow); }
+.term{ background:#070a12; border-radius:10px; padding:clamp(16px,2.4vw,28px); min-height:420px; font:500 clamp(14px,1.25vw,16.5px)/1.75 var(--mono); color:#e8ecf5; }
+.term .bar{ display:flex; gap:7px; margin-bottom:14px; } .term .bar i{ width:11px; height:11px; border-radius:50%; background:#ff5f57; } .term .bar i:nth-child(2){ background:#febc2e; } .term .bar i:nth-child(3){ background:#28c840; }
+.term .cmd{ color:#3FD0E0; }
+.term .row{ display:grid; grid-template-columns:9.5ch 1fr; gap:0 2ch; padding:4px 0; }
+.term .y{ color:#FFC24B; }
+.term .t{ color:#fff; font-weight:700; }
+.term .d{ grid-column:2; color:#9aa6c2; }
+.term .hide{ visibility:hidden; }
+.skip-type{ margin-top:10px; }
+
+/* publications: bookshelf */
+.shelf{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(16px,2.4vw,28px); align-items:end; padding-bottom:18px; border-bottom:14px solid #5a3f2c; border-radius:0 0 4px 4px; }
+.book{ min-height:340px; display:flex; flex-direction:column; padding:26px 22px 22px 30px; color:#fff; border-radius:4px 12px 12px 4px; background:linear-gradient(135deg,var(--b1),#0b0f1a); box-shadow:inset 8px 0 0 rgba(0,0,0,.25), var(--shadow); text-decoration:none; transition:transform .3s var(--ease); }
+a.book:hover{ transform:translateY(-8px) rotate(-1deg); }
+.book .tag{ font:700 12px var(--mono); letter-spacing:.1em; color:var(--b2); }
+.book h3{ font:800 clamp(22px,2.2vw,28px)/1.12 var(--display); margin:14px 0 10px; }
+.book p{ margin:0; font:italic 400 16px/1.45 var(--serif); color:rgba(255,255,255,.82); }
+.book .by{ margin-top:auto; padding-top:18px; font:600 13px var(--mono); letter-spacing:.06em; color:rgba(255,255,255,.85); }
+.badges{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin-top:30px; }
+.badge{ background:var(--paper); border-radius:14px; padding:18px; box-shadow:var(--shadow); border-top:6px solid var(--k); position:relative; }
+.badge::before{ content:''; position:absolute; top:-30px; left:50%; width:3px; height:24px; background:var(--k); }
+.badge h3{ font:700 18px/1.25 var(--display); } .badge small{ display:block; font:500 13px var(--mono); color:var(--ink-3); margin-top:6px; }
+
+/* awards: trophy shelf */
+.trophies{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:30px 22px; }
+.trophy{ text-align:center; padding:0 10px 18px; border-bottom:10px solid #2b2f3a; position:relative; }
+.trophy .cup{ font-size:54px; line-height:1; filter:drop-shadow(0 6px 8px rgba(0,0,0,.2)); }
+.trophy .amt{ display:inline-block; margin:12px 0 6px; font:800 26px var(--display); color:var(--teach); background:var(--teach-bg); padding:4px 14px; border-radius:99px; }
+.trophy h3{ font:700 18px/1.25 var(--display); }
+.trophy small{ display:block; font:500 13px var(--mono); color:var(--ink-3); margin-top:6px; letter-spacing:.02em; }
+
+/* photos: framed wall */
+.wall{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; }
+.frame{ border:0; padding:8px 8px 10px; background:#fff; box-shadow:var(--shadow); transform:rotate(var(--r)); transition:transform .3s var(--ease); text-align:left; }
+.frame:hover{ transform:rotate(0) scale(1.03); z-index:2; }
+.frame img{ display:block; width:100%; height:auto; aspect-ratio:4/3; object-fit:cover; object-position:50% 35%; background:var(--wall-2); }
+.frame span{ display:block; font:700 18px var(--hand); margin-top:6px; color:var(--ink-2); }
+.more{ display:inline-block; margin-top:22px; font:600 14px var(--mono); letter-spacing:.06em; text-transform:uppercase; color:var(--k, var(--eng)); }
+
+/* contact: business card */
+.bcard{ max-width:620px; background:var(--paper); border-radius:20px; padding:clamp(24px,3.4vw,40px); box-shadow:0 2px 4px rgba(0,0,0,.06), 0 30px 60px -24px rgba(40,30,15,.45); transform:rotate(-1.2deg); }
+.bcard .stripes{ display:flex; gap:5px; margin-bottom:22px; } .bcard .stripes i{ width:8px; height:42px; border-radius:3px; }
+.bcard h3{ font:800 clamp(30px,3.6vw,42px)/1 var(--display); letter-spacing:-.04em; }
+.bcard .role{ color:var(--ink-2); margin:8px 0 22px; }
+.bcard .links{ display:grid; gap:10px; }
+.bcard .links a{ display:flex; justify-content:space-between; align-items:center; gap:12px; padding:13px 16px; border-radius:12px; border:2px solid var(--line); text-decoration:none; font:700 17px var(--display); transition:border-color .2s, transform .2s var(--ease); }
+.bcard .links a span{ font:500 13.5px var(--mono); color:var(--ink-3); }
+.bcard .links a:hover{ border-color:var(--ink); transform:translateX(4px); }
+
+/* "what else?" footer in every room */
+.next{ margin-top:clamp(40px,5vw,64px); display:flex; gap:16px; align-items:flex-start; background:var(--paper); border-radius:22px; padding:20px 22px; box-shadow:var(--shadow); }
+.next img{ width:56px; height:56px; border-radius:50%; object-fit:cover; object-position:50% 20%; flex:none; border:3px solid var(--wall); }
+.next p{ margin:4px 0 12px; font:600 20px/1.35 var(--display); }
+.chips{ display:flex; flex-wrap:wrap; gap:8px; }
+.chip{ display:inline-flex; align-items:center; gap:7px; font:600 15px var(--display); padding:10px 15px; border-radius:99px; border:2px solid transparent; background:var(--kb); color:var(--ink); transition:border-color .2s, transform .2s var(--ease); }
+.chip:hover{ border-color:var(--k); transform:translateY(-2px); }
+.chip.plain{ background:var(--wall); }
+
+/* photo viewer */
+dialog{ border:0; padding:0; background:rgba(20,16,10,.92); width:100vw; height:100dvh; max-width:none; max-height:none; color:#fff; }
+dialog figure{ margin:0; height:100%; display:grid; place-content:center; justify-items:center; padding:64px 16px 20px; }
+dialog img{ max-width:min(92vw,1100px); max-height:78dvh; border-radius:10px; }
+dialog figcaption{ font:700 30px var(--hand); margin-top:12px; }
+dialog .pill{ position:absolute; background:#fff; color:var(--ink); }
+dialog .x{ top:16px; right:16px; } dialog .prev{ left:16px; top:50%; } dialog .next-p{ right:16px; top:50%; }
+
+@media (max-width:900px){
+  .hall{ grid-template-columns:1fr; justify-items:center; text-align:center; transform-origin:50% 72%; }
+  .intro .row{ justify-content:center; } .intro p.sub{ margin-left:auto; margin-right:auto; }
+  .doorway{ width:clamp(190px,52vw,250px); margin-top:20px; }
+  .desk{ grid-template-columns:1fr; }
+  .me{ position:static; display:flex; gap:14px; align-items:center; }
+  .me img{ width:96px; flex:none; border-width:4px; border-radius:18px; }
+  .speech::before{ display:none; }
+  .diplomas{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .shelf, .badges{ grid-template-columns:1fr; } .book{ min-height:0; }
+  .trophies{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .wall{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .pill.cls{ display:none; }
+}
+@media (max-width:560px){
+  .notes, .diplomas{ grid-template-columns:1fr; }
+  .term .row{ grid-template-columns:1fr; } .term .d{ grid-column:1; }
+  .next{ flex-direction:column; }
+}
+@media (prefers-reduced-motion: reduce){ *, *::before, *::after{ animation:none !important; transition:none !important; } .card{ opacity:1; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="/" aria-label="NaimBH — classic site"><i aria-hidden="true"><b style="background:var(--eng)"></b><b style="background:var(--rsch)"></b><b style="background:var(--teach)"></b><b style="background:var(--labor)"></b></i>Naim<span>BH</span></a>
+  <button class="pill" id="mute" type="button" aria-pressed="false">Sound on</button>
+  <a class="pill cls" href="/">Classic site</a>
+</header>
+
+<main>
+  <!-- 1 · outside the door -->
+  <section class="scene on" id="s-door" aria-label="Office door">
+    <div class="hall" id="hall">
+      <div class="intro">
+        <p class="eyebrow">Room 337 · Hinds Hall · Syracuse University</p>
+        <h1>Naim<span>Bin Hasan</span></h1>
+        <p class="sub">PhD researcher at the Syracuse University iSchool, and a full-stack developer. Knock, and I'll show you around.</p>
+        <div class="row">
+          <button class="btn go knock-btn pulse" id="knockBtn" type="button">✊ Knock on the door</button>
+          <button class="linkish" id="walkIn" type="button">Skip and walk in</button>
+        </div>
+      </div>
+      <div class="doorway">
+        <div class="inside" aria-hidden="true"><span>come on in!</span></div>
+        <button class="door" id="door" type="button" aria-label="Knock on the door">
+          <span class="panel p1"></span><span class="panel p2"></span>
+          <span class="plate"><b>337</b><strong>Naim Bin Hasan</strong><small>please knock :)</small></span>
+          <span class="knob"></span>
+        </button>
+        <span class="under" aria-hidden="true"></span>
+        <span class="floor" aria-hidden="true"></span>
+        <span class="bubble-pop" id="comeIn" aria-live="polite"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 · the front desk -->
+  <section class="scene" id="s-desk" aria-label="Front desk">
+    <div class="wrap desk">
+      <figure class="me"><img src="/images/naim-bin-hasan-portrait-800.webp?v=4" width="768" height="960" alt="Naim Bin Hasan"><figcaption><b>Naim Bin Hasan</b><span>PhD Researcher · Syracuse iSchool</span></figcaption></figure>
+      <div>
+        <div class="speech" id="greet" aria-live="polite"></div>
+        <p class="ask" id="deskAsk">What would you like to know about me?</p>
+        <div class="menu" id="menu"></div>
+        <button class="linkish leave" type="button" data-leave>🚪 Leave the office</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · rooms -->
+  <section class="scene" id="s-research" data-room="research">
+    <div class="wrap">
+      <header class="room-h" style="--k:var(--rsch)"><button class="pill back" type="button" data-desk>← Back to my desk</button><p class="eyebrow">The whiteboard</p><h2>My research</h2>
+        <p class="lede">Four interests, one question: what happens to people when software and AI organize their work, and what should we build once we know?</p></header>
+      <div class="board">
+        <p class="q">I study it with mixed methods, then write the tools the findings call for.</p>
+        <div class="notes">
+          <article class="note" style="--nb:#BFEFF3; --r:-1.2deg"><span class="n">01</span><h3>AI and the future of work</h3><p>How automation, generative AI and algorithmic management reshape jobs, skills and inequality, starting with the workers who feel it first. Published in <i>Sociology Lens</i>, with a second study at the revise-and-resubmit stage.</p></article>
+          <article class="note" style="--nb:#E3D9FF; --r:1deg"><span class="n">02</span><h3>Human–computer interaction</h3><p>How students and workers actually use AI tools. I analyze thousands of student conversations with an AI tutor chatbot and build learning tools for Gravity Spy, the citizen-science project that supports LIGO.</p></article>
+          <article class="note" style="--nb:#FFE7A6; --r:.8deg"><span class="n">03</span><h3>Digital labor and online freelancers</h3><p>Platform work and the algorithms that manage it. My master's thesis follows Bangladeshi freelancers on Upwork and Fiverr through 24 in-depth interviews — work I did myself first, with 100+ client projects.</p></article>
+          <article class="note" style="--nb:#FFD3E3; --r:-.9deg"><span class="n">04</span><h3>ICT for development</h3><p>How information systems, platforms and mobile internet open, or close, economic opportunity in the Global South, and how AI is reshaping that path for workers in countries like Bangladesh.</p></article>
+        </div>
+      </div>
+      <a class="more" href="/research/" style="--k:var(--rsch)">Open the full research page →</a>
+    </div>
+  </section>
+
+  <section class="scene" id="s-education" data-room="education">
+    <div class="wrap">
+      <header class="room-h" style="--k:var(--teach)"><button class="pill back" type="button" data-desk>← Back to my desk</button><p class="eyebrow">The diploma wall</p><h2>My education</h2></header>
+      <p class="route">Dhaka → Boca Raton → Syracuse</p>
+      <div class="diplomas">
+        <div class="diploma" style="--c:#7a1f2b"><div><span class="u">UNIVERSITY OF DHAKA</span><span class="yr">2017 — 2022</span><h3>BSS (Honours)</h3><span class="f">in Sociology</span><span class="note2">Monograph on playground accessibility and its impacts on youth in Dhaka.</span></div></div>
+        <div class="diploma" style="--c:#7a1f2b"><div><span class="u">UNIVERSITY OF DHAKA</span><span class="yr">2022 — 2024</span><h3>Master of Social Science</h3><span class="f">in Sociology</span><span class="note2">Focus on development studies and development in South Asia.</span></div></div>
+        <div class="diploma" style="--c:#003366"><div><span class="u">FLORIDA ATLANTIC UNIVERSITY</span><span class="yr">2024 — 2026</span><h3>Master of Arts</h3><span class="f">in Sociology</span><span class="note2">CGPA 3.92 · funded GTA · thesis: <a href="https://digitalcommons.fau.edu/etd_general/311" target="_blank" rel="noopener">Trading Precarities</a> · Sociology Graduate Student Achievement Award.</span></div></div>
+        <div class="diploma" style="--c:#C24100"><div><span class="u">SYRACUSE UNIVERSITY</span><span class="yr">Fall 2026 — present</span><h3>PhD</h3><span class="f">in Information Science &amp; Technology</span><span class="note2">School of Information Studies (iSchool) · fully funded · Gravity Spy.</span></div></div>
+      </div>
+      <div class="cert"><b>IBM</b><span>Professional Certificate, Full Stack Software Development · May 2024 · 12 courses</span></div>
+      <a class="more" href="/education/" style="--k:var(--teach)">Open the full education page →</a>
+    </div>
+  </section>
+
+  <section class="scene" id="s-experience" data-room="experience">
+    <div class="wrap">
+      <header class="room-h" style="--k:var(--eng)"><button class="pill back" type="button" data-desk>← Back to my desk</button><p class="eyebrow">My computer</p><h2>My experience</h2>
+        <p class="lede">From freelance web developer to lead developer to PhD researcher. Here's the log.</p></header>
+      <div class="monitor">
+        <div class="term" id="term">
+          <div class="bar" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="cmd">naim@ischool:~$ cat experience.log</div>
+          <div class="row"><span class="y">2026–now</span><span class="t">Graduate Research Assistant · Syracuse University iSchool</span><span class="d">Gravity Spy: interactive web tools, AI-supported learning resources and trace-data analysis.</span></div>
+          <div class="row"><span class="y">Fall 2026</span><span class="t">Research Practicum · Student–AI chatbot interactions</span><span class="d">~7,000 interactions, with the AI Programming Research Group and Dr. Kevin Crowston.</span></div>
+          <div class="row"><span class="y">2024–2026</span><span class="t">Graduate Teaching Assistant · Florida Atlantic University</span><span class="d">Social Problems, Family &amp; Society · 170+ students.</span></div>
+          <div class="row"><span class="y">2025</span><span class="t">Research Assistant · Fulbright Global Scholar Project</span><span class="d">Coded 24 interviews in NVivo for Dr. Phillip A. Hough.</span></div>
+          <div class="row"><span class="y">2025</span><span class="t">SOAR Program Counselor · Autism After 21</span><span class="d">Pre-employment skills training and program evaluation.</span></div>
+          <div class="row"><span class="y">2023</span><span class="t">Lead Full-Stack Developer · Zilberman Insurance</span><span class="d">Promoted. Real-time, API-integrated dashboards used daily, across 100,000+ SQL rows.</span></div>
+          <div class="row"><span class="y">2020–2022</span><span class="t">Junior Web Developer · Zilberman Insurance</span><span class="d">Features, fixes and API integrations for internal web apps.</span></div>
+          <div class="row"><span class="y">2019–2023</span><span class="t">Freelance Full-Stack Developer · Upwork &amp; Fiverr</span><span class="d">Top Rated · 100% Job Success · 100+ projects.</span></div>
+          <div class="cmd">naim@ischool:~$ <span class="caret"></span></div>
+        </div>
+      </div>
+      <button class="linkish skip-type" id="skipType" type="button">Show everything now</button>
+      <br><a class="more" href="/experience/" style="--k:var(--eng)">Open the full experience page →</a>
+    </div>
+  </section>
+
+  <section class="scene" id="s-publications" data-room="publications">
+    <div class="wrap">
+      <header class="room-h" style="--k:var(--rsch)"><button class="pill back" type="button" data-desk>← Back to my desk</button><p class="eyebrow">The bookshelf</p><h2>My publications</h2>
+        <p class="lede">What I've written, and where I've presented it. I'm cited as Hasan, N. B.</p></header>
+      <div class="shelf">
+        <a class="book" href="https://doi.org/10.1111/johs.70027" target="_blank" rel="noopener" style="--b1:#0e4a66; --b2:#7fe6f0"><span class="tag">PEER-REVIEWED · 2025</span><h3>AI Efficiency vs Human Empathy</h3><p>A Paradox of AI and Human Agents in Service Support Interactions. <i>Sociology Lens</i> (Wiley). FAU Provost's recognition.</p><span class="by">HASAN, N. B. · READ ↗</span></a>
+        <a class="book" href="https://digitalcommons.fau.edu/etd_general/311" target="_blank" rel="noopener" style="--b1:#6b1a3f; --b2:#ff9cc6"><span class="tag">MASTER'S THESIS · 2026</span><h3>Trading Precarities</h3><p>How Bangladeshi freelancers leverage the digital economy amid local insecurity and AI disruption. Florida Atlantic University.</p><span class="by">HASAN, N. B. · READ ↗</span></a>
+        <div class="book" style="--b1:#3a2b80; --b2:#cbb8ff"><span class="tag">REVISE &amp; RESUBMIT</span><h3>Survival or Transition?</h3><p>How AI reconfigures work, control, and inequality in the Global South.</p><span class="by">HASAN, N. B.</span></div>
+      </div>
+      <div class="badges">
+        <div class="badge" style="--k:var(--labor)"><h3>4th Intellectual Resistance Conference</h3><small>FAU · Feb 2026 · paper presenter · one of four organizers</small></div>
+        <div class="badge" style="--k:var(--rsch)"><h3>Mid-South Sociological Association</h3><small>51st annual conference · Oct 2025 · paper presenter</small></div>
+        <div class="badge" style="--k:var(--eng)"><h3>14th Annual SAGGSA Conference</h3><small>FIU · Mar 2025 · paper presenter</small></div>
+      </div>
+      <a class="more" href="/publications/" style="--k:var(--rsch)">Open the full publications page →</a>
+    </div>
+  </section>
+
+  <section class="scene" id="s-awards" data-room="awards">
+    <div class="wrap">
+      <header class="room-h" style="--k:var(--teach)"><button class="pill back" type="button" data-desk>← Back to my desk</button><p class="eyebrow">The trophy shelf</p><h2>My awards</h2>
+        <p class="lede">The funding and recognition I'm proudest of.</p></header>
+      <div class="trophies">
+        <div class="trophy"><div class="cup" aria-hidden="true">🏆</div><span class="amt">$28,000</span><h3>Graduate Excellence Fellowship offer</h3><small>Purdue University · 2026 · declined for Syracuse</small></div>
+        <div class="trophy"><div class="cup" aria-hidden="true">🌟</div><span class="amt">1 of 1</span><h3>Sociology Graduate Student Achievement Award</h3><small>Florida Atlantic University · April 2026</small></div>
+        <div class="trophy"><div class="cup" aria-hidden="true">📜</div><span class="amt">Honor</span><h3>Provost's Certificate of Recognition for Publishing</h3><small>Florida Atlantic University · March 2026</small></div>
+        <div class="trophy"><div class="cup" aria-hidden="true">🥇</div><span class="amt">$3,000</span><h3>AIBS Fellowship</h3><small>American Institute of Bangladesh Studies · 2025</small></div>
+        <div class="trophy"><div class="cup" aria-hidden="true">🏅</div><span class="amt">$1,200</span><h3>Graduate Thesis &amp; Dissertation Scholarship</h3><small>Florida Atlantic University · 2025</small></div>
+        <div class="trophy"><div class="cup" aria-hidden="true">✈️</div><span class="amt">$1,000</span><h3>Departmental Travel Grant</h3><small>Florida Atlantic University · 2025</small></div>
+      </div>
+      <a class="more" href="/awards/" style="--k:var(--teach)">Open the full awards page →</a>
+    </div>
+  </section>
+
+  <section class="scene" id="s-photos" data-room="photos">
+    <div class="wrap">
+      <header class="room-h" style="--k:var(--labor)"><button class="pill back" type="button" data-desk>← Back to my desk</button><p class="eyebrow">The photo wall</p><h2>My photos</h2>
+        <p class="lede">The journey so far. Click any photo to see it larger.</p></header>
+      <div class="wall" id="wall"></div>
+      <a class="more" href="/gallery/" style="--k:var(--labor)">See all 40 photos →</a>
+    </div>
+  </section>
+
+  <section class="scene" id="s-contact" data-room="contact">
+    <div class="wrap">
+      <header class="room-h" style="--k:var(--eng)"><button class="pill back" type="button" data-desk>← Back to my desk</button><p class="eyebrow">My business card</p><h2>How to reach me</h2>
+        <p class="lede">Open to research collaboration, co-authorship, peer review and invited talks.</p></header>
+      <div class="bcard">
+        <div class="stripes" aria-hidden="true"><i style="background:var(--eng)"></i><i style="background:var(--rsch)"></i><i style="background:var(--teach)"></i><i style="background:var(--labor)"></i></div>
+        <h3>Naim Bin Hasan</h3>
+        <p class="role">PhD Researcher · School of Information Studies (iSchool), Syracuse University · 337 Hinds Hall, Syracuse, NY 13244</p>
+        <div class="links">
+          <a href="mailto:nhasan01@syr.edu">Email <span>nhasan01@syr.edu</span></a>
+          <a href="https://www.linkedin.com/in/naimbh" target="_blank" rel="noopener me">LinkedIn <span>in/naimbh ↗</span></a>
+          <a href="https://orcid.org/0009-0002-4930-7241" target="_blank" rel="noopener me">ORCID <span>0009-0002-4930-7241 ↗</span></a>
+          <a href="https://dev.naimbh.com/" target="_blank" rel="noopener">Hire me for a web app <span>dev.naimbh.com ↗</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<dialog id="lb" aria-label="Photo viewer">
+  <button class="pill x" type="button" id="lbX">Close ✕</button>
+  <button class="pill prev" type="button" id="lbP" aria-label="Previous photo">←</button>
+  <button class="pill next-p" type="button" id="lbN" aria-label="Next photo">→</button>
+  <figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
+</dialog>
+
+<script>
+(function(){
+  "use strict";
+  var $ = function(s, c){ return (c || document).querySelector(s); };
+  var $$ = function(s, c){ return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var wait = function(ms){ return new Promise(function(r){ setTimeout(r, reduce ? 0 : ms); }); };
+
+  var ROOMS = {
+    research:     { label: 'My research',     icon: '🧠', k: 'var(--rsch)',  kb: 'var(--rsch-bg)',  teaser: 'AI, work, HCI and digital labor',  say: "This is my whiteboard. Four interests, and they all connect." },
+    education:    { label: 'My education',    icon: '🎓', k: 'var(--teach)', kb: 'var(--teach-bg)', teaser: 'From Dhaka to Syracuse',            say: "My diploma wall, in the order I earned them." },
+    experience:   { label: 'My experience',   icon: '💻', k: 'var(--eng)',   kb: 'var(--eng-bg)',   teaser: 'Research, teaching and code',       say: "Let me pull up my work log." },
+    publications: { label: 'My publications', icon: '📚', k: 'var(--rsch)',  kb: 'var(--rsch-bg)',  teaser: 'Papers, thesis and talks',          say: "My bookshelf: what I've written and where I've presented it." },
+    awards:       { label: 'My awards',       icon: '🏆', k: 'var(--teach)', kb: 'var(--teach-bg)', teaser: 'Fellowships and recognition',       say: "The shelf I'm proudest of." },
+    photos:       { label: 'My photos',       icon: '📸', k: 'var(--labor)', kb: 'var(--labor-bg)', teaser: 'The journey in pictures',           say: "Some moments from the journey so far." },
+    contact:      { label: 'How to reach me', icon: '✉️', k: 'var(--eng)',   kb: 'var(--eng-bg)',   teaser: 'Email, LinkedIn, ORCID',            say: "Here's my card. I'd love to hear from you." }
+  };
+  var ORDER = Object.keys(ROOMS);
+  var visited = {};
+
+  /* ---------- sound, made on the fly ---------- */
+  var actx = null, muted = false;
+  function ac(){ if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)(); if (actx.state === 'suspended') actx.resume(); return actx; }
+  function knockSound(){
+    if (muted) return; var a = ac(), t = a.currentTime, o = a.createOscillator(), g = a.createGain(), f = a.createBiquadFilter();
+    o.type = 'triangle'; o.frequency.setValueAtTime(160, t); o.frequency.exponentialRampToValueAtTime(55, t + .12);
+    f.type = 'lowpass'; f.frequency.value = 900;
+    g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(.9, t + .005); g.gain.exponentialRampToValueAtTime(.0001, t + .18);
+    o.connect(f).connect(g).connect(a.destination); o.start(t); o.stop(t + .2);
+  }
+  function creak(){
+    if (muted) return; var a = ac(), t = a.currentTime, o = a.createOscillator(), g = a.createGain(), f = a.createBiquadFilter();
+    o.type = 'sawtooth'; o.frequency.setValueAtTime(70, t); o.frequency.linearRampToValueAtTime(110, t + .5); o.frequency.linearRampToValueAtTime(80, t + 1.1);
+    f.type = 'bandpass'; f.frequency.value = 700; f.Q.value = 6;
+    g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(.05, t + .15); g.gain.exponentialRampToValueAtTime(.0001, t + 1.2);
+    o.connect(f).connect(g).connect(a.destination); o.start(t); o.stop(t + 1.25);
+  }
+  $('#mute').addEventListener('click', function(){ muted = !muted; this.classList.toggle('off', muted); this.setAttribute('aria-pressed', String(muted)); this.textContent = muted ? 'Sound off' : 'Sound on'; });
+
+  /* ---------- scenes ---------- */
+  var current = 'door';
+  function show(id, push){
+    var next = $('#s-' + id); if (!next) return;
+    function swap(){
+      $$('.scene').forEach(function(s){ s.classList.toggle('on', s === next); });
+      current = id; scrollTo(0, 0);
+      if (ROOMS[id]) enterRoom(id);
+      if (id === 'desk') enterDesk();
+      if (id === 'door') resetDoor();
+      var h = next.querySelector('h1, h2'); if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
+    }
+    if (document.startViewTransition && !reduce) document.startViewTransition(swap); else swap();
+    if (push !== false) history.pushState({ s: id }, '', id === 'door' ? location.pathname : '#' + id);
+  }
+  addEventListener('popstate', function(e){ var id = (e.state && e.state.s) || location.hash.slice(1) || 'door'; show(ROOMS[id] || id === 'desk' ? id : 'door', false); });
+
+  /* ---------- 1 · knock ---------- */
+  var busy = false;
+  async function knock(){
+    if (busy) return; busy = true;
+    var door = $('#door'); $('#knockBtn').classList.remove('pulse');
+    for (var i = 0; i < 3; i++) { knockSound(); door.classList.remove('knock'); void door.offsetWidth; door.classList.add('knock'); await wait(330); }
+    await wait(350);
+    var pop = $('#comeIn'); pop.textContent = 'Come in! 🙂'; pop.classList.add('on');
+    await wait(900);
+    pop.classList.remove('on'); creak(); door.classList.add('open');
+    await wait(1100);
+    $('#hall').classList.add('zoom');
+    await wait(950);
+    busy = false; first = true; show('desk');
+  }
+  $('#knockBtn').addEventListener('click', knock);
+  $('#door').addEventListener('click', knock);
+  $('#walkIn').addEventListener('click', function(){ first = true; show('desk'); });
+
+  function resetDoor(){ $('#door').classList.remove('open', 'knock'); $('#hall').classList.remove('zoom'); $('#knockBtn').classList.add('pulse'); }
+
+  /* ---------- 2 · the desk ---------- */
+  var first = true, typeTimer = null;
+  function speak(el, text){
+    clearInterval(typeTimer);
+    if (reduce) { el.textContent = text; return; }
+    var i = 0; el.innerHTML = '<span class="caret"></span>';
+    typeTimer = setInterval(function(){ i += 2; el.textContent = text.slice(0, i); el.insertAdjacentHTML('beforeend', '<span class="caret"></span>'); if (i >= text.length) { clearInterval(typeTimer); el.textContent = text; } }, 20);
+  }
+  function enterDesk(){
+    speak($('#greet'), first
+      ? "Hi, I'm Naim! Thanks for knocking. I'm a PhD researcher at the Syracuse iSchool, and I build software too. What would you like to know about me?"
+      : "Welcome back to my desk. What else would you like to know?");
+    $('#deskAsk').textContent = first ? 'Pick anything to start' : 'What else would you like to know?';
+    first = false;
+    var menu = $('#menu'); menu.innerHTML = '';
+    ORDER.forEach(function(id, n){
+      var R = ROOMS[id], b = document.createElement('button');
+      b.type = 'button'; b.className = 'card'; b.style.cssText = '--k:' + R.k + ';--kb:' + R.kb + ';--n:' + n;
+      b.innerHTML = '<span class="ic" aria-hidden="true">' + R.icon + '</span><b>' + R.label + (visited[id] ? '<span class="seen">SEEN ✓</span>' : '') + '</b><small>' + R.teaser + '</small>';
+      b.addEventListener('click', function(){ show(id); });
+      menu.appendChild(b);
+    });
+  }
+
+  /* ---------- 3 · rooms ---------- */
+  function enterRoom(id){
+    visited[id] = true;
+    var room = $('#s-' + id), wrap = room.querySelector('.wrap');
+    var old = wrap.querySelector('.next'); if (old) old.remove();
+    var next = document.createElement('div'); next.className = 'next';
+    next.innerHTML = '<img src="/images/naim-bin-hasan-portrait-480.webp?v=4" alt="" width="56" height="56"><div><p></p><div class="chips"></div></div>';
+    var chips = next.querySelector('.chips');
+    ORDER.filter(function(r){ return r !== id; }).forEach(function(r){
+      var R = ROOMS[r], b = document.createElement('button'); b.type = 'button'; b.className = 'chip'; b.style.cssText = '--k:' + R.k + ';--kb:' + R.kb;
+      b.innerHTML = '<span aria-hidden="true">' + R.icon + '</span>' + R.label + (visited[r] ? ' ✓' : ''); b.addEventListener('click', function(){ show(r); }); chips.appendChild(b);
+    });
+    var home = document.createElement('button'); home.type = 'button'; home.className = 'chip plain'; home.textContent = '👋 Back to my desk'; home.addEventListener('click', function(){ show('desk'); }); chips.appendChild(home);
+    var out = document.createElement('button'); out.type = 'button'; out.className = 'chip plain'; out.textContent = '🚪 Leave the office'; out.addEventListener('click', leave); chips.appendChild(out);
+    wrap.appendChild(next);
+    var line = next.querySelector('p'); line.textContent = ROOMS[id].say + ' What else would you like to know?';
+    if (id === 'experience') typeLog();
+    if (id === 'photos') buildWall();
+  }
+  $$('[data-desk]').forEach(function(b){ b.addEventListener('click', function(){ show('desk'); }); });
+  $$('[data-leave]').forEach(function(b){ b.addEventListener('click', leave); });
+  function leave(){ resetDoor(); show('door'); }
+
+  /* experience: reveal the log line by line */
+  var logTimer = null;
+  function typeLog(){
+    var rows = $$('#term .row, #term .cmd').slice(1);
+    clearInterval(logTimer);
+    if (reduce) return;
+    rows.forEach(function(r){ r.classList.add('hide'); });
+    var i = 0;
+    logTimer = setInterval(function(){ if (i < rows.length) rows[i++].classList.remove('hide'); else clearInterval(logTimer); }, 260);
+  }
+  $('#skipType').addEventListener('click', function(){ clearInterval(logTimer); $$('#term .hide').forEach(function(r){ r.classList.remove('hide'); }); });
+
+  /* photos */
+  var PHOTOS = [
+    ['syracuse-university-school-of-information-studies', 'At the Syracuse iSchool'],
+    ['fau-sociology-graduate-student-achievement-award', 'Achievement Award, FAU'],
+    ['curzon-hall-university-of-dhaka', 'Curzon Hall, Dhaka'],
+    ['presenting-research-academic-conference', 'Presenting the research'],
+    ['fau-graduation-portrait-boca-raton', 'MA in Sociology, done'],
+    ['tea-garden-bangladesh', 'Tea country'],
+    ['intellectual-resistance-conference-2026', 'Intellectual Resistance 2026'],
+    ['syracuse-university-campus-hall-of-languages', 'Syracuse campus'],
+    ['rice-university-phd-visit', 'Visit day, Rice'],
+    ['kayaking-florida-springs', 'On the water'],
+    ['sociology-mural-university-of-dhaka', 'The sociology wall'],
+    ['miami-beach-night-street', 'Miami nights']
+  ];
+  function buildWall(){
+    var wall = $('#wall'); if (wall.children.length) return;
+    PHOTOS.forEach(function(p, i){
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'frame'; b.style.setProperty('--r', ((i * 37 % 7) - 3) * .5 + 'deg');
+      b.innerHTML = '<img loading="lazy" decoding="async" width="640" height="480" src="/images/gallery/naim-bin-hasan-' + p[0] + '-640.webp?v=4" alt="Naim Bin Hasan: ' + p[1] + '"><span>' + p[1] + '</span>';
+      b.addEventListener('click', function(){ openPhoto(i); });
+      wall.appendChild(b);
+    });
+  }
+  var lb = $('#lb'), shown = 0;
+  function openPhoto(i){
+    shown = (i + PHOTOS.length) % PHOTOS.length;
+    $('#lbImg').src = '/images/gallery/naim-bin-hasan-' + PHOTOS[shown][0] + '-1400.webp?v=4';
+    $('#lbImg').alt = 'Naim Bin Hasan: ' + PHOTOS[shown][1];
+    $('#lbCap').textContent = PHOTOS[shown][1];
+    if (!lb.open) lb.showModal();
+  }
+  $('#lbX').addEventListener('click', function(){ lb.close(); });
+  $('#lbP').addEventListener('click', function(){ openPhoto(shown - 1); });
+  $('#lbN').addEventListener('click', function(){ openPhoto(shown + 1); });
+  lb.addEventListener('keydown', function(e){ if (e.key === 'ArrowRight') openPhoto(shown + 1); if (e.key === 'ArrowLeft') openPhoto(shown - 1); });
+  lb.addEventListener('click', function(e){ if (e.target === lb || e.target.tagName === 'FIGURE') lb.close(); });
+
+  /* deep links: /office/#education opens that room */
+  var start = location.hash.slice(1);
+  if (ROOMS[start] || start === 'desk') { history.replaceState({ s: start }, '', '#' + start); show(start, false); }
+  else history.replaceState({ s: 'door' }, '', location.pathname);
+})();
+</script>
+</body>
+</html>
